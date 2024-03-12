@@ -1,0 +1,48 @@
+name,value,var_name
+Man,1,sex
+Vrouw,2,sex
+Basis,1,education
+mavo,2,education
+vbo,3,education
+havo,4,education
+vwo,5,education
+mwo,6,education
+hbo,7,education
+wo,8,education
+Low eduction,0,education_level
+High eduction,1,education_level
+Nee,1,recurrence
+Ja,2,recurrence
+Ja,1,wide_spread_pain
+Nee,2,wide_spread_pain
+Nee,1,headache
+Ja,2,headache
+Ik had voorheen ook hoofdpijn,3,headache
+Ja,1,work
+Nee,2,work
+Totaal ongelukkig,1,work_happiness
+Niet gelukkig,2,work_happiness
+Neutraal,3,work_happiness
+Gelukkig,4,work_happiness
+Totaal gelukkig,5,work_happiness
+Totaal geen voldoening,1,work_satisfaction
+Geen voldoening,2,work_satisfaction
+Neutraal,3,work_satisfaction
+Voldoening,4,work_satisfaction
+Heel veel voldoening,5,work_satisfaction
+Volledig onmogelijk,1,posture_work
+Onmogelijk,2,posture_work
+Neutraal,3,posture_work
+Mogelijk,4,posture_work
+Volledig mogelijk,5,posture_work
+Ik beweeg geen enkele dag per week 30 minuten matig intensief,1,physical_activity
+Ik ben 5 dagen of vaker actief per week,2,physical_activity
+Ik zit hier precies tussen in,3,physical_activity
+Ja,1,smoking
+Nee,2,smoking
+Ja,1,alcohol
+Nee,2,alcohol
+Geen slaapproblemen,0,sleep_quality
+Ervaren slaapproblemen,1,sleep_quality
+Passive Coping,0,coping
+Active Coping,1,coping

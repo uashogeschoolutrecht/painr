@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Part 1 Exploratory Data Analysis - Raw Data | Chronic neck pain - Data Analysis</title>
+  <meta name="description" content="Part 1 Exploratory Data Analysis - Raw Data | Chronic neck pain - Data Analysis" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Part 1 Exploratory Data Analysis - Raw Data | Chronic neck pain - Data Analysis" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Part 1 Exploratory Data Analysis - Raw Data | Chronic neck pain - Data Analysis" />
+  
+  
+  
+
+<meta name="author" content="Marc A.T. Teunis &amp; Martine Verwoerd" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="imputation-of-missing-values.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="libs/d3-3.3.8/d3.min.js"></script>
+<script src="libs/dagre-0.4.0/dagre-d3.min.js"></script>
+<link href="libs/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet" />
+<script src="libs/mermaid-0.3.0/dist/mermaid.slim.min.js"></script>
+<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+<script src="libs/chromatography-0.1/chromatography.js"></script>
+<script src="libs/DiagrammeR-binding-1.0.10/DiagrammeR.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.31/datatables.js"></script>
+<link href="libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">painr-documentation</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="1" data-path="exploratory-data-analysis---raw-data.html"><a href="exploratory-data-analysis---raw-data.html"><i class="fa fa-check"></i><b>1</b> Exploratory Data Analysis - Raw Data</a></li>
+<li class="chapter" data-level="2" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html"><i class="fa fa-check"></i><b>2</b> Imputation of missing values</a></li>
+<li class="chapter" data-level="3" data-path="statistical-exploration.html"><a href="statistical-exploration.html"><i class="fa fa-check"></i><b>3</b> Statistical exploration</a></li>
+<li class="chapter" data-level="4" data-path="development-and-internal-validation-of-a-multivariable-prognostic-model-for-chronification-of-non-specific-neck-pain-in-physiotherapy.html"><a href="development-and-internal-validation-of-a-multivariable-prognostic-model-for-chronification-of-non-specific-neck-pain-in-physiotherapy.html"><i class="fa fa-check"></i><b>4</b> Development and internal validation of a multivariable prognostic model for chronification of non-specific neck pain in physiotherapy</a></li>
+<li class="chapter" data-level="5" data-path="article-figures.html"><a href="article-figures.html"><i class="fa fa-check"></i><b>5</b> Article figures</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/uashogeschoolutrecht/painr" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Chronic neck pain - Data Analysis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="exploratory-data-analysis---raw-data" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">Part 1</span> Exploratory Data Analysis - Raw Data<a href="exploratory-data-analysis---raw-data.html#exploratory-data-analysis---raw-data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="suggested-improvements-of-the-code" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Suggested improvements of the code<a href="exploratory-data-analysis---raw-data.html#suggested-improvements-of-the-code" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>Spend time learning the R basics: <a href="https://r4ds.hadley.nz/">this is a very good resource - R for Data Science by Grolemund and Wickham</a>. When you would like to learn more on stastistics go here <a href="https://moderndive.com/">Modern Dive</a> or here <a href="https://www.discovr.rocks/">Discovering statistics using R- by Andy Field</a></p></li>
+<li><p>Avoid repetition, this is where the power of R is greatest; write or use functions and iterations to avoid duplication in the code. I will show an example</p></li>
+<li><p>Avoid ‘Dutch’ language in code and comments; If you would like to share your code (e.g. for asking help or as annex to a publication - yes, you should do that for reproducibility reasons - then having Dutch language scattered in the code will need a translation)</p></li>
+<li><p>Use <code>.qmd</code> (RStudio Quatro - Markdown) for writing out an analysis. <code>.R</code> are for function definitions, or scripts that handle a single job (e.g. the cleaning of a dataset and writing out the results). Using a <code>literate programming</code> format (<code>.qmd</code>) enables the mix between code, its output and contextual narratives and text. It also takes formatting into account. You can e.g. use <code>LaTeX</code> formulas such as <span class="math inline">\(y=ax+b\)</span> (the linear) or <span class="math inline">\(y=ax+bx^2+c\)</span> (the quadratic). You can use HTML markup such as <code>{=html}     &lt;mark&gt;This is a Highlight&lt;/mark&gt;</code> . You can even write your thesis in this platform. See <a href="#id_0">this Github page</a> for an example and more info. Learning Markdown is not so difficult and the syntax is easy to remember. See <a href="https://res.cloudinary.com/dyd911kmh/image/upload/v1676540721/Marketing/Blog/Quarto_Cheat_Sheet.pdf">for a cheatsheet</a></p></li>
+<li><p>I recommend spending a bit more time on exploration of the data before diving into the formal statistics. Exploratory Data Analysis is important because it will reveal patterns in the data you were unaware of. It usually also indicated errors in the data (for example coding or data entry errors, or data types that are incorrect upon parsing the dataset into R). For a good resource: <a href="https://r4ds.had.co.nz/exploratory-data-analysis.html">see chapter 7</a> of ‘R For Data Science’ by Garret Grolemund &amp; Hadley Wickham.</p></li>
+<li><p>For a general workflow on how to inspect and glimpse missingness in the data, see <a href="https://towardsdatascience.com/smart-handling-of-missing-data-in-r-6425f8a559f2">this blogpost</a></p></li>
+<li><p>For large mutations on the data: check the outcome for errors and inconsistencies. Generating visulaizations can help spotting weird things in the data. For instance if you create a histogram of data that has one large outlier it will look like this:</p></li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="exploratory-data-analysis---raw-data.html#cb8-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb8-2"><a href="exploratory-data-analysis---raw-data.html#cb8-2" tabindex="-1"></a>df_demo <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="fu">rnorm</span>(<span class="dv">999</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">4</span>), <span class="dv">200</span>))</span>
+<span id="cb8-3"><a href="exploratory-data-analysis---raw-data.html#cb8-3" tabindex="-1"></a>df_demo <span class="sc">|&gt;</span></span>
+<span id="cb8-4"><a href="exploratory-data-analysis---raw-data.html#cb8-4" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> x)) <span class="sc">+</span> ggplot2<span class="sc">::</span><span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">100</span>)</span></code></pre></div>
+<p><img src="01_eda_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>Can you spot the outlier?</p>
+<ul>
+<li>spend time to inspect and correct data types of variables. This is particularly important when you want to do any kind of modelling</li>
+</ul>
+</div>
+<div id="packages" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Packages<a href="exploratory-data-analysis---raw-data.html#packages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="exploratory-data-analysis---raw-data.html#cb9-1" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
+<span id="cb9-2"><a href="exploratory-data-analysis---raw-data.html#cb9-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb9-3"><a href="exploratory-data-analysis---raw-data.html#cb9-3" tabindex="-1"></a><span class="fu">library</span>(psfmi)</span>
+<span id="cb9-4"><a href="exploratory-data-analysis---raw-data.html#cb9-4" tabindex="-1"></a><span class="fu">library</span>(miceadds)</span>
+<span id="cb9-5"><a href="exploratory-data-analysis---raw-data.html#cb9-5" tabindex="-1"></a><span class="fu">library</span>(micemd)</span>
+<span id="cb9-6"><a href="exploratory-data-analysis---raw-data.html#cb9-6" tabindex="-1"></a><span class="fu">library</span>(mitools)</span>
+<span id="cb9-7"><a href="exploratory-data-analysis---raw-data.html#cb9-7" tabindex="-1"></a><span class="fu">library</span>(mice)</span>
+<span id="cb9-8"><a href="exploratory-data-analysis---raw-data.html#cb9-8" tabindex="-1"></a><span class="fu">library</span>(naniar)</span>
+<span id="cb9-9"><a href="exploratory-data-analysis---raw-data.html#cb9-9" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
+<span id="cb9-10"><a href="exploratory-data-analysis---raw-data.html#cb9-10" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
+<span id="cb9-11"><a href="exploratory-data-analysis---raw-data.html#cb9-11" tabindex="-1"></a><span class="co">#library(norm)</span></span>
+<span id="cb9-12"><a href="exploratory-data-analysis---raw-data.html#cb9-12" tabindex="-1"></a><span class="do">## warning</span></span>
+<span id="cb9-13"><a href="exploratory-data-analysis---raw-data.html#cb9-13" tabindex="-1"></a><span class="do">## This package has some major limitations</span></span>
+<span id="cb9-14"><a href="exploratory-data-analysis---raw-data.html#cb9-14" tabindex="-1"></a><span class="co">#(for example, it does not work reliably when</span></span>
+<span id="cb9-15"><a href="exploratory-data-analysis---raw-data.html#cb9-15" tabindex="-1"></a><span class="co">#  the number of variables exceeds 30),</span></span>
+<span id="cb9-16"><a href="exploratory-data-analysis---raw-data.html#cb9-16" tabindex="-1"></a><span class="co">#and has been superseded by the norm2 package.</span></span>
+<span id="cb9-17"><a href="exploratory-data-analysis---raw-data.html#cb9-17" tabindex="-1"></a><span class="co">#detach(&quot;package:VIM&quot;, unload = TRUE)</span></span>
+<span id="cb9-18"><a href="exploratory-data-analysis---raw-data.html#cb9-18" tabindex="-1"></a><span class="co"># I recommend against using the attach() or detach() functions in any form in R</span></span>
+<span id="cb9-19"><a href="exploratory-data-analysis---raw-data.html#cb9-19" tabindex="-1"></a><span class="co"># I replaced the norm for norm2 package because of the above warning.</span></span>
+<span id="cb9-20"><a href="exploratory-data-analysis---raw-data.html#cb9-20" tabindex="-1"></a><span class="co">#library(norm2)</span></span>
+<span id="cb9-21"><a href="exploratory-data-analysis---raw-data.html#cb9-21" tabindex="-1"></a><span class="fu">library</span>(VIM)</span>
+<span id="cb9-22"><a href="exploratory-data-analysis---raw-data.html#cb9-22" tabindex="-1"></a><span class="fu">library</span>(finalfit)</span>
+<span id="cb9-23"><a href="exploratory-data-analysis---raw-data.html#cb9-23" tabindex="-1"></a><span class="fu">library</span>(haven)</span></code></pre></div>
+</div>
+<div id="load-data" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> Load data<a href="exploratory-data-analysis---raw-data.html#load-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="exploratory-data-analysis---raw-data.html#cb10-1" tabindex="-1"></a>df_raw <span class="ot">&lt;-</span></span>
+<span id="cb10-2"><a href="exploratory-data-analysis---raw-data.html#cb10-2" tabindex="-1"></a>  <span class="fu">read_sav</span>(</span>
+<span id="cb10-3"><a href="exploratory-data-analysis---raw-data.html#cb10-3" tabindex="-1"></a>    here<span class="sc">::</span><span class="fu">here</span>(</span>
+<span id="cb10-4"><a href="exploratory-data-analysis---raw-data.html#cb10-4" tabindex="-1"></a>      <span class="st">&quot;data-raw&quot;</span>,</span>
+<span id="cb10-5"><a href="exploratory-data-analysis---raw-data.html#cb10-5" tabindex="-1"></a>      <span class="st">&quot;D010&quot;</span>,</span>
+<span id="cb10-6"><a href="exploratory-data-analysis---raw-data.html#cb10-6" tabindex="-1"></a>      <span class="st">&quot;SPSS basis File results.sav&quot;</span></span>
+<span id="cb10-7"><a href="exploratory-data-analysis---raw-data.html#cb10-7" tabindex="-1"></a>      )</span>
+<span id="cb10-8"><a href="exploratory-data-analysis---raw-data.html#cb10-8" tabindex="-1"></a>    ) <span class="sc">|&gt;</span> </span>
+<span id="cb10-9"><a href="exploratory-data-analysis---raw-data.html#cb10-9" tabindex="-1"></a>  janitor<span class="sc">::</span><span class="fu">clean_names</span>()</span></code></pre></div>
+</div>
+<div id="first-glimpse-at-missingness" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> First glimpse at missingness<a href="exploratory-data-analysis---raw-data.html#first-glimpse-at-missingness" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="exploratory-data-analysis---raw-data.html#cb11-1" tabindex="-1"></a>naniar<span class="sc">::</span><span class="fu">vis_miss</span>(df_raw)</span></code></pre></div>
+<p><img src="01_eda_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="exploratory-data-analysis---raw-data.html#cb12-1" tabindex="-1"></a><span class="do">## that is unexpected: patient code has a missing value!! -&gt; fixed in new dataset</span></span>
+<span id="cb12-2"><a href="exploratory-data-analysis---raw-data.html#cb12-2" tabindex="-1"></a><span class="do">## filter the data</span></span>
+<span id="cb12-3"><a href="exploratory-data-analysis---raw-data.html#cb12-3" tabindex="-1"></a><span class="do">## add index</span></span>
+<span id="cb12-4"><a href="exploratory-data-analysis---raw-data.html#cb12-4" tabindex="-1"></a>df_raw <span class="ot">&lt;-</span> df_raw <span class="sc">|&gt;</span></span>
+<span id="cb12-5"><a href="exploratory-data-analysis---raw-data.html#cb12-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">index =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(df_raw))</span>
+<span id="cb12-6"><a href="exploratory-data-analysis---raw-data.html#cb12-6" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="exploratory-data-analysis---raw-data.html#cb12-7" tabindex="-1"></a><span class="co">#ind &lt;- is.na(df_raw$patient_code)</span></span>
+<span id="cb12-8"><a href="exploratory-data-analysis---raw-data.html#cb12-8" tabindex="-1"></a><span class="co">#df_raw[ind,]$index</span></span></code></pre></div>
+<p><strong>NO LONGER AN ISSUE</strong>
+So row 410 is the one with the NA in the patient code. This missing value might give us problems in tracebility. I am going to remove that observation, using the <code>ind</code> logical vector.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="exploratory-data-analysis---raw-data.html#cb13-1" tabindex="-1"></a><span class="co">#df_raw &lt;- df_raw[!ind,]</span></span></code></pre></div>
+</div>
+<div id="select-relevant-variables" class="section level2 hasAnchor" number="1.5">
+<h2><span class="header-section-number">1.5</span> Select relevant variables<a href="exploratory-data-analysis---raw-data.html#select-relevant-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="exploratory-data-analysis---raw-data.html#cb14-1" tabindex="-1"></a>df_select <span class="ot">&lt;-</span> df_raw <span class="sc">|&gt;</span></span>
+<span id="cb14-2"><a href="exploratory-data-analysis---raw-data.html#cb14-2" tabindex="-1"></a>   dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(</span>
+<span id="cb14-3"><a href="exploratory-data-analysis---raw-data.html#cb14-3" tabindex="-1"></a>    <span class="co"># patient_code,</span></span>
+<span id="cb14-4"><a href="exploratory-data-analysis---raw-data.html#cb14-4" tabindex="-1"></a>     attitude,</span>
+<span id="cb14-5"><a href="exploratory-data-analysis---raw-data.html#cb14-5" tabindex="-1"></a>     pt_code,</span>
+<span id="cb14-6"><a href="exploratory-data-analysis---raw-data.html#cb14-6" tabindex="-1"></a>     coping_active,</span>
+<span id="cb14-7"><a href="exploratory-data-analysis---raw-data.html#cb14-7" tabindex="-1"></a>     coping_passive,</span>
+<span id="cb14-8"><a href="exploratory-data-analysis---raw-data.html#cb14-8" tabindex="-1"></a>     percentage_active_coping,</span>
+<span id="cb14-9"><a href="exploratory-data-analysis---raw-data.html#cb14-9" tabindex="-1"></a>     percentage_passive_coping,</span>
+<span id="cb14-10"><a href="exploratory-data-analysis---raw-data.html#cb14-10" tabindex="-1"></a>     pain_6weeks,</span>
+<span id="cb14-11"><a href="exploratory-data-analysis---raw-data.html#cb14-11" tabindex="-1"></a>     pain_categorized_6weeks,</span>
+<span id="cb14-12"><a href="exploratory-data-analysis---raw-data.html#cb14-12" tabindex="-1"></a>     pain_3months,</span>
+<span id="cb14-13"><a href="exploratory-data-analysis---raw-data.html#cb14-13" tabindex="-1"></a>     pain_catagorized_3months,</span>
+<span id="cb14-14"><a href="exploratory-data-analysis---raw-data.html#cb14-14" tabindex="-1"></a>     pain_6months,</span>
+<span id="cb14-15"><a href="exploratory-data-analysis---raw-data.html#cb14-15" tabindex="-1"></a>     pain_categorized_6months,</span>
+<span id="cb14-16"><a href="exploratory-data-analysis---raw-data.html#cb14-16" tabindex="-1"></a>     index)</span>
+<span id="cb14-17"><a href="exploratory-data-analysis---raw-data.html#cb14-17" tabindex="-1"></a>     ) <span class="sc">|&gt;</span></span>
+<span id="cb14-18"><a href="exploratory-data-analysis---raw-data.html#cb14-18" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">sex =</span> seks)</span>
+<span id="cb14-19"><a href="exploratory-data-analysis---raw-data.html#cb14-19" tabindex="-1"></a></span>
+<span id="cb14-20"><a href="exploratory-data-analysis---raw-data.html#cb14-20" tabindex="-1"></a>df_select</span></code></pre></div>
+<pre><code>## # A tibble: 603 × 35
+##    patient_code sex        age education education_level pain_intensity duration
+##           &lt;dbl&gt; &lt;dbl+lb&gt; &lt;dbl&gt; &lt;dbl+lbl&gt; &lt;dbl+lbl&gt;                &lt;dbl&gt;    &lt;dbl&gt;
+##  1          498 2 [Vrou…    64 2 [mavo]  0 [Low eductio…              8        4
+##  2          766 2 [Vrou…    32 4 [havo]  0 [Low eductio…              7        2
+##  3          402 1 [Man]     51 1 [Basis] 0 [Low eductio…              7        5
+##  4          669 1 [Man]     29 7 [hbo]   1 [High educti…              5       10
+##  5          764 1 [Man]     35 7 [hbo]   1 [High educti…              4        5
+##  6          762 2 [Vrou…    46 8 [wo]    1 [High educti…              5        4
+##  7          401 1 [Man]     50 7 [hbo]   1 [High educti…              2       10
+##  8          763 2 [Vrou…    49 3 [vbo]   0 [Low eductio…              6        4
+##  9          497 1 [Man]     46 5 [vwo]   0 [Low eductio…              3        2
+## 10          496 1 [Man]     60 7 [hbo]   1 [High educti…             10        4
+## # ℹ 593 more rows
+## # ℹ 28 more variables: recurrence &lt;dbl+lbl&gt;, wide_spread_pain &lt;dbl+lbl&gt;,
+## #   headache &lt;dbl+lbl&gt;, disability &lt;dbl&gt;, work &lt;dbl+lbl&gt;,
+## #   work_happiness &lt;dbl+lbl&gt;, work_satisfaction &lt;dbl+lbl&gt;,
+## #   posture_work &lt;dbl+lbl&gt;, physical_activity &lt;dbl+lbl&gt;, smoking &lt;dbl+lbl&gt;,
+## #   alcohol &lt;dbl+lbl&gt;, bmi &lt;dbl&gt;, sleep_quality &lt;dbl+lbl&gt;,
+## #   catastrophizing &lt;dbl&gt;, duration_beliefs &lt;dbl&gt;, concerns &lt;dbl&gt;, …</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="exploratory-data-analysis---raw-data.html#cb16-1" tabindex="-1"></a><span class="fu">names</span>(df_select)</span></code></pre></div>
+<pre><code>##  [1] &quot;patient_code&quot;      &quot;sex&quot;               &quot;age&quot;              
+##  [4] &quot;education&quot;         &quot;education_level&quot;   &quot;pain_intensity&quot;   
+##  [7] &quot;duration&quot;          &quot;recurrence&quot;        &quot;wide_spread_pain&quot; 
+## [10] &quot;headache&quot;          &quot;disability&quot;        &quot;work&quot;             
+## [13] &quot;work_happiness&quot;    &quot;work_satisfaction&quot; &quot;posture_work&quot;     
+## [16] &quot;physical_activity&quot; &quot;smoking&quot;           &quot;alcohol&quot;          
+## [19] &quot;bmi&quot;               &quot;sleep_quality&quot;     &quot;catastrophizing&quot;  
+## [22] &quot;duration_beliefs&quot;  &quot;concerns&quot;          &quot;treatment_beliefs&quot;
+## [25] &quot;depression&quot;        &quot;kinesiophobia&quot;     &quot;distress&quot;         
+## [28] &quot;coping&quot;            &quot;identity_beliefs&quot;  &quot;hypervigilance&quot;   
+## [31] &quot;self_efficacy&quot;     &quot;relation&quot;          &quot;painint_6weeks&quot;   
+## [34] &quot;painint_3months&quot;   &quot;painint_6months&quot;</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="exploratory-data-analysis---raw-data.html#cb18-1" tabindex="-1"></a><span class="co">#DT::datatable(df_select)</span></span></code></pre></div>
+</div>
+<div id="exploratory-data-analysis" class="section level2 hasAnchor" number="1.6">
+<h2><span class="header-section-number">1.6</span> Exploratory Data Analysis<a href="exploratory-data-analysis---raw-data.html#exploratory-data-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="some-exploratory-plots" class="section level3 hasAnchor" number="1.6.1">
+<h3><span class="header-section-number">1.6.1</span> Some exploratory plots<a href="exploratory-data-analysis---raw-data.html#some-exploratory-plots" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Different flavors of graph types</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="exploratory-data-analysis---raw-data.html#cb19-1" tabindex="-1"></a><span class="do">## males / females</span></span>
+<span id="cb19-2"><a href="exploratory-data-analysis---raw-data.html#cb19-2" tabindex="-1"></a>df_select <span class="sc">|&gt;</span></span>
+<span id="cb19-3"><a href="exploratory-data-analysis---raw-data.html#cb19-3" tabindex="-1"></a>  <span class="fu">group_by</span>(sex) <span class="sc">|&gt;</span></span>
+<span id="cb19-4"><a href="exploratory-data-analysis---raw-data.html#cb19-4" tabindex="-1"></a>  <span class="fu">tally</span>() <span class="sc">|&gt;</span></span>
+<span id="cb19-5"><a href="exploratory-data-analysis---raw-data.html#cb19-5" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as_factor</span>(sex), <span class="at">y =</span> n)) <span class="sc">+</span></span>
+<span id="cb19-6"><a href="exploratory-data-analysis---raw-data.html#cb19-6" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p><img src="01_eda_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="exploratory-data-analysis---raw-data.html#cb20-1" tabindex="-1"></a><span class="do">## age</span></span>
+<span id="cb20-2"><a href="exploratory-data-analysis---raw-data.html#cb20-2" tabindex="-1"></a>df_select <span class="sc">|&gt;</span></span>
+<span id="cb20-3"><a href="exploratory-data-analysis---raw-data.html#cb20-3" tabindex="-1"></a>  <span class="fu">group_by</span>(sex) <span class="sc">|&gt;</span></span>
+<span id="cb20-4"><a href="exploratory-data-analysis---raw-data.html#cb20-4" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_age =</span> <span class="fu">mean</span>(age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb20-5"><a href="exploratory-data-analysis---raw-data.html#cb20-5" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as_factor</span>(sex), <span class="at">y =</span> mean_age)) <span class="sc">+</span></span>
+<span id="cb20-6"><a href="exploratory-data-analysis---raw-data.html#cb20-6" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p><img src="01_eda_files/figure-html/unnamed-chunk-7-2.png" width="672" /></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="exploratory-data-analysis---raw-data.html#cb21-1" tabindex="-1"></a><span class="do">## boxplot  </span></span>
+<span id="cb21-2"><a href="exploratory-data-analysis---raw-data.html#cb21-2" tabindex="-1"></a>df_select <span class="sc">|&gt;</span></span>
+<span id="cb21-3"><a href="exploratory-data-analysis---raw-data.html#cb21-3" tabindex="-1"></a>  <span class="fu">group_by</span>(sex) <span class="sc">|&gt;</span></span>
+<span id="cb21-4"><a href="exploratory-data-analysis---raw-data.html#cb21-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as_factor</span>(sex), <span class="at">y =</span> age)) <span class="sc">+</span></span>
+<span id="cb21-5"><a href="exploratory-data-analysis---raw-data.html#cb21-5" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p><img src="01_eda_files/figure-html/unnamed-chunk-7-3.png" width="672" /></p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="exploratory-data-analysis---raw-data.html#cb22-1" tabindex="-1"></a><span class="do">## age distribution</span></span>
+<span id="cb22-2"><a href="exploratory-data-analysis---raw-data.html#cb22-2" tabindex="-1"></a>df_select <span class="sc">|&gt;</span></span>
+<span id="cb22-3"><a href="exploratory-data-analysis---raw-data.html#cb22-3" tabindex="-1"></a>  <span class="fu">group_by</span>(sex) <span class="sc">|&gt;</span></span>
+<span id="cb22-4"><a href="exploratory-data-analysis---raw-data.html#cb22-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> age)) <span class="sc">+</span></span>
+<span id="cb22-5"><a href="exploratory-data-analysis---raw-data.html#cb22-5" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">colour =</span> <span class="fu">as_factor</span>(sex))) <span class="sc">+</span></span>
+<span id="cb22-6"><a href="exploratory-data-analysis---raw-data.html#cb22-6" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<p><img src="01_eda_files/figure-html/unnamed-chunk-7-4.png" width="672" /></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="exploratory-data-analysis---raw-data.html#cb23-1" tabindex="-1"></a><span class="do">## pain intensity</span></span>
+<span id="cb23-2"><a href="exploratory-data-analysis---raw-data.html#cb23-2" tabindex="-1"></a>df_select <span class="sc">|&gt;</span></span>
+<span id="cb23-3"><a href="exploratory-data-analysis---raw-data.html#cb23-3" tabindex="-1"></a>  <span class="fu">group_by</span>(sex) <span class="sc">|&gt;</span></span>
+<span id="cb23-4"><a href="exploratory-data-analysis---raw-data.html#cb23-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> pain_intensity)) <span class="sc">+</span></span>
+<span id="cb23-5"><a href="exploratory-data-analysis---raw-data.html#cb23-5" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">colour =</span> <span class="fu">as_factor</span>(sex)), <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb23-6"><a href="exploratory-data-analysis---raw-data.html#cb23-6" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<p><img src="01_eda_files/figure-html/unnamed-chunk-7-5.png" width="672" /></p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="exploratory-data-analysis---raw-data.html#cb24-1" tabindex="-1"></a><span class="do">## dotplots</span></span>
+<span id="cb24-2"><a href="exploratory-data-analysis---raw-data.html#cb24-2" tabindex="-1"></a>df_select <span class="sc">|&gt;</span></span>
+<span id="cb24-3"><a href="exploratory-data-analysis---raw-data.html#cb24-3" tabindex="-1"></a>  <span class="fu">group_by</span>(sex, smoking) <span class="sc">|&gt;</span></span>
+<span id="cb24-4"><a href="exploratory-data-analysis---raw-data.html#cb24-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as_factor</span>(sex), <span class="at">y =</span> disability)) <span class="sc">+</span></span>
+<span id="cb24-5"><a href="exploratory-data-analysis---raw-data.html#cb24-5" tabindex="-1"></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb24-6"><a href="exploratory-data-analysis---raw-data.html#cb24-6" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">colour =</span> <span class="fu">as_factor</span>(smoking)), </span>
+<span id="cb24-7"><a href="exploratory-data-analysis---raw-data.html#cb24-7" tabindex="-1"></a>    <span class="at">position =</span> <span class="st">&quot;jitter&quot;</span>, </span>
+<span id="cb24-8"><a href="exploratory-data-analysis---raw-data.html#cb24-8" tabindex="-1"></a>    <span class="at">shape =</span> <span class="dv">1</span>, </span>
+<span id="cb24-9"><a href="exploratory-data-analysis---raw-data.html#cb24-9" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb24-10"><a href="exploratory-data-analysis---raw-data.html#cb24-10" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb24-11"><a href="exploratory-data-analysis---raw-data.html#cb24-11" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="cn">NULL</span>)</span></code></pre></div>
+<p><img src="01_eda_files/figure-html/unnamed-chunk-7-6.png" width="672" /></p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="exploratory-data-analysis---raw-data.html#cb25-1" tabindex="-1"></a><span class="do">## work</span></span>
+<span id="cb25-2"><a href="exploratory-data-analysis---raw-data.html#cb25-2" tabindex="-1"></a>df_select <span class="sc">|&gt;</span></span>
+<span id="cb25-3"><a href="exploratory-data-analysis---raw-data.html#cb25-3" tabindex="-1"></a>  <span class="fu">group_by</span>(work) <span class="sc">|&gt;</span></span>
+<span id="cb25-4"><a href="exploratory-data-analysis---raw-data.html#cb25-4" tabindex="-1"></a>  <span class="fu">tally</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 2
+##   work          n
+##   &lt;dbl+lbl&gt; &lt;int&gt;
+## 1  1 [Ja]     501
+## 2  2 [Nee]     92
+## 3 NA           10</code></pre>
+</div>
+<div id="missing-values" class="section level3 hasAnchor" number="1.6.2">
+<h3><span class="header-section-number">1.6.2</span> Missing values<a href="exploratory-data-analysis---raw-data.html#missing-values" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Some overall missingness inspections</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="exploratory-data-analysis---raw-data.html#cb27-1" tabindex="-1"></a><span class="co"># Are there missing values in the dataset?</span></span>
+<span id="cb27-2"><a href="exploratory-data-analysis---raw-data.html#cb27-2" tabindex="-1"></a><span class="fu">any_na</span>(df_select)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="exploratory-data-analysis---raw-data.html#cb29-1" tabindex="-1"></a><span class="co"># How many?</span></span>
+<span id="cb29-2"><a href="exploratory-data-analysis---raw-data.html#cb29-2" tabindex="-1"></a><span class="fu">n_miss</span>(df_select)</span></code></pre></div>
+<pre><code>## [1] 1098</code></pre>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="exploratory-data-analysis---raw-data.html#cb31-1" tabindex="-1"></a><span class="fu">prop_miss</span>(df_select)</span></code></pre></div>
+<pre><code>## [1] 0.05202559</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="exploratory-data-analysis---raw-data.html#cb33-1" tabindex="-1"></a><span class="co"># Which variables are affected?</span></span>
+<span id="cb33-2"><a href="exploratory-data-analysis---raw-data.html#cb33-2" tabindex="-1"></a>df_select <span class="sc">%&gt;%</span> </span>
+<span id="cb33-3"><a href="exploratory-data-analysis---raw-data.html#cb33-3" tabindex="-1"></a>  <span class="fu">is.na</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb33-4"><a href="exploratory-data-analysis---raw-data.html#cb33-4" tabindex="-1"></a>  <span class="fu">colSums</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb33-5"><a href="exploratory-data-analysis---raw-data.html#cb33-5" tabindex="-1"></a>  <span class="fu">enframe</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb33-6"><a href="exploratory-data-analysis---raw-data.html#cb33-6" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(<span class="fu">as_factor</span>(name), value), <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb33-7"><a href="exploratory-data-analysis---raw-data.html#cb33-7" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb33-8"><a href="exploratory-data-analysis---raw-data.html#cb33-8" tabindex="-1"></a>    <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb33-9"><a href="exploratory-data-analysis---raw-data.html#cb33-9" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;variable in data&quot;</span>) <span class="sc">+</span></span>
+<span id="cb33-10"><a href="exploratory-data-analysis---raw-data.html#cb33-10" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Total number of NA&quot;</span>)</span></code></pre></div>
+<p><img src="01_eda_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+</div>
+<div id="get-number-of-missings-per-variable-n-and" class="section level3 hasAnchor" number="1.6.3">
+<h3><span class="header-section-number">1.6.3</span> Get number of missings per variable (n and %)<a href="exploratory-data-analysis---raw-data.html#get-number-of-missings-per-variable-n-and" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="exploratory-data-analysis---raw-data.html#cb34-1" tabindex="-1"></a><span class="fu">miss_var_summary</span>(df_select)</span></code></pre></div>
+<pre><code>## # A tibble: 35 × 3
+##    variable          n_miss pct_miss
+##    &lt;chr&gt;              &lt;int&gt;    &lt;dbl&gt;
+##  1 painint_3months      224    37.1 
+##  2 painint_6months      212    35.2 
+##  3 painint_6weeks       154    25.5 
+##  4 posture_work         117    19.4 
+##  5 work_happiness       115    19.1 
+##  6 work_satisfaction    113    18.7 
+##  7 education             16     2.65
+##  8 education_level       16     2.65
+##  9 identity_beliefs      14     2.32
+## 10 bmi                   12     1.99
+## # ℹ 25 more rows</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="exploratory-data-analysis---raw-data.html#cb36-1" tabindex="-1"></a><span class="fu">miss_var_table</span>(df_select)</span></code></pre></div>
+<pre><code>## # A tibble: 17 × 3
+##    n_miss_in_var n_vars pct_vars
+##            &lt;int&gt;  &lt;int&gt;    &lt;dbl&gt;
+##  1             0      3     8.57
+##  2             1      3     8.57
+##  3             2      2     5.71
+##  4             3      7    20   
+##  5             4      1     2.86
+##  6             5      3     8.57
+##  7             8      2     5.71
+##  8            10      3     8.57
+##  9            12      2     5.71
+## 10            14      1     2.86
+## 11            16      2     5.71
+## 12           113      1     2.86
+## 13           115      1     2.86
+## 14           117      1     2.86
+## 15           154      1     2.86
+## 16           212      1     2.86
+## 17           224      1     2.86</code></pre>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="exploratory-data-analysis---raw-data.html#cb38-1" tabindex="-1"></a><span class="co"># Get number of missings per observation (n and %)</span></span>
+<span id="cb38-2"><a href="exploratory-data-analysis---raw-data.html#cb38-2" tabindex="-1"></a><span class="fu">miss_case_summary</span>(df_select)</span></code></pre></div>
+<pre><code>## # A tibble: 603 × 3
+##     case n_miss pct_miss
+##    &lt;int&gt;  &lt;int&gt;    &lt;dbl&gt;
+##  1   603     26     74.3
+##  2   602     14     40  
+##  3   600     10     28.6
+##  4    42      9     25.7
+##  5   340      9     25.7
+##  6    24      8     22.9
+##  7   208      8     22.9
+##  8   510      8     22.9
+##  9   476      7     20  
+## 10    18      6     17.1
+## # ℹ 593 more rows</code></pre>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="exploratory-data-analysis---raw-data.html#cb40-1" tabindex="-1"></a><span class="fu">miss_case_table</span>(df_select)</span></code></pre></div>
+<pre><code>## # A tibble: 13 × 3
+##    n_miss_in_case n_cases pct_cases
+##             &lt;int&gt;   &lt;int&gt;     &lt;dbl&gt;
+##  1              0     199    33.0  
+##  2              1     111    18.4  
+##  3              2      87    14.4  
+##  4              3     129    21.4  
+##  5              4      32     5.31 
+##  6              5      17     2.82 
+##  7              6      19     3.15 
+##  8              7       1     0.166
+##  9              8       3     0.498
+## 10              9       2     0.332
+## 11             10       1     0.166
+## 12             14       1     0.166
+## 13             26       1     0.166</code></pre>
+</div>
+<div id="some-more-visuals-on-missingness" class="section level3 hasAnchor" number="1.6.4">
+<h3><span class="header-section-number">1.6.4</span> Some more visuals on missingness<a href="exploratory-data-analysis---raw-data.html#some-more-visuals-on-missingness" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="exploratory-data-analysis---raw-data.html#cb42-1" tabindex="-1"></a><span class="fu">gg_miss_var</span>(df_select)</span></code></pre></div>
+<p><img src="01_eda_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+</div>
+<div id="is-missness-mcar-missing-cases-at-random" class="section level3 hasAnchor" number="1.6.5">
+<h3><span class="header-section-number">1.6.5</span> Is missness, mcar (missing cases at random)<a href="exploratory-data-analysis---raw-data.html#is-missness-mcar-missing-cases-at-random" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="exploratory-data-analysis---raw-data.html#cb43-1" tabindex="-1"></a>naniar<span class="sc">::</span><span class="fu">vis_miss</span>(df_select) <span class="sc">+</span> </span>
+<span id="cb43-2"><a href="exploratory-data-analysis---raw-data.html#cb43-2" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle=</span><span class="dv">80</span>)) <span class="sc">+</span></span>
+<span id="cb43-3"><a href="exploratory-data-analysis---raw-data.html#cb43-3" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div>
+<p><img src="01_eda_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p>Is the presence of missing values related with missings in other variables?</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="exploratory-data-analysis---raw-data.html#cb44-1" tabindex="-1"></a><span class="fu">gg_miss_upset</span>(df_select)</span></code></pre></div>
+<p><img src="01_eda_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p>From this plot we see that much of the missingness is not accross many variables. There are howver quite a number of cases (88) where missing cases are accross the vars <code>painint_3months_NA</code>, <code>painint_6months_NA</code> and <code>painint_6 weeks_NA</code>. This suggests some missingness not at randomm accross these variables and warrants a closer inspection.</p>
+<p>From the <a href="https://towardsdatascience.com/smart-handling-of-missing-data-in-r-6425f8a559f2">blog</a></p>
+<p>If you had concrete hypothesis about the impact of the presence of missing values in a certain variable on a target variable, you can test it like this:</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="exploratory-data-analysis---raw-data.html#cb45-1" tabindex="-1"></a><span class="co"># add a variable to the dataset that indicates the missingness of paininit_6weeks per observation</span></span>
+<span id="cb45-2"><a href="exploratory-data-analysis---raw-data.html#cb45-2" tabindex="-1"></a>df_select_test <span class="ot">&lt;-</span> df_select <span class="sc">%&gt;%</span></span>
+<span id="cb45-3"><a href="exploratory-data-analysis---raw-data.html#cb45-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">missing_6weekspainit =</span> <span class="fu">is.na</span>(painint_6weeks))</span>
+<span id="cb45-4"><a href="exploratory-data-analysis---raw-data.html#cb45-4" tabindex="-1"></a>  </span>
+<span id="cb45-5"><a href="exploratory-data-analysis---raw-data.html#cb45-5" tabindex="-1"></a><span class="co"># get missing paininit_6weeks info for participants that have a therapist with &quot;Biopsychosocial (value 2)&quot; attitude</span></span>
+<span id="cb45-6"><a href="exploratory-data-analysis---raw-data.html#cb45-6" tabindex="-1"></a>missing_paininit_6weeks_male <span class="ot">&lt;-</span> df_select_test <span class="sc">%&gt;%</span></span>
+<span id="cb45-7"><a href="exploratory-data-analysis---raw-data.html#cb45-7" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb45-8"><a href="exploratory-data-analysis---raw-data.html#cb45-8" tabindex="-1"></a>  <span class="fu">pull</span>(missing_6weekspainit)</span>
+<span id="cb45-9"><a href="exploratory-data-analysis---raw-data.html#cb45-9" tabindex="-1"></a>  </span>
+<span id="cb45-10"><a href="exploratory-data-analysis---raw-data.html#cb45-10" tabindex="-1"></a><span class="co"># get missing paininit_6weeks info for participants that have a therapist with &quot;Biomedical (value 1)&quot; attitude</span></span>
+<span id="cb45-11"><a href="exploratory-data-analysis---raw-data.html#cb45-11" tabindex="-1"></a>missing_paininit_6weeks_female <span class="ot">&lt;-</span> df_select_test <span class="sc">%&gt;%</span></span>
+<span id="cb45-12"><a href="exploratory-data-analysis---raw-data.html#cb45-12" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb45-13"><a href="exploratory-data-analysis---raw-data.html#cb45-13" tabindex="-1"></a>  <span class="fu">pull</span>(missing_6weekspainit)</span>
+<span id="cb45-14"><a href="exploratory-data-analysis---raw-data.html#cb45-14" tabindex="-1"></a>  </span>
+<span id="cb45-15"><a href="exploratory-data-analysis---raw-data.html#cb45-15" tabindex="-1"></a><span class="co">#check whether the percentage of missings in missing_paininit_6weeks differ per level of sex.</span></span>
+<span id="cb45-16"><a href="exploratory-data-analysis---raw-data.html#cb45-16" tabindex="-1"></a><span class="fu">t.test</span>(</span>
+<span id="cb45-17"><a href="exploratory-data-analysis---raw-data.html#cb45-17" tabindex="-1"></a>  missing_paininit_6weeks_male, </span>
+<span id="cb45-18"><a href="exploratory-data-analysis---raw-data.html#cb45-18" tabindex="-1"></a>  missing_paininit_6weeks_female</span>
+<span id="cb45-19"><a href="exploratory-data-analysis---raw-data.html#cb45-19" tabindex="-1"></a>  )</span></code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  missing_paininit_6weeks_male and missing_paininit_6weeks_female
+## t = 0.46638, df = 406.65, p-value = 0.6412
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -0.05664914  0.09188917
+## sample estimates:
+## mean of x mean of y 
+## 0.2669903 0.2493703</code></pre>
+<p>There is no reason to assume (from this analysis) that the sex of a patient is correlated to having missing values for paininit_6weeks. Note that this is a hypothetical case, that might not make sense in this particular case, when you bring context into play.</p>
+</div>
+</div>
+<div id="write-table-with-all-labels" class="section level2 hasAnchor" number="1.7">
+<h2><span class="header-section-number">1.7</span> Write table with all labels<a href="exploratory-data-analysis---raw-data.html#write-table-with-all-labels" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="exploratory-data-analysis---raw-data.html#cb47-1" tabindex="-1"></a>data_label <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">as.data.frame</span>(labelled<span class="sc">::</span><span class="fu">var_label</span>(df_select))) </span>
+<span id="cb47-2"><a href="exploratory-data-analysis---raw-data.html#cb47-2" tabindex="-1"></a>data_label</span></code></pre></div>
+<pre><code>##                   [,1]                                                           
+## patient_code      &quot;Physiotherapist code&quot;                                         
+## sex               &quot;Seks&quot;                                                         
+## age               &quot;Age in years&quot;                                                 
+## education         &quot;Hoogstgenoten opleiding&quot;                                      
+## education_level   &quot;Education level&quot;                                              
+## pain_intensity    &quot;Pijnintensiteit&quot;                                              
+## duration          &quot;Duur klachten&quot;                                                
+## recurrence        &quot;Recifief &gt; 3 maanden geleden&quot;                                 
+## wide_spread_pain  &quot;Pijn in andere plekken van het lichaam&quot;                       
+## headache          &quot;Ervaart u sinds u nekpijn heeft hoofdpijn&quot;                    
+## disability        &quot;Somscore PDI&quot;                                                 
+## work              &quot;Werkt u?&quot;                                                     
+## work_happiness    &quot;Gelukkig werk&quot;                                                
+## work_satisfaction &quot;Voldoening werk&quot;                                              
+## posture_work      &quot;Wisselen houding&quot;                                             
+## physical_activity &quot;Nederlandse Norm Gezond Bewegen&quot;                              
+## smoking           &quot;Roken&quot;                                                        
+## alcohol           &quot;Alchol&quot;                                                       
+## bmi               &quot;BMI&quot;                                                          
+## sleep_quality     &quot;Ervaren slaapproblemen&quot;                                       
+## catastrophizing   &quot;SOM PCS Catastrophing&quot;                                        
+## duration_beliefs  &quot;Hoe lang denkt u dat uw nekpijn zal duren?&quot;                   
+## concerns          &quot;Hoe bezorgd bent u over uw nekpijn?&quot;                          
+## treatment_beliefs &quot;Hoeveel denkt u dat uw behandeling kan helpen bij uw nekpijn?&quot;
+## depression        &quot;SOM score Depressie&quot;                                          
+## kinesiophobia     &quot;SOM score Tampa&quot;                                              
+## distress          &quot;SOM score Distress&quot;                                           
+## coping            &quot;Actief / passieve coping&quot;                                     
+## identity_beliefs  &quot;In welke mate vindt u dat u uw nekpijn begrijpt?&quot;             
+## hypervigilance    &quot;SOM score PVAQ&quot;                                               
+## self_efficacy     &quot;SOM score PSEQ&quot;                                               
+## relation          &quot;Hoeveel vertrouwen heeft u in uw zogverlener/fysiotherapeut?&quot; 
+## painint_6weeks    &quot;Pijnintensiteit&quot;                                              
+## painint_3months   &quot;Pijnintensiteit&quot;                                              
+## painint_6months   &quot;Pijnintensiteit&quot;</code></pre>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="exploratory-data-analysis---raw-data.html#cb49-1" tabindex="-1"></a>df <span class="ot">=</span> df_select</span>
+<span id="cb49-2"><a href="exploratory-data-analysis---raw-data.html#cb49-2" tabindex="-1"></a>ind <span class="ot">=</span> <span class="dv">2</span></span>
+<span id="cb49-3"><a href="exploratory-data-analysis---raw-data.html#cb49-3" tabindex="-1"></a><span class="do">## get labels and coding</span></span>
+<span id="cb49-4"><a href="exploratory-data-analysis---raw-data.html#cb49-4" tabindex="-1"></a>get_spss_coding <span class="ot">&lt;-</span> <span class="cf">function</span>(ind, df){</span>
+<span id="cb49-5"><a href="exploratory-data-analysis---raw-data.html#cb49-5" tabindex="-1"></a>  </span>
+<span id="cb49-6"><a href="exploratory-data-analysis---raw-data.html#cb49-6" tabindex="-1"></a>  at <span class="ot">&lt;-</span> <span class="fu">attributes</span>(df[[ind]])<span class="sc">$</span>labels <span class="sc">|&gt;</span> <span class="fu">enframe</span>()</span>
+<span id="cb49-7"><a href="exploratory-data-analysis---raw-data.html#cb49-7" tabindex="-1"></a>  at <span class="ot">&lt;-</span> <span class="fu">map_df</span>(</span>
+<span id="cb49-8"><a href="exploratory-data-analysis---raw-data.html#cb49-8" tabindex="-1"></a>    <span class="at">.x =</span> at,</span>
+<span id="cb49-9"><a href="exploratory-data-analysis---raw-data.html#cb49-9" tabindex="-1"></a>    <span class="at">.f =</span> as.character</span>
+<span id="cb49-10"><a href="exploratory-data-analysis---raw-data.html#cb49-10" tabindex="-1"></a>  )</span>
+<span id="cb49-11"><a href="exploratory-data-analysis---raw-data.html#cb49-11" tabindex="-1"></a>  <span class="do">## get column name</span></span>
+<span id="cb49-12"><a href="exploratory-data-analysis---raw-data.html#cb49-12" tabindex="-1"></a>  col <span class="ot">&lt;-</span> <span class="fu">names</span>(df[ind])</span>
+<span id="cb49-13"><a href="exploratory-data-analysis---raw-data.html#cb49-13" tabindex="-1"></a>  at<span class="sc">$</span>var_name <span class="ot">&lt;-</span> col <span class="sc">|&gt;</span> <span class="fu">as.character</span>()</span>
+<span id="cb49-14"><a href="exploratory-data-analysis---raw-data.html#cb49-14" tabindex="-1"></a>  </span>
+<span id="cb49-15"><a href="exploratory-data-analysis---raw-data.html#cb49-15" tabindex="-1"></a>  <span class="do">## return df</span></span>
+<span id="cb49-16"><a href="exploratory-data-analysis---raw-data.html#cb49-16" tabindex="-1"></a>  <span class="fu">return</span>(at)</span>
+<span id="cb49-17"><a href="exploratory-data-analysis---raw-data.html#cb49-17" tabindex="-1"></a>  </span>
+<span id="cb49-18"><a href="exploratory-data-analysis---raw-data.html#cb49-18" tabindex="-1"></a>  }</span>
+<span id="cb49-19"><a href="exploratory-data-analysis---raw-data.html#cb49-19" tabindex="-1"></a></span>
+<span id="cb49-20"><a href="exploratory-data-analysis---raw-data.html#cb49-20" tabindex="-1"></a><span class="fu">map_df</span>(</span>
+<span id="cb49-21"><a href="exploratory-data-analysis---raw-data.html#cb49-21" tabindex="-1"></a>  <span class="at">.x =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(df_select),</span>
+<span id="cb49-22"><a href="exploratory-data-analysis---raw-data.html#cb49-22" tabindex="-1"></a>  <span class="at">.f =</span> get_spss_coding,</span>
+<span id="cb49-23"><a href="exploratory-data-analysis---raw-data.html#cb49-23" tabindex="-1"></a>  <span class="at">df =</span> df_select</span>
+<span id="cb49-24"><a href="exploratory-data-analysis---raw-data.html#cb49-24" tabindex="-1"></a>) <span class="ot">-&gt;</span> labelling</span>
+<span id="cb49-25"><a href="exploratory-data-analysis---raw-data.html#cb49-25" tabindex="-1"></a>labelling</span></code></pre></div>
+<pre><code>## # A tibble: 47 × 3
+##    name  value var_name 
+##    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;    
+##  1 Man   1     sex      
+##  2 Vrouw 2     sex      
+##  3 Basis 1     education
+##  4 mavo  2     education
+##  5 vbo   3     education
+##  6 havo  4     education
+##  7 vwo   5     education
+##  8 mwo   6     education
+##  9 hbo   7     education
+## 10 wo    8     education
+## # ℹ 37 more rows</code></pre>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="exploratory-data-analysis---raw-data.html#cb51-1" tabindex="-1"></a>DT<span class="sc">::</span><span class="fu">datatable</span>(labelling)</span></code></pre></div>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-d0b273967423ae6ab15e" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-d0b273967423ae6ab15e">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47"],["Man","Vrouw","Basis","mavo","vbo","havo","vwo","mwo","hbo","wo","Low eduction","High eduction","Nee","Ja","Ja","Nee","Nee","Ja","Ik had voorheen ook hoofdpijn","Ja","Nee","Totaal ongelukkig","Niet gelukkig","Neutraal","Gelukkig","Totaal gelukkig","Totaal geen voldoening","Geen voldoening","Neutraal","Voldoening","Heel veel voldoening","Volledig onmogelijk","Onmogelijk","Neutraal","Mogelijk","Volledig mogelijk","Ik beweeg geen enkele dag per week 30 minuten matig intensief","Ik ben 5 dagen of vaker actief per week","Ik zit hier precies tussen in","Ja","Nee","Ja","Nee","Geen slaapproblemen","Ervaren slaapproblemen","Passive Coping","Active Coping"],["1","2","1","2","3","4","5","6","7","8","0","1","1","2","1","2","1","2","3","1","2","1","2","3","4","5","1","2","3","4","5","1","2","3","4","5","1","2","3","1","2","1","2","0","1","0","1"],["sex","sex","education","education","education","education","education","education","education","education","education_level","education_level","recurrence","recurrence","wide_spread_pain","wide_spread_pain","headache","headache","headache","work","work","work_happiness","work_happiness","work_happiness","work_happiness","work_happiness","work_satisfaction","work_satisfaction","work_satisfaction","work_satisfaction","work_satisfaction","posture_work","posture_work","posture_work","posture_work","posture_work","physical_activity","physical_activity","physical_activity","smoking","smoking","alcohol","alcohol","sleep_quality","sleep_quality","coping","coping"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>name<\/th>\n      <th>value<\/th>\n      <th>var_name<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"name","targets":1},{"name":"value","targets":2},{"name":"var_name","targets":3}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="exploratory-data-analysis---raw-data.html#cb52-1" tabindex="-1"></a><span class="do">## remove sps-labels</span></span>
+<span id="cb52-2"><a href="exploratory-data-analysis---raw-data.html#cb52-2" tabindex="-1"></a>df_select <span class="ot">&lt;-</span> df_select <span class="sc">|&gt;</span></span>
+<span id="cb52-3"><a href="exploratory-data-analysis---raw-data.html#cb52-3" tabindex="-1"></a>  sjlabelled<span class="sc">::</span><span class="fu">remove_all_labels</span>()</span></code></pre></div>
+</div>
+<div id="deal-with-work-variables" class="section level2 hasAnchor" number="1.8">
+<h2><span class="header-section-number">1.8</span> Deal with ‘work’ variables<a href="exploratory-data-analysis---raw-data.html#deal-with-work-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>”
+1. Work and work-related questions
+Work 1 = yes / 2 = no
+Wanneer variable “work” 2 is  dan worden “work_happiness”, “work_satisfaction” en “posture_work” = 3
+”</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="exploratory-data-analysis---raw-data.html#cb53-1" tabindex="-1"></a>df_select <span class="sc">|&gt;</span></span>
+<span id="cb53-2"><a href="exploratory-data-analysis---raw-data.html#cb53-2" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(</span>
+<span id="cb53-3"><a href="exploratory-data-analysis---raw-data.html#cb53-3" tabindex="-1"></a>    work,</span>
+<span id="cb53-4"><a href="exploratory-data-analysis---raw-data.html#cb53-4" tabindex="-1"></a>    work_happiness,</span>
+<span id="cb53-5"><a href="exploratory-data-analysis---raw-data.html#cb53-5" tabindex="-1"></a>    work_satisfaction,</span>
+<span id="cb53-6"><a href="exploratory-data-analysis---raw-data.html#cb53-6" tabindex="-1"></a>    posture_work</span>
+<span id="cb53-7"><a href="exploratory-data-analysis---raw-data.html#cb53-7" tabindex="-1"></a>  ) <span class="ot">-&gt;</span> df_work</span>
+<span id="cb53-8"><a href="exploratory-data-analysis---raw-data.html#cb53-8" tabindex="-1"></a></span>
+<span id="cb53-9"><a href="exploratory-data-analysis---raw-data.html#cb53-9" tabindex="-1"></a><span class="fu">map_df</span>(</span>
+<span id="cb53-10"><a href="exploratory-data-analysis---raw-data.html#cb53-10" tabindex="-1"></a>  <span class="at">.x =</span> df_work,</span>
+<span id="cb53-11"><a href="exploratory-data-analysis---raw-data.html#cb53-11" tabindex="-1"></a>  unique</span>
+<span id="cb53-12"><a href="exploratory-data-analysis---raw-data.html#cb53-12" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 4
+##    work work_happiness work_satisfaction posture_work
+##   &lt;dbl&gt;          &lt;dbl&gt;             &lt;dbl&gt;        &lt;dbl&gt;
+## 1     1              1                 1            1
+## 2     2              2                 2            2
+## 3    NA             NA                NA           NA</code></pre>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="exploratory-data-analysis---raw-data.html#cb55-1" tabindex="-1"></a>df_work <span class="sc">|&gt;</span></span>
+<span id="cb55-2"><a href="exploratory-data-analysis---raw-data.html#cb55-2" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(work <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">|&gt;</span> naniar<span class="sc">::</span><span class="fu">vis_miss</span>()</span></code></pre></div>
+<p><img src="01_eda_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="exploratory-data-analysis---raw-data.html#cb56-1" tabindex="-1"></a>df_select<span class="sc">$</span>work <span class="sc">|&gt;</span> <span class="fu">unique</span>()</span></code></pre></div>
+<pre><code>## [1]  1  2 NA</code></pre>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="exploratory-data-analysis---raw-data.html#cb58-1" tabindex="-1"></a>df_select<span class="sc">$</span>work_happiness <span class="sc">|&gt;</span> <span class="fu">unique</span>()</span></code></pre></div>
+<pre><code>## [1]  1  2 NA</code></pre>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="exploratory-data-analysis---raw-data.html#cb60-1" tabindex="-1"></a>df_select<span class="sc">$</span>work_satisfaction <span class="sc">|&gt;</span> <span class="fu">unique</span>()</span></code></pre></div>
+<pre><code>## [1]  1  2 NA</code></pre>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="exploratory-data-analysis---raw-data.html#cb62-1" tabindex="-1"></a>df_select<span class="sc">$</span>posture_work <span class="sc">|&gt;</span> <span class="fu">unique</span>()</span></code></pre></div>
+<pre><code>## [1]  1  2 NA</code></pre>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="exploratory-data-analysis---raw-data.html#cb64-1" tabindex="-1"></a>df_select <span class="ot">&lt;-</span> df_select <span class="sc">|&gt;</span></span>
+<span id="cb64-2"><a href="exploratory-data-analysis---raw-data.html#cb64-2" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb64-3"><a href="exploratory-data-analysis---raw-data.html#cb64-3" tabindex="-1"></a>    <span class="at">work_happiness =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb64-4"><a href="exploratory-data-analysis---raw-data.html#cb64-4" tabindex="-1"></a>      work <span class="sc">==</span> <span class="dv">2</span>, <span class="dv">3</span>, work_happiness </span>
+<span id="cb64-5"><a href="exploratory-data-analysis---raw-data.html#cb64-5" tabindex="-1"></a>    )</span>
+<span id="cb64-6"><a href="exploratory-data-analysis---raw-data.html#cb64-6" tabindex="-1"></a>  )</span>
+<span id="cb64-7"><a href="exploratory-data-analysis---raw-data.html#cb64-7" tabindex="-1"></a></span>
+<span id="cb64-8"><a href="exploratory-data-analysis---raw-data.html#cb64-8" tabindex="-1"></a>df_select <span class="ot">&lt;-</span> df_select <span class="sc">|&gt;</span></span>
+<span id="cb64-9"><a href="exploratory-data-analysis---raw-data.html#cb64-9" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb64-10"><a href="exploratory-data-analysis---raw-data.html#cb64-10" tabindex="-1"></a>    <span class="at">work_satisfaction =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb64-11"><a href="exploratory-data-analysis---raw-data.html#cb64-11" tabindex="-1"></a>      work <span class="sc">==</span> <span class="dv">2</span>, <span class="dv">3</span>, work_satisfaction</span>
+<span id="cb64-12"><a href="exploratory-data-analysis---raw-data.html#cb64-12" tabindex="-1"></a>    )</span>
+<span id="cb64-13"><a href="exploratory-data-analysis---raw-data.html#cb64-13" tabindex="-1"></a>  )</span>
+<span id="cb64-14"><a href="exploratory-data-analysis---raw-data.html#cb64-14" tabindex="-1"></a></span>
+<span id="cb64-15"><a href="exploratory-data-analysis---raw-data.html#cb64-15" tabindex="-1"></a>df_select <span class="ot">&lt;-</span> df_select <span class="sc">|&gt;</span></span>
+<span id="cb64-16"><a href="exploratory-data-analysis---raw-data.html#cb64-16" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb64-17"><a href="exploratory-data-analysis---raw-data.html#cb64-17" tabindex="-1"></a>    <span class="at">posture_work =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb64-18"><a href="exploratory-data-analysis---raw-data.html#cb64-18" tabindex="-1"></a>      work <span class="sc">==</span> <span class="dv">2</span>, <span class="dv">3</span>, posture_work </span>
+<span id="cb64-19"><a href="exploratory-data-analysis---raw-data.html#cb64-19" tabindex="-1"></a>    )</span>
+<span id="cb64-20"><a href="exploratory-data-analysis---raw-data.html#cb64-20" tabindex="-1"></a>  )</span>
+<span id="cb64-21"><a href="exploratory-data-analysis---raw-data.html#cb64-21" tabindex="-1"></a></span>
+<span id="cb64-22"><a href="exploratory-data-analysis---raw-data.html#cb64-22" tabindex="-1"></a><span class="do">## Check if NA&#39;s are replaced for &quot;NOT-APPLICABLE</span></span>
+<span id="cb64-23"><a href="exploratory-data-analysis---raw-data.html#cb64-23" tabindex="-1"></a>df_work <span class="sc">|&gt;</span></span>
+<span id="cb64-24"><a href="exploratory-data-analysis---raw-data.html#cb64-24" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(work <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">|&gt;</span> naniar<span class="sc">::</span><span class="fu">vis_miss</span>()</span></code></pre></div>
+<p><img src="01_eda_files/figure-html/unnamed-chunk-15-2.png" width="672" /></p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="exploratory-data-analysis---raw-data.html#cb65-1" tabindex="-1"></a>df_select <span class="sc">|&gt;</span></span>
+<span id="cb65-2"><a href="exploratory-data-analysis---raw-data.html#cb65-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb65-3"><a href="exploratory-data-analysis---raw-data.html#cb65-3" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
+<span id="cb65-4"><a href="exploratory-data-analysis---raw-data.html#cb65-4" tabindex="-1"></a>      <span class="at">x =</span> <span class="fu">as_factor</span>(work),</span>
+<span id="cb65-5"><a href="exploratory-data-analysis---raw-data.html#cb65-5" tabindex="-1"></a>      <span class="at">y =</span> <span class="fu">as_factor</span>(work_happiness)</span>
+<span id="cb65-6"><a href="exploratory-data-analysis---raw-data.html#cb65-6" tabindex="-1"></a>    )</span>
+<span id="cb65-7"><a href="exploratory-data-analysis---raw-data.html#cb65-7" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb65-8"><a href="exploratory-data-analysis---raw-data.html#cb65-8" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="st">&quot;jitter&quot;</span>, <span class="at">colour =</span> <span class="st">&quot;darkblue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb65-9"><a href="exploratory-data-analysis---raw-data.html#cb65-9" tabindex="-1"></a>  toolboxr<span class="sc">::</span><span class="fu">rotate_axis_labels</span>(<span class="st">&quot;x&quot;</span>, <span class="at">angle =</span> <span class="dv">90</span>) <span class="ot">-&gt;</span> work_plot_happy</span>
+<span id="cb65-10"><a href="exploratory-data-analysis---raw-data.html#cb65-10" tabindex="-1"></a></span>
+<span id="cb65-11"><a href="exploratory-data-analysis---raw-data.html#cb65-11" tabindex="-1"></a>work_plot_happy</span></code></pre></div>
+<p><img src="01_eda_files/figure-html/unnamed-chunk-15-3.png" width="672" /></p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="exploratory-data-analysis---raw-data.html#cb66-1" tabindex="-1"></a>df_select <span class="sc">|&gt;</span></span>
+<span id="cb66-2"><a href="exploratory-data-analysis---raw-data.html#cb66-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb66-3"><a href="exploratory-data-analysis---raw-data.html#cb66-3" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
+<span id="cb66-4"><a href="exploratory-data-analysis---raw-data.html#cb66-4" tabindex="-1"></a>      <span class="at">x =</span> <span class="fu">as_factor</span>(work),</span>
+<span id="cb66-5"><a href="exploratory-data-analysis---raw-data.html#cb66-5" tabindex="-1"></a>      <span class="at">y =</span> <span class="fu">as_factor</span>(work_satisfaction)</span>
+<span id="cb66-6"><a href="exploratory-data-analysis---raw-data.html#cb66-6" tabindex="-1"></a>    )</span>
+<span id="cb66-7"><a href="exploratory-data-analysis---raw-data.html#cb66-7" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb66-8"><a href="exploratory-data-analysis---raw-data.html#cb66-8" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="st">&quot;jitter&quot;</span>, <span class="at">colour =</span> <span class="st">&quot;darkblue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb66-9"><a href="exploratory-data-analysis---raw-data.html#cb66-9" tabindex="-1"></a>  toolboxr<span class="sc">::</span><span class="fu">rotate_axis_labels</span>(<span class="st">&quot;x&quot;</span>, <span class="at">angle =</span> <span class="dv">90</span>) <span class="ot">-&gt;</span> work_plot_satisfaction</span>
+<span id="cb66-10"><a href="exploratory-data-analysis---raw-data.html#cb66-10" tabindex="-1"></a>work_plot_satisfaction</span></code></pre></div>
+<p><img src="01_eda_files/figure-html/unnamed-chunk-15-4.png" width="672" /></p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="exploratory-data-analysis---raw-data.html#cb67-1" tabindex="-1"></a>df_select <span class="sc">|&gt;</span></span>
+<span id="cb67-2"><a href="exploratory-data-analysis---raw-data.html#cb67-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb67-3"><a href="exploratory-data-analysis---raw-data.html#cb67-3" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
+<span id="cb67-4"><a href="exploratory-data-analysis---raw-data.html#cb67-4" tabindex="-1"></a>      <span class="at">x =</span> <span class="fu">as_factor</span>(work),</span>
+<span id="cb67-5"><a href="exploratory-data-analysis---raw-data.html#cb67-5" tabindex="-1"></a>      <span class="at">y =</span> <span class="fu">as_factor</span>(posture_work)</span>
+<span id="cb67-6"><a href="exploratory-data-analysis---raw-data.html#cb67-6" tabindex="-1"></a>    )</span>
+<span id="cb67-7"><a href="exploratory-data-analysis---raw-data.html#cb67-7" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb67-8"><a href="exploratory-data-analysis---raw-data.html#cb67-8" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="st">&quot;jitter&quot;</span>, <span class="at">colour =</span> <span class="st">&quot;darkblue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb67-9"><a href="exploratory-data-analysis---raw-data.html#cb67-9" tabindex="-1"></a>  toolboxr<span class="sc">::</span><span class="fu">rotate_axis_labels</span>(<span class="st">&quot;x&quot;</span>, <span class="at">angle =</span> <span class="dv">90</span>) <span class="ot">-&gt;</span> work_plot_posture</span>
+<span id="cb67-10"><a href="exploratory-data-analysis---raw-data.html#cb67-10" tabindex="-1"></a>work_plot_posture</span></code></pre></div>
+<p><img src="01_eda_files/figure-html/unnamed-chunk-15-5.png" width="672" /></p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="exploratory-data-analysis---raw-data.html#cb68-1" tabindex="-1"></a>cowplot<span class="sc">::</span><span class="fu">plot_grid</span>(</span>
+<span id="cb68-2"><a href="exploratory-data-analysis---raw-data.html#cb68-2" tabindex="-1"></a>  work_plot_happy,</span>
+<span id="cb68-3"><a href="exploratory-data-analysis---raw-data.html#cb68-3" tabindex="-1"></a>  work_plot_posture,</span>
+<span id="cb68-4"><a href="exploratory-data-analysis---raw-data.html#cb68-4" tabindex="-1"></a>  work_plot_satisfaction,</span>
+<span id="cb68-5"><a href="exploratory-data-analysis---raw-data.html#cb68-5" tabindex="-1"></a>  <span class="at">ncol =</span> <span class="dv">1</span></span>
+<span id="cb68-6"><a href="exploratory-data-analysis---raw-data.html#cb68-6" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="01_eda_files/figure-html/unnamed-chunk-15-6.png" width="672" /></p>
+</div>
+<div id="recode-physical_activity" class="section level2 hasAnchor" number="1.9">
+<h2><span class="header-section-number">1.9</span> Recode <code>physical_activity</code><a href="exploratory-data-analysis---raw-data.html#recode-physical_activity" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol start="2" style="list-style-type: decimal">
+<li>Physical activity aanpassen in basis file
+1 = ik beweeg geen enkele dag per week
+2 = Ik ben 5 dagen of vaker actief per week
+3 = Ik zit hier precies tussen in
+Waarbij dan de 1 en 3 == 1 (Not achieving the Dutch Healthy Exercise Norm)
+En 2 = 0 (Achieving the Dutch Healthy Exercise Norm )</li>
+</ol>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="exploratory-data-analysis---raw-data.html#cb69-1" tabindex="-1"></a>df_select<span class="sc">$</span>physical_activity <span class="sc">|&gt;</span> <span class="fu">unique</span>()</span></code></pre></div>
+<pre><code>## [1]  2  3  1 NA</code></pre>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="exploratory-data-analysis---raw-data.html#cb71-1" tabindex="-1"></a>df_select <span class="ot">&lt;-</span> df_select <span class="sc">|&gt;</span></span>
+<span id="cb71-2"><a href="exploratory-data-analysis---raw-data.html#cb71-2" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb71-3"><a href="exploratory-data-analysis---raw-data.html#cb71-3" tabindex="-1"></a>    <span class="at">physical_activity_recoded =</span> </span>
+<span id="cb71-4"><a href="exploratory-data-analysis---raw-data.html#cb71-4" tabindex="-1"></a>      <span class="fu">ifelse</span>(</span>
+<span id="cb71-5"><a href="exploratory-data-analysis---raw-data.html#cb71-5" tabindex="-1"></a>        (physical_activity <span class="sc">==</span> <span class="dv">1</span> <span class="sc">|</span> physical_activity <span class="sc">==</span> <span class="dv">3</span>),</span>
+<span id="cb71-6"><a href="exploratory-data-analysis---raw-data.html#cb71-6" tabindex="-1"></a>        <span class="dv">1</span>, </span>
+<span id="cb71-7"><a href="exploratory-data-analysis---raw-data.html#cb71-7" tabindex="-1"></a>        physical_activity),</span>
+<span id="cb71-8"><a href="exploratory-data-analysis---raw-data.html#cb71-8" tabindex="-1"></a>    <span class="at">physical_activity_recoded =</span> </span>
+<span id="cb71-9"><a href="exploratory-data-analysis---raw-data.html#cb71-9" tabindex="-1"></a>      <span class="fu">ifelse</span>(</span>
+<span id="cb71-10"><a href="exploratory-data-analysis---raw-data.html#cb71-10" tabindex="-1"></a>        physical_activity <span class="sc">==</span> <span class="dv">2</span>, </span>
+<span id="cb71-11"><a href="exploratory-data-analysis---raw-data.html#cb71-11" tabindex="-1"></a>        <span class="dv">0</span>, </span>
+<span id="cb71-12"><a href="exploratory-data-analysis---raw-data.html#cb71-12" tabindex="-1"></a>        physical_activity_recoded</span>
+<span id="cb71-13"><a href="exploratory-data-analysis---raw-data.html#cb71-13" tabindex="-1"></a>      </span>
+<span id="cb71-14"><a href="exploratory-data-analysis---raw-data.html#cb71-14" tabindex="-1"></a>    ) </span>
+<span id="cb71-15"><a href="exploratory-data-analysis---raw-data.html#cb71-15" tabindex="-1"></a>  )</span>
+<span id="cb71-16"><a href="exploratory-data-analysis---raw-data.html#cb71-16" tabindex="-1"></a></span>
+<span id="cb71-17"><a href="exploratory-data-analysis---raw-data.html#cb71-17" tabindex="-1"></a></span>
+<span id="cb71-18"><a href="exploratory-data-analysis---raw-data.html#cb71-18" tabindex="-1"></a>df_select <span class="sc">|&gt;</span></span>
+<span id="cb71-19"><a href="exploratory-data-analysis---raw-data.html#cb71-19" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb71-20"><a href="exploratory-data-analysis---raw-data.html#cb71-20" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
+<span id="cb71-21"><a href="exploratory-data-analysis---raw-data.html#cb71-21" tabindex="-1"></a>      <span class="at">x =</span> <span class="fu">as_factor</span>(physical_activity),</span>
+<span id="cb71-22"><a href="exploratory-data-analysis---raw-data.html#cb71-22" tabindex="-1"></a>      <span class="at">y =</span> <span class="fu">as_factor</span>(physical_activity_recoded)</span>
+<span id="cb71-23"><a href="exploratory-data-analysis---raw-data.html#cb71-23" tabindex="-1"></a>    )</span>
+<span id="cb71-24"><a href="exploratory-data-analysis---raw-data.html#cb71-24" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb71-25"><a href="exploratory-data-analysis---raw-data.html#cb71-25" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="st">&quot;jitter&quot;</span>, <span class="at">colour =</span> <span class="st">&quot;darkblue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb71-26"><a href="exploratory-data-analysis---raw-data.html#cb71-26" tabindex="-1"></a>  toolboxr<span class="sc">::</span><span class="fu">rotate_axis_labels</span>(<span class="st">&quot;x&quot;</span>, <span class="at">angle =</span> <span class="dv">20</span>)</span></code></pre></div>
+<p><img src="01_eda_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="exploratory-data-analysis---raw-data.html#cb72-1" tabindex="-1"></a><span class="co">#levels(df_select$physical_activity |&gt; as_factor())</span></span>
+<span id="cb72-2"><a href="exploratory-data-analysis---raw-data.html#cb72-2" tabindex="-1"></a><span class="co">#df_select$physical_activity |&gt; unique()</span></span>
+<span id="cb72-3"><a href="exploratory-data-analysis---raw-data.html#cb72-3" tabindex="-1"></a><span class="co">#levels(df_select$physical_activity |&gt; as_factor())</span></span>
+<span id="cb72-4"><a href="exploratory-data-analysis---raw-data.html#cb72-4" tabindex="-1"></a><span class="co">#df_select$physical_activity_recoded |&gt; unique()</span></span>
+<span id="cb72-5"><a href="exploratory-data-analysis---raw-data.html#cb72-5" tabindex="-1"></a></span>
+<span id="cb72-6"><a href="exploratory-data-analysis---raw-data.html#cb72-6" tabindex="-1"></a>df_select<span class="sc">$</span>physical_activity <span class="ot">&lt;-</span> df_select<span class="sc">$</span>physical_activity_recoded</span>
+<span id="cb72-7"><a href="exploratory-data-analysis---raw-data.html#cb72-7" tabindex="-1"></a>df_select <span class="ot">&lt;-</span> df_select <span class="sc">|&gt;</span></span>
+<span id="cb72-8"><a href="exploratory-data-analysis---raw-data.html#cb72-8" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>physical_activity_recoded)</span>
+<span id="cb72-9"><a href="exploratory-data-analysis---raw-data.html#cb72-9" tabindex="-1"></a><span class="co">#df_select$physical_activity &lt;- droplevels(as_factor( df_select$physical_activity))</span></span></code></pre></div>
+</div>
+<div id="write-subsetted-data-to-disk" class="section level2 hasAnchor" number="1.10">
+<h2><span class="header-section-number">1.10</span> Write subsetted data to disk<a href="exploratory-data-analysis---raw-data.html#write-subsetted-data-to-disk" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="exploratory-data-analysis---raw-data.html#cb73-1" tabindex="-1"></a><span class="fu">write_rds</span>(</span>
+<span id="cb73-2"><a href="exploratory-data-analysis---raw-data.html#cb73-2" tabindex="-1"></a>  df_select,</span>
+<span id="cb73-3"><a href="exploratory-data-analysis---raw-data.html#cb73-3" tabindex="-1"></a>  here<span class="sc">::</span><span class="fu">here</span>(</span>
+<span id="cb73-4"><a href="exploratory-data-analysis---raw-data.html#cb73-4" tabindex="-1"></a>    <span class="st">&quot;data&quot;</span>,</span>
+<span id="cb73-5"><a href="exploratory-data-analysis---raw-data.html#cb73-5" tabindex="-1"></a>    <span class="st">&quot;df_non_imp_select.rds&quot;</span></span>
+<span id="cb73-6"><a href="exploratory-data-analysis---raw-data.html#cb73-6" tabindex="-1"></a>  )</span>
+<span id="cb73-7"><a href="exploratory-data-analysis---raw-data.html#cb73-7" tabindex="-1"></a>)</span>
+<span id="cb73-8"><a href="exploratory-data-analysis---raw-data.html#cb73-8" tabindex="-1"></a></span>
+<span id="cb73-9"><a href="exploratory-data-analysis---raw-data.html#cb73-9" tabindex="-1"></a><span class="do">## and the labelling</span></span>
+<span id="cb73-10"><a href="exploratory-data-analysis---raw-data.html#cb73-10" tabindex="-1"></a><span class="fu">write_csv</span>(</span>
+<span id="cb73-11"><a href="exploratory-data-analysis---raw-data.html#cb73-11" tabindex="-1"></a>  labelling,</span>
+<span id="cb73-12"><a href="exploratory-data-analysis---raw-data.html#cb73-12" tabindex="-1"></a>  here<span class="sc">::</span><span class="fu">here</span>(</span>
+<span id="cb73-13"><a href="exploratory-data-analysis---raw-data.html#cb73-13" tabindex="-1"></a>    <span class="st">&quot;data&quot;</span>,</span>
+<span id="cb73-14"><a href="exploratory-data-analysis---raw-data.html#cb73-14" tabindex="-1"></a>    <span class="st">&quot;labelling_and_coding_vars.csv&quot;</span></span>
+<span id="cb73-15"><a href="exploratory-data-analysis---raw-data.html#cb73-15" tabindex="-1"></a>  )</span>
+<span id="cb73-16"><a href="exploratory-data-analysis---raw-data.html#cb73-16" tabindex="-1"></a>)</span></code></pre></div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="imputation-of-missing-values.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

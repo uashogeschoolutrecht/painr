@@ -1,0 +1,1141 @@
+# Article figures
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Packages
+First, we need to load all the required packages.
+```{r}
+library(rms)
+library(foreign)
+library (dplyr)
+library(haven)
+library(car)
+library(fpc)
+library(lmtest)
+library(pROC)
+library(tidyverse)
+library(haven)
+library(corrr)
+library(ggplot2)
+library(car)
+library(stats)
+library(base)
+library(dplyr)
+library(broom)
+library(MASS)
+library(pROC)
+library(ResourceSelection)
+library(xfun)
+library(rms)
+library(skimr)
+library(ggpubr)
+```
+
+## Data load
+Here we load the build-in dataset
+```{r}
+imputed_with_attitude_and_chronic <- read_rds(
+  here::here(
+    "data",
+    "imputed_with_attitude_and_chronic.rds"
+  )
+)
+```
+
+### Load labels for figures
+
+
+## Clean data and rename variables
+```{r}
+imputed_with_attitude_and_chronic <- imputed_with_attitude_and_chronic |>
+  rename(pidbr = wide_spread_pain)
+
+## pidbr = pain in different body regions
+```
+
+## Exploratory Data Analysis
+```{r}
+summary(imputed_with_attitude_and_chronic)
+```
+
+## Variabel analysis
+Identifying the independent predictive capacity of the candidate prognostic variables at baseline and the existence or non-existence of chronic pain by univariate logistic regression analysis. Univariate logistic regression for continous variables Univariate analyses, model per variable with 95 confidence interval and OR. Fitting the univariate logistic regression model. Retrieving the coefficient and standard error for "Variable". Calculating the 95% confidence interval for "Variable"
+
+```{r}
+# List of continuous variables
+continuous_variables <- c("depression", "concerns", "age", "pain_intensity", "duration", "disability", "bmi", "catastrophizing", "duration_beliefs", "treatment_beliefs", "kinesiophobia", "distress", "identity_beliefs", "hypervigilance", "relation", "self_efficacy")
+
+# Function univariate analyses of the continuous variables
+## Roxygen comments for man page
+
+#' @title Run an univariate model for all continuous variables in the data
+#' @param variable Name of variable as a character string
+#' @param data Dataset 'imputed_with_attitude_and_chronic'
+#' @export
+
+univariate_analysis <- function(variable, 
+                                           data, 
+                                           z_score = 1.96, 
+                                           conf_int = 95) {
+  
+  formula <- as.formula(paste("is_painint_chronic ~", variable))
+  model <- glm(formula, data = data, family = binomial)
+ 
+  conf_int_upper_limit = paste0("conf_int_", conf_int)
+  conf_int_lower_limit = paste0("conf_int_", (100-conf_int))
+  
+  # get model meterics with broom
+  model |> 
+    broom::tidy() |>
+    mutate(
+      conf_int_lower = exp(estimate - z_score * std.error),
+      OR = exp(estimate),
+      conf_int_upper = exp(
+        estimate + z_score * std.error)) -> df
+  
+  names(df)[c(6,8)] <- c(conf_int_lower_limit, conf_int_upper_limit)
+  df
+  # remove Intercept term
+  df <- df[-1,]
+  return(df)
+}
+
+## test 1
+univariate_analysis(
+  data = imputed_with_attitude_and_chronic,
+  variable = continuous_variables[1],
+  z_score = 1.96,
+  conf_int = 95)
+
+## test 2 - different conf int
+univariate_analysis(
+  data = imputed_with_attitude_and_chronic,
+  variable = continuous_variables[1],
+  z_score = 2.24,
+  conf_int = 97.5)
+
+## Univariate analyses for all continuous variables
+## Iterate over all variables, leave conf int to default = 95%
+df_univariate_continuous <- map_df(
+  .x = continuous_variables,
+  .f = univariate_analysis,
+  data = imputed_with_attitude_and_chronic
+  )
+
+df_univariate_continuous
+```
+
+## Graph of model metrics
+Let's make a plot of the model results
+```{r}
+signi_continuous_pos <- df_univariate_continuous |>
+  filter(conf_int_5 > 1)
+
+signi_continuous_neg <- df_univariate_continuous |>
+  filter(conf_int_95 < 1)
+
+df_univariate_continuous |>
+  ggplot(
+    aes(x = reorder(as_factor(term), OR),
+        y = OR)
+  ) +
+  geom_point() +
+  geom_pointrange(
+    aes(
+      ymin = conf_int_5, 
+      ymax = conf_int_95
+      )
+    )  +
+  geom_point(data = signi_continuous_pos, aes(x = reorder(as_factor(term), OR),
+                y = OR), colour = "red", size = 2
+             ) +
+  geom_point(data = signi_continuous_neg, aes(x = reorder(as_factor(term), OR),
+                y = OR), colour = "green", size = 2
+             ) +
+  xlab("Variable") +
+  ylab("OR") +
+  geom_hline(yintercept = 1, colour  = 'darkred', linetype = "dashed") +
+  coord_flip() +
+  ggtitle("Univariate - continuous") +
+  theme_minimal() -> plot1_univariate_continuous
+
+plot1_univariate_continuous
+
+## annotate plot with metrics
+library(ggplot2)
+library(dplyr)
+
+# Add a significance level column based on p-value
+df_univariate_continuous <- df_univariate_continuous %>%
+  mutate(significance = case_when(
+    p.value < 0.001 ~ "***",
+    p.value < 0.01 ~ "**",
+    p.value < 0.05 ~ "*",
+    TRUE ~ "" # No asterisk if p-value is not significant
+  ))
+
+signi_continuous_pos <- df_univariate_continuous |>
+  filter(conf_int_5 > 1)
+
+signi_continuous_neg <- df_univariate_continuous |>
+  filter(conf_int_95 < 1)
+
+df_univariate_continuous |>
+  ggplot(
+    aes(x = reorder(as_factor(term), OR),
+        y = OR)
+  ) +
+  geom_point() +
+  geom_pointrange(
+    aes(
+      ymin = conf_int_5, 
+      ymax = conf_int_95
+    )
+  ) +
+  geom_point(data = signi_continuous_pos, aes(x = reorder(as_factor(term), OR),
+                y = OR), colour = "red", size = 2
+             ) +
+  geom_point(data = signi_continuous_neg, aes(x = reorder(as_factor(term), OR),
+                y = OR), colour = "green", size = 2
+             ) +
+  geom_text(aes(label = paste(significance), y = OR * 1.0), hjust = 0, vjust = 0, check_overlap = TRUE, size = 4) +
+  xlab("Variable") +
+  ylab("OR") +
+  geom_hline(yintercept = 1, colour = 'darkred', linetype = "dashed") +
+  coord_flip() +
+  ggtitle("Univariate - continuous") +
+  theme_minimal() -> plot1_univariate_continuous -> plot1_univariate_continuous_annotated
+
+plot1_univariate_continuous_annotated
+
+
+```
+
+## Relevel dichotomous variables
+Univariate logistic regression for categorical and dichotomous variables.
+Set the "1" or "0" of the variable as a reference category.
+Fitting the univariate logistic regression.
+Calculating the OR and CI of this model.
+
+```{r}
+# Variable "work"
+imputed_with_attitude_and_chronic$work <- relevel(imputed_with_attitude_and_chronic$work, ref = "1")
+model1 <- glm(is_painint_chronic ~ work, data = imputed_with_attitude_and_chronic, family = binomial)
+OR_work <- exp(coef(model1))
+CI_work <- exp(confint(model1))
+print(OR_work)
+print(CI_work)
+
+# Variable "Education_level"
+imputed_with_attitude_and_chronic$education_level <- relevel(imputed_with_attitude_and_chronic$education_level, ref = "1")
+model2 <- glm(is_painint_chronic ~ education_level, data = imputed_with_attitude_and_chronic, family = binomial)
+OR_education_level <- exp(coef(model2))
+CI_education_level <- exp(confint(model2))
+print(OR_education_level)
+print(CI_education_level)
+
+# Variable "recurrence"
+imputed_with_attitude_and_chronic$recurrence <- relevel(imputed_with_attitude_and_chronic$recurrence, ref = "1")
+model3 <- glm(is_painint_chronic ~ recurrence, data = imputed_with_attitude_and_chronic, family = binomial)
+OR_recurrence <- exp(coef(model3))
+CI_recurrence <- exp(confint(model3))
+print(OR_recurrence)
+print(CI_recurrence)
+
+# Variable - pain in different body regions
+imputed_with_attitude_and_chronic$pidbr <- relevel(imputed_with_attitude_and_chronic$pidbr, ref = "1")
+model4 <- glm(is_painint_chronic ~ pidbr, data = imputed_with_attitude_and_chronic, family = binomial)
+OR_pidbr <- exp(coef(model4))
+CI_pidbr <- exp(confint(model4))
+print(OR_pidbr)
+print(CI_pidbr)
+
+# Variable "headache"
+imputed_with_attitude_and_chronic$headache <- relevel(imputed_with_attitude_and_chronic$headache, ref = "1")
+model5 <- glm(is_painint_chronic ~ headache, data = imputed_with_attitude_and_chronic, family = binomial)
+OR_headache <- exp(coef(model5))
+CI_headache <- exp(confint(model5))
+print(OR_headache)
+print(CI_headache)
+
+# Variable "sex"
+imputed_with_attitude_and_chronic$sex <- relevel(imputed_with_attitude_and_chronic$sex, ref = "1")
+model6 <- glm(is_painint_chronic ~ sex, data = imputed_with_attitude_and_chronic, family = binomial)
+OR_sex <- exp(coef(model6))
+CI_sex <- exp(confint(model6))
+print(OR_sex)
+print(CI_sex)
+
+# Variable "Work_happiness"
+imputed_with_attitude_and_chronic$work_happiness <- relevel(imputed_with_attitude_and_chronic$work_happiness, ref = "1")
+model7 <- glm(is_painint_chronic ~ work_happiness, data = imputed_with_attitude_and_chronic, family = binomial)
+OR_work_happiness <- exp(coef(model7))
+CI_work_happiness <- exp(confint(model7))
+print(OR_work_happiness)
+print(CI_work_happiness)
+
+# Variable "posture_work"
+imputed_with_attitude_and_chronic$posture_work <- relevel(imputed_with_attitude_and_chronic$posture_work, ref = "1")
+model8 <- glm(is_painint_chronic ~ posture_work, data = imputed_with_attitude_and_chronic, family = binomial)
+OR_posture_work <- exp(coef(model8))
+CI_posture_work <- exp(confint(model8))
+print(OR_posture_work)
+print(CI_posture_work)
+
+# Variable "work_satisfaction"
+imputed_with_attitude_and_chronic$work_satisfaction <- relevel(imputed_with_attitude_and_chronic$work_satisfaction, ref = "1")
+model9 <- glm(is_painint_chronic ~ work_satisfaction, data = imputed_with_attitude_and_chronic, family = binomial)
+OR_work_satisfaction <- exp(coef(model9))
+CI_work_satisfaction <- exp(confint(model9))
+print(OR_work_satisfaction)
+print(CI_work_satisfaction)
+
+# Variable "physical Activity"
+imputed_with_attitude_and_chronic$physical_activity <- relevel(imputed_with_attitude_and_chronic$physical_activity, ref = "0")
+model10 <- glm(is_painint_chronic ~ physical_activity, data = imputed_with_attitude_and_chronic, family = binomial)
+OR_physical_activity <- exp(coef(model10))
+CI_physical_activity <- exp(confint(model10))
+print(OR_physical_activity)
+print(CI_physical_activity)
+
+# Variable "smoking"
+imputed_with_attitude_and_chronic$smoking <- relevel(imputed_with_attitude_and_chronic$smoking, ref = "1")
+model11 <- glm(is_painint_chronic ~ smoking, data = imputed_with_attitude_and_chronic, family = binomial)
+OR_smoking <- exp(coef(model11))
+CI_smoking <- exp(confint(model11))
+print(OR_smoking)
+print(CI_smoking)
+
+# Variable "alcohol"
+imputed_with_attitude_and_chronic$alcohol <- relevel(imputed_with_attitude_and_chronic$alcohol, ref = "1")
+model12 <- glm(is_painint_chronic ~ alcohol, data = imputed_with_attitude_and_chronic, family = binomial)
+OR_alcohol <- exp(coef(model12))
+CI_alcohol <- exp(confint(model12))
+print(OR_alcohol)
+print(CI_alcohol)
+
+# Variable "sleep quality"
+imputed_with_attitude_and_chronic$sleep_quality <- relevel(imputed_with_attitude_and_chronic$sleep_quality, ref = "0")
+model13 <- glm(is_painint_chronic ~ sleep_quality, data = imputed_with_attitude_and_chronic, family = binomial)
+OR_sleep_quality <- exp(coef(model13))
+CI_sleep_quality <- exp(confint(model13))
+print(OR_sleep_quality)
+print(CI_sleep_quality)
+
+# Variable "coping"
+imputed_with_attitude_and_chronic$coping <- relevel(imputed_with_attitude_and_chronic$coping, ref = "0")
+model14 <- glm(is_painint_chronic ~ coping, data = imputed_with_attitude_and_chronic, family = binomial)
+OR_coping <- exp(coef(model14))
+CI_coping <- exp(confint(model14))
+print(OR_coping)
+print(CI_coping)
+
+# Variable "attitude"
+model15 <- glm(is_painint_chronic ~ attitude, data = imputed_with_attitude_and_chronic, family = binomial)
+OR_attitude <- exp(coef(model15))
+CI_attitude <- exp(confint(model15))
+print(OR_attitude)
+print(CI_attitude)
+```
+
+## Refactor code above to a more compact version
+```{r}
+# Your named vector of reference levels
+reference_levels <- c(work = "1", 
+                      education_level = "1",
+                      recurrence = "1",
+                      pidbr = "1",
+                      headache = "1",
+                      sex = "1",
+                      work_happiness = "1",
+                      posture_work = "1",
+                      work_satisfaction = "1",
+                      physical_activity = "0",  # Note that this is set to "0"
+                      smoking = "1",
+                      alcohol = "1",
+                      sleep_quality = "0",  # Note that this is set to "0"
+                      coping = "0")  # Note that this is set to "0"
+
+# Ensure all relevant variables are factors
+imputed_with_attitude_and_chronic[ names(reference_levels) ] <- lapply(imputed_with_attitude_and_chronic[ names(reference_levels) ], as.factor)
+
+# subset data for categorical variables only
+data_categorical <- imputed_with_attitude_and_chronic |>
+  dplyr::select(names(reference_levels))
+
+# Iterate over the variables using map() and relevel
+data_categorical <- data_categorical %>%
+  purrr::map2_df(., reference_levels, ~relevel(.x, ref = .y))
+
+data_categorical$is_painint_chronic <- imputed_with_attitude_and_chronic$is_painint_chronic
+```
+
+## Univariate analysis on the categorical variables
+```{r}
+df_univariate_categorical <- map_df(
+  .x = names(reference_levels),
+  .f = univariate_analysis,
+  data = data_categorical
+  )
+
+df_univariate_categorical
+```
+
+## Visualize model outcome
+```{r}
+
+signi_categorical_pos <- df_univariate_categorical |>
+  filter(conf_int_5 > 1)
+
+signi_categorical_neg <- df_univariate_categorical |>
+  filter(conf_int_95 < 1)
+
+
+df_univariate_categorical |>
+  ggplot(
+    aes(x = reorder(as_factor(term), OR),
+        y = OR)
+  ) +
+  geom_point() +
+  geom_pointrange(
+    aes(
+      ymin = conf_int_5, 
+      ymax = conf_int_95
+      )
+    )  +
+  geom_point(data = signi_categorical_pos, aes(x = reorder(as_factor(term), OR),
+                y = OR), colour = "green", size = 2
+             ) +
+  geom_point(data = signi_categorical_neg, aes(x = reorder(as_factor(term), OR),
+                y = OR), colour = "red", size = 2
+             ) +
+  xlab("Variable") +
+  ylab("OR") +
+  ggtitle("Univariate - categorical") +
+  geom_hline(yintercept = 1, colour  = 'darkred', linetype = "dashed") + 
+  coord_flip() -> plot2_univariate_categorical
+plot2_univariate_categorical
+
+## annotate plot with * for significance
+# Add a significance level column based on p-value
+df_univariate_categorical <- df_univariate_categorical %>%
+  mutate(significance = case_when(
+    p.value < 0.001 ~ "***",
+    p.value < 0.01 ~ "**",
+    p.value < 0.05 ~ "*",
+    TRUE ~ "" # No asterisk if p-value is not significant
+  ))
+
+signi_continuous_pos <- df_univariate_categorical |>
+  filter(conf_int_5 > 1)
+
+signi_continuous_neg <- df_univariate_categorical |>
+  filter(conf_int_95 < 1)
+
+df_univariate_categorical |>
+  ggplot(
+    aes(x = reorder(as_factor(term), OR),
+        y = OR)
+  ) +
+  geom_point() +
+  geom_pointrange(
+    aes(
+      ymin = conf_int_5, 
+      ymax = conf_int_95
+    )
+  ) +
+  geom_point(data = signi_categorical_pos, aes(x = reorder(as_factor(term), OR),
+                y = OR), colour = "red", size = 2
+             ) +
+  geom_point(data = signi_categorical_neg, aes(x = reorder(as_factor(term), OR),
+                y = OR), colour = "green", size = 2
+             ) +
+  geom_text(aes(label = paste(significance), y = OR * 1.0), hjust = 0, vjust = 0, check_overlap = TRUE, size = 4) +
+  xlab("Variable") +
+  ylab("OR") +
+  geom_hline(yintercept = 1, colour = 'darkred', linetype = "dashed") +
+  coord_flip() +
+  ggtitle("Univariate - categorical") +
+  theme_minimal() -> plot2_univariate_categorical_annotated
+
+plot2_univariate_categorical_annotated
+
+```
+
+## Panel plot univariate
+```{r}
+cowplot::plot_grid(
+  plotlist = list(
+    plot1_univariate_continuous_annotated + painr::theme_individual(), 
+    plot2_univariate_categorical_annotated + painr::theme_individual())
+)
+```
+
+## Multivariable logistic regression analyses
+
+Due to multicollinearity in the work-related factors (happiness, satisfaction, and posture -> leading to the outcome "3" = not working), a decision had to be made on which factor to include. We analysed different models with the individual work-related factors included. There was almost no difference in model performance. Because happiness and satisfaction align more with the other psychological factors, we have chosen to include the variable "posture_work", thereby incorporating add different domain into our model for the final backward model analyses and internal validation.
+
+The candidate prognostic factor "attitude" does not have predictive value in het univariate analysis and does not emerge in the multivariate analysis in the formula with all the variables included. Additionally, there are many missing values, which cannot be imputed, as they pertain to the the therapist's attitude. We now excluding this variable from the complete model development because internal validation does not proceed with these variables included.
+
+```{r}
+naniar::vis_miss(imputed_with_attitude_and_chronic)
+new_data <- imputed_with_attitude_and_chronic |>
+  dplyr::select(-attitude)
+
+sum(is.na(new_data))
+
+full_model <- glm(data = imputed_with_attitude_and_chronic, is_painint_chronic ~ sex + age + pain_intensity + duration + pidbr + headache + disability + posture_work + physical_activity + smoking + alcohol + bmi + sleep_quality + catastrophizing + duration_beliefs + concerns + treatment_beliefs + depression + kinesiophobia + distress + coping + identity_beliefs + hypervigilance + self_efficacy + relation, family = "binomial")
+
+summary(full_model)
+#full_model_mterics_df <- full_model |> broom::tidy()
+#full_model_mterics_df <- full_model_mterics_df |>
+
+  
+## Run a tidy version of the full model  
+#' @title Run an univariate model for all continuous variables in the data
+#' @param variable Name of variable as a character string
+#' @param data Dataset 'imputed_with_attitude_and_chronic'
+#' @export
+
+multivariate_analysis <- function(
+    data, 
+    z_score = 1.96, 
+    conf_int = 95) {
+  
+  full_model <- glm(
+    data = data, 
+    is_painint_chronic ~ 
+      sex + 
+      age + 
+      pain_intensity + 
+      duration + 
+      pidbr + 
+      headache + 
+      disability + 
+      posture_work + 
+      physical_activity + 
+      smoking + 
+      alcohol + 
+      bmi + 
+      sleep_quality + 
+      catastrophizing + 
+      duration_beliefs + 
+      concerns + 
+      treatment_beliefs + 
+      depression + 
+      kinesiophobia + 
+      distress + 
+      coping + 
+      identity_beliefs + 
+      hypervigilance + 
+      self_efficacy + 
+      relation, 
+    family = "binomial")
+ 
+  conf_int_upper_limit = paste0("conf_int_", conf_int)
+  conf_int_lower_limit = paste0("conf_int_", (100-conf_int))
+  
+  # get model meterics with broom
+  full_model |> 
+    broom::tidy() |>
+    mutate(
+      conf_int_lower = exp(estimate - z_score * std.error),
+      OR = exp(estimate),
+      conf_int_upper = exp(
+        estimate + z_score * std.error)) -> df
+  
+  names(df)[c(6,8)] <- c(conf_int_lower_limit, conf_int_upper_limit)
+  df
+  # remove Intercept term
+  df <- df[-1,]
+  return(df)
+}
+
+## full model
+full_model_tidy <- multivariate_analysis(
+  data = imputed_with_attitude_and_chronic
+)
+
+
+ full_model_tidy <- full_model_tidy %>%
+  mutate(significance = case_when(
+    p.value < 0.001 ~ "***",
+    p.value < 0.01 ~ "**",
+    p.value < 0.05 ~ "*",
+    TRUE ~ "" # No asterisk if p-value is not significant
+  ))
+
+
+## Visualize
+signi_full_pos <- full_model_tidy |>
+  filter(conf_int_5 > 1)
+
+signi_full_neg <- full_model_tidy |>
+  filter(conf_int_95 < 1)
+
+
+full_model_tidy |>
+  ggplot(
+    aes(x = reorder(as_factor(term), OR),
+        y = OR)
+  ) +
+  geom_point() +
+  geom_pointrange(
+    aes(
+      ymin = conf_int_5, 
+      ymax = conf_int_95
+      )
+    )  +
+  geom_point(data = signi_full_pos, aes(x = reorder(as_factor(term), OR),
+                y = OR), colour = "green", size = 2
+             ) +
+  geom_point(data = signi_full_neg, aes(x = reorder(as_factor(term), OR),
+                y = OR), colour = "red", size = 2
+             ) +
+  xlab("Variable") +
+  ylab("OR") +
+  ggtitle("Multivariate") +
+  geom_hline(yintercept = 1, colour  = 'darkred', linetype = "dashed") + 
+  coord_flip() -> plot3_multivariate
+
+plot3_multivariate
+```
+
+## Backward model
+
+```{r}
+## Backward model
+
+backward_model <- stepAIC(full_model, direction = "backward")
+summary(backward_model)
+
+odds_ratios_full <- exp(coef(full_model))
+conf_int_full <- confint(full_model, )
+conf_int_exp_full <- exp(conf_int_full)
+
+backward_model$coefficients
+model_backward_tidy <- backward_model |> broom::tidy()
+
+## look up calcualtion of OR from estimate and other model metrics
+odds_ratios <- exp(coef(backward_model))
+conf_int <- confint(backward_model, )
+conf_int_exp <- exp(conf_int)
+
+results <- data.frame(OddsRatio = odds_ratios,
+                      Lower97_5CI = conf_int_exp[, "2.5 %"],
+                      Upper97_5CI = conf_int_exp[, "97.5 %"])
+print(results)
+
+## tidy backward model
+z_score = 1.96
+model_backward_tidy <- model_backward_tidy |>
+   mutate(
+      conf_int_lower = exp(estimate - z_score * std.error),
+      OR = exp(estimate),
+      conf_int_upper = exp(
+        estimate + z_score * std.error))
+
+model_backward_tidy <- model_backward_tidy[-1,]
+
+model_backward_tidy <- model_backward_tidy |>
+  rename(
+    conf_int_5 = conf_int_lower,
+    conf_int_95 = conf_int_upper
+  )
+
+ model_backward_tidy <- model_backward_tidy %>%
+  mutate(significance = case_when(
+    p.value < 0.001 ~ "***",
+    p.value < 0.01 ~ "**",
+    p.value < 0.05 ~ "*",
+    TRUE ~ "" # No asterisk if p-value is not significant
+  ))
+
+
+```
+
+## Visualize backward model
+```{r}
+signi_backward_pos <- model_backward_tidy |>
+  filter(conf_int_5 > 1)
+
+signi_backward_neg <- model_backward_tidy |>
+  filter(conf_int_95 < 1)
+
+model_backward_tidy |>
+  ggplot(
+    aes(x = reorder(as_factor(term), OR),
+        y = OR)
+  ) +
+  geom_point() +
+  geom_pointrange(
+    aes(
+      ymin = conf_int_5, 
+      ymax = conf_int_95
+      )
+    )  +
+  geom_point(data = signi_backward_pos, aes(x = reorder(as_factor(term), OR),
+                y = OR), colour = "green", size = 2
+             ) +
+  geom_point(data = signi_backward_neg, aes(x = reorder(as_factor(term), OR),
+                y = OR), colour = "red", size = 2
+             ) +
+  xlab("Variable") +
+  ylab("OR") +
+  ggtitle("Backward") +
+  geom_hline(yintercept = 1, colour  = 'darkred', linetype = "dashed") + 
+  coord_flip() -> plot4_backward
+
+plot4_backward
+```
+
+## Panel plot with all models
+```{r}
+panel_all_high_res <- cowplot::plot_grid(
+  plot1_univariate_continuous + citrulliner::theme_individual(),
+  plot2_univariate_categorical + citrulliner::theme_individual(),
+  plot4_backward + citrulliner::theme_individual(),
+  labels = c("A", "B", "C", "D"), label_size = 30,
+  ncol = 1
+)
+
+panel_all <- cowplot::plot_grid(
+  plot1_univariate_continuous,
+  plot2_univariate_categorical,
+  plot4_backward,
+  labels = c("A", "B", "C", "D"),
+  nrow = 1
+)
+panel_all
+
+#remotes::install_github(
+#  "uashogeschoolutrecht/citrulliner"
+#)
+library(citrulliner)
+
+ggsave(
+  filename = here::here(
+    "img",
+    "all_models.svg"),
+  panel_all_high_res,
+  width = 30,
+  height = 70,
+  units = "cm",
+  dpi = 300)
+
+```
+
+## Rework figure labels
+```{r}
+
+df_univariate_continuous <- df_univariate_continuous |>
+  mutate(
+    fig = "A"
+  )
+df_univariate_categorical <- df_univariate_categorical |>
+  mutate(
+    fig = "B"
+  )
+model_backward_tidy <- model_backward_tidy |>
+  mutate(
+    fig = "C"
+  )
+
+results <- dplyr::bind_rows(
+  df_univariate_continuous,
+  df_univariate_categorical,
+  model_backward_tidy
+)
+
+## write to disk and edit by hand to relabel
+#readr::write_csv(
+#  enframe(labels_raw$term),
+#  file = here::here(
+#    "data-raw",
+#    "labels-relevel.csv"
+#  )
+#)
+
+## Read from disk
+labels_relevel <- read_csv(
+  here::here(
+    "data-raw",
+    "labels-relevel.csv"
+  )
+)
+
+## join with results
+results$new_labels <- labels_relevel$new_name
+
+```
+
+## Figures for paper
+```{r}
+## plotting function
+
+plot_model_results <- function(df_model_tidy, title, ...) {
+  
+  ## significant OR
+  signi_pos <- df_model_tidy |>
+    dplyr::filter(conf_int_5 > 1)
+  
+  signi_neg <- df_model_tidy |>
+    dplyr::filter(conf_int_95 < 1)
+  
+  ## significance (stars for p-value)
+  df_model_tidy <- df_model_tidy %>%
+  mutate(significance = case_when(
+    p.value < 0.001 ~ "***",
+    p.value < 0.01 ~ "**",
+    p.value < 0.05 ~ "*",
+    TRUE ~ "" # No asterisk if p-value is not significant
+  ))
+  
+  ## plot
+  df_model_tidy |>
+    ggplot(aes(x = reorder(as_factor(new_labels), OR),
+               y = OR)) +
+    geom_point() +
+    geom_pointrange(aes(ymin = conf_int_5,
+                        ymax = conf_int_95))  +
+    geom_point(
+      data = signi_pos,
+      aes(x = reorder(as_factor(new_labels), OR),
+          y = OR),
+      colour = "red",
+      size = 2,
+     # shape = 25,
+      fill = "red"
+    ) +
+    geom_point(
+      data = signi_neg,
+      aes(x = reorder(as_factor(new_labels), OR),
+          y = OR),
+      colour = "green",
+      size = 2,
+    #  shape = 24,
+      fill = "green"
+    ) +
+    xlab(NULL) +
+    ylab("OR") +
+    ggtitle(title) +
+    geom_hline(
+      yintercept = 1,
+      colour  = 'darkred',
+      linetype = "dashed"
+    ) +
+ #   geom_text(aes(label = paste(significance), y = OR * 1), ..., check_overlap = TRUE, size = 4) +
+    coord_flip() +
+    painr::theme_individual() -> plot
+  
+  return(plot)
+  
+}
+
+## nest data to figure
+results_nested <- results |>
+  group_by(fig) |>
+  nest()
+
+plot_model_results(
+  results_nested$data[[3]],
+  title = "test"
+)
+
+results_nested$titles <- c(
+  "Univariate continuous",
+  "Univeriate categorical",
+  "Multivariate backward")
+
+## add figures
+plot_A <- plot_model_results(
+  df_model_tidy = results_nested$data[[1]],
+  title = results_nested$titles[[1]],
+  hjust = 0,
+  vjust = 0.05
+)
+plot_A <- plot_A + painr::theme_individual()
+plot_A
+
+
+## add figures
+data_B <- results_nested$data[[2]] |> dplyr::filter(term != "work_satisfaction3", term != "work_happiness3")
+
+plot_B <- plot_model_results(
+  df_model_tidy = data_B,
+  title = results_nested$titles[[2]],
+  hjust = 0,
+  vjust = 0.05
+)
+plot_B <- plot_B + painr::theme_individual() 
+
+## add figures
+plot_C <- plot_model_results(
+  df_model_tidy = results_nested$data[[3]],
+  title = results_nested$titles[[3]],
+  hjust = -1.6,
+  vjust = 0.06
+)
+plot_C <- plot_C + painr::theme_individual()
+
+```
+
+```{r}
+## panel
+panel_1_paper <- cowplot::plot_grid(
+  plotlist = list(plot_A, plot_B),
+  labels = c("A", "B"),
+  ncol = 3
+)
+panel_1_paper
+
+ggsave(
+  filename = here::here(
+    "img",
+    "paper",
+    "panel_1.svg"),
+  panel_1_paper,
+  width = 60,
+  height = 18,
+  units = "cm",
+  dpi = 300)
+
+
+ggsave(
+  filename = here::here(
+    "img",
+    "paper",
+    "figure_2.svg"),
+  plot_C,
+  width = 18,
+  height = 12,
+  units = "cm",
+  dpi = 300)
+
+```
+
+## Adding level info to figure
+```{r}
+#pak::pkg_install("ggpubr")
+
+cat_info <- labels_relevel |>
+  na.omit() |>
+  dplyr::select(new_name, level)
+
+cat_info_no_dups <- cat_info[!duplicated(cat_info),] |>
+  dplyr::select(new_name, level) |>
+  rename(Variable = new_name,
+         Choice = level) |>
+  arrange(Variable)
+
+info_table <- ggtexttable(cat_info_no_dups, rows = NULL, 
+                        theme = ttheme())
+
+```
+
+## GGpubr panel
+```{r}
+panel_arrange <- ggarrange(
+  plot_A,
+  plot_B,
+  plot_C,
+  info_table,
+          ncol = 4,
+          heights = c(1, 1, 1, 1)) |>
+  ggexport(filename = here::here(
+    "img",
+    "paper",
+    "panel_with_table.svg"),
+  width = 17,
+  height = 6,
+  units = "cm",
+  dpi = 300)
+```
+
+## Area Under the receiver operating characteristic Curve (AUC)
+The discriminative ability of the prognostic model will be determined based on the Area Under the receiver operating characteristic Curve (AUC), calibration will be assessed using a calibration plot"
+
+```{r}
+## Prediction of the probabilities based on our model
+predicted_probs <- predict(backward_model, newdata = imputed_with_attitude_and_chronic, type="response")
+
+# Calculation and plotting the Area Under the receiver operating
+# characteristic Curve (AUC).
+roc_obj <- roc(imputed_with_attitude_and_chronic$is_painint_chronic, predicted_probs)
+auc(roc_obj)
+
+plot(roc_obj, col = "blue", lwd = 2)
+lines(roc_obj, ci = TRUE, col = "red")
+
+ci <- ci.auc(roc_obj)
+print(ci)
+
+# Add the AUC
+text(0.7, 0.2, paste("AUC =", round(auc(roc_obj), 2)), col = "blue")
+
+
+# Plotting the calibration curve
+
+# Measuring the predicted probability and the observed responses and creating
+# a dataframe.
+# Grouping predicted probabilities in deciles and calculation of the
+# average predicted probabiloty and actual percentage per group and plot the
+# calibration curve.
+  
+  predicted_probs <- predict(backward_model, newdata = imputed_with_attitude_and_chronic, type = "response")
+  observed_outcome <- as.numeric(imputed_with_attitude_and_chronic$is_painint_chronic)
+  
+  calibration_data <-
+    data.frame(Predicted = predicted_probs, Observed = observed_outcome)
+  
+  calibration_data <- data.frame(Predicted = predicted_probs, Observed = observed_outcome)
+  calibration_data$PredictedGroup <- cut(calibration_data$Predicted, breaks = seq(0, 1, by = 0.25), include.lowest = TRUE)
+  
+  grouped_data <- aggregate(cbind(Observed, Predicted) ~ PredictedGroup, data = calibration_data, FUN = function(x) c(Mean = mean(x)))
+  names(grouped_data)[2:3] <- c("Mean_Predicted", "Mean_Observed")
+  
+  ## TODO: cleanup calibrarion plot, vierkant maken, schaal x en y as gelijk maken
+  
+  calibration_plot <- ggplot(grouped_data, aes(x = Mean_Predicted, y = Mean_Observed)) +
+      geom_point() +
+      geom_line(data = data.frame(lowess(grouped_data$Mean_Predicted, grouped_data$Mean_Observed)), aes(x = x, y = y), color = "blue") +
+      geom_abline(intercept = 0, slope = 1, color = "red", linetype = "dashed") +
+      labs(x = "Mean Predicted Probability", y = "Mean Observed Probability", title = "Calibration Plot") +
+      theme_minimal()
+  
+  print(calibration_plot)
+```
+
+## Calibration curve
+
+Results: 
+The calibration plot (figure X) revealed acceptable alignment for patients not developing chronic pain. However, for patients developing chronic pain, the model tended to overestimate the risk. Despite this, the calibration remained within acceptable limits.
+
+## Formally testing the goodness-of-fit using the Hosmer and Lemeshow.
+```{r}
+predicted_probs <- predict(backward_model, newdata = imputed_with_attitude_and_chronic, type = "response")
+
+gof <- hoslem.test(imputed_with_attitude_and_chronic$is_painint_chronic, predicted_probs, g = 10)
+
+gof |> broom::tidy()
+
+x_sqrd <- gof$statistic[1] 
+p_value_gof <- gof$p.value[1]
+```
+
+Results: 
+X-squared = `r x_sqrd`, DF = 8, p-value = `r p_value_gof` 
+We found a high p-value suggests there's no statistically significant difference between observed and expected frequencies, indicating
+that the model fits the data well.
+
+
+The model fit will be quantified as Nagelkerke’s R2
+```{r}
+nagelkerkeR2 <- function(model) {
+  LL_0 <- as.numeric(logLik(update(model, .~1)))
+  LL_f <- as.numeric(logLik(model))
+  R2 <- (1 - exp((2/nrow(model$data))*(LL_0 - LL_f))) /
+    (1 - exp(2*LL_0/nrow(model$data)))
+  return(R2)
+}
+
+nagelkerkeR2(backward_model)
+```
+
+Result: R2 0.3076664 
+Internal validation will be performed using bootstrap resampling to estimate the optimism-corrected AUC and to yield a measure of overfitting (i.e., the shrinkage factor). The shrinkage factor (a constant between 0 and 1) will be used to multiply the regression coefficient by. Generally, regression coefficients (and resulting predictions) are too extreme in case of overfitting, which is counteracted by the shrinking of regression coefficients.
+
+```{r}
+set.seed(12345)
+
+formula(backward_model)
+
+# Respecifying the model with the LRM function and internal validate our model.
+new_model <- lrm(formula(backward_model), data=imputed_with_attitude_and_chronic, x=TRUE, y=TRUE)
+
+validation_result <- validate(new_model, method="boot", B=1000)
+
+print(validation_result)
+```
+
+Calculating of the corrected AUC.
+Extracting the original and optimism values from the validation result
+Calculating of the corrected Dxy
+Converting Dxy to AUC
+Calculating the corrected AUC
+
+```{r}
+
+original_dxy <- validation_result["Dxy", "index.orig"]
+optimism_dxy <- validation_result["Dxy", "optimism"]
+
+corrected_dxy <- original_dxy - optimism_dxy
+print(corrected_dxy)
+
+original_auc <- original_dxy / 2 + 0.5
+optimism_auc <- optimism_dxy / 2
+
+corrected_auc <- original_auc - optimism_auc
+print(corrected_auc)
+
+```
+
+Result: the corrected AUC = 0.8264617 The difference from the original AUC was 0.86 on the entire dataset. The corrected is not much lower and the overfitting is therefore relatively low. The model appears to have a robust discriminatory ability.
+
+
+Show the corrected AUC in the figure made earlier.
+roc_obj <- roc(observed_outcome, predicted_probs)
+plot(roc_obj, main="ROC Curve", col="blue", lwd=2)
+Voeg de originele AUC toe als tekst
+text(0.3, 0.3, labels=sprintf("Original AUC: %0.2f", auc(roc_obj)), adj=c(0,1))
+Voeg de gecorrigeerde AUC toe als tekst
+text(0.3, 0.2, labels=sprintf("Corrected AUC: %0.2f", 0.8296583), adj=c(0,1), col="red")
+
+
+Multiplying all the coefficients of our model by the shrinkage factor 'sf',
+and estimate the intercept, so that the average estimated probability is equal
+to the frequency of the outcome.
+
+predictiemodel <- round(new_model$coef*0.8274, 3)
+predictiemodel.lp <- cbind(new_model$x) %*% predictiemodel[-1]
+
+predictiemodel["Intercept"] <- round(lrm.fit(y=imputed_with_attitude_and_chronic$is_painint_chronic, offset=predictiemodel.lp)$coef, 3)
+
+print (predictiemodel)
+
+
+Checking whether the internally validated model gives the same average
+estimated probability as the average outcome (calibration in the large)
+
+predictiemodel.linearpredictor <- predictiemodel[1] + new_model$x %*% predictiemodel[-1]
+
+Calculating the linear predictor for everyone in the database.
+Creating a function to calculate the risk: 1/(1+exp(-(LP)))
+Calculating the probability for everyone in the database and average probability.
+
+risk <- function(lp)
+
+{risk <- 1/(1 + exp(-lp))}
+
+risk.predicted <- risk(predictiemodel.linearpredictor)
+
+mean(risk.predicted)
+
+mean(imputed_with_attitude_and_chronic$is_painint_chronic)
+
+Result = 0.1028 and 0.1028.
+The model is well calibrated in the large.
+
+## Intermezzo - Linear Predictors
+The patient is a female who reports a pain intensity of 9 on the Numeric Pain Rating Scale (NPRS). She does experience pain in other body regions. Since the onset of neck pain, she has also developed headaches, which were not present before the neck pain. She is currently not working. Her anticipated duration of symptoms is rated as 8 on a 0-10 scale, and she expresses significant concern about her condition, also scoring an 8 on a 0-10 scale. Her confidence in the therapy is high, rated at 9 on a 0-10 scale. She experiences a relatively high level of stress, scoring 18 on a 0-21 scale. She feels that she understands her pain well, rating this understanding as 9 on a 0-10 scale, and a high score in self-efficacy, with a score of 12 on a 0-12 scale.
+
+Linear predictor (LP) = -5.782 + (0.468*sex[female = 1]) + (0.227*pain intensity) + (0.734*pain in different body regions) + (0.726*headache(s) since the neck pain) + (-0.070*headache(s) before the neck pain) + (0.384*potential to self-modify posture work) +  (1.311*work status) + (0.184*duration beliefs) + (0.108*concerns) + (-0.204*treatment beliefs) + (0.083*distress) + (-0.142*identity beliefs) + (0.109*self-efficacy).
+
+Probability of chronicity = 1/(1 + exp(-LP)) 
+
+Patient X
+Linear predictor (LP) = -5.782 + (0.468*1) + (0.227*7) + (0.734*1) + (0.726*1) + (-0.070*0) + (0.384*0) + (1.311*1) + (0.184*8) + (0.108*8) + (-0.204*9) + (0.083*18) + (-0.142*9) + (0.109*12) = 1.07
+
+Probability of chronicity = 1/(1 + exp(1.07)) = 74.5%

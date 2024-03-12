@@ -1,0 +1,558 @@
+# Imputation of missing values
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Packages
+```{r, packages}
+library(tidyverse)
+library(mice)
+```
+
+## Data
+Because we need to work with multiple versions of the dataset, I decided to change the data structure into a list.
+```{r, load_data}
+## raw data
+df_raw <- haven::read_sav(
+  here::here(
+    "data-raw",
+    "D010",
+    "SPSS basis File results.sav"
+  )
+)
+
+## non-imputed - subset
+df_non_imp_select <- readr::read_rds(
+  here::here(
+    "data",
+    "df_non_imp_select.rds"
+  )) |> as_tibble()
+
+names(df_non_imp_select)
+
+data <- list(
+  data_raw = df_raw,
+  data_subset = df_non_imp_select
+)
+
+rm(df_raw, df_non_imp_select)
+
+## add metadata
+attr(data$data_subset, "meta") <- "Data variable subset from raw data [file: './data-raw/D010/SPSS basis File results.sav']. Dataframe stored on disk as [file: './data/df_non_imp_select.rds']"  
+
+attr(data$data_raw, "meta") <- "Raw unprocessed data as recieved from supplier [file: './data-raw/D010/SPSS basis File results.sav']" 
+
+## get attributes
+attributes(data$data_raw)
+```
+
+## Prepare datset for imputing
+
+### Split dataset for work relations
+```{r}
+## copy datasets
+data$data_to_impute <- data$data_subset
+names(data)
+
+data_to_impute <- data$data_to_impute
+names(data_to_impute)
+
+#data_does_work <- data_to_impute |>
+#  dplyr::filter(work == 1)
+#data_does_not_work <- data_to_impute |>
+#  dplyr::filter(work == 2 | is.na(work))
+
+## Remove work related vars from data_does_not_work
+#work_vars_ind <- stringr::str_detect(
+#  string = names(data_does_not_work),
+#                 pattern = ".*work.*")
+
+#work_vars <- names(data_does_not_work)[work_vars_ind]
+
+#data_does_not_work <- data_does_not_work |>
+#  dplyr::select(-c(all_of(work_vars)))
+
+```
+
+
+```{r}
+## remove ID var 'patient_code'
+data$data_to_impute <- data$data_to_impute |>
+  select(-patient_code)
+
+
+## store datasets in list named data_to_impute
+#data$data_work_split <- list(
+#  not_working = data_does_not_work, 
+#  working = data_does_work)
+
+#names(data)
+#names(data$data_work_split)
+```
+
+## Convert all categorical vars to factors
+
+```{r, data_distributions}
+## which are factors and which are continuous vars? we exclude patient code from imputation, for it is a zero variance variable
+should_be_factors <- c(
+  "coping",
+  "sleep_quality",
+  "alcohol",
+  "smoking",
+  "physical_activity",
+  "posture_work",
+  "work_satisfaction",
+  "work_happiness",
+  "work",
+  "headache",
+  "wide_spread_pain",
+  "recurrence",
+  "education_level",
+  "education",
+  "sex"
+)
+
+## copy dataset
+data$data_preprocessed <- data$data_to_impute
+
+## convert the categoricals to factors
+data$data_preprocessed <- data$data_preprocessed %>%
+  mutate(across(should_be_factors, as_factor))
+
+## check datatypes
+map_df(
+  .x = data$data_preprocessed,
+  .f = class
+  ) |> 
+  t() |>
+  enframe(name = "var_name", value = "var_type") -> var_types
+```
+
+## Panel with all distributions
+```{r, distributions_panel, fig.height=30, fig.width=30}
+##  function to plot a vectors histogram
+source(
+  here::here(
+    "R",
+    "plot_distro.R"
+  )
+)
+
+ind_num <- map_lgl(
+  .x = data$data_preprocessed,
+  .f = is.numeric
+)
+
+num_vars <- names(data$data_preprocessed)[ind_num]
+
+## create histogram to establish var type / data distribution
+list_histograms <- map2(
+  .x = data$data_preprocessed[ ,ind_num],
+  .y = num_vars,
+  .f = plot_distro
+)
+
+list_histograms
+
+cowplot::plot_grid(plotlist = list_histograms)
+ggsave("distros.png", height = 40, width = 40, dpi = 300)
+ggsave("distros.svg", height = 40, width = 40, dpi = 300)
+```
+
+## Imputation of missing values
+
+I recommend taking a look at the [`{naniar}` package](https://cran.r-project.org/web/packages/naniar/vignettes/getting-started-w-naniar.html) instead
+
+And [this tutorial](https://www.youtube.com/watch?v=ghmU7nodhSM) gave me much insights.
+
+First, let's find the continuous variables
+Let's get an idea of the distributions for all variables. We will use an iteration to do this. I will use the long/stached version of the dataset to achiev this.
+
+## Checking Missing Completely at Random (MCAR)
+https://bookdown.org/mwheymans/bookmi/missing-data-evaluation.html#missing-data-evaluation-in-r
+
+From the analysis above we can conclude that some of the variables:
+are on a continuous or discrete scale. We need to select those to assess MCAR.
+
+## Missingness pattern
+```{r}
+md.pattern(data$data_preprocessed) ## figure does not scale properly, TODO: needs a fix
+```
+
+## Define predictors to include in the imputations
+```{r, selecting_numeric_vars}
+
+## select continuous and discrete
+var_selection <- c(
+  # "patient_code", 
+  "sex",
+  "age",
+  "education",
+  "education_level",
+  "pain_intensity",
+  "duration",
+  "recurrence",
+  "wide_spread_pain",
+  "headache",
+  "disability",
+  "work",
+# "work_happiness",
+# "work_satisfaction",
+# "posture_work",
+  "physical_activity",
+  "smoking",
+  "alcohol",
+  "bmi",
+  "sleep_quality",
+  "catastrophizing",
+  "duration_beliefs",
+  "concerns",
+  "treatment_beliefs",
+  "depression",
+  "kinesiophobia",
+  "distress",
+  "coping",
+  "identity_beliefs",
+  "hypervigilance",
+  "self_efficacy",
+  "relation",
+  "painint_6weeks",
+  "painint_3months",
+  "painint_6months"
+  )
+
+intersect(names(data$data_preprocessed), var_selection)
+
+library(naniar)
+mcar_test(data = data$data_preprocessed[, var_selection])
+```
+
+From `?mcar_test`:
+Use Little's (1988) test statistic to assess if data is missing completely at random (MCAR). The null hypothesis in this test is that the data is MCAR, and the test statistic is a chi-squared value. 
+
+Based on the fact the p-value here is not < 0.05, we can conclude that we cannot reject the NULL hypothesis, thus concluding that the missingness in the data is MCAR.
+
+### Inspect the unique values of some of the variables
+```{r, unique_values, eval=FALSE}
+df_select_compare <- data$data_preprocessed |>
+  dplyr::select(
+    age,
+    depression,
+    duration,
+    pain_intensity
+  )
+
+map(
+  .x = df_select_compare, 
+  .f = unique
+  )
+
+
+df_select_compare_fct <- df_select_compare |>
+  mutate(
+    age = as_factor(age),
+    depression = as_factor(depression),
+    duration = as_factor(duration)
+  )
+  
+  
+map(
+  .x = df_select_compare_fct, 
+  .f = levels
+  )
+
+map(
+  .x = df_select_compare_fct, 
+  .f = unique
+  )
+
+rm(df_select_compare, df_select_compare_fct)
+
+```
+
+## Using the MICE package for imputation of missing values
+Before we proceed with MICE, we need to remove the SPSS labels from the dataframe (see: https://stackoverflow.com/questions/62395629/error-t-haven-labelled-not-supported-while-attempting-mice-package-in-r)
+
+## Create predictorMatrix for MICE
+
+When we want to create a predictionMatrix automatically with a threshold for low correlating variables
+
+```{r, preditor_matrix_imp}
+names(data$data_preprocessed)
+pred <- quickpred(data$data_preprocessed, minpuc = 0.5, include = var_selection)
+
+rownames(pred) <- colnames(pred)
+pred <- pred |> as.matrix()
+pheatmap::pheatmap(pred, cluster_rows = FALSE, cluster_cols = FALSE)
+
+```
+
+## Calculate percentage missing data and cases
+When we want to have all variables in the dataset available for imputation
+
+One of the hyperperameters for the 'mice' function is `m`, the number of imputations: this should be at least the percentage of missing cases in the data.
+
+Let's calulate
+
+```{r}
+## manual calculation
+n_na <- sum(is.na(data$data_preprocessed))
+n_obs <- nrow(data$data_preprocessed) * ncol(data$data_preprocessed)
+
+perc_mssing <- 100 * (n_na/n_obs)
+perc_mssing |> round(1)
+
+## using naniar package / visual confirmation is always good
+vis_miss(data$data_preprocessed)
+
+## missing cases
+pct_missing_cases <- naniar::prop_miss_case(data$data_preprocessed) * 100
+```
+
+So `r perc_mssing`% of the total data is missing. But `r pct_missing_cases`% of the cases has at least one missing value. We set the `m` parameter to 75   
+
+## Running the imputations
+
+```{r, run_imputations, cache=TRUE}
+df_inspect <- data$data_preprocessed
+
+## get data types
+map_df(
+  df_inspect,
+  class
+) |> 
+  t() |>
+  as_tibble() -> datatypes
+
+
+levels(df_inspect$physical_activity)
+df_inspect$physical_activity |> unique()
+
+levels(df_inspect$work)
+df_inspect$work |> unique()
+
+levels(df_inspect$work_happiness)
+df_inspect$work_happiness |> unique()
+
+levels(df_inspect$posture_work)
+df_inspect$posture_work |> unique()
+
+
+future::plan("multisession", workers = pmin(2L, future::availableCores()))
+data$mult_imp <- futuremice(
+  data$data_preprocessed, 
+  m = 75,
+  maxiter = 10,
+  parallelseed = 123,
+  predictorMatrix = pred
+  )
+```
+
+## Inspect the imputations
+
+```{r}
+data$mult_imp
+```
+
+Printing the `mult_imp` object to the console will give you the used methods for each variable:
+
+**It is suggested to let the MICE function decide the method and not change it.**
+see also: https://stats.stackexchange.com/questions/204313/how-to-choose-which-imputation-to-use-to-replace-missing-values
+
+## Check convergence
+```{r}
+plot(data$mult_imp)
+```
+
+From these plots we see that there is no evident trend in the estimation of the means over iterations, for any of the imputed variables. Therefore we can conclude that convergence was achieved and that the max. iteration of 10 is a valid setting for this imputation run.
+
+## Check for plausible values of imputation
+```{r, eval=FALSE}
+# svg(filename = here::here("img", "stripplot.svg"))
+stripplot(data$mult_imp)
+dev.off()
+```
+
+## Checking the used predictor matrix
+```{r}
+future::plan("sequential")
+## inspect the predictorMatrix
+pm_df <- data$mult_imp$predictorMatrix |>
+  as.data.frame()
+  
+rownames(pm_df) <- colnames(pm_df)
+
+library(pheatmap)
+pheatmap(pm_df, cluster_rows = FALSE, cluster_cols = FALSE)
+```
+
+## Look at the datasets
+Let's look at the first data with imputed data
+
+### Running multiple regressions
+
+```{r, pooled_imp_results, eval=FALSE}
+reg_multimp <- with(data = data$mult_imp, lm(pain_intensity ~ sex * age))
+
+summary(reg_multimp$analyses[[1]])
+plot(reg_multimp$analyses[[1]])
+
+#pool
+reg_pooled <- pool(reg_multimp)
+#analyse pooled results - does the confidence interval include both directions? 
+summary(reg_pooled, conf.int = TRUE, conf.level = 0.95) |> 
+  as_tibble() |>
+  janitor::clean_names() |>
+  dplyr::filter(term != "(Intercept)") |>
+  ggplot(
+    aes(x = term,
+        y = estimate)
+  ) +
+  geom_point(colour = "red", size = 2) +
+  geom_errorbar(aes(ymin=estimate-x2_5_percent, ymax=estimate+x97_5_percent), width=.2,
+                 position=position_dodge(.9)) +
+  ylim(c(-0.5, 0.5)) +
+  theme_bw()
+
+```
+
+### Complete the dataset with this imputation
+```{r, confirm_imputed}
+#create imputed data to work with
+data$data_imputed <- complete(data$mult_imp, 1) |>
+  as_tibble()
+  
+naniar::vis_miss(data$data_imputed)
+
+## add atttributes to imputed dataframe
+attr(data$data_imputed, "meta") <- "Imputed data. Input data is data variable subset from data [file: './data/df_non_imp_select.rds']. Dataframe stored on disk as [file: './data/df_imp_select.rds']"  
+
+## remove clutter
+rm(df_imp, df_multimp, reg_multimp, reg_pooled, pm_df, pred, var_selection, list_histograms)
+
+```
+
+### Visualize the imputations
+```{r, visualize_imputations, eval=FALSE}
+# Load the necessary libraries
+library(ggplot2)
+
+# Assuming 'data_with_missing' is your dataset with missing values
+# and 'data_with_imputed' is your dataset with imputed values
+
+## dummies
+data_missing = data$data_preprocessed
+data_imputed = data$data_imputed
+#variable_name = names(data$data_preprocessed)[33]
+
+
+## raw data plot
+# Plot for dataset with imputed values
+plot_missingness_points <- function(df, var){
+  df |>
+    ggplot(aes(x = var, y = value)) +
+    geom_point(aes(colour = is_missing), position = "jitter", shape = 1) +
+    ggtitle(var)
+}
+
+#df = joined - distro function
+plot_missingness_distro <- function(df, var){
+  df |>
+    ggplot(aes(x = value)) +
+    geom_density(aes(colour = var)) +
+    ggtitle(var) +
+    facet_wrap(~var)
+}
+
+#plot_missingness_distro(df = df)
+
+compare_datasets <- function(
+    variable_name,
+    data_missing, 
+    data_imputed, 
+    plot_function) {
+  # Create a bar plot to compare the distribution of the specified variable
+  
+  # Plot for dataset with missing values
+  joined <- tibble(
+    missing = data_missing[[variable_name]],
+    imputed = data_imputed[[variable_name]]
+    
+  ) |>
+    mutate(
+      is_missing = is.na(missing)
+    ) |>
+    pivot_longer(
+      c(missing, imputed), names_to = "var", values_to = "value")
+    
+  plot_missingness <- plot_function(joined, var = variable_name)
+    
+  return(plot_missingness)
+  
+}
+
+var_names_preprocessed <- names(data$data_preprocessed) 
+var_names_imputed <- names(data$data_imputed)
+var_names_iteration <- var_names_preprocessed
+
+map(
+  .x = var_names_iteration,
+  .f = compare_datasets,
+  data_missing = data$data_preprocessed,
+  data_imputed = data$data_imputed,
+  plot_function = plot_missingness_points
+) -> plot_points_missingness_list
+
+
+names(plot_points_missingness_list) <- var_names_iteration
+plot_points_missingness_list
+
+map(
+  .x = var_names_iteration,
+  .f = compare_datasets,
+  data_missing = data$data_preprocessed,
+  data_imputed = data$data_imputed,
+  plot_function = plot_missingness_distro
+) -> plot_distros_missingness_list
+
+
+names(plot_distros_missingness_list) <- var_names_iteration
+plot_distros_missingness_list
+
+
+```
+
+## Skimming the data
+```{r, skimr}
+data$data_imputed %>% 
+  skimr::skim(
+    pain_intensity, 
+    sex, 
+    age, 
+    painint_6weeks, 
+    alcohol,
+    painint_3months, 
+    painint_6months
+    ) 
+```
+
+
+## Add `attitude`
+```{r}
+data$data_imputed$attitude <- data$data_raw$Attitude
+# TODO: create merge based on patient code
+data$data_imputed <- data$data_imputed |> sjlabelled::remove_all_labels()
+data_final <- data$data_imputed
+
+naniar::vis_miss(data$data_imputed)
+```
+
+## Save to disk
+```{r}
+data |>
+  write_rds(here::here("data", "data-list.rds"))
+
+write_rds(data$data_imputed, here::here("data", "df_imputed.rds"))
+```
+

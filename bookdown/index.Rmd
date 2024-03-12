@@ -1,0 +1,84 @@
+---
+title: "Chronic neck pain - Data Analysis"
+author: "Marc A.T. Teunis & Martine Verwoerd"
+site: bookdown::bookdown_site
+output: 
+    bookdown::htm_book:
+        theme: united
+        css: style.css
+        number_sections: true
+        anchor_sections: false
+        split_by: chapter
+        config:
+            sharing:
+                 github: yes
+                 facebook: no
+                 twitter: no
+                 all: no
+            toc:
+                collapse: section
+                scroll_highlight: yes
+                before: <li class="toc-logo"><a href="./"></a> <h4 class=".paddingtitel ">painr</h2></li>
+header-includes:
+  - \usepackage{fontawesome5}
+---
+
+```{r include = FALSE}
+# Define the web addresses for the course
+# run as needed, not included automatically because of stuff (aka git complains)
+githuburl <- "https://github.com/uashogeschoolutrecht/painr"
+readerurl <- "https://rstudio-connect.hu.nl/painr/"
+email <- "marc.teunis@hu.nl"
+
+save(
+    list = c("githuburl", "readerurl", "email"), 
+    file = "course_urls.RData")
+```
+
+```{r include = FALSE, eval = TRUE}
+# set CSS for objects
+knitr::opts_chunk$set(
+  class.source="Rchunk", 
+  class.output="Rout", 
+  warning = FALSE,
+  error = FALSE,
+  message = FALSE)
+```
+
+# Introduction {-}
+
+General intro to the project and the data
+
+Download the source code [`r icons::fontawesome("github")`](https://github.com/uashogeschoolutrecht/painr)
+
+**Martine -> please write a general introduction on the project here: --->
+...
+
+## Data Flow
+The following diagram discribes how data files and Rmd scripts are connected. Raw data input file lives in `./data-raw`, data output files are written to `./data` and the `.Rmd` files live in ./Rmd.
+
+```{r}
+source(
+  here::here(
+    "inst",
+    "data_flow.R"
+  )
+)
+data_flow
+```
+
+Please also provide attribution to R itself
+```{r}
+citation()
+```
+
+The `{tidyvese}`
+```{r}
+citation(package = "tidyverse")
+```
+
+`{tidymodels}`
+```{r}
+citation(package = "tidymodels")
+```
+

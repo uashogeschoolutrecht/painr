@@ -1,0 +1,475 @@
+# Exploratory Data Analysis - Raw Data
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  warning = FALSE,
+  error = FALSE,
+  message = FALSE)
+```
+
+## Suggested improvements of the code
+
+- Spend time learning the R basics: [this is a very good resource - R for Data Science by Grolemund and Wickham](https://r4ds.hadley.nz/). When you would like to learn more on stastistics go here [Modern Dive](https://moderndive.com/) or here [Discovering statistics using R- by Andy Field](https://www.discovr.rocks/)
+
+-   Avoid repetition, this is where the power of R is greatest; write or use functions and iterations to avoid duplication in the code. I will show an example
+
+-   Avoid 'Dutch' language in code and comments; If you would like to share your code (e.g. for asking help or as annex to a publication - yes, you should do that for reproducibility reasons - then having Dutch language scattered in the code will need a translation)
+
+-   Use `.qmd` (RStudio Quatro - Markdown) for writing out an analysis. `.R` are for function definitions, or scripts that handle a single job (e.g. the cleaning of a dataset and writing out the results). Using a `literate programming` format (`.qmd`) enables the mix between code, its output and contextual narratives and text. It also takes formatting into account. You can e.g. use `LaTeX` formulas such as $y=ax+b$ (the linear) or $y=ax+bx^2+c$ (the quadratic). You can use HTML markup such as `{=html}     <mark>This is a Highlight</mark>` . You can even write your thesis in this platform. See [this Github page](#0) for an example and more info. Learning Markdown is not so difficult and the syntax is easy to remember. See [for a cheatsheet](https://res.cloudinary.com/dyd911kmh/image/upload/v1676540721/Marketing/Blog/Quarto_Cheat_Sheet.pdf) 
+
+ - I recommend spending a bit more time on exploration of the data before diving into the formal statistics. Exploratory Data Analysis is important because it will reveal patterns in the data you were unaware of. It usually also indicated errors in the data (for example coding or data entry errors, or data types that are incorrect upon parsing the dataset into R). For a good resource: [see chapter 7](https://r4ds.had.co.nz/exploratory-data-analysis.html) of 'R For Data Science' by Garret Grolemund & Hadley Wickham.
+ 
+ - For a general workflow on how to inspect and glimpse missingness in the data, see [this blogpost](https://towardsdatascience.com/smart-handling-of-missing-data-in-r-6425f8a559f2)
+ 
+ - For large mutations on the data: check the outcome for errors and inconsistencies. Generating visulaizations can help spotting weird things in the data. For instance if you create a histogram of data that has one large outlier it will look like this:
+```{r}
+library(tidyverse)
+df_demo <- tibble::tibble(x = c(rnorm(999, mean = 10, sd = 4), 200))
+df_demo |>
+  ggplot2::ggplot(aes(x = x)) + ggplot2::geom_histogram(bins = 100)
+```
+
+Can you spot the outlier? 
+ 
+ - spend time to inspect and correct data types of variables. This is particularly important when you want to do any kind of modelling
+
+## Packages
+
+```{r}
+library(tidymodels)
+library(tidyverse)
+library(psfmi)
+library(miceadds)
+library(micemd)
+library(mitools)
+library(mice)
+library(naniar)
+library(tidymodels)
+library(skimr)
+#library(norm)
+## warning
+## This package has some major limitations
+#(for example, it does not work reliably when
+#  the number of variables exceeds 30),
+#and has been superseded by the norm2 package.
+#detach("package:VIM", unload = TRUE)
+# I recommend against using the attach() or detach() functions in any form in R
+# I replaced the norm for norm2 package because of the above warning.
+#library(norm2)
+library(VIM)
+library(finalfit)
+library(haven)
+```
+
+## Load data
+```{r}
+df_raw <-
+  read_sav(
+    here::here(
+      "data-raw",
+      "D010",
+      "SPSS basis File results.sav"
+      )
+    ) |> 
+  janitor::clean_names()
+
+```
+
+## First glimpse at missingness
+```{r}
+naniar::vis_miss(df_raw)
+## that is unexpected: patient code has a missing value!! -> fixed in new dataset
+## filter the data
+## add index
+df_raw <- df_raw |>
+  mutate(index = 1:nrow(df_raw))
+
+#ind <- is.na(df_raw$patient_code)
+#df_raw[ind,]$index
+
+```
+
+**NO LONGER AN ISSUE**
+So row 410 is the one with the NA in the patient code. This missing value might give us problems in tracebility. I am going to remove that observation, using the `ind` logical vector.
+
+```{r}
+#df_raw <- df_raw[!ind,]
+```
+
+## Select relevant variables
+
+```{r}
+df_select <- df_raw |>
+   dplyr::select(-c(
+    # patient_code,
+     attitude,
+     pt_code,
+     coping_active,
+     coping_passive,
+     percentage_active_coping,
+     percentage_passive_coping,
+     pain_6weeks,
+     pain_categorized_6weeks,
+     pain_3months,
+     pain_catagorized_3months,
+     pain_6months,
+     pain_categorized_6months,
+     index)
+     ) |>
+  rename(sex = seks)
+
+df_select
+names(df_select)
+#DT::datatable(df_select)
+```
+
+## Exploratory Data Analysis
+
+### Some exploratory plots
+Different flavors of graph types
+```{r}
+## males / females
+df_select |>
+  group_by(sex) |>
+  tally() |>
+  ggplot(aes(x = as_factor(sex), y = n)) +
+  geom_col(show.legend = FALSE)
+
+## age
+df_select |>
+  group_by(sex) |>
+  summarise(mean_age = mean(age, na.rm = TRUE)) |>
+  ggplot(aes(x = as_factor(sex), y = mean_age)) +
+  geom_col(show.legend = FALSE)
+
+## boxplot  
+df_select |>
+  group_by(sex) |>
+  ggplot(aes(x = as_factor(sex), y = age)) +
+  geom_boxplot(show.legend = FALSE)
+
+## age distribution
+df_select |>
+  group_by(sex) |>
+  ggplot(aes(x = age)) +
+  geom_density(aes(colour = as_factor(sex))) +
+  theme_bw()
+
+## pain intensity
+df_select |>
+  group_by(sex) |>
+  ggplot(aes(x = pain_intensity)) +
+  geom_density(aes(colour = as_factor(sex)), size = 1) +
+  theme_bw()
+
+## dotplots
+df_select |>
+  group_by(sex, smoking) |>
+  ggplot(aes(x = as_factor(sex), y = disability)) +
+  geom_point(
+    aes(colour = as_factor(smoking)), 
+    position = "jitter", 
+    shape = 1, 
+    alpha = 0.8) +
+  theme_bw() +
+  xlab(NULL)
+
+## work
+df_select |>
+  group_by(work) |>
+  tally()
+
+```
+
+### Missing values
+Some overall missingness inspections
+```{r}
+# Are there missing values in the dataset?
+any_na(df_select)
+# How many?
+n_miss(df_select)
+prop_miss(df_select)
+# Which variables are affected?
+df_select %>% 
+  is.na() %>% 
+  colSums() |> 
+  enframe() |> 
+  ggplot(aes(x = reorder(as_factor(name), value), y = value)) +
+    geom_point() +
+    coord_flip() +
+  xlab("variable in data") +
+  ylab("Total number of NA")
+
+```
+
+### Get number of missings per variable (n and %)
+```{r}
+miss_var_summary(df_select)
+miss_var_table(df_select)
+# Get number of missings per observation (n and %)
+miss_case_summary(df_select)
+miss_case_table(df_select)
+```
+
+### Some more visuals on missingness
+```{r}
+gg_miss_var(df_select)
+```
+
+### Is missness, mcar (missing cases at random)
+```{r}
+naniar::vis_miss(df_select) + 
+  theme(axis.text.x = element_text(angle=80)) +
+  coord_flip()
+```
+
+Is the presence of missing values related with missings in other variables?
+```{r}
+gg_miss_upset(df_select)
+```
+
+From this plot we see that much of the missingness is not accross many variables. There are howver quite a number of cases (88) where missing cases are accross the vars `painint_3months_NA`, `painint_6months_NA` and `painint_6 weeks_NA`. This suggests some missingness not at randomm accross these variables and warrants a closer inspection. 
+
+From the [blog](https://towardsdatascience.com/smart-handling-of-missing-data-in-r-6425f8a559f2)
+
+If you had concrete hypothesis about the impact of the presence of missing values in a certain variable on a target variable, you can test it like this:
+
+```{r}
+# add a variable to the dataset that indicates the missingness of paininit_6weeks per observation
+df_select_test <- df_select %>%
+  mutate(missing_6weekspainit = is.na(painint_6weeks))
+  
+# get missing paininit_6weeks info for participants that have a therapist with "Biopsychosocial (value 2)" attitude
+missing_paininit_6weeks_male <- df_select_test %>%
+  filter(sex == 1) %>%
+  pull(missing_6weekspainit)
+  
+# get missing paininit_6weeks info for participants that have a therapist with "Biomedical (value 1)" attitude
+missing_paininit_6weeks_female <- df_select_test %>%
+  filter(sex == 2) %>%
+  pull(missing_6weekspainit)
+  
+#check whether the percentage of missings in missing_paininit_6weeks differ per level of sex.
+t.test(
+  missing_paininit_6weeks_male, 
+  missing_paininit_6weeks_female
+  )
+```
+There is no reason to assume (from this analysis) that the sex of a patient is correlated to having missing values for paininit_6weeks. Note that this is a hypothetical case, that might not make sense in this particular case, when you bring context into play.
+
+## Write table with all labels
+```{r}
+data_label <- t(as.data.frame(labelled::var_label(df_select))) 
+data_label
+
+df = df_select
+ind = 2
+## get labels and coding
+get_spss_coding <- function(ind, df){
+  
+  at <- attributes(df[[ind]])$labels |> enframe()
+  at <- map_df(
+    .x = at,
+    .f = as.character
+  )
+  ## get column name
+  col <- names(df[ind])
+  at$var_name <- col |> as.character()
+  
+  ## return df
+  return(at)
+  
+  }
+
+map_df(
+  .x = 1:ncol(df_select),
+  .f = get_spss_coding,
+  df = df_select
+) -> labelling
+labelling
+
+DT::datatable(labelling)
+
+## remove sps-labels
+df_select <- df_select |>
+  sjlabelled::remove_all_labels()
+
+```
+
+
+## Deal with 'work' variables
+
+"
+1.	Work and work-related questions 
+Work 1 = yes / 2 = no
+Wanneer variable “work” 2 is  dan worden “work_happiness”, “work_satisfaction” en “posture_work” = 3
+"
+
+```{r}
+df_select |>
+  dplyr::select(
+    work,
+    work_happiness,
+    work_satisfaction,
+    posture_work
+  ) -> df_work
+
+map_df(
+  .x = df_work,
+  unique
+)
+
+df_work |>
+  dplyr::filter(work == 2) |> naniar::vis_miss()
+
+
+df_select$work |> unique()
+df_select$work_happiness |> unique()
+df_select$work_satisfaction |> unique()
+df_select$posture_work |> unique()
+
+
+df_select <- df_select |>
+  mutate(
+    work_happiness = ifelse(
+      work == 2, 3, work_happiness 
+    )
+  )
+
+df_select <- df_select |>
+  mutate(
+    work_satisfaction = ifelse(
+      work == 2, 3, work_satisfaction
+    )
+  )
+
+df_select <- df_select |>
+  mutate(
+    posture_work = ifelse(
+      work == 2, 3, posture_work 
+    )
+  )
+
+## Check if NA's are replaced for "NOT-APPLICABLE
+df_work |>
+  dplyr::filter(work == 2) |> naniar::vis_miss()
+
+df_select |>
+  ggplot(
+    aes(
+      x = as_factor(work),
+      y = as_factor(work_happiness)
+    )
+  ) +
+  geom_point(position = "jitter", colour = "darkblue") +
+  toolboxr::rotate_axis_labels("x", angle = 90) -> work_plot_happy
+
+work_plot_happy
+
+df_select |>
+  ggplot(
+    aes(
+      x = as_factor(work),
+      y = as_factor(work_satisfaction)
+    )
+  ) +
+  geom_point(position = "jitter", colour = "darkblue") +
+  toolboxr::rotate_axis_labels("x", angle = 90) -> work_plot_satisfaction
+work_plot_satisfaction
+
+df_select |>
+  ggplot(
+    aes(
+      x = as_factor(work),
+      y = as_factor(posture_work)
+    )
+  ) +
+  geom_point(position = "jitter", colour = "darkblue") +
+  toolboxr::rotate_axis_labels("x", angle = 90) -> work_plot_posture
+work_plot_posture
+
+cowplot::plot_grid(
+  work_plot_happy,
+  work_plot_posture,
+  work_plot_satisfaction,
+  ncol = 1
+)
+
+
+```
+
+## Recode `physical_activity`
+
+2.	Physical activity aanpassen in basis file 
+1 = ik beweeg geen enkele dag per week
+2 = Ik ben 5 dagen of vaker actief per week
+3 = Ik zit hier precies tussen in 
+Waarbij dan de 1 en 3 == 1  (Not achieving the Dutch Healthy Exercise Norm)
+En 2 = 0  (Achieving the Dutch Healthy Exercise Norm )
+
+```{r}
+df_select$physical_activity |> unique()
+
+df_select <- df_select |>
+  mutate(
+    physical_activity_recoded = 
+      ifelse(
+        (physical_activity == 1 | physical_activity == 3),
+        1, 
+        physical_activity),
+    physical_activity_recoded = 
+      ifelse(
+        physical_activity == 2, 
+        0, 
+        physical_activity_recoded
+      
+    ) 
+  )
+
+
+df_select |>
+  ggplot(
+    aes(
+      x = as_factor(physical_activity),
+      y = as_factor(physical_activity_recoded)
+    )
+  ) +
+  geom_point(position = "jitter", colour = "darkblue") +
+  toolboxr::rotate_axis_labels("x", angle = 20)
+
+#levels(df_select$physical_activity |> as_factor())
+#df_select$physical_activity |> unique()
+#levels(df_select$physical_activity |> as_factor())
+#df_select$physical_activity_recoded |> unique()
+
+df_select$physical_activity <- df_select$physical_activity_recoded
+df_select <- df_select |>
+  dplyr::select(-physical_activity_recoded)
+#df_select$physical_activity <- droplevels(as_factor( df_select$physical_activity))
+
+```
+
+## Write subsetted data to disk
+```{r}
+
+
+write_rds(
+  df_select,
+  here::here(
+    "data",
+    "df_non_imp_select.rds"
+  )
+)
+
+## and the labelling
+write_csv(
+  labelling,
+  here::here(
+    "data",
+    "labelling_and_coding_vars.csv"
+  )
+)
+```
+

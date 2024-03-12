@@ -1,0 +1,12 @@
+name: painr-variable-analysis-4_0
+title: painr-variable-analysis-4_0
+username: mteunis
+account: mteunis
+server: hu-connect
+hostUrl: https://rstudio-connect.hu.nl/__api__
+appId: 115
+bundleId: 415
+url: https://rstudio-connect.hu.nl/content/74b20eb7-ef33-4500-a3b1-73ff61069eca/
+version: 1
+asMultiple: FALSE
+asStatic: TRUE

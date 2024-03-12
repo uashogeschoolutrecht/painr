@@ -1,0 +1,12 @@
+name: painr-app
+title: painr-app
+username: mteunis
+account: mteunis
+server: hu-connect
+hostUrl: https://rstudio-connect.hu.nl/__api__
+appId: 112
+bundleId: 401
+url: https://rstudio-connect.hu.nl/content/28c10ded-4876-4772-b742-56ac5b51a122/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE

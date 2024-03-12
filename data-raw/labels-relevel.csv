@@ -1,0 +1,48 @@
+name,value,new_name,level
+1,depression,Depression,NA
+2,concerns,Concerns,NA
+3,age,Age,NA
+4,pain_intensity,Pain intensity,NA
+5,duration,Duration,NA
+6,disability,Disability,NA
+7,bmi,BMI,NA
+8,catastrophizing,Catastrophizing,NA
+9,duration_beliefs,Duration beliefs,NA
+10,treatment_beliefs,Treatment beliefs,NA
+11,kinesiophobia,Kinesiophobia,NA
+12,distress,Distress,NA
+13,identity_beliefs,Identity beliefs,NA
+14,hypervigilance,Hypervigilance,NA
+15,relation,Relation,NA
+16,self_efficacy,Self efficacy,NA
+17,work2,Work (2),2=No
+18,education_level0,Education level (0),0=Low
+19,recurrence2,Recurrence (2),2=Yes
+20,pidbr2,PAIDBR (2),2=Yes
+21,headache2,Headache (2),2=Accompanying
+22,headache3,Headache (3),3=Chronic
+23,sex2,Sex (2),2=Female
+24,work_happiness2,Work happiness (2),2=Neutral or not happy
+25,work_happiness3,Work happiness (3),3=Not working
+26,posture_work2,Posture work (2),2=Neutral or impossible
+27,posture_work3,Posture work (3),3=Not working
+28,work_satisfaction2,Work satisfaction (2),2=Neutral or no satisfaction
+29,work_satisfaction3,Work satisfaction (3),3=Not working
+30,physical_activity1,Physical activity (1),1=Not achieving DHEN
+31,smoking2,Smoking (2),2=Yes
+32,alcohol2,Alcohol (2),2=Yes
+33,sleep_quality1,Sleep quality (1),1=Neg. experience
+34,coping1,Coping (1),1=Active coping
+35,sex2,Sex (2),2=Female
+36,pain_intensity,Pain intensity
+37,pidbr2,PAIDBR (2),2=Yes
+38,headache2,Headache (2),2=Accompanying
+39,headache3,Headache (3),3=Chronic
+40,posture_work2,Posture work (2),2=Neutral or impossible
+41,posture_work3,Posture work (3),3=Not working
+42,duration_beliefs,Duration beliefs,NA
+43,concerns,Concerns,NA
+44,treatment_beliefs,Treatment beliefs,NA
+45,distress,Distress,NA
+46,identity_beliefs,Identity beliefs,NA
+47,self_efficacy,Self efficacy,NA

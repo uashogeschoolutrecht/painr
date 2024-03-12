@@ -1,0 +1,287 @@
+---
+title: "Risk terms specified"
+output:
+  html_document:
+    mathjax: local
+    self_contained: false
+---
+
+## Term Sex
+ <math><mrow><mrow><mi>term_1_sex</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>0.47</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term PIDBR
+ <math><mrow><mrow><mi>term_3_pidbr</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>0.73</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term Headache
+ <math><mrow><mrow><mi>term_4_headache</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>0.73</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow><mrow><mrow><mo>-</mo><mn>0.07</mn></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>3.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term Posture work
+ <math><mrow><mrow><mi>term_5_posture_work</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mrow><mn>1.00</mn><mo>&#x2062;</mo><mn>0.38</mn></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mrow><mn>1.00</mn><mo>&sdot;</mo><mrow><mo>(</mo><mrow><mo>-</mo><mn>0.38</mn></mrow><mo>)</mo></mrow></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow><mrow><mrow><mn>1.00</mn><mo>&#x2062;</mo><mn>1.31</mn></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>3.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term work status
+ <math><mrow><mrow><mi>term_6_work_status</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>1.31</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term Sex
+ <math><mrow><mrow><mi>term_1_sex</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>0.47</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term PIDBR
+ <math><mrow><mrow><mi>term_3_pidbr</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>0.73</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term Headache
+ <math><mrow><mrow><mi>term_4_headache</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>0.73</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow><mrow><mrow><mo>-</mo><mn>0.07</mn></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>3.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term Posture work
+ <math><mrow><mrow><mi>term_5_posture_work</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mrow><mn>1.00</mn><mo>&#x2062;</mo><mn>0.38</mn></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mrow><mn>1.00</mn><mo>&sdot;</mo><mrow><mo>(</mo><mrow><mo>-</mo><mn>0.38</mn></mrow><mo>)</mo></mrow></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow><mrow><mrow><mn>1.00</mn><mo>&#x2062;</mo><mn>1.31</mn></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>3.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term work status
+ <math><mrow><mrow><mi>term_6_work_status</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>1.31</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term Sex
+ <math><mrow><mrow><mi>term_1_sex</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>0.47</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term PIDBR
+ <math><mrow><mrow><mi>term_3_pidbr</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>0.73</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term Headache
+ <math><mrow><mrow><mi>term_4_headache</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>0.73</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow><mrow><mrow><mo>-</mo><mn>0.07</mn></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>3.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term Posture work
+ <math><mrow><mrow><mi>term_5_posture_work</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mrow><mn>1.00</mn><mo>&#x2062;</mo><mn>0.38</mn></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mrow><mn>1.00</mn><mo>&sdot;</mo><mrow><mo>(</mo><mrow><mo>-</mo><mn>0.38</mn></mrow><mo>)</mo></mrow></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow><mrow><mrow><mn>1.00</mn><mo>&#x2062;</mo><mn>1.31</mn></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>3.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term work status
+ <math><mrow><mrow><mi>term_6_work_status</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>1.31</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term Sex
+ <math><mrow><mrow><mi>term_1_sex</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>0.47</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term PIDBR
+ <math><mrow><mrow><mi>term_3_pidbr</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>0.73</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term Headache
+ <math><mrow><mrow><mi>term_4_headache</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>0.73</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow><mrow><mrow><mo>-</mo><mn>0.07</mn></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>3.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term Posture work
+ <math><mrow><mrow><mi>term_5_posture_work</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mrow><mn>1.00</mn><mo>&#x2062;</mo><mn>0.38</mn></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mrow><mn>1.00</mn><mo>&sdot;</mo><mrow><mo>(</mo><mrow><mo>-</mo><mn>0.38</mn></mrow><mo>)</mo></mrow></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow><mrow><mrow><mn>1.00</mn><mo>&#x2062;</mo><mn>1.31</mn></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>3.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term work status
+ <math><mrow><mrow><mi>term_6_work_status</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>1.31</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term Sex
+ <math><mrow><mrow><mi>term_1_sex</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>0.47</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term PIDBR
+ <math><mrow><mrow><mi>term_3_pidbr</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>0.73</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term Headache
+ <math><mrow><mrow><mi>term_4_headache</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>0.73</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow><mrow><mrow><mo>-</mo><mn>0.07</mn></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>3.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term Posture work
+ <math><mrow><mrow><mi>term_5_posture_work</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mrow><mn>1.00</mn><mo>&#x2062;</mo><mn>0.38</mn></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mrow><mn>1.00</mn><mo>&sdot;</mo><mrow><mo>(</mo><mrow><mo>-</mo><mn>0.38</mn></mrow><mo>)</mo></mrow></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow><mrow><mrow><mn>1.00</mn><mo>&#x2062;</mo><mn>1.31</mn></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>3.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term work status
+ <math><mrow><mrow><mi>term_6_work_status</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>1.31</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term Sex
+ <math><mrow><mrow><mi>term_1_sex</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>0.47</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term PIDBR
+ <math><mrow><mrow><mi>term_3_pidbr</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>0.73</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term Headache
+ <math><mrow><mrow><mi>term_4_headache</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>0.73</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow><mrow><mrow><mo>-</mo><mn>0.07</mn></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>3.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term Posture work
+ <math><mrow><mrow><mi>term_5_posture_work</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mrow><mn>1.00</mn><mo>&#x2062;</mo><mn>0.38</mn></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mrow><mn>1.00</mn><mo>&sdot;</mo><mrow><mo>(</mo><mrow><mo>-</mo><mn>0.38</mn></mrow><mo>)</mo></mrow></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow><mrow><mrow><mn>1.00</mn><mo>&#x2062;</mo><mn>1.31</mn></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>3.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term work status
+ <math><mrow><mrow><mi>term_6_work_status</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>1.31</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term Sex
+ <math><mrow><mrow><mi>term_1_sex</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>0.47</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term PIDBR
+ <math><mrow><mrow><mi>term_3_pidbr</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>0.73</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term Headache
+ <math><mrow><mrow><mi>term_4_headache</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>0.73</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow><mrow><mrow><mo>-</mo><mn>0.07</mn></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>3.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term Posture work
+ <math><mrow><mrow><mi>term_5_posture_work</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mrow><mn>1.00</mn><mo>&#x2062;</mo><mn>0.38</mn></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mrow><mn>1.00</mn><mo>&sdot;</mo><mrow><mo>(</mo><mrow><mo>-</mo><mn>0.38</mn></mrow><mo>)</mo></mrow></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow><mrow><mrow><mn>1.00</mn><mo>&#x2062;</mo><mn>1.31</mn></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>3.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term work status
+ <math><mrow><mrow><mi>term_6_work_status</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>1.31</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term Sex
+ <math><mrow><mrow><mi>term_1_sex</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>0.47</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term PIDBR
+ <math><mrow><mrow><mi>term_3_pidbr</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>0.73</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term Headache
+ <math><mrow><mrow><mi>term_4_headache</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>0.73</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow><mrow><mrow><mo>-</mo><mn>0.07</mn></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>3.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term Posture work
+ <math><mrow><mrow><mi>term_5_posture_work</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mrow><mn>1.00</mn><mo>&#x2062;</mo><mn>0.38</mn></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mrow><mn>1.00</mn><mo>&sdot;</mo><mrow><mo>(</mo><mrow><mo>-</mo><mn>0.38</mn></mrow><mo>)</mo></mrow></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow><mrow><mrow><mn>1.00</mn><mo>&#x2062;</mo><mn>1.31</mn></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>3.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term work status
+ <math><mrow><mrow><mi>term_6_work_status</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>1.31</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term Sex
+ <math><mrow><mrow><mi>term_1_sex</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>0.47</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term PIDBR
+ <math><mrow><mrow><mi>term_3_pidbr</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>0.73</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term Headache
+ <math><mrow><mrow><mi>term_4_headache</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>0.73</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow><mrow><mrow><mo>-</mo><mn>0.07</mn></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>3.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term Posture work
+ <math><mrow><mrow><mi>term_5_posture_work</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mrow><mn>1.00</mn><mo>&#x2062;</mo><mn>0.38</mn></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mrow><mn>1.00</mn><mo>&sdot;</mo><mrow><mo>(</mo><mrow><mo>-</mo><mn>0.38</mn></mrow><mo>)</mo></mrow></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow><mrow><mrow><mn>1.00</mn><mo>&#x2062;</mo><mn>1.31</mn></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>3.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term work status
+ <math><mrow><mrow><mi>term_6_work_status</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>1.31</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term Sex
+ <math><mrow><mrow><mi>term_1_sex</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>0.47</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term PIDBR
+ <math><mrow><mrow><mi>term_3_pidbr</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>0.73</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term Headache
+ <math><mrow><mrow><mi>term_4_headache</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>0.73</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow><mrow><mrow><mo>-</mo><mn>0.07</mn></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>3.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term Posture work
+ <math><mrow><mrow><mi>term_5_posture_work</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mrow><mn>1.00</mn><mo>&#x2062;</mo><mn>0.38</mn></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mrow><mn>1.00</mn><mo>&sdot;</mo><mrow><mo>(</mo><mrow><mo>-</mo><mn>0.38</mn></mrow><mo>)</mo></mrow></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow><mrow><mrow><mn>1.00</mn><mo>&#x2062;</mo><mn>1.31</mn></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>3.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term work status
+ <math><mrow><mrow><mi>term_6_work_status</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>1.31</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term Sex
+ <math><mrow><mrow><mi>term_1_sex</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>0.47</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term PIDBR
+ <math><mrow><mrow><mi>term_3_pidbr</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>0.73</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term Headache
+ <math><mrow><mrow><mi>term_4_headache</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>0.73</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow><mrow><mrow><mo>-</mo><mn>0.07</mn></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>3.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term Posture work
+ <math><mrow><mrow><mi>term_5_posture_work</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mrow><mn>1.00</mn><mo>&#x2062;</mo><mn>0.38</mn></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mrow><mn>1.00</mn><mo>&sdot;</mo><mrow><mo>(</mo><mrow><mo>-</mo><mn>0.38</mn></mrow><mo>)</mo></mrow></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow><mrow><mrow><mn>1.00</mn><mo>&#x2062;</mo><mn>1.31</mn></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>3.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term work status
+ <math><mrow><mrow><mi>term_6_work_status</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>1.31</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term Sex
+ <math><mrow><mrow><mi>term_1_sex</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>0.47</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term PIDBR
+ <math><mrow><mrow><mi>term_3_pidbr</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>0.73</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term Headache
+ <math><mrow><mrow><mi>term_4_headache</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>0.73</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow><mrow><mrow><mo>-</mo><mn>0.07</mn></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>3.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term Posture work
+ <math><mrow><mrow><mi>term_5_posture_work</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mrow><mn>1.00</mn><mo>&#x2062;</mo><mn>0.38</mn></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mrow><mn>1.00</mn><mo>&sdot;</mo><mrow><mo>(</mo><mrow><mo>-</mo><mn>0.38</mn></mrow><mo>)</mo></mrow></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow><mrow><mrow><mn>1.00</mn><mo>&#x2062;</mo><mn>1.31</mn></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>3.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term work status
+ <math><mrow><mrow><mi>term_6_work_status</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>1.31</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term Sex
+ <math><mrow><mrow><mi>term_1_sex</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>0.47</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term PIDBR
+ <math><mrow><mrow><mi>term_3_pidbr</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>0.73</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term Headache
+ <math><mrow><mrow><mi>term_4_headache</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>0.73</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow><mrow><mrow><mo>-</mo><mn>0.07</mn></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>3.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term Posture work
+ <math><mrow><mrow><mi>term_5_posture_work</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mrow><mn>1.00</mn><mo>&#x2062;</mo><mn>0.38</mn></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mrow><mn>1.00</mn><mo>&sdot;</mo><mrow><mo>(</mo><mrow><mo>-</mo><mn>0.38</mn></mrow><mo>)</mo></mrow></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow><mrow><mrow><mn>1.00</mn><mo>&#x2062;</mo><mn>1.31</mn></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>3.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term work status
+ <math><mrow><mrow><mi>term_6_work_status</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>1.31</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term Sex
+ <math><mrow><mrow><mi>term_1_sex</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>0.47</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term PIDBR
+ <math><mrow><mrow><mi>term_3_pidbr</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>0.73</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term Headache
+ <math><mrow><mrow><mi>term_4_headache</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>0.73</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow><mrow><mrow><mo>-</mo><mn>0.07</mn></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>3.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term Posture work
+ <math><mrow><mrow><mi>term_5_posture_work</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mrow><mn>1.00</mn><mo>&#x2062;</mo><mn>0.38</mn></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mrow><mn>1.00</mn><mo>&sdot;</mo><mrow><mo>(</mo><mrow><mo>-</mo><mn>0.38</mn></mrow><mo>)</mo></mrow></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow><mrow><mrow><mn>1.00</mn><mo>&#x2062;</mo><mn>1.31</mn></mrow><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>3.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+
+
+## Term work status
+ <math><mrow><mrow><mi>term_6_work_status</mi><mo>&af;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left"><mrow><mn>0.00</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>1.00</mn></mrow></mrow><mrow><mn>1.31</mn><mtext>,</mtext><mspace width="thinmathspace"></mspace><mtext>if</mtext><mspace width="thinmathspace"></mspace><mrow><mi>x</mi><mo>=</mo><mn>2.00</mn></mrow></mrow></mtable></mrow></mrow></math> 
+

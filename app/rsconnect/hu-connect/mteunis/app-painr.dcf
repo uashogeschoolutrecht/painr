@@ -1,0 +1,12 @@
+name: app-painr
+title: app-painr
+username: mteunis
+account: mteunis
+server: hu-connect
+hostUrl: https://rstudio-connect.hu.nl/__api__
+appId: 111
+bundleId: 413
+url: https://rstudio-connect.hu.nl/app-painr/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE

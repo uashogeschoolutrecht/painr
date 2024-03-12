@@ -1,0 +1,12 @@
+name: chronic-neck-pain
+title: chronic-neck-pain
+username: mteunis
+account: mteunis
+server: hu-connect
+hostUrl: https://rstudio-connect.hu.nl/__api__
+appId: 110
+bundleId: 404
+url: https://rstudio-connect.hu.nl/chronic-neck-pain-app/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE

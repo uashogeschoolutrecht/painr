@@ -61,7 +61,7 @@ distribution-of-the-data
 table-baseline-characteristics-of-the-included-patients
 testing-assumptions-before-backward-analysis
 scatter-plot
-development-and-internal-validation-of-a-multivariable-prognostic-model-for-chronification-of-non-specific-neck-pain-in-physiotherapy
+prognostic-model
 packages-3
 data-load
 clean-data-and-rename-vars

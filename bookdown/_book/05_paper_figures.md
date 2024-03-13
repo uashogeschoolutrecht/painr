@@ -2256,11 +2256,11 @@ panel_arrange <- ggarrange(
 ```
 
 ```
-## [1] "/Users/marcteunis/Documents/workspaces/painr-new/img/paper/panel_with_table%03d.svg"
+## [1] "/Users/marcteunis/Documents/workspaces/painr/img/paper/panel_with_table%03d.svg"
 ```
 
 ```
-## file saved to /Users/marcteunis/Documents/workspaces/painr-new/img/paper/panel_with_table%03d.svg
+## file saved to /Users/marcteunis/Documents/workspaces/painr/img/paper/panel_with_table%03d.svg
 ```
 
 ## Area Under the receiver operating characteristic Curve (AUC)

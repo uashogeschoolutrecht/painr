@@ -1695,14 +1695,9 @@ From these plots we see that there is no evident trend in the estimation of the 
 ## Check for plausible values of imputation
 
 ```r
-svg(filename = here::here("img", "stripplot.svg"))
+# svg(filename = here::here("img", "stripplot.svg"))
 stripplot(data$mult_imp)
 dev.off()
-```
-
-```
-## quartz_off_screen 
-##                 2
 ```
 
 ## Checking the used predictor matrix

@@ -473,7 +473,7 @@ server <- function(input, output) {
       geom_col(aes(fill = value)) +
       facet_wrap(~patient_code) +
       coord_flip() +
-      painr::theme_individual() -> featurePlot
+      theme_minimal() -> featurePlot
 
 
     featurePlot
@@ -729,7 +729,7 @@ server <- function(input, output) {
                 linewidth = 1) +
       ggtitle("Patient data (solid line)") +
       facet_wrap(~patient_code) +
-      painr::theme_individual()
+     theme_minimal()
   })
 
   # output$featurePlot <- renderPlot({

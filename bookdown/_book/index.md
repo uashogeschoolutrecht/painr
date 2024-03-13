@@ -3,8 +3,7 @@ title: "Chronic neck pain - Data Analysis"
 author: "Marc A.T. Teunis & Martine Verwoerd"
 site: bookdown::bookdown_site
 output: 
-    bookdown::htm_book:
-        theme: united
+    bookdown::gitbook:
         css: style.css
         number_sections: true
         anchor_sections: false
@@ -51,8 +50,8 @@ data_flow
 ```
 
 ```{=html}
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-0d1a94c7bcf1cf07b737" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-0d1a94c7bcf1cf07b737">{"x":{"diagram":"\n   graph LR\n\n    subgraph data-raw\n        A((\"D010/SPSS basis File results.sav\"))\n    end\n\n    subgraph Rmd\n        B{\"01_eda_Rmd\"}\n        E{\"02_imputation.Rmd\"}\n        H{\"03_exploratory_statistics.Rmd\"}\n    end\n\n    subgraph data\n        C[\"df_non_imp_select.rds\"]\n        D[\"labelling_and_coding_vars.csv\"]\n        F[\"data-list.rds\"]\n        G[\"df_imputed.rds\"]\n    end\n\n\n     A((\"D010/SPSS basis File results.sav\")) --> B{\"01_eda_Rmd\"}\n     B{\"01_eda_Rmd\"} --> C[\"df_non_imp_select.rds\"]\n     B{\"01_eda_Rmd\"} --> D[\"labelling_and_coding_vars.csv\"]\n     C[\"df_non_imp_select.rds\"] --> E{\"02_imputation.Rmd\"}\n     A((\"SPSS basis File results.sav\")) --> E{\"02_imputation.Rmd\"}\n     E{\"02_imputation.Rmd\"} --> F[\"data-list.rds\"]\n     E{\"02_imputation.Rmd\"} --> G[\"...date...df_imputed.rds\"]\n     G[\"...date...df_imputed.rds\"] --> H{\"03_exploratory_statistics.Rmd\"}\n     F[\"data-list.rds\"] --> H{\"03_exploratory_statistics.Rmd\"}\n\n"},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-8fbd2ff8be874c13e6b5" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-8fbd2ff8be874c13e6b5">{"x":{"diagram":"\n   graph LR\n\n    subgraph data-raw\n        A((\"D010/SPSS basis File results.sav\"))\n    end\n\n    subgraph Rmd\n        B{\"01_eda_Rmd\"}\n        E{\"02_imputation.Rmd\"}\n        H{\"03_exploratory_statistics.Rmd\"}\n    end\n\n    subgraph data\n        C[\"df_non_imp_select.rds\"]\n        D[\"labelling_and_coding_vars.csv\"]\n        F[\"data-list.rds\"]\n        G[\"df_imputed.rds\"]\n    end\n\n\n     A((\"D010/SPSS basis File results.sav\")) --> B{\"01_eda_Rmd\"}\n     B{\"01_eda_Rmd\"} --> C[\"df_non_imp_select.rds\"]\n     B{\"01_eda_Rmd\"} --> D[\"labelling_and_coding_vars.csv\"]\n     C[\"df_non_imp_select.rds\"] --> E{\"02_imputation.Rmd\"}\n     A((\"SPSS basis File results.sav\")) --> E{\"02_imputation.Rmd\"}\n     E{\"02_imputation.Rmd\"} --> F[\"data-list.rds\"]\n     E{\"02_imputation.Rmd\"} --> G[\"...date...df_imputed.rds\"]\n     G[\"...date...df_imputed.rds\"] --> H{\"03_exploratory_statistics.Rmd\"}\n     F[\"data-list.rds\"] --> H{\"03_exploratory_statistics.Rmd\"}\n\n"},"evals":[],"jsHooks":[]}</script>
 ```
 
 Please also provide attribution to R itself

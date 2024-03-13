@@ -1,4 +1,4 @@
-# Development and internal validation of a multivariable prognostic model for chronification of non-specific neck pain in physiotherapy 
+# Prognostic model
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(

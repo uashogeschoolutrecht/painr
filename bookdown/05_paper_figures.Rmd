@@ -25,7 +25,6 @@ library(base)
 library(dplyr)
 library(broom)
 library(MASS)
-library(pROC)
 library(ResourceSelection)
 library(xfun)
 library(rms)
@@ -861,7 +860,7 @@ plot_A
 
 
 ## add figures
-data_B <- results_nested$data[[2]] |> dplyr::filter(term != "work_satisfaction3", term != "work_happiness3")
+data_B <- results_nested$data[[2]] |> dplyr::filter(term != "work_satisfaction3", term != "work_happiness3", term != "posture_work3")
 
 plot_B <- plot_model_results(
   df_model_tidy = data_B,
@@ -870,6 +869,7 @@ plot_B <- plot_model_results(
   vjust = 0.05
 )
 plot_B <- plot_B + painr::theme_individual() 
+plot_B
 
 ## add figures
 plot_C <- plot_model_results(

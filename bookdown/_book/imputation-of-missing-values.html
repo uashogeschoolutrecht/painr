@@ -48,9 +48,6 @@
 
 
 
-<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
-<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 <script src="libs/d3-3.3.8/d3.min.js"></script>
 <script src="libs/dagre-0.4.0/dagre-d3.min.js"></script>
@@ -151,15 +148,113 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">painr-documentation</a></li>
-
+<li class="toc-logo"><a href="./"></a> <h4 class=".paddingtitel ">painr</h2></li>
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
-<li class="chapter" data-level="1" data-path="exploratory-data-analysis---raw-data.html"><a href="exploratory-data-analysis---raw-data.html"><i class="fa fa-check"></i><b>1</b> Exploratory Data Analysis - Raw Data</a></li>
-<li class="chapter" data-level="2" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html"><i class="fa fa-check"></i><b>2</b> Imputation of missing values</a></li>
-<li class="chapter" data-level="3" data-path="statistical-exploration.html"><a href="statistical-exploration.html"><i class="fa fa-check"></i><b>3</b> Statistical exploration</a></li>
-<li class="chapter" data-level="4" data-path="development-and-internal-validation-of-a-multivariable-prognostic-model-for-chronification-of-non-specific-neck-pain-in-physiotherapy.html"><a href="development-and-internal-validation-of-a-multivariable-prognostic-model-for-chronification-of-non-specific-neck-pain-in-physiotherapy.html"><i class="fa fa-check"></i><b>4</b> Development and internal validation of a multivariable prognostic model for chronification of non-specific neck pain in physiotherapy</a></li>
-<li class="chapter" data-level="5" data-path="article-figures.html"><a href="article-figures.html"><i class="fa fa-check"></i><b>5</b> Article figures</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#data-flow"><i class="fa fa-check"></i><b>0.1</b> Data Flow</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="exploratory-data-analysis---raw-data.html"><a href="exploratory-data-analysis---raw-data.html"><i class="fa fa-check"></i><b>1</b> Exploratory Data Analysis - Raw Data</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="exploratory-data-analysis---raw-data.html"><a href="exploratory-data-analysis---raw-data.html#suggested-improvements-of-the-code"><i class="fa fa-check"></i><b>1.1</b> Suggested improvements of the code</a></li>
+<li class="chapter" data-level="1.2" data-path="exploratory-data-analysis---raw-data.html"><a href="exploratory-data-analysis---raw-data.html#packages"><i class="fa fa-check"></i><b>1.2</b> Packages</a></li>
+<li class="chapter" data-level="1.3" data-path="exploratory-data-analysis---raw-data.html"><a href="exploratory-data-analysis---raw-data.html#load-data"><i class="fa fa-check"></i><b>1.3</b> Load data</a></li>
+<li class="chapter" data-level="1.4" data-path="exploratory-data-analysis---raw-data.html"><a href="exploratory-data-analysis---raw-data.html#first-glimpse-at-missingness"><i class="fa fa-check"></i><b>1.4</b> First glimpse at missingness</a></li>
+<li class="chapter" data-level="1.5" data-path="exploratory-data-analysis---raw-data.html"><a href="exploratory-data-analysis---raw-data.html#select-relevant-variables"><i class="fa fa-check"></i><b>1.5</b> Select relevant variables</a></li>
+<li class="chapter" data-level="1.6" data-path="exploratory-data-analysis---raw-data.html"><a href="exploratory-data-analysis---raw-data.html#exploratory-data-analysis"><i class="fa fa-check"></i><b>1.6</b> Exploratory Data Analysis</a></li>
+<li class="chapter" data-level="1.7" data-path="exploratory-data-analysis---raw-data.html"><a href="exploratory-data-analysis---raw-data.html#write-table-with-all-labels"><i class="fa fa-check"></i><b>1.7</b> Write table with all labels</a></li>
+<li class="chapter" data-level="1.8" data-path="exploratory-data-analysis---raw-data.html"><a href="exploratory-data-analysis---raw-data.html#deal-with-work-variables"><i class="fa fa-check"></i><b>1.8</b> Deal with ‘work’ variables</a></li>
+<li class="chapter" data-level="1.9" data-path="exploratory-data-analysis---raw-data.html"><a href="exploratory-data-analysis---raw-data.html#recode-physical_activity"><i class="fa fa-check"></i><b>1.9</b> Recode <code>physical_activity</code></a></li>
+<li class="chapter" data-level="1.10" data-path="exploratory-data-analysis---raw-data.html"><a href="exploratory-data-analysis---raw-data.html#write-subsetted-data-to-disk"><i class="fa fa-check"></i><b>1.10</b> Write subsetted data to disk</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html"><i class="fa fa-check"></i><b>2</b> Imputation of missing values</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#packages-1"><i class="fa fa-check"></i><b>2.1</b> Packages</a></li>
+<li class="chapter" data-level="2.2" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#data"><i class="fa fa-check"></i><b>2.2</b> Data</a></li>
+<li class="chapter" data-level="2.3" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#prepare-datset-for-imputing"><i class="fa fa-check"></i><b>2.3</b> Prepare datset for imputing</a></li>
+<li class="chapter" data-level="2.4" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#convert-all-categorical-vars-to-factors"><i class="fa fa-check"></i><b>2.4</b> Convert all categorical vars to factors</a></li>
+<li class="chapter" data-level="2.5" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#panel-with-all-distributions"><i class="fa fa-check"></i><b>2.5</b> Panel with all distributions</a></li>
+<li class="chapter" data-level="2.6" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#imputation-of-missing-values-1"><i class="fa fa-check"></i><b>2.6</b> Imputation of missing values</a></li>
+<li class="chapter" data-level="2.7" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#checking-missing-completely-at-random-mcar"><i class="fa fa-check"></i><b>2.7</b> Checking Missing Completely at Random (MCAR)</a></li>
+<li class="chapter" data-level="2.8" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#missingness-pattern"><i class="fa fa-check"></i><b>2.8</b> Missingness pattern</a></li>
+<li class="chapter" data-level="2.9" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#define-predictors-to-include-in-the-imputations"><i class="fa fa-check"></i><b>2.9</b> Define predictors to include in the imputations</a></li>
+<li class="chapter" data-level="2.10" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#using-the-mice-package-for-imputation-of-missing-values"><i class="fa fa-check"></i><b>2.10</b> Using the MICE package for imputation of missing values</a></li>
+<li class="chapter" data-level="2.11" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#create-predictormatrix-for-mice"><i class="fa fa-check"></i><b>2.11</b> Create predictorMatrix for MICE</a></li>
+<li class="chapter" data-level="2.12" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#calculate-percentage-missing-data-and-cases"><i class="fa fa-check"></i><b>2.12</b> Calculate percentage missing data and cases</a></li>
+<li class="chapter" data-level="2.13" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#running-the-imputations"><i class="fa fa-check"></i><b>2.13</b> Running the imputations</a></li>
+<li class="chapter" data-level="2.14" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#inspect-the-imputations"><i class="fa fa-check"></i><b>2.14</b> Inspect the imputations</a></li>
+<li class="chapter" data-level="2.15" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#check-convergence"><i class="fa fa-check"></i><b>2.15</b> Check convergence</a></li>
+<li class="chapter" data-level="2.16" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#check-for-plausible-values-of-imputation"><i class="fa fa-check"></i><b>2.16</b> Check for plausible values of imputation</a></li>
+<li class="chapter" data-level="2.17" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#checking-the-used-predictor-matrix"><i class="fa fa-check"></i><b>2.17</b> Checking the used predictor matrix</a></li>
+<li class="chapter" data-level="2.18" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#look-at-the-datasets"><i class="fa fa-check"></i><b>2.18</b> Look at the datasets</a></li>
+<li class="chapter" data-level="2.19" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#skimming-the-data"><i class="fa fa-check"></i><b>2.19</b> Skimming the data</a></li>
+<li class="chapter" data-level="2.20" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#add-attitude"><i class="fa fa-check"></i><b>2.20</b> Add <code>attitude</code></a></li>
+<li class="chapter" data-level="2.21" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#save-to-disk"><i class="fa fa-check"></i><b>2.21</b> Save to disk</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="statistical-exploration.html"><a href="statistical-exploration.html"><i class="fa fa-check"></i><b>3</b> Statistical exploration</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="statistical-exploration.html"><a href="statistical-exploration.html#packages-2"><i class="fa fa-check"></i><b>3.1</b> Packages</a></li>
+<li class="chapter" data-level="3.2" data-path="statistical-exploration.html"><a href="statistical-exploration.html#data-1"><i class="fa fa-check"></i><b>3.2</b> Data</a></li>
+<li class="chapter" data-level="3.3" data-path="statistical-exploration.html"><a href="statistical-exploration.html#global-parameters"><i class="fa fa-check"></i><b>3.3</b> Global parameters</a></li>
+<li class="chapter" data-level="3.4" data-path="statistical-exploration.html"><a href="statistical-exploration.html#statistical-analysis-methods-and-missing-data"><i class="fa fa-check"></i><b>3.4</b> Statistical analysis methods and missing data</a></li>
+<li class="chapter" data-level="3.5" data-path="statistical-exploration.html"><a href="statistical-exploration.html#reformat-dataframe-to-stacked-format"><i class="fa fa-check"></i><b>3.5</b> Reformat dataframe to stacked format</a></li>
+<li class="chapter" data-level="3.6" data-path="statistical-exploration.html"><a href="statistical-exploration.html#create-time-variable"><i class="fa fa-check"></i><b>3.6</b> Create time variable</a></li>
+<li class="chapter" data-level="3.7" data-path="statistical-exploration.html"><a href="statistical-exploration.html#recode-time"><i class="fa fa-check"></i><b>3.7</b> Recode time</a></li>
+<li class="chapter" data-level="3.8" data-path="statistical-exploration.html"><a href="statistical-exploration.html#adding-baseline-as-time0"><i class="fa fa-check"></i><b>3.8</b> Adding baseline as time=0</a></li>
+<li class="chapter" data-level="3.9" data-path="statistical-exploration.html"><a href="statistical-exploration.html#carry-forward"><i class="fa fa-check"></i><b>3.9</b> Carry forward</a></li>
+<li class="chapter" data-level="3.10" data-path="statistical-exploration.html"><a href="statistical-exploration.html#rework-the-graph-above-to-get-cummulative-pain-intensity-scores"><i class="fa fa-check"></i><b>3.10</b> Rework the graph above to get cummulative pain intensity scores</a></li>
+<li class="chapter" data-level="3.11" data-path="statistical-exploration.html"><a href="statistical-exploration.html#get-individual-lines-for-each-patient"><i class="fa fa-check"></i><b>3.11</b> Get individual lines for each patient</a></li>
+<li class="chapter" data-level="3.12" data-path="statistical-exploration.html"><a href="statistical-exploration.html#write-to-disk-as-excel-file-and-.rds-r-binary-file."><i class="fa fa-check"></i><b>3.12</b> Write to disk as excel file and .rds R binary file.</a></li>
+<li class="chapter" data-level="3.13" data-path="statistical-exploration.html"><a href="statistical-exploration.html#distribution-of-the-data"><i class="fa fa-check"></i><b>3.13</b> Distribution of the data</a></li>
+<li class="chapter" data-level="3.14" data-path="statistical-exploration.html"><a href="statistical-exploration.html#table-baseline-characteristics-of-the-included-patients"><i class="fa fa-check"></i><b>3.14</b> Table: baseline characteristics of the included patients</a></li>
+<li class="chapter" data-level="3.15" data-path="statistical-exploration.html"><a href="statistical-exploration.html#testing-assumptions-before-backward-analysis"><i class="fa fa-check"></i><b>3.15</b> Testing assumptions before backward analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="prognostic-model.html"><a href="prognostic-model.html"><i class="fa fa-check"></i><b>4</b> Prognostic model</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="prognostic-model.html"><a href="prognostic-model.html#packages-3"><i class="fa fa-check"></i><b>4.1</b> Packages</a></li>
+<li class="chapter" data-level="4.2" data-path="prognostic-model.html"><a href="prognostic-model.html#data-load"><i class="fa fa-check"></i><b>4.2</b> Data load</a></li>
+<li class="chapter" data-level="4.3" data-path="prognostic-model.html"><a href="prognostic-model.html#clean-data-and-rename-vars"><i class="fa fa-check"></i><b>4.3</b> Clean data and rename vars</a></li>
+<li class="chapter" data-level="4.4" data-path="prognostic-model.html"><a href="prognostic-model.html#exploratory-data-analysis-1"><i class="fa fa-check"></i><b>4.4</b> Exploratory Data Analysis</a></li>
+<li class="chapter" data-level="4.5" data-path="prognostic-model.html"><a href="prognostic-model.html#variabel-analysis---independent-predictive-capacity"><i class="fa fa-check"></i><b>4.5</b> Variabel analysis - Independent Predictive Capacity</a></li>
+<li class="chapter" data-level="4.6" data-path="prognostic-model.html"><a href="prognostic-model.html#relevel-dichotomous-variables"><i class="fa fa-check"></i><b>4.6</b> Relevel dichotomous variables</a></li>
+<li class="chapter" data-level="4.7" data-path="prognostic-model.html"><a href="prognostic-model.html#multivariable-logistic-regression-analyses"><i class="fa fa-check"></i><b>4.7</b> Multivariable logistic regression analyses</a></li>
+<li class="chapter" data-level="4.8" data-path="prognostic-model.html"><a href="prognostic-model.html#auc"><i class="fa fa-check"></i><b>4.8</b> AUC</a></li>
+<li class="chapter" data-level="4.9" data-path="prognostic-model.html"><a href="prognostic-model.html#calibration-curve"><i class="fa fa-check"></i><b>4.9</b> Calibration curve</a></li>
+<li class="chapter" data-level="4.10" data-path="prognostic-model.html"><a href="prognostic-model.html#result-calibration-plot"><i class="fa fa-check"></i><b>4.10</b> Result Calibration plot</a></li>
+<li class="chapter" data-level="4.11" data-path="prognostic-model.html"><a href="prognostic-model.html#hoslem-and-lemeshow"><i class="fa fa-check"></i><b>4.11</b> Hoslem and Lemeshow</a></li>
+<li class="chapter" data-level="4.12" data-path="prognostic-model.html"><a href="prognostic-model.html#model-fit"><i class="fa fa-check"></i><b>4.12</b> Model fit</a></li>
+<li class="chapter" data-level="4.13" data-path="prognostic-model.html"><a href="prognostic-model.html#internal-validation"><i class="fa fa-check"></i><b>4.13</b> Internal validation</a></li>
+<li class="chapter" data-level="4.14" data-path="prognostic-model.html"><a href="prognostic-model.html#plot-corrected-auc"><i class="fa fa-check"></i><b>4.14</b> Plot Corrected AUC</a></li>
+<li class="chapter" data-level="4.15" data-path="prognostic-model.html"><a href="prognostic-model.html#results"><i class="fa fa-check"></i><b>4.15</b> Results</a></li>
+<li class="chapter" data-level="4.16" data-path="prognostic-model.html"><a href="prognostic-model.html#correcting-the-variables-coefficients"><i class="fa fa-check"></i><b>4.16</b> Correcting the variables coefficients</a></li>
+<li class="chapter" data-level="4.17" data-path="prognostic-model.html"><a href="prognostic-model.html#calibration-in-the-large"><i class="fa fa-check"></i><b>4.17</b> Calibration in the Large</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="article-figures.html"><a href="article-figures.html"><i class="fa fa-check"></i><b>5</b> Article figures</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="article-figures.html"><a href="article-figures.html#packages-4"><i class="fa fa-check"></i><b>5.1</b> Packages</a></li>
+<li class="chapter" data-level="5.2" data-path="article-figures.html"><a href="article-figures.html#data-load-1"><i class="fa fa-check"></i><b>5.2</b> Data load</a></li>
+<li class="chapter" data-level="5.3" data-path="article-figures.html"><a href="article-figures.html#clean-data-and-rename-variables"><i class="fa fa-check"></i><b>5.3</b> Clean data and rename variables</a></li>
+<li class="chapter" data-level="5.4" data-path="article-figures.html"><a href="article-figures.html#exploratory-data-analysis-2"><i class="fa fa-check"></i><b>5.4</b> Exploratory Data Analysis</a></li>
+<li class="chapter" data-level="5.5" data-path="article-figures.html"><a href="article-figures.html#variabel-analysis"><i class="fa fa-check"></i><b>5.5</b> Variabel analysis</a></li>
+<li class="chapter" data-level="5.6" data-path="article-figures.html"><a href="article-figures.html#graph-of-model-metrics"><i class="fa fa-check"></i><b>5.6</b> Graph of model metrics</a></li>
+<li class="chapter" data-level="5.7" data-path="article-figures.html"><a href="article-figures.html#relevel-dichotomous-variables-1"><i class="fa fa-check"></i><b>5.7</b> Relevel dichotomous variables</a></li>
+<li class="chapter" data-level="5.8" data-path="article-figures.html"><a href="article-figures.html#refactor-code-above-to-a-more-compact-version"><i class="fa fa-check"></i><b>5.8</b> Refactor code above to a more compact version</a></li>
+<li class="chapter" data-level="5.9" data-path="article-figures.html"><a href="article-figures.html#univariate-analysis-on-the-categorical-variables"><i class="fa fa-check"></i><b>5.9</b> Univariate analysis on the categorical variables</a></li>
+<li class="chapter" data-level="5.10" data-path="article-figures.html"><a href="article-figures.html#visualize-model-outcome"><i class="fa fa-check"></i><b>5.10</b> Visualize model outcome</a></li>
+<li class="chapter" data-level="5.11" data-path="article-figures.html"><a href="article-figures.html#panel-plot-univariate"><i class="fa fa-check"></i><b>5.11</b> Panel plot univariate</a></li>
+<li class="chapter" data-level="5.12" data-path="article-figures.html"><a href="article-figures.html#multivariable-logistic-regression-analyses-1"><i class="fa fa-check"></i><b>5.12</b> Multivariable logistic regression analyses</a></li>
+<li class="chapter" data-level="5.13" data-path="article-figures.html"><a href="article-figures.html#backward-model"><i class="fa fa-check"></i><b>5.13</b> Backward model</a></li>
+<li class="chapter" data-level="5.14" data-path="article-figures.html"><a href="article-figures.html#visualize-backward-model"><i class="fa fa-check"></i><b>5.14</b> Visualize backward model</a></li>
+<li class="chapter" data-level="5.15" data-path="article-figures.html"><a href="article-figures.html#panel-plot-with-all-models"><i class="fa fa-check"></i><b>5.15</b> Panel plot with all models</a></li>
+<li class="chapter" data-level="5.16" data-path="article-figures.html"><a href="article-figures.html#rework-figure-labels"><i class="fa fa-check"></i><b>5.16</b> Rework figure labels</a></li>
+<li class="chapter" data-level="5.17" data-path="article-figures.html"><a href="article-figures.html#figures-for-paper"><i class="fa fa-check"></i><b>5.17</b> Figures for paper</a></li>
+<li class="chapter" data-level="5.18" data-path="article-figures.html"><a href="article-figures.html#adding-level-info-to-figure"><i class="fa fa-check"></i><b>5.18</b> Adding level info to figure</a></li>
+<li class="chapter" data-level="5.19" data-path="article-figures.html"><a href="article-figures.html#ggpubr-panel"><i class="fa fa-check"></i><b>5.19</b> GGpubr panel</a></li>
+<li class="chapter" data-level="5.20" data-path="article-figures.html"><a href="article-figures.html#area-under-the-receiver-operating-characteristic-curve-auc"><i class="fa fa-check"></i><b>5.20</b> Area Under the receiver operating characteristic Curve (AUC)</a></li>
+<li class="chapter" data-level="5.21" data-path="article-figures.html"><a href="article-figures.html#calibration-curve-1"><i class="fa fa-check"></i><b>5.21</b> Calibration curve</a></li>
+<li class="chapter" data-level="5.22" data-path="article-figures.html"><a href="article-figures.html#formally-testing-the-goodness-of-fit-using-the-hosmer-and-lemeshow."><i class="fa fa-check"></i><b>5.22</b> Formally testing the goodness-of-fit using the Hosmer and Lemeshow.</a></li>
+<li class="chapter" data-level="5.23" data-path="article-figures.html"><a href="article-figures.html#intermezzo---linear-predictors"><i class="fa fa-check"></i><b>5.23</b> Intermezzo - Linear Predictors</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/uashogeschoolutrecht/painr" target="blank">Published with bookdown</a></li>
 </ul>
@@ -179,10 +274,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="imputation-of-missing-values" class="section level1 hasAnchor" number="2">
-<h1><span class="header-section-number">Part 2</span> Imputation of missing values<a href="imputation-of-missing-values.html#imputation-of-missing-values" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="packages-1" class="section level2 hasAnchor" number="2.1">
-<h2><span class="header-section-number">2.1</span> Packages<a href="imputation-of-missing-values.html#packages-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="imputation-of-missing-values" class="section level1" number="2">
+<h1><span class="header-section-number">Part 2</span> Imputation of missing values</h1>
+<div id="packages-1" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Packages</h2>
 <div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="imputation-of-missing-values.html#cb74-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 <pre><code>## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ## ✔ dplyr     1.1.4     ✔ readr     2.1.5
@@ -206,8 +301,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ##     cbind, rbind</code></pre>
 </div>
-<div id="data" class="section level2 hasAnchor" number="2.2">
-<h2><span class="header-section-number">2.2</span> Data<a href="imputation-of-missing-values.html#data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="data" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Data</h2>
 <p>Because we need to work with multiple versions of the dataset, I decided to change the data structure into a list.</p>
 <div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="imputation-of-missing-values.html#cb78-1" tabindex="-1"></a><span class="do">## raw data</span></span>
 <span id="cb78-2"><a href="imputation-of-missing-values.html#cb78-2" tabindex="-1"></a>df_raw <span class="ot">&lt;-</span> haven<span class="sc">::</span><span class="fu">read_sav</span>(</span>
@@ -320,10 +415,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## $meta
 ## [1] &quot;Raw unprocessed data as recieved from supplier [file: &#39;./data-raw/D010/SPSS basis File results.sav&#39;]&quot;</code></pre>
 </div>
-<div id="prepare-datset-for-imputing" class="section level2 hasAnchor" number="2.3">
-<h2><span class="header-section-number">2.3</span> Prepare datset for imputing<a href="imputation-of-missing-values.html#prepare-datset-for-imputing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="split-dataset-for-work-relations" class="section level3 hasAnchor" number="2.3.1">
-<h3><span class="header-section-number">2.3.1</span> Split dataset for work relations<a href="imputation-of-missing-values.html#split-dataset-for-work-relations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="prepare-datset-for-imputing" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Prepare datset for imputing</h2>
+<div id="split-dataset-for-work-relations" class="section level3" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Split dataset for work relations</h3>
 <div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="imputation-of-missing-values.html#cb82-1" tabindex="-1"></a><span class="do">## copy datasets</span></span>
 <span id="cb82-2"><a href="imputation-of-missing-values.html#cb82-2" tabindex="-1"></a>data<span class="sc">$</span>data_to_impute <span class="ot">&lt;-</span> data<span class="sc">$</span>data_subset</span>
 <span id="cb82-3"><a href="imputation-of-missing-values.html#cb82-3" tabindex="-1"></a><span class="fu">names</span>(data)</span></code></pre></div>
@@ -370,8 +465,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb87-12"><a href="imputation-of-missing-values.html#cb87-12" tabindex="-1"></a><span class="co">#names(data$data_work_split)</span></span></code></pre></div>
 </div>
 </div>
-<div id="convert-all-categorical-vars-to-factors" class="section level2 hasAnchor" number="2.4">
-<h2><span class="header-section-number">2.4</span> Convert all categorical vars to factors<a href="imputation-of-missing-values.html#convert-all-categorical-vars-to-factors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="convert-all-categorical-vars-to-factors" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> Convert all categorical vars to factors</h2>
 <div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="imputation-of-missing-values.html#cb88-1" tabindex="-1"></a><span class="do">## which are factors and which are continuous vars? we exclude patient code from imputation, for it is a zero variance variable</span></span>
 <span id="cb88-2"><a href="imputation-of-missing-values.html#cb88-2" tabindex="-1"></a>should_be_factors <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
 <span id="cb88-3"><a href="imputation-of-missing-values.html#cb88-3" tabindex="-1"></a>  <span class="st">&quot;coping&quot;</span>,</span>
@@ -417,8 +512,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb90-6"><a href="imputation-of-missing-values.html#cb90-6" tabindex="-1"></a>  <span class="fu">t</span>() <span class="sc">|&gt;</span></span>
 <span id="cb90-7"><a href="imputation-of-missing-values.html#cb90-7" tabindex="-1"></a>  <span class="fu">enframe</span>(<span class="at">name =</span> <span class="st">&quot;var_name&quot;</span>, <span class="at">value =</span> <span class="st">&quot;var_type&quot;</span>) <span class="ot">-&gt;</span> var_types</span></code></pre></div>
 </div>
-<div id="panel-with-all-distributions" class="section level2 hasAnchor" number="2.5">
-<h2><span class="header-section-number">2.5</span> Panel with all distributions<a href="imputation-of-missing-values.html#panel-with-all-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="panel-with-all-distributions" class="section level2" number="2.5">
+<h2><span class="header-section-number">2.5</span> Panel with all distributions</h2>
 <div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="imputation-of-missing-values.html#cb91-1" tabindex="-1"></a><span class="do">##  function to plot a vectors histogram</span></span>
 <span id="cb91-2"><a href="imputation-of-missing-values.html#cb91-2" tabindex="-1"></a><span class="fu">source</span>(</span>
 <span id="cb91-3"><a href="imputation-of-missing-values.html#cb91-3" tabindex="-1"></a>  here<span class="sc">::</span><span class="fu">here</span>(</span>
@@ -577,21 +672,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="imputation-of-missing-values.html#cb185-1" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;distros.png&quot;</span>, <span class="at">height =</span> <span class="dv">40</span>, <span class="at">width =</span> <span class="dv">40</span>, <span class="at">dpi =</span> <span class="dv">300</span>)</span>
 <span id="cb185-2"><a href="imputation-of-missing-values.html#cb185-2" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;distros.svg&quot;</span>, <span class="at">height =</span> <span class="dv">40</span>, <span class="at">width =</span> <span class="dv">40</span>, <span class="at">dpi =</span> <span class="dv">300</span>)</span></code></pre></div>
 </div>
-<div id="imputation-of-missing-values-1" class="section level2 hasAnchor" number="2.6">
-<h2><span class="header-section-number">2.6</span> Imputation of missing values<a href="imputation-of-missing-values.html#imputation-of-missing-values-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="imputation-of-missing-values-1" class="section level2" number="2.6">
+<h2><span class="header-section-number">2.6</span> Imputation of missing values</h2>
 <p>I recommend taking a look at the <a href="https://cran.r-project.org/web/packages/naniar/vignettes/getting-started-w-naniar.html"><code>{naniar}</code> package</a> instead</p>
 <p>And <a href="https://www.youtube.com/watch?v=ghmU7nodhSM">this tutorial</a> gave me much insights.</p>
 <p>First, let’s find the continuous variables
 Let’s get an idea of the distributions for all variables. We will use an iteration to do this. I will use the long/stached version of the dataset to achiev this.</p>
 </div>
-<div id="checking-missing-completely-at-random-mcar" class="section level2 hasAnchor" number="2.7">
-<h2><span class="header-section-number">2.7</span> Checking Missing Completely at Random (MCAR)<a href="imputation-of-missing-values.html#checking-missing-completely-at-random-mcar" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="checking-missing-completely-at-random-mcar" class="section level2" number="2.7">
+<h2><span class="header-section-number">2.7</span> Checking Missing Completely at Random (MCAR)</h2>
 <p><a href="https://bookdown.org/mwheymans/bookmi/missing-data-evaluation.html#missing-data-evaluation-in-r" class="uri">https://bookdown.org/mwheymans/bookmi/missing-data-evaluation.html#missing-data-evaluation-in-r</a></p>
 <p>From the analysis above we can conclude that some of the variables:
 are on a continuous or discrete scale. We need to select those to assess MCAR.</p>
 </div>
-<div id="missingness-pattern" class="section level2 hasAnchor" number="2.8">
-<h2><span class="header-section-number">2.8</span> Missingness pattern<a href="imputation-of-missing-values.html#missingness-pattern" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="missingness-pattern" class="section level2" number="2.8">
+<h2><span class="header-section-number">2.8</span> Missingness pattern</h2>
 <div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="imputation-of-missing-values.html#cb186-1" tabindex="-1"></a><span class="fu">md.pattern</span>(data<span class="sc">$</span>data_preprocessed) <span class="do">## figure does not scale properly, </span><span class="al">TODO</span><span class="do">: needs a fix</span></span></code></pre></div>
 <p><img src="02_imputation_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <pre><code>##     sex pain_intensity age recurrence disability sleep_quality self_efficacy
@@ -1075,8 +1170,8 @@ are on a continuous or discrete scale. We need to select those to assess MCAR.</
 ## 1              1              1               1               1   1
 ##               25            154             212             224 822</code></pre>
 </div>
-<div id="define-predictors-to-include-in-the-imputations" class="section level2 hasAnchor" number="2.9">
-<h2><span class="header-section-number">2.9</span> Define predictors to include in the imputations<a href="imputation-of-missing-values.html#define-predictors-to-include-in-the-imputations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="define-predictors-to-include-in-the-imputations" class="section level2" number="2.9">
+<h2><span class="header-section-number">2.9</span> Define predictors to include in the imputations</h2>
 <div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="imputation-of-missing-values.html#cb188-1" tabindex="-1"></a><span class="do">## select continuous and discrete</span></span>
 <span id="cb188-2"><a href="imputation-of-missing-values.html#cb188-2" tabindex="-1"></a>var_selection <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
 <span id="cb188-3"><a href="imputation-of-missing-values.html#cb188-3" tabindex="-1"></a>  <span class="co"># &quot;patient_code&quot;, </span></span>
@@ -1137,8 +1232,8 @@ are on a continuous or discrete scale. We need to select those to assess MCAR.</
 <p>From <code>?mcar_test</code>:
 Use Little’s (1988) test statistic to assess if data is missing completely at random (MCAR). The null hypothesis in this test is that the data is MCAR, and the test statistic is a chi-squared value.</p>
 <p>Based on the fact the p-value here is not &lt; 0.05, we can conclude that we cannot reject the NULL hypothesis, thus concluding that the missingness in the data is MCAR.</p>
-<div id="inspect-the-unique-values-of-some-of-the-variables" class="section level3 hasAnchor" number="2.9.1">
-<h3><span class="header-section-number">2.9.1</span> Inspect the unique values of some of the variables<a href="imputation-of-missing-values.html#inspect-the-unique-values-of-some-of-the-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="inspect-the-unique-values-of-some-of-the-variables" class="section level3" number="2.9.1">
+<h3><span class="header-section-number">2.9.1</span> Inspect the unique values of some of the variables</h3>
 <div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="imputation-of-missing-values.html#cb192-1" tabindex="-1"></a>df_select_compare <span class="ot">&lt;-</span> data<span class="sc">$</span>data_preprocessed <span class="sc">|&gt;</span></span>
 <span id="cb192-2"><a href="imputation-of-missing-values.html#cb192-2" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(</span>
 <span id="cb192-3"><a href="imputation-of-missing-values.html#cb192-3" tabindex="-1"></a>    age,</span>
@@ -1174,12 +1269,12 @@ Use Little’s (1988) test statistic to assess if data is missing completely at 
 <span id="cb192-33"><a href="imputation-of-missing-values.html#cb192-33" tabindex="-1"></a><span class="fu">rm</span>(df_select_compare, df_select_compare_fct)</span></code></pre></div>
 </div>
 </div>
-<div id="using-the-mice-package-for-imputation-of-missing-values" class="section level2 hasAnchor" number="2.10">
-<h2><span class="header-section-number">2.10</span> Using the MICE package for imputation of missing values<a href="imputation-of-missing-values.html#using-the-mice-package-for-imputation-of-missing-values" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="using-the-mice-package-for-imputation-of-missing-values" class="section level2" number="2.10">
+<h2><span class="header-section-number">2.10</span> Using the MICE package for imputation of missing values</h2>
 <p>Before we proceed with MICE, we need to remove the SPSS labels from the dataframe (see: <a href="https://stackoverflow.com/questions/62395629/error-t-haven-labelled-not-supported-while-attempting-mice-package-in-r" class="uri">https://stackoverflow.com/questions/62395629/error-t-haven-labelled-not-supported-while-attempting-mice-package-in-r</a>)</p>
 </div>
-<div id="create-predictormatrix-for-mice" class="section level2 hasAnchor" number="2.11">
-<h2><span class="header-section-number">2.11</span> Create predictorMatrix for MICE<a href="imputation-of-missing-values.html#create-predictormatrix-for-mice" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="create-predictormatrix-for-mice" class="section level2" number="2.11">
+<h2><span class="header-section-number">2.11</span> Create predictorMatrix for MICE</h2>
 <p>When we want to create a predictionMatrix automatically with a threshold for low correlating variables</p>
 <div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="imputation-of-missing-values.html#cb193-1" tabindex="-1"></a><span class="fu">names</span>(data<span class="sc">$</span>data_preprocessed)</span></code></pre></div>
 <pre><code>##  [1] &quot;sex&quot;               &quot;age&quot;               &quot;education&quot;        
@@ -1201,8 +1296,8 @@ Use Little’s (1988) test statistic to assess if data is missing completely at 
 <span id="cb195-5"><a href="imputation-of-missing-values.html#cb195-5" tabindex="-1"></a>pheatmap<span class="sc">::</span><span class="fu">pheatmap</span>(pred, <span class="at">cluster_rows =</span> <span class="cn">FALSE</span>, <span class="at">cluster_cols =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <p><img src="02_imputation_files/figure-html/preditor_matrix_imp-1.png" width="672" /></p>
 </div>
-<div id="calculate-percentage-missing-data-and-cases" class="section level2 hasAnchor" number="2.12">
-<h2><span class="header-section-number">2.12</span> Calculate percentage missing data and cases<a href="imputation-of-missing-values.html#calculate-percentage-missing-data-and-cases" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="calculate-percentage-missing-data-and-cases" class="section level2" number="2.12">
+<h2><span class="header-section-number">2.12</span> Calculate percentage missing data and cases</h2>
 <p>When we want to have all variables in the dataset available for imputation</p>
 <p>One of the hyperperameters for the ‘mice’ function is <code>m</code>, the number of imputations: this should be at least the percentage of missing cases in the data.</p>
 <p>Let’s calulate</p>
@@ -1220,8 +1315,8 @@ Use Little’s (1988) test statistic to assess if data is missing completely at 
 <span id="cb199-2"><a href="imputation-of-missing-values.html#cb199-2" tabindex="-1"></a>pct_missing_cases <span class="ot">&lt;-</span> naniar<span class="sc">::</span><span class="fu">prop_miss_case</span>(data<span class="sc">$</span>data_preprocessed) <span class="sc">*</span> <span class="dv">100</span></span></code></pre></div>
 <p>So 4.0093649% of the total data is missing. But 59.7014925% of the cases has at least one missing value. We set the <code>m</code> parameter to 75</p>
 </div>
-<div id="running-the-imputations" class="section level2 hasAnchor" number="2.13">
-<h2><span class="header-section-number">2.13</span> Running the imputations<a href="imputation-of-missing-values.html#running-the-imputations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="running-the-imputations" class="section level2" number="2.13">
+<h2><span class="header-section-number">2.13</span> Running the imputations</h2>
 <div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="imputation-of-missing-values.html#cb200-1" tabindex="-1"></a>df_inspect <span class="ot">&lt;-</span> data<span class="sc">$</span>data_preprocessed</span>
 <span id="cb200-2"><a href="imputation-of-missing-values.html#cb200-2" tabindex="-1"></a></span>
 <span id="cb200-3"><a href="imputation-of-missing-values.html#cb200-3" tabindex="-1"></a><span class="do">## get data types</span></span>
@@ -1273,8 +1368,8 @@ Use Little’s (1988) test statistic to assess if data is missing completely at 
 <pre><code>## Warning: Number of logged events: 382</code></pre>
 <pre><code>## Warning: Number of logged events: 338</code></pre>
 </div>
-<div id="inspect-the-imputations" class="section level2 hasAnchor" number="2.14">
-<h2><span class="header-section-number">2.14</span> Inspect the imputations<a href="imputation-of-missing-values.html#inspect-the-imputations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="inspect-the-imputations" class="section level2" number="2.14">
+<h2><span class="header-section-number">2.14</span> Inspect the imputations</h2>
 <div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="imputation-of-missing-values.html#cb226-1" tabindex="-1"></a>data<span class="sc">$</span>mult_imp</span></code></pre></div>
 <pre><code>## Class: mids
 ## Number of multiple imputations:  75 
@@ -1373,73 +1468,71 @@ Use Little’s (1988) test statistic to assess if data is missing completely at 
 <p><strong>It is suggested to let the MICE function decide the method and not change it.</strong>
 see also: <a href="https://stats.stackexchange.com/questions/204313/how-to-choose-which-imputation-to-use-to-replace-missing-values" class="uri">https://stats.stackexchange.com/questions/204313/how-to-choose-which-imputation-to-use-to-replace-missing-values</a></p>
 </div>
-<div id="check-convergence" class="section level2 hasAnchor" number="2.15">
-<h2><span class="header-section-number">2.15</span> Check convergence<a href="imputation-of-missing-values.html#check-convergence" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="check-convergence" class="section level2" number="2.15">
+<h2><span class="header-section-number">2.15</span> Check convergence</h2>
 <div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="imputation-of-missing-values.html#cb228-1" tabindex="-1"></a><span class="fu">plot</span>(data<span class="sc">$</span>mult_imp)</span></code></pre></div>
 <p><img src="02_imputation_files/figure-html/unnamed-chunk-6-1.png" width="672" /><img src="02_imputation_files/figure-html/unnamed-chunk-6-2.png" width="672" /><img src="02_imputation_files/figure-html/unnamed-chunk-6-3.png" width="672" /><img src="02_imputation_files/figure-html/unnamed-chunk-6-4.png" width="672" /><img src="02_imputation_files/figure-html/unnamed-chunk-6-5.png" width="672" /><img src="02_imputation_files/figure-html/unnamed-chunk-6-6.png" width="672" /><img src="02_imputation_files/figure-html/unnamed-chunk-6-7.png" width="672" /><img src="02_imputation_files/figure-html/unnamed-chunk-6-8.png" width="672" /><img src="02_imputation_files/figure-html/unnamed-chunk-6-9.png" width="672" /><img src="02_imputation_files/figure-html/unnamed-chunk-6-10.png" width="672" /><img src="02_imputation_files/figure-html/unnamed-chunk-6-11.png" width="672" /></p>
 <p>From these plots we see that there is no evident trend in the estimation of the means over iterations, for any of the imputed variables. Therefore we can conclude that convergence was achieved and that the max. iteration of 10 is a valid setting for this imputation run.</p>
 </div>
-<div id="check-for-plausible-values-of-imputation" class="section level2 hasAnchor" number="2.16">
-<h2><span class="header-section-number">2.16</span> Check for plausible values of imputation<a href="imputation-of-missing-values.html#check-for-plausible-values-of-imputation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="imputation-of-missing-values.html#cb229-1" tabindex="-1"></a><span class="fu">svg</span>(<span class="at">filename =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;img&quot;</span>, <span class="st">&quot;stripplot.svg&quot;</span>))</span>
+<div id="check-for-plausible-values-of-imputation" class="section level2" number="2.16">
+<h2><span class="header-section-number">2.16</span> Check for plausible values of imputation</h2>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="imputation-of-missing-values.html#cb229-1" tabindex="-1"></a><span class="co"># svg(filename = here::here(&quot;img&quot;, &quot;stripplot.svg&quot;))</span></span>
 <span id="cb229-2"><a href="imputation-of-missing-values.html#cb229-2" tabindex="-1"></a><span class="fu">stripplot</span>(data<span class="sc">$</span>mult_imp)</span>
 <span id="cb229-3"><a href="imputation-of-missing-values.html#cb229-3" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
-<pre><code>## quartz_off_screen 
-##                 2</code></pre>
 </div>
-<div id="checking-the-used-predictor-matrix" class="section level2 hasAnchor" number="2.17">
-<h2><span class="header-section-number">2.17</span> Checking the used predictor matrix<a href="imputation-of-missing-values.html#checking-the-used-predictor-matrix" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="imputation-of-missing-values.html#cb231-1" tabindex="-1"></a>future<span class="sc">::</span><span class="fu">plan</span>(<span class="st">&quot;sequential&quot;</span>)</span>
-<span id="cb231-2"><a href="imputation-of-missing-values.html#cb231-2" tabindex="-1"></a><span class="do">## inspect the predictorMatrix</span></span>
-<span id="cb231-3"><a href="imputation-of-missing-values.html#cb231-3" tabindex="-1"></a>pm_df <span class="ot">&lt;-</span> data<span class="sc">$</span>mult_imp<span class="sc">$</span>predictorMatrix <span class="sc">|&gt;</span></span>
-<span id="cb231-4"><a href="imputation-of-missing-values.html#cb231-4" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()</span>
-<span id="cb231-5"><a href="imputation-of-missing-values.html#cb231-5" tabindex="-1"></a>  </span>
-<span id="cb231-6"><a href="imputation-of-missing-values.html#cb231-6" tabindex="-1"></a><span class="fu">rownames</span>(pm_df) <span class="ot">&lt;-</span> <span class="fu">colnames</span>(pm_df)</span>
-<span id="cb231-7"><a href="imputation-of-missing-values.html#cb231-7" tabindex="-1"></a></span>
-<span id="cb231-8"><a href="imputation-of-missing-values.html#cb231-8" tabindex="-1"></a><span class="fu">library</span>(pheatmap)</span>
-<span id="cb231-9"><a href="imputation-of-missing-values.html#cb231-9" tabindex="-1"></a><span class="fu">pheatmap</span>(pm_df, <span class="at">cluster_rows =</span> <span class="cn">FALSE</span>, <span class="at">cluster_cols =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div id="checking-the-used-predictor-matrix" class="section level2" number="2.17">
+<h2><span class="header-section-number">2.17</span> Checking the used predictor matrix</h2>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="imputation-of-missing-values.html#cb230-1" tabindex="-1"></a>future<span class="sc">::</span><span class="fu">plan</span>(<span class="st">&quot;sequential&quot;</span>)</span>
+<span id="cb230-2"><a href="imputation-of-missing-values.html#cb230-2" tabindex="-1"></a><span class="do">## inspect the predictorMatrix</span></span>
+<span id="cb230-3"><a href="imputation-of-missing-values.html#cb230-3" tabindex="-1"></a>pm_df <span class="ot">&lt;-</span> data<span class="sc">$</span>mult_imp<span class="sc">$</span>predictorMatrix <span class="sc">|&gt;</span></span>
+<span id="cb230-4"><a href="imputation-of-missing-values.html#cb230-4" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()</span>
+<span id="cb230-5"><a href="imputation-of-missing-values.html#cb230-5" tabindex="-1"></a>  </span>
+<span id="cb230-6"><a href="imputation-of-missing-values.html#cb230-6" tabindex="-1"></a><span class="fu">rownames</span>(pm_df) <span class="ot">&lt;-</span> <span class="fu">colnames</span>(pm_df)</span>
+<span id="cb230-7"><a href="imputation-of-missing-values.html#cb230-7" tabindex="-1"></a></span>
+<span id="cb230-8"><a href="imputation-of-missing-values.html#cb230-8" tabindex="-1"></a><span class="fu">library</span>(pheatmap)</span>
+<span id="cb230-9"><a href="imputation-of-missing-values.html#cb230-9" tabindex="-1"></a><span class="fu">pheatmap</span>(pm_df, <span class="at">cluster_rows =</span> <span class="cn">FALSE</span>, <span class="at">cluster_cols =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <p><img src="02_imputation_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 </div>
-<div id="look-at-the-datasets" class="section level2 hasAnchor" number="2.18">
-<h2><span class="header-section-number">2.18</span> Look at the datasets<a href="imputation-of-missing-values.html#look-at-the-datasets" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="look-at-the-datasets" class="section level2" number="2.18">
+<h2><span class="header-section-number">2.18</span> Look at the datasets</h2>
 <p>Let’s look at the first data with imputed data</p>
-<div id="running-multiple-regressions" class="section level3 hasAnchor" number="2.18.1">
-<h3><span class="header-section-number">2.18.1</span> Running multiple regressions<a href="imputation-of-missing-values.html#running-multiple-regressions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="imputation-of-missing-values.html#cb232-1" tabindex="-1"></a>reg_multimp <span class="ot">&lt;-</span> <span class="fu">with</span>(<span class="at">data =</span> data<span class="sc">$</span>mult_imp, <span class="fu">lm</span>(pain_intensity <span class="sc">~</span> sex <span class="sc">*</span> age))</span>
-<span id="cb232-2"><a href="imputation-of-missing-values.html#cb232-2" tabindex="-1"></a></span>
-<span id="cb232-3"><a href="imputation-of-missing-values.html#cb232-3" tabindex="-1"></a><span class="fu">summary</span>(reg_multimp<span class="sc">$</span>analyses[[<span class="dv">1</span>]])</span>
-<span id="cb232-4"><a href="imputation-of-missing-values.html#cb232-4" tabindex="-1"></a><span class="fu">plot</span>(reg_multimp<span class="sc">$</span>analyses[[<span class="dv">1</span>]])</span>
-<span id="cb232-5"><a href="imputation-of-missing-values.html#cb232-5" tabindex="-1"></a></span>
-<span id="cb232-6"><a href="imputation-of-missing-values.html#cb232-6" tabindex="-1"></a><span class="co">#pool</span></span>
-<span id="cb232-7"><a href="imputation-of-missing-values.html#cb232-7" tabindex="-1"></a>reg_pooled <span class="ot">&lt;-</span> <span class="fu">pool</span>(reg_multimp)</span>
-<span id="cb232-8"><a href="imputation-of-missing-values.html#cb232-8" tabindex="-1"></a><span class="co">#analyse pooled results - does the confidence interval include both directions? </span></span>
-<span id="cb232-9"><a href="imputation-of-missing-values.html#cb232-9" tabindex="-1"></a><span class="fu">summary</span>(reg_pooled, <span class="at">conf.int =</span> <span class="cn">TRUE</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb232-10"><a href="imputation-of-missing-values.html#cb232-10" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="sc">|&gt;</span></span>
-<span id="cb232-11"><a href="imputation-of-missing-values.html#cb232-11" tabindex="-1"></a>  janitor<span class="sc">::</span><span class="fu">clean_names</span>() <span class="sc">|&gt;</span></span>
-<span id="cb232-12"><a href="imputation-of-missing-values.html#cb232-12" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(term <span class="sc">!=</span> <span class="st">&quot;(Intercept)&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb232-13"><a href="imputation-of-missing-values.html#cb232-13" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
-<span id="cb232-14"><a href="imputation-of-missing-values.html#cb232-14" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> term,</span>
-<span id="cb232-15"><a href="imputation-of-missing-values.html#cb232-15" tabindex="-1"></a>        <span class="at">y =</span> estimate)</span>
-<span id="cb232-16"><a href="imputation-of-missing-values.html#cb232-16" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb232-17"><a href="imputation-of-missing-values.html#cb232-17" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">colour =</span> <span class="st">&quot;red&quot;</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb232-18"><a href="imputation-of-missing-values.html#cb232-18" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin=</span>estimate<span class="sc">-</span>x2_5_percent, <span class="at">ymax=</span>estimate<span class="sc">+</span>x97_5_percent), <span class="at">width=</span>.<span class="dv">2</span>,</span>
-<span id="cb232-19"><a href="imputation-of-missing-values.html#cb232-19" tabindex="-1"></a>                 <span class="at">position=</span><span class="fu">position_dodge</span>(.<span class="dv">9</span>)) <span class="sc">+</span></span>
-<span id="cb232-20"><a href="imputation-of-missing-values.html#cb232-20" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.5</span>, <span class="fl">0.5</span>)) <span class="sc">+</span></span>
-<span id="cb232-21"><a href="imputation-of-missing-values.html#cb232-21" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div id="running-multiple-regressions" class="section level3" number="2.18.1">
+<h3><span class="header-section-number">2.18.1</span> Running multiple regressions</h3>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="imputation-of-missing-values.html#cb231-1" tabindex="-1"></a>reg_multimp <span class="ot">&lt;-</span> <span class="fu">with</span>(<span class="at">data =</span> data<span class="sc">$</span>mult_imp, <span class="fu">lm</span>(pain_intensity <span class="sc">~</span> sex <span class="sc">*</span> age))</span>
+<span id="cb231-2"><a href="imputation-of-missing-values.html#cb231-2" tabindex="-1"></a></span>
+<span id="cb231-3"><a href="imputation-of-missing-values.html#cb231-3" tabindex="-1"></a><span class="fu">summary</span>(reg_multimp<span class="sc">$</span>analyses[[<span class="dv">1</span>]])</span>
+<span id="cb231-4"><a href="imputation-of-missing-values.html#cb231-4" tabindex="-1"></a><span class="fu">plot</span>(reg_multimp<span class="sc">$</span>analyses[[<span class="dv">1</span>]])</span>
+<span id="cb231-5"><a href="imputation-of-missing-values.html#cb231-5" tabindex="-1"></a></span>
+<span id="cb231-6"><a href="imputation-of-missing-values.html#cb231-6" tabindex="-1"></a><span class="co">#pool</span></span>
+<span id="cb231-7"><a href="imputation-of-missing-values.html#cb231-7" tabindex="-1"></a>reg_pooled <span class="ot">&lt;-</span> <span class="fu">pool</span>(reg_multimp)</span>
+<span id="cb231-8"><a href="imputation-of-missing-values.html#cb231-8" tabindex="-1"></a><span class="co">#analyse pooled results - does the confidence interval include both directions? </span></span>
+<span id="cb231-9"><a href="imputation-of-missing-values.html#cb231-9" tabindex="-1"></a><span class="fu">summary</span>(reg_pooled, <span class="at">conf.int =</span> <span class="cn">TRUE</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb231-10"><a href="imputation-of-missing-values.html#cb231-10" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="sc">|&gt;</span></span>
+<span id="cb231-11"><a href="imputation-of-missing-values.html#cb231-11" tabindex="-1"></a>  janitor<span class="sc">::</span><span class="fu">clean_names</span>() <span class="sc">|&gt;</span></span>
+<span id="cb231-12"><a href="imputation-of-missing-values.html#cb231-12" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(term <span class="sc">!=</span> <span class="st">&quot;(Intercept)&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb231-13"><a href="imputation-of-missing-values.html#cb231-13" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb231-14"><a href="imputation-of-missing-values.html#cb231-14" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> term,</span>
+<span id="cb231-15"><a href="imputation-of-missing-values.html#cb231-15" tabindex="-1"></a>        <span class="at">y =</span> estimate)</span>
+<span id="cb231-16"><a href="imputation-of-missing-values.html#cb231-16" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb231-17"><a href="imputation-of-missing-values.html#cb231-17" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">colour =</span> <span class="st">&quot;red&quot;</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb231-18"><a href="imputation-of-missing-values.html#cb231-18" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin=</span>estimate<span class="sc">-</span>x2_5_percent, <span class="at">ymax=</span>estimate<span class="sc">+</span>x97_5_percent), <span class="at">width=</span>.<span class="dv">2</span>,</span>
+<span id="cb231-19"><a href="imputation-of-missing-values.html#cb231-19" tabindex="-1"></a>                 <span class="at">position=</span><span class="fu">position_dodge</span>(.<span class="dv">9</span>)) <span class="sc">+</span></span>
+<span id="cb231-20"><a href="imputation-of-missing-values.html#cb231-20" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.5</span>, <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb231-21"><a href="imputation-of-missing-values.html#cb231-21" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 </div>
-<div id="complete-the-dataset-with-this-imputation" class="section level3 hasAnchor" number="2.18.2">
-<h3><span class="header-section-number">2.18.2</span> Complete the dataset with this imputation<a href="imputation-of-missing-values.html#complete-the-dataset-with-this-imputation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="imputation-of-missing-values.html#cb233-1" tabindex="-1"></a><span class="co">#create imputed data to work with</span></span>
-<span id="cb233-2"><a href="imputation-of-missing-values.html#cb233-2" tabindex="-1"></a>data<span class="sc">$</span>data_imputed <span class="ot">&lt;-</span> <span class="fu">complete</span>(data<span class="sc">$</span>mult_imp, <span class="dv">1</span>) <span class="sc">|&gt;</span></span>
-<span id="cb233-3"><a href="imputation-of-missing-values.html#cb233-3" tabindex="-1"></a>  <span class="fu">as_tibble</span>()</span>
-<span id="cb233-4"><a href="imputation-of-missing-values.html#cb233-4" tabindex="-1"></a>  </span>
-<span id="cb233-5"><a href="imputation-of-missing-values.html#cb233-5" tabindex="-1"></a>naniar<span class="sc">::</span><span class="fu">vis_miss</span>(data<span class="sc">$</span>data_imputed)</span></code></pre></div>
+<div id="complete-the-dataset-with-this-imputation" class="section level3" number="2.18.2">
+<h3><span class="header-section-number">2.18.2</span> Complete the dataset with this imputation</h3>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="imputation-of-missing-values.html#cb232-1" tabindex="-1"></a><span class="co">#create imputed data to work with</span></span>
+<span id="cb232-2"><a href="imputation-of-missing-values.html#cb232-2" tabindex="-1"></a>data<span class="sc">$</span>data_imputed <span class="ot">&lt;-</span> <span class="fu">complete</span>(data<span class="sc">$</span>mult_imp, <span class="dv">1</span>) <span class="sc">|&gt;</span></span>
+<span id="cb232-3"><a href="imputation-of-missing-values.html#cb232-3" tabindex="-1"></a>  <span class="fu">as_tibble</span>()</span>
+<span id="cb232-4"><a href="imputation-of-missing-values.html#cb232-4" tabindex="-1"></a>  </span>
+<span id="cb232-5"><a href="imputation-of-missing-values.html#cb232-5" tabindex="-1"></a>naniar<span class="sc">::</span><span class="fu">vis_miss</span>(data<span class="sc">$</span>data_imputed)</span></code></pre></div>
 <p><img src="02_imputation_files/figure-html/confirm_imputed-1.png" width="672" /></p>
-<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="imputation-of-missing-values.html#cb234-1" tabindex="-1"></a><span class="do">## add atttributes to imputed dataframe</span></span>
-<span id="cb234-2"><a href="imputation-of-missing-values.html#cb234-2" tabindex="-1"></a><span class="fu">attr</span>(data<span class="sc">$</span>data_imputed, <span class="st">&quot;meta&quot;</span>) <span class="ot">&lt;-</span> <span class="st">&quot;Imputed data. Input data is data variable subset from data [file: &#39;./data/df_non_imp_select.rds&#39;]. Dataframe stored on disk as [file: &#39;./data/df_imp_select.rds&#39;]&quot;</span>  </span>
-<span id="cb234-3"><a href="imputation-of-missing-values.html#cb234-3" tabindex="-1"></a></span>
-<span id="cb234-4"><a href="imputation-of-missing-values.html#cb234-4" tabindex="-1"></a><span class="do">## remove clutter</span></span>
-<span id="cb234-5"><a href="imputation-of-missing-values.html#cb234-5" tabindex="-1"></a><span class="fu">rm</span>(df_imp, df_multimp, reg_multimp, reg_pooled, pm_df, pred, var_selection, list_histograms)</span></code></pre></div>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="imputation-of-missing-values.html#cb233-1" tabindex="-1"></a><span class="do">## add atttributes to imputed dataframe</span></span>
+<span id="cb233-2"><a href="imputation-of-missing-values.html#cb233-2" tabindex="-1"></a><span class="fu">attr</span>(data<span class="sc">$</span>data_imputed, <span class="st">&quot;meta&quot;</span>) <span class="ot">&lt;-</span> <span class="st">&quot;Imputed data. Input data is data variable subset from data [file: &#39;./data/df_non_imp_select.rds&#39;]. Dataframe stored on disk as [file: &#39;./data/df_imp_select.rds&#39;]&quot;</span>  </span>
+<span id="cb233-3"><a href="imputation-of-missing-values.html#cb233-3" tabindex="-1"></a></span>
+<span id="cb233-4"><a href="imputation-of-missing-values.html#cb233-4" tabindex="-1"></a><span class="do">## remove clutter</span></span>
+<span id="cb233-5"><a href="imputation-of-missing-values.html#cb233-5" tabindex="-1"></a><span class="fu">rm</span>(df_imp, df_multimp, reg_multimp, reg_pooled, pm_df, pred, var_selection, list_histograms)</span></code></pre></div>
 <pre><code>## Warning in rm(df_imp, df_multimp, reg_multimp, reg_pooled, pm_df, pred, :
 ## object &#39;df_imp&#39; not found</code></pre>
 <pre><code>## Warning in rm(df_imp, df_multimp, reg_multimp, reg_pooled, pm_df, pred, :
@@ -1449,106 +1542,106 @@ see also: <a href="https://stats.stackexchange.com/questions/204313/how-to-choos
 <pre><code>## Warning in rm(df_imp, df_multimp, reg_multimp, reg_pooled, pm_df, pred, :
 ## object &#39;reg_pooled&#39; not found</code></pre>
 </div>
-<div id="visualize-the-imputations" class="section level3 hasAnchor" number="2.18.3">
-<h3><span class="header-section-number">2.18.3</span> Visualize the imputations<a href="imputation-of-missing-values.html#visualize-the-imputations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="imputation-of-missing-values.html#cb239-1" tabindex="-1"></a><span class="co"># Load the necessary libraries</span></span>
-<span id="cb239-2"><a href="imputation-of-missing-values.html#cb239-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb239-3"><a href="imputation-of-missing-values.html#cb239-3" tabindex="-1"></a></span>
-<span id="cb239-4"><a href="imputation-of-missing-values.html#cb239-4" tabindex="-1"></a><span class="co"># Assuming &#39;data_with_missing&#39; is your dataset with missing values</span></span>
-<span id="cb239-5"><a href="imputation-of-missing-values.html#cb239-5" tabindex="-1"></a><span class="co"># and &#39;data_with_imputed&#39; is your dataset with imputed values</span></span>
-<span id="cb239-6"><a href="imputation-of-missing-values.html#cb239-6" tabindex="-1"></a></span>
-<span id="cb239-7"><a href="imputation-of-missing-values.html#cb239-7" tabindex="-1"></a><span class="do">## dummies</span></span>
-<span id="cb239-8"><a href="imputation-of-missing-values.html#cb239-8" tabindex="-1"></a>data_missing <span class="ot">=</span> data<span class="sc">$</span>data_preprocessed</span>
-<span id="cb239-9"><a href="imputation-of-missing-values.html#cb239-9" tabindex="-1"></a>data_imputed <span class="ot">=</span> data<span class="sc">$</span>data_imputed</span>
-<span id="cb239-10"><a href="imputation-of-missing-values.html#cb239-10" tabindex="-1"></a><span class="co">#variable_name = names(data$data_preprocessed)[33]</span></span>
-<span id="cb239-11"><a href="imputation-of-missing-values.html#cb239-11" tabindex="-1"></a></span>
-<span id="cb239-12"><a href="imputation-of-missing-values.html#cb239-12" tabindex="-1"></a></span>
-<span id="cb239-13"><a href="imputation-of-missing-values.html#cb239-13" tabindex="-1"></a><span class="do">## raw data plot</span></span>
-<span id="cb239-14"><a href="imputation-of-missing-values.html#cb239-14" tabindex="-1"></a><span class="co"># Plot for dataset with imputed values</span></span>
-<span id="cb239-15"><a href="imputation-of-missing-values.html#cb239-15" tabindex="-1"></a>plot_missingness_points <span class="ot">&lt;-</span> <span class="cf">function</span>(df, var){</span>
-<span id="cb239-16"><a href="imputation-of-missing-values.html#cb239-16" tabindex="-1"></a>  df <span class="sc">|&gt;</span></span>
-<span id="cb239-17"><a href="imputation-of-missing-values.html#cb239-17" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> var, <span class="at">y =</span> value)) <span class="sc">+</span></span>
-<span id="cb239-18"><a href="imputation-of-missing-values.html#cb239-18" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> is_missing), <span class="at">position =</span> <span class="st">&quot;jitter&quot;</span>, <span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb239-19"><a href="imputation-of-missing-values.html#cb239-19" tabindex="-1"></a>    <span class="fu">ggtitle</span>(var)</span>
-<span id="cb239-20"><a href="imputation-of-missing-values.html#cb239-20" tabindex="-1"></a>}</span>
-<span id="cb239-21"><a href="imputation-of-missing-values.html#cb239-21" tabindex="-1"></a></span>
-<span id="cb239-22"><a href="imputation-of-missing-values.html#cb239-22" tabindex="-1"></a><span class="co">#df = joined - distro function</span></span>
-<span id="cb239-23"><a href="imputation-of-missing-values.html#cb239-23" tabindex="-1"></a>plot_missingness_distro <span class="ot">&lt;-</span> <span class="cf">function</span>(df, var){</span>
-<span id="cb239-24"><a href="imputation-of-missing-values.html#cb239-24" tabindex="-1"></a>  df <span class="sc">|&gt;</span></span>
-<span id="cb239-25"><a href="imputation-of-missing-values.html#cb239-25" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> value)) <span class="sc">+</span></span>
-<span id="cb239-26"><a href="imputation-of-missing-values.html#cb239-26" tabindex="-1"></a>    <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">colour =</span> var)) <span class="sc">+</span></span>
-<span id="cb239-27"><a href="imputation-of-missing-values.html#cb239-27" tabindex="-1"></a>    <span class="fu">ggtitle</span>(var) <span class="sc">+</span></span>
-<span id="cb239-28"><a href="imputation-of-missing-values.html#cb239-28" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span>var)</span>
-<span id="cb239-29"><a href="imputation-of-missing-values.html#cb239-29" tabindex="-1"></a>}</span>
-<span id="cb239-30"><a href="imputation-of-missing-values.html#cb239-30" tabindex="-1"></a></span>
-<span id="cb239-31"><a href="imputation-of-missing-values.html#cb239-31" tabindex="-1"></a><span class="co">#plot_missingness_distro(df = df)</span></span>
-<span id="cb239-32"><a href="imputation-of-missing-values.html#cb239-32" tabindex="-1"></a></span>
-<span id="cb239-33"><a href="imputation-of-missing-values.html#cb239-33" tabindex="-1"></a>compare_datasets <span class="ot">&lt;-</span> <span class="cf">function</span>(</span>
-<span id="cb239-34"><a href="imputation-of-missing-values.html#cb239-34" tabindex="-1"></a>    variable_name,</span>
-<span id="cb239-35"><a href="imputation-of-missing-values.html#cb239-35" tabindex="-1"></a>    data_missing, </span>
-<span id="cb239-36"><a href="imputation-of-missing-values.html#cb239-36" tabindex="-1"></a>    data_imputed, </span>
-<span id="cb239-37"><a href="imputation-of-missing-values.html#cb239-37" tabindex="-1"></a>    plot_function) {</span>
-<span id="cb239-38"><a href="imputation-of-missing-values.html#cb239-38" tabindex="-1"></a>  <span class="co"># Create a bar plot to compare the distribution of the specified variable</span></span>
-<span id="cb239-39"><a href="imputation-of-missing-values.html#cb239-39" tabindex="-1"></a>  </span>
-<span id="cb239-40"><a href="imputation-of-missing-values.html#cb239-40" tabindex="-1"></a>  <span class="co"># Plot for dataset with missing values</span></span>
-<span id="cb239-41"><a href="imputation-of-missing-values.html#cb239-41" tabindex="-1"></a>  joined <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb239-42"><a href="imputation-of-missing-values.html#cb239-42" tabindex="-1"></a>    <span class="at">missing =</span> data_missing[[variable_name]],</span>
-<span id="cb239-43"><a href="imputation-of-missing-values.html#cb239-43" tabindex="-1"></a>    <span class="at">imputed =</span> data_imputed[[variable_name]]</span>
-<span id="cb239-44"><a href="imputation-of-missing-values.html#cb239-44" tabindex="-1"></a>    </span>
-<span id="cb239-45"><a href="imputation-of-missing-values.html#cb239-45" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb239-46"><a href="imputation-of-missing-values.html#cb239-46" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
-<span id="cb239-47"><a href="imputation-of-missing-values.html#cb239-47" tabindex="-1"></a>      <span class="at">is_missing =</span> <span class="fu">is.na</span>(missing)</span>
-<span id="cb239-48"><a href="imputation-of-missing-values.html#cb239-48" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
-<span id="cb239-49"><a href="imputation-of-missing-values.html#cb239-49" tabindex="-1"></a>    <span class="fu">pivot_longer</span>(</span>
-<span id="cb239-50"><a href="imputation-of-missing-values.html#cb239-50" tabindex="-1"></a>      <span class="fu">c</span>(missing, imputed), <span class="at">names_to =</span> <span class="st">&quot;var&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;value&quot;</span>)</span>
-<span id="cb239-51"><a href="imputation-of-missing-values.html#cb239-51" tabindex="-1"></a>    </span>
-<span id="cb239-52"><a href="imputation-of-missing-values.html#cb239-52" tabindex="-1"></a>  plot_missingness <span class="ot">&lt;-</span> <span class="fu">plot_function</span>(joined, <span class="at">var =</span> variable_name)</span>
-<span id="cb239-53"><a href="imputation-of-missing-values.html#cb239-53" tabindex="-1"></a>    </span>
-<span id="cb239-54"><a href="imputation-of-missing-values.html#cb239-54" tabindex="-1"></a>  <span class="fu">return</span>(plot_missingness)</span>
-<span id="cb239-55"><a href="imputation-of-missing-values.html#cb239-55" tabindex="-1"></a>  </span>
-<span id="cb239-56"><a href="imputation-of-missing-values.html#cb239-56" tabindex="-1"></a>}</span>
-<span id="cb239-57"><a href="imputation-of-missing-values.html#cb239-57" tabindex="-1"></a></span>
-<span id="cb239-58"><a href="imputation-of-missing-values.html#cb239-58" tabindex="-1"></a>var_names_preprocessed <span class="ot">&lt;-</span> <span class="fu">names</span>(data<span class="sc">$</span>data_preprocessed) </span>
-<span id="cb239-59"><a href="imputation-of-missing-values.html#cb239-59" tabindex="-1"></a>var_names_imputed <span class="ot">&lt;-</span> <span class="fu">names</span>(data<span class="sc">$</span>data_imputed)</span>
-<span id="cb239-60"><a href="imputation-of-missing-values.html#cb239-60" tabindex="-1"></a>var_names_iteration <span class="ot">&lt;-</span> var_names_preprocessed</span>
-<span id="cb239-61"><a href="imputation-of-missing-values.html#cb239-61" tabindex="-1"></a></span>
-<span id="cb239-62"><a href="imputation-of-missing-values.html#cb239-62" tabindex="-1"></a><span class="fu">map</span>(</span>
-<span id="cb239-63"><a href="imputation-of-missing-values.html#cb239-63" tabindex="-1"></a>  <span class="at">.x =</span> var_names_iteration,</span>
-<span id="cb239-64"><a href="imputation-of-missing-values.html#cb239-64" tabindex="-1"></a>  <span class="at">.f =</span> compare_datasets,</span>
-<span id="cb239-65"><a href="imputation-of-missing-values.html#cb239-65" tabindex="-1"></a>  <span class="at">data_missing =</span> data<span class="sc">$</span>data_preprocessed,</span>
-<span id="cb239-66"><a href="imputation-of-missing-values.html#cb239-66" tabindex="-1"></a>  <span class="at">data_imputed =</span> data<span class="sc">$</span>data_imputed,</span>
-<span id="cb239-67"><a href="imputation-of-missing-values.html#cb239-67" tabindex="-1"></a>  <span class="at">plot_function =</span> plot_missingness_points</span>
-<span id="cb239-68"><a href="imputation-of-missing-values.html#cb239-68" tabindex="-1"></a>) <span class="ot">-&gt;</span> plot_points_missingness_list</span>
-<span id="cb239-69"><a href="imputation-of-missing-values.html#cb239-69" tabindex="-1"></a></span>
-<span id="cb239-70"><a href="imputation-of-missing-values.html#cb239-70" tabindex="-1"></a></span>
-<span id="cb239-71"><a href="imputation-of-missing-values.html#cb239-71" tabindex="-1"></a><span class="fu">names</span>(plot_points_missingness_list) <span class="ot">&lt;-</span> var_names_iteration</span>
-<span id="cb239-72"><a href="imputation-of-missing-values.html#cb239-72" tabindex="-1"></a>plot_points_missingness_list</span>
-<span id="cb239-73"><a href="imputation-of-missing-values.html#cb239-73" tabindex="-1"></a></span>
-<span id="cb239-74"><a href="imputation-of-missing-values.html#cb239-74" tabindex="-1"></a><span class="fu">map</span>(</span>
-<span id="cb239-75"><a href="imputation-of-missing-values.html#cb239-75" tabindex="-1"></a>  <span class="at">.x =</span> var_names_iteration,</span>
-<span id="cb239-76"><a href="imputation-of-missing-values.html#cb239-76" tabindex="-1"></a>  <span class="at">.f =</span> compare_datasets,</span>
-<span id="cb239-77"><a href="imputation-of-missing-values.html#cb239-77" tabindex="-1"></a>  <span class="at">data_missing =</span> data<span class="sc">$</span>data_preprocessed,</span>
-<span id="cb239-78"><a href="imputation-of-missing-values.html#cb239-78" tabindex="-1"></a>  <span class="at">data_imputed =</span> data<span class="sc">$</span>data_imputed,</span>
-<span id="cb239-79"><a href="imputation-of-missing-values.html#cb239-79" tabindex="-1"></a>  <span class="at">plot_function =</span> plot_missingness_distro</span>
-<span id="cb239-80"><a href="imputation-of-missing-values.html#cb239-80" tabindex="-1"></a>) <span class="ot">-&gt;</span> plot_distros_missingness_list</span>
-<span id="cb239-81"><a href="imputation-of-missing-values.html#cb239-81" tabindex="-1"></a></span>
-<span id="cb239-82"><a href="imputation-of-missing-values.html#cb239-82" tabindex="-1"></a></span>
-<span id="cb239-83"><a href="imputation-of-missing-values.html#cb239-83" tabindex="-1"></a><span class="fu">names</span>(plot_distros_missingness_list) <span class="ot">&lt;-</span> var_names_iteration</span>
-<span id="cb239-84"><a href="imputation-of-missing-values.html#cb239-84" tabindex="-1"></a>plot_distros_missingness_list</span></code></pre></div>
+<div id="visualize-the-imputations" class="section level3" number="2.18.3">
+<h3><span class="header-section-number">2.18.3</span> Visualize the imputations</h3>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="imputation-of-missing-values.html#cb238-1" tabindex="-1"></a><span class="co"># Load the necessary libraries</span></span>
+<span id="cb238-2"><a href="imputation-of-missing-values.html#cb238-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb238-3"><a href="imputation-of-missing-values.html#cb238-3" tabindex="-1"></a></span>
+<span id="cb238-4"><a href="imputation-of-missing-values.html#cb238-4" tabindex="-1"></a><span class="co"># Assuming &#39;data_with_missing&#39; is your dataset with missing values</span></span>
+<span id="cb238-5"><a href="imputation-of-missing-values.html#cb238-5" tabindex="-1"></a><span class="co"># and &#39;data_with_imputed&#39; is your dataset with imputed values</span></span>
+<span id="cb238-6"><a href="imputation-of-missing-values.html#cb238-6" tabindex="-1"></a></span>
+<span id="cb238-7"><a href="imputation-of-missing-values.html#cb238-7" tabindex="-1"></a><span class="do">## dummies</span></span>
+<span id="cb238-8"><a href="imputation-of-missing-values.html#cb238-8" tabindex="-1"></a>data_missing <span class="ot">=</span> data<span class="sc">$</span>data_preprocessed</span>
+<span id="cb238-9"><a href="imputation-of-missing-values.html#cb238-9" tabindex="-1"></a>data_imputed <span class="ot">=</span> data<span class="sc">$</span>data_imputed</span>
+<span id="cb238-10"><a href="imputation-of-missing-values.html#cb238-10" tabindex="-1"></a><span class="co">#variable_name = names(data$data_preprocessed)[33]</span></span>
+<span id="cb238-11"><a href="imputation-of-missing-values.html#cb238-11" tabindex="-1"></a></span>
+<span id="cb238-12"><a href="imputation-of-missing-values.html#cb238-12" tabindex="-1"></a></span>
+<span id="cb238-13"><a href="imputation-of-missing-values.html#cb238-13" tabindex="-1"></a><span class="do">## raw data plot</span></span>
+<span id="cb238-14"><a href="imputation-of-missing-values.html#cb238-14" tabindex="-1"></a><span class="co"># Plot for dataset with imputed values</span></span>
+<span id="cb238-15"><a href="imputation-of-missing-values.html#cb238-15" tabindex="-1"></a>plot_missingness_points <span class="ot">&lt;-</span> <span class="cf">function</span>(df, var){</span>
+<span id="cb238-16"><a href="imputation-of-missing-values.html#cb238-16" tabindex="-1"></a>  df <span class="sc">|&gt;</span></span>
+<span id="cb238-17"><a href="imputation-of-missing-values.html#cb238-17" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> var, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb238-18"><a href="imputation-of-missing-values.html#cb238-18" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> is_missing), <span class="at">position =</span> <span class="st">&quot;jitter&quot;</span>, <span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb238-19"><a href="imputation-of-missing-values.html#cb238-19" tabindex="-1"></a>    <span class="fu">ggtitle</span>(var)</span>
+<span id="cb238-20"><a href="imputation-of-missing-values.html#cb238-20" tabindex="-1"></a>}</span>
+<span id="cb238-21"><a href="imputation-of-missing-values.html#cb238-21" tabindex="-1"></a></span>
+<span id="cb238-22"><a href="imputation-of-missing-values.html#cb238-22" tabindex="-1"></a><span class="co">#df = joined - distro function</span></span>
+<span id="cb238-23"><a href="imputation-of-missing-values.html#cb238-23" tabindex="-1"></a>plot_missingness_distro <span class="ot">&lt;-</span> <span class="cf">function</span>(df, var){</span>
+<span id="cb238-24"><a href="imputation-of-missing-values.html#cb238-24" tabindex="-1"></a>  df <span class="sc">|&gt;</span></span>
+<span id="cb238-25"><a href="imputation-of-missing-values.html#cb238-25" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> value)) <span class="sc">+</span></span>
+<span id="cb238-26"><a href="imputation-of-missing-values.html#cb238-26" tabindex="-1"></a>    <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">colour =</span> var)) <span class="sc">+</span></span>
+<span id="cb238-27"><a href="imputation-of-missing-values.html#cb238-27" tabindex="-1"></a>    <span class="fu">ggtitle</span>(var) <span class="sc">+</span></span>
+<span id="cb238-28"><a href="imputation-of-missing-values.html#cb238-28" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span>var)</span>
+<span id="cb238-29"><a href="imputation-of-missing-values.html#cb238-29" tabindex="-1"></a>}</span>
+<span id="cb238-30"><a href="imputation-of-missing-values.html#cb238-30" tabindex="-1"></a></span>
+<span id="cb238-31"><a href="imputation-of-missing-values.html#cb238-31" tabindex="-1"></a><span class="co">#plot_missingness_distro(df = df)</span></span>
+<span id="cb238-32"><a href="imputation-of-missing-values.html#cb238-32" tabindex="-1"></a></span>
+<span id="cb238-33"><a href="imputation-of-missing-values.html#cb238-33" tabindex="-1"></a>compare_datasets <span class="ot">&lt;-</span> <span class="cf">function</span>(</span>
+<span id="cb238-34"><a href="imputation-of-missing-values.html#cb238-34" tabindex="-1"></a>    variable_name,</span>
+<span id="cb238-35"><a href="imputation-of-missing-values.html#cb238-35" tabindex="-1"></a>    data_missing, </span>
+<span id="cb238-36"><a href="imputation-of-missing-values.html#cb238-36" tabindex="-1"></a>    data_imputed, </span>
+<span id="cb238-37"><a href="imputation-of-missing-values.html#cb238-37" tabindex="-1"></a>    plot_function) {</span>
+<span id="cb238-38"><a href="imputation-of-missing-values.html#cb238-38" tabindex="-1"></a>  <span class="co"># Create a bar plot to compare the distribution of the specified variable</span></span>
+<span id="cb238-39"><a href="imputation-of-missing-values.html#cb238-39" tabindex="-1"></a>  </span>
+<span id="cb238-40"><a href="imputation-of-missing-values.html#cb238-40" tabindex="-1"></a>  <span class="co"># Plot for dataset with missing values</span></span>
+<span id="cb238-41"><a href="imputation-of-missing-values.html#cb238-41" tabindex="-1"></a>  joined <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb238-42"><a href="imputation-of-missing-values.html#cb238-42" tabindex="-1"></a>    <span class="at">missing =</span> data_missing[[variable_name]],</span>
+<span id="cb238-43"><a href="imputation-of-missing-values.html#cb238-43" tabindex="-1"></a>    <span class="at">imputed =</span> data_imputed[[variable_name]]</span>
+<span id="cb238-44"><a href="imputation-of-missing-values.html#cb238-44" tabindex="-1"></a>    </span>
+<span id="cb238-45"><a href="imputation-of-missing-values.html#cb238-45" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb238-46"><a href="imputation-of-missing-values.html#cb238-46" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb238-47"><a href="imputation-of-missing-values.html#cb238-47" tabindex="-1"></a>      <span class="at">is_missing =</span> <span class="fu">is.na</span>(missing)</span>
+<span id="cb238-48"><a href="imputation-of-missing-values.html#cb238-48" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb238-49"><a href="imputation-of-missing-values.html#cb238-49" tabindex="-1"></a>    <span class="fu">pivot_longer</span>(</span>
+<span id="cb238-50"><a href="imputation-of-missing-values.html#cb238-50" tabindex="-1"></a>      <span class="fu">c</span>(missing, imputed), <span class="at">names_to =</span> <span class="st">&quot;var&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;value&quot;</span>)</span>
+<span id="cb238-51"><a href="imputation-of-missing-values.html#cb238-51" tabindex="-1"></a>    </span>
+<span id="cb238-52"><a href="imputation-of-missing-values.html#cb238-52" tabindex="-1"></a>  plot_missingness <span class="ot">&lt;-</span> <span class="fu">plot_function</span>(joined, <span class="at">var =</span> variable_name)</span>
+<span id="cb238-53"><a href="imputation-of-missing-values.html#cb238-53" tabindex="-1"></a>    </span>
+<span id="cb238-54"><a href="imputation-of-missing-values.html#cb238-54" tabindex="-1"></a>  <span class="fu">return</span>(plot_missingness)</span>
+<span id="cb238-55"><a href="imputation-of-missing-values.html#cb238-55" tabindex="-1"></a>  </span>
+<span id="cb238-56"><a href="imputation-of-missing-values.html#cb238-56" tabindex="-1"></a>}</span>
+<span id="cb238-57"><a href="imputation-of-missing-values.html#cb238-57" tabindex="-1"></a></span>
+<span id="cb238-58"><a href="imputation-of-missing-values.html#cb238-58" tabindex="-1"></a>var_names_preprocessed <span class="ot">&lt;-</span> <span class="fu">names</span>(data<span class="sc">$</span>data_preprocessed) </span>
+<span id="cb238-59"><a href="imputation-of-missing-values.html#cb238-59" tabindex="-1"></a>var_names_imputed <span class="ot">&lt;-</span> <span class="fu">names</span>(data<span class="sc">$</span>data_imputed)</span>
+<span id="cb238-60"><a href="imputation-of-missing-values.html#cb238-60" tabindex="-1"></a>var_names_iteration <span class="ot">&lt;-</span> var_names_preprocessed</span>
+<span id="cb238-61"><a href="imputation-of-missing-values.html#cb238-61" tabindex="-1"></a></span>
+<span id="cb238-62"><a href="imputation-of-missing-values.html#cb238-62" tabindex="-1"></a><span class="fu">map</span>(</span>
+<span id="cb238-63"><a href="imputation-of-missing-values.html#cb238-63" tabindex="-1"></a>  <span class="at">.x =</span> var_names_iteration,</span>
+<span id="cb238-64"><a href="imputation-of-missing-values.html#cb238-64" tabindex="-1"></a>  <span class="at">.f =</span> compare_datasets,</span>
+<span id="cb238-65"><a href="imputation-of-missing-values.html#cb238-65" tabindex="-1"></a>  <span class="at">data_missing =</span> data<span class="sc">$</span>data_preprocessed,</span>
+<span id="cb238-66"><a href="imputation-of-missing-values.html#cb238-66" tabindex="-1"></a>  <span class="at">data_imputed =</span> data<span class="sc">$</span>data_imputed,</span>
+<span id="cb238-67"><a href="imputation-of-missing-values.html#cb238-67" tabindex="-1"></a>  <span class="at">plot_function =</span> plot_missingness_points</span>
+<span id="cb238-68"><a href="imputation-of-missing-values.html#cb238-68" tabindex="-1"></a>) <span class="ot">-&gt;</span> plot_points_missingness_list</span>
+<span id="cb238-69"><a href="imputation-of-missing-values.html#cb238-69" tabindex="-1"></a></span>
+<span id="cb238-70"><a href="imputation-of-missing-values.html#cb238-70" tabindex="-1"></a></span>
+<span id="cb238-71"><a href="imputation-of-missing-values.html#cb238-71" tabindex="-1"></a><span class="fu">names</span>(plot_points_missingness_list) <span class="ot">&lt;-</span> var_names_iteration</span>
+<span id="cb238-72"><a href="imputation-of-missing-values.html#cb238-72" tabindex="-1"></a>plot_points_missingness_list</span>
+<span id="cb238-73"><a href="imputation-of-missing-values.html#cb238-73" tabindex="-1"></a></span>
+<span id="cb238-74"><a href="imputation-of-missing-values.html#cb238-74" tabindex="-1"></a><span class="fu">map</span>(</span>
+<span id="cb238-75"><a href="imputation-of-missing-values.html#cb238-75" tabindex="-1"></a>  <span class="at">.x =</span> var_names_iteration,</span>
+<span id="cb238-76"><a href="imputation-of-missing-values.html#cb238-76" tabindex="-1"></a>  <span class="at">.f =</span> compare_datasets,</span>
+<span id="cb238-77"><a href="imputation-of-missing-values.html#cb238-77" tabindex="-1"></a>  <span class="at">data_missing =</span> data<span class="sc">$</span>data_preprocessed,</span>
+<span id="cb238-78"><a href="imputation-of-missing-values.html#cb238-78" tabindex="-1"></a>  <span class="at">data_imputed =</span> data<span class="sc">$</span>data_imputed,</span>
+<span id="cb238-79"><a href="imputation-of-missing-values.html#cb238-79" tabindex="-1"></a>  <span class="at">plot_function =</span> plot_missingness_distro</span>
+<span id="cb238-80"><a href="imputation-of-missing-values.html#cb238-80" tabindex="-1"></a>) <span class="ot">-&gt;</span> plot_distros_missingness_list</span>
+<span id="cb238-81"><a href="imputation-of-missing-values.html#cb238-81" tabindex="-1"></a></span>
+<span id="cb238-82"><a href="imputation-of-missing-values.html#cb238-82" tabindex="-1"></a></span>
+<span id="cb238-83"><a href="imputation-of-missing-values.html#cb238-83" tabindex="-1"></a><span class="fu">names</span>(plot_distros_missingness_list) <span class="ot">&lt;-</span> var_names_iteration</span>
+<span id="cb238-84"><a href="imputation-of-missing-values.html#cb238-84" tabindex="-1"></a>plot_distros_missingness_list</span></code></pre></div>
 </div>
 </div>
-<div id="skimming-the-data" class="section level2 hasAnchor" number="2.19">
-<h2><span class="header-section-number">2.19</span> Skimming the data<a href="imputation-of-missing-values.html#skimming-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="imputation-of-missing-values.html#cb240-1" tabindex="-1"></a>data<span class="sc">$</span>data_imputed <span class="sc">%&gt;%</span> </span>
-<span id="cb240-2"><a href="imputation-of-missing-values.html#cb240-2" tabindex="-1"></a>  skimr<span class="sc">::</span><span class="fu">skim</span>(</span>
-<span id="cb240-3"><a href="imputation-of-missing-values.html#cb240-3" tabindex="-1"></a>    pain_intensity, </span>
-<span id="cb240-4"><a href="imputation-of-missing-values.html#cb240-4" tabindex="-1"></a>    sex, </span>
-<span id="cb240-5"><a href="imputation-of-missing-values.html#cb240-5" tabindex="-1"></a>    age, </span>
-<span id="cb240-6"><a href="imputation-of-missing-values.html#cb240-6" tabindex="-1"></a>    painint_6weeks, </span>
-<span id="cb240-7"><a href="imputation-of-missing-values.html#cb240-7" tabindex="-1"></a>    alcohol,</span>
-<span id="cb240-8"><a href="imputation-of-missing-values.html#cb240-8" tabindex="-1"></a>    painint_3months, </span>
-<span id="cb240-9"><a href="imputation-of-missing-values.html#cb240-9" tabindex="-1"></a>    painint_6months</span>
-<span id="cb240-10"><a href="imputation-of-missing-values.html#cb240-10" tabindex="-1"></a>    ) </span></code></pre></div>
+<div id="skimming-the-data" class="section level2" number="2.19">
+<h2><span class="header-section-number">2.19</span> Skimming the data</h2>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="imputation-of-missing-values.html#cb239-1" tabindex="-1"></a>data<span class="sc">$</span>data_imputed <span class="sc">%&gt;%</span> </span>
+<span id="cb239-2"><a href="imputation-of-missing-values.html#cb239-2" tabindex="-1"></a>  skimr<span class="sc">::</span><span class="fu">skim</span>(</span>
+<span id="cb239-3"><a href="imputation-of-missing-values.html#cb239-3" tabindex="-1"></a>    pain_intensity, </span>
+<span id="cb239-4"><a href="imputation-of-missing-values.html#cb239-4" tabindex="-1"></a>    sex, </span>
+<span id="cb239-5"><a href="imputation-of-missing-values.html#cb239-5" tabindex="-1"></a>    age, </span>
+<span id="cb239-6"><a href="imputation-of-missing-values.html#cb239-6" tabindex="-1"></a>    painint_6weeks, </span>
+<span id="cb239-7"><a href="imputation-of-missing-values.html#cb239-7" tabindex="-1"></a>    alcohol,</span>
+<span id="cb239-8"><a href="imputation-of-missing-values.html#cb239-8" tabindex="-1"></a>    painint_3months, </span>
+<span id="cb239-9"><a href="imputation-of-missing-values.html#cb239-9" tabindex="-1"></a>    painint_6months</span>
+<span id="cb239-10"><a href="imputation-of-missing-values.html#cb239-10" tabindex="-1"></a>    ) </span></code></pre></div>
 <table>
 <caption><span id="tab:skimr">Table 2.1: </span>Data summary</caption>
 <tbody>
@@ -1728,22 +1821,22 @@ see also: <a href="https://stats.stackexchange.com/questions/204313/how-to-choos
 </tbody>
 </table>
 </div>
-<div id="add-attitude" class="section level2 hasAnchor" number="2.20">
-<h2><span class="header-section-number">2.20</span> Add <code>attitude</code><a href="imputation-of-missing-values.html#add-attitude" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="imputation-of-missing-values.html#cb241-1" tabindex="-1"></a>data<span class="sc">$</span>data_imputed<span class="sc">$</span>attitude <span class="ot">&lt;-</span> data<span class="sc">$</span>data_raw<span class="sc">$</span>Attitude</span>
-<span id="cb241-2"><a href="imputation-of-missing-values.html#cb241-2" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: create merge based on patient code</span></span>
-<span id="cb241-3"><a href="imputation-of-missing-values.html#cb241-3" tabindex="-1"></a>data<span class="sc">$</span>data_imputed <span class="ot">&lt;-</span> data<span class="sc">$</span>data_imputed <span class="sc">|&gt;</span> sjlabelled<span class="sc">::</span><span class="fu">remove_all_labels</span>()</span>
-<span id="cb241-4"><a href="imputation-of-missing-values.html#cb241-4" tabindex="-1"></a>data_final <span class="ot">&lt;-</span> data<span class="sc">$</span>data_imputed</span>
-<span id="cb241-5"><a href="imputation-of-missing-values.html#cb241-5" tabindex="-1"></a></span>
-<span id="cb241-6"><a href="imputation-of-missing-values.html#cb241-6" tabindex="-1"></a>naniar<span class="sc">::</span><span class="fu">vis_miss</span>(data<span class="sc">$</span>data_imputed)</span></code></pre></div>
+<div id="add-attitude" class="section level2" number="2.20">
+<h2><span class="header-section-number">2.20</span> Add <code>attitude</code></h2>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="imputation-of-missing-values.html#cb240-1" tabindex="-1"></a>data<span class="sc">$</span>data_imputed<span class="sc">$</span>attitude <span class="ot">&lt;-</span> data<span class="sc">$</span>data_raw<span class="sc">$</span>Attitude</span>
+<span id="cb240-2"><a href="imputation-of-missing-values.html#cb240-2" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: create merge based on patient code</span></span>
+<span id="cb240-3"><a href="imputation-of-missing-values.html#cb240-3" tabindex="-1"></a>data<span class="sc">$</span>data_imputed <span class="ot">&lt;-</span> data<span class="sc">$</span>data_imputed <span class="sc">|&gt;</span> sjlabelled<span class="sc">::</span><span class="fu">remove_all_labels</span>()</span>
+<span id="cb240-4"><a href="imputation-of-missing-values.html#cb240-4" tabindex="-1"></a>data_final <span class="ot">&lt;-</span> data<span class="sc">$</span>data_imputed</span>
+<span id="cb240-5"><a href="imputation-of-missing-values.html#cb240-5" tabindex="-1"></a></span>
+<span id="cb240-6"><a href="imputation-of-missing-values.html#cb240-6" tabindex="-1"></a>naniar<span class="sc">::</span><span class="fu">vis_miss</span>(data<span class="sc">$</span>data_imputed)</span></code></pre></div>
 <p><img src="02_imputation_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 </div>
-<div id="save-to-disk" class="section level2 hasAnchor" number="2.21">
-<h2><span class="header-section-number">2.21</span> Save to disk<a href="imputation-of-missing-values.html#save-to-disk" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="imputation-of-missing-values.html#cb242-1" tabindex="-1"></a>data <span class="sc">|&gt;</span></span>
-<span id="cb242-2"><a href="imputation-of-missing-values.html#cb242-2" tabindex="-1"></a>  <span class="fu">write_rds</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;data-list.rds&quot;</span>))</span>
-<span id="cb242-3"><a href="imputation-of-missing-values.html#cb242-3" tabindex="-1"></a></span>
-<span id="cb242-4"><a href="imputation-of-missing-values.html#cb242-4" tabindex="-1"></a><span class="fu">write_rds</span>(data<span class="sc">$</span>data_imputed, here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;df_imputed.rds&quot;</span>))</span></code></pre></div>
+<div id="save-to-disk" class="section level2" number="2.21">
+<h2><span class="header-section-number">2.21</span> Save to disk</h2>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="imputation-of-missing-values.html#cb241-1" tabindex="-1"></a>data <span class="sc">|&gt;</span></span>
+<span id="cb241-2"><a href="imputation-of-missing-values.html#cb241-2" tabindex="-1"></a>  <span class="fu">write_rds</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;data-list.rds&quot;</span>))</span>
+<span id="cb241-3"><a href="imputation-of-missing-values.html#cb241-3" tabindex="-1"></a></span>
+<span id="cb241-4"><a href="imputation-of-missing-values.html#cb241-4" tabindex="-1"></a><span class="fu">write_rds</span>(data<span class="sc">$</span>data_imputed, here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;df_imputed.rds&quot;</span>))</span></code></pre></div>
 
 </div>
 </div>
@@ -1768,15 +1861,15 @@ see also: <a href="https://stats.stackexchange.com/questions/204313/how-to-choos
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
+"github": true,
+"facebook": false,
+"twitter": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
 "whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+"all": false
 },
 "fontsettings": {
 "theme": "white",
@@ -1801,7 +1894,8 @@ gitbook.start({
 "options": null
 },
 "toc": {
-"collapse": "subsection"
+"collapse": "section",
+"scroll_highlight": true
 }
 });
 });

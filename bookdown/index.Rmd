@@ -3,8 +3,7 @@ title: "Chronic neck pain - Data Analysis"
 author: "Marc A.T. Teunis & Martine Verwoerd"
 site: bookdown::bookdown_site
 output: 
-    bookdown::htm_book:
-        theme: united
+    bookdown::gitbook:
         css: style.css
         number_sections: true
         anchor_sections: false

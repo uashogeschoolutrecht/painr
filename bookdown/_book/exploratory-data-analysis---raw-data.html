@@ -48,9 +48,6 @@
 
 
 
-<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
-<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 <script src="libs/d3-3.3.8/d3.min.js"></script>
 <script src="libs/dagre-0.4.0/dagre-d3.min.js"></script>
@@ -151,15 +148,113 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">painr-documentation</a></li>
-
+<li class="toc-logo"><a href="./"></a> <h4 class=".paddingtitel ">painr</h2></li>
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
-<li class="chapter" data-level="1" data-path="exploratory-data-analysis---raw-data.html"><a href="exploratory-data-analysis---raw-data.html"><i class="fa fa-check"></i><b>1</b> Exploratory Data Analysis - Raw Data</a></li>
-<li class="chapter" data-level="2" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html"><i class="fa fa-check"></i><b>2</b> Imputation of missing values</a></li>
-<li class="chapter" data-level="3" data-path="statistical-exploration.html"><a href="statistical-exploration.html"><i class="fa fa-check"></i><b>3</b> Statistical exploration</a></li>
-<li class="chapter" data-level="4" data-path="development-and-internal-validation-of-a-multivariable-prognostic-model-for-chronification-of-non-specific-neck-pain-in-physiotherapy.html"><a href="development-and-internal-validation-of-a-multivariable-prognostic-model-for-chronification-of-non-specific-neck-pain-in-physiotherapy.html"><i class="fa fa-check"></i><b>4</b> Development and internal validation of a multivariable prognostic model for chronification of non-specific neck pain in physiotherapy</a></li>
-<li class="chapter" data-level="5" data-path="article-figures.html"><a href="article-figures.html"><i class="fa fa-check"></i><b>5</b> Article figures</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#data-flow"><i class="fa fa-check"></i><b>0.1</b> Data Flow</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="exploratory-data-analysis---raw-data.html"><a href="exploratory-data-analysis---raw-data.html"><i class="fa fa-check"></i><b>1</b> Exploratory Data Analysis - Raw Data</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="exploratory-data-analysis---raw-data.html"><a href="exploratory-data-analysis---raw-data.html#suggested-improvements-of-the-code"><i class="fa fa-check"></i><b>1.1</b> Suggested improvements of the code</a></li>
+<li class="chapter" data-level="1.2" data-path="exploratory-data-analysis---raw-data.html"><a href="exploratory-data-analysis---raw-data.html#packages"><i class="fa fa-check"></i><b>1.2</b> Packages</a></li>
+<li class="chapter" data-level="1.3" data-path="exploratory-data-analysis---raw-data.html"><a href="exploratory-data-analysis---raw-data.html#load-data"><i class="fa fa-check"></i><b>1.3</b> Load data</a></li>
+<li class="chapter" data-level="1.4" data-path="exploratory-data-analysis---raw-data.html"><a href="exploratory-data-analysis---raw-data.html#first-glimpse-at-missingness"><i class="fa fa-check"></i><b>1.4</b> First glimpse at missingness</a></li>
+<li class="chapter" data-level="1.5" data-path="exploratory-data-analysis---raw-data.html"><a href="exploratory-data-analysis---raw-data.html#select-relevant-variables"><i class="fa fa-check"></i><b>1.5</b> Select relevant variables</a></li>
+<li class="chapter" data-level="1.6" data-path="exploratory-data-analysis---raw-data.html"><a href="exploratory-data-analysis---raw-data.html#exploratory-data-analysis"><i class="fa fa-check"></i><b>1.6</b> Exploratory Data Analysis</a></li>
+<li class="chapter" data-level="1.7" data-path="exploratory-data-analysis---raw-data.html"><a href="exploratory-data-analysis---raw-data.html#write-table-with-all-labels"><i class="fa fa-check"></i><b>1.7</b> Write table with all labels</a></li>
+<li class="chapter" data-level="1.8" data-path="exploratory-data-analysis---raw-data.html"><a href="exploratory-data-analysis---raw-data.html#deal-with-work-variables"><i class="fa fa-check"></i><b>1.8</b> Deal with ‘work’ variables</a></li>
+<li class="chapter" data-level="1.9" data-path="exploratory-data-analysis---raw-data.html"><a href="exploratory-data-analysis---raw-data.html#recode-physical_activity"><i class="fa fa-check"></i><b>1.9</b> Recode <code>physical_activity</code></a></li>
+<li class="chapter" data-level="1.10" data-path="exploratory-data-analysis---raw-data.html"><a href="exploratory-data-analysis---raw-data.html#write-subsetted-data-to-disk"><i class="fa fa-check"></i><b>1.10</b> Write subsetted data to disk</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html"><i class="fa fa-check"></i><b>2</b> Imputation of missing values</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#packages-1"><i class="fa fa-check"></i><b>2.1</b> Packages</a></li>
+<li class="chapter" data-level="2.2" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#data"><i class="fa fa-check"></i><b>2.2</b> Data</a></li>
+<li class="chapter" data-level="2.3" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#prepare-datset-for-imputing"><i class="fa fa-check"></i><b>2.3</b> Prepare datset for imputing</a></li>
+<li class="chapter" data-level="2.4" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#convert-all-categorical-vars-to-factors"><i class="fa fa-check"></i><b>2.4</b> Convert all categorical vars to factors</a></li>
+<li class="chapter" data-level="2.5" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#panel-with-all-distributions"><i class="fa fa-check"></i><b>2.5</b> Panel with all distributions</a></li>
+<li class="chapter" data-level="2.6" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#imputation-of-missing-values-1"><i class="fa fa-check"></i><b>2.6</b> Imputation of missing values</a></li>
+<li class="chapter" data-level="2.7" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#checking-missing-completely-at-random-mcar"><i class="fa fa-check"></i><b>2.7</b> Checking Missing Completely at Random (MCAR)</a></li>
+<li class="chapter" data-level="2.8" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#missingness-pattern"><i class="fa fa-check"></i><b>2.8</b> Missingness pattern</a></li>
+<li class="chapter" data-level="2.9" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#define-predictors-to-include-in-the-imputations"><i class="fa fa-check"></i><b>2.9</b> Define predictors to include in the imputations</a></li>
+<li class="chapter" data-level="2.10" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#using-the-mice-package-for-imputation-of-missing-values"><i class="fa fa-check"></i><b>2.10</b> Using the MICE package for imputation of missing values</a></li>
+<li class="chapter" data-level="2.11" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#create-predictormatrix-for-mice"><i class="fa fa-check"></i><b>2.11</b> Create predictorMatrix for MICE</a></li>
+<li class="chapter" data-level="2.12" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#calculate-percentage-missing-data-and-cases"><i class="fa fa-check"></i><b>2.12</b> Calculate percentage missing data and cases</a></li>
+<li class="chapter" data-level="2.13" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#running-the-imputations"><i class="fa fa-check"></i><b>2.13</b> Running the imputations</a></li>
+<li class="chapter" data-level="2.14" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#inspect-the-imputations"><i class="fa fa-check"></i><b>2.14</b> Inspect the imputations</a></li>
+<li class="chapter" data-level="2.15" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#check-convergence"><i class="fa fa-check"></i><b>2.15</b> Check convergence</a></li>
+<li class="chapter" data-level="2.16" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#check-for-plausible-values-of-imputation"><i class="fa fa-check"></i><b>2.16</b> Check for plausible values of imputation</a></li>
+<li class="chapter" data-level="2.17" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#checking-the-used-predictor-matrix"><i class="fa fa-check"></i><b>2.17</b> Checking the used predictor matrix</a></li>
+<li class="chapter" data-level="2.18" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#look-at-the-datasets"><i class="fa fa-check"></i><b>2.18</b> Look at the datasets</a></li>
+<li class="chapter" data-level="2.19" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#skimming-the-data"><i class="fa fa-check"></i><b>2.19</b> Skimming the data</a></li>
+<li class="chapter" data-level="2.20" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#add-attitude"><i class="fa fa-check"></i><b>2.20</b> Add <code>attitude</code></a></li>
+<li class="chapter" data-level="2.21" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#save-to-disk"><i class="fa fa-check"></i><b>2.21</b> Save to disk</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="statistical-exploration.html"><a href="statistical-exploration.html"><i class="fa fa-check"></i><b>3</b> Statistical exploration</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="statistical-exploration.html"><a href="statistical-exploration.html#packages-2"><i class="fa fa-check"></i><b>3.1</b> Packages</a></li>
+<li class="chapter" data-level="3.2" data-path="statistical-exploration.html"><a href="statistical-exploration.html#data-1"><i class="fa fa-check"></i><b>3.2</b> Data</a></li>
+<li class="chapter" data-level="3.3" data-path="statistical-exploration.html"><a href="statistical-exploration.html#global-parameters"><i class="fa fa-check"></i><b>3.3</b> Global parameters</a></li>
+<li class="chapter" data-level="3.4" data-path="statistical-exploration.html"><a href="statistical-exploration.html#statistical-analysis-methods-and-missing-data"><i class="fa fa-check"></i><b>3.4</b> Statistical analysis methods and missing data</a></li>
+<li class="chapter" data-level="3.5" data-path="statistical-exploration.html"><a href="statistical-exploration.html#reformat-dataframe-to-stacked-format"><i class="fa fa-check"></i><b>3.5</b> Reformat dataframe to stacked format</a></li>
+<li class="chapter" data-level="3.6" data-path="statistical-exploration.html"><a href="statistical-exploration.html#create-time-variable"><i class="fa fa-check"></i><b>3.6</b> Create time variable</a></li>
+<li class="chapter" data-level="3.7" data-path="statistical-exploration.html"><a href="statistical-exploration.html#recode-time"><i class="fa fa-check"></i><b>3.7</b> Recode time</a></li>
+<li class="chapter" data-level="3.8" data-path="statistical-exploration.html"><a href="statistical-exploration.html#adding-baseline-as-time0"><i class="fa fa-check"></i><b>3.8</b> Adding baseline as time=0</a></li>
+<li class="chapter" data-level="3.9" data-path="statistical-exploration.html"><a href="statistical-exploration.html#carry-forward"><i class="fa fa-check"></i><b>3.9</b> Carry forward</a></li>
+<li class="chapter" data-level="3.10" data-path="statistical-exploration.html"><a href="statistical-exploration.html#rework-the-graph-above-to-get-cummulative-pain-intensity-scores"><i class="fa fa-check"></i><b>3.10</b> Rework the graph above to get cummulative pain intensity scores</a></li>
+<li class="chapter" data-level="3.11" data-path="statistical-exploration.html"><a href="statistical-exploration.html#get-individual-lines-for-each-patient"><i class="fa fa-check"></i><b>3.11</b> Get individual lines for each patient</a></li>
+<li class="chapter" data-level="3.12" data-path="statistical-exploration.html"><a href="statistical-exploration.html#write-to-disk-as-excel-file-and-.rds-r-binary-file."><i class="fa fa-check"></i><b>3.12</b> Write to disk as excel file and .rds R binary file.</a></li>
+<li class="chapter" data-level="3.13" data-path="statistical-exploration.html"><a href="statistical-exploration.html#distribution-of-the-data"><i class="fa fa-check"></i><b>3.13</b> Distribution of the data</a></li>
+<li class="chapter" data-level="3.14" data-path="statistical-exploration.html"><a href="statistical-exploration.html#table-baseline-characteristics-of-the-included-patients"><i class="fa fa-check"></i><b>3.14</b> Table: baseline characteristics of the included patients</a></li>
+<li class="chapter" data-level="3.15" data-path="statistical-exploration.html"><a href="statistical-exploration.html#testing-assumptions-before-backward-analysis"><i class="fa fa-check"></i><b>3.15</b> Testing assumptions before backward analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="prognostic-model.html"><a href="prognostic-model.html"><i class="fa fa-check"></i><b>4</b> Prognostic model</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="prognostic-model.html"><a href="prognostic-model.html#packages-3"><i class="fa fa-check"></i><b>4.1</b> Packages</a></li>
+<li class="chapter" data-level="4.2" data-path="prognostic-model.html"><a href="prognostic-model.html#data-load"><i class="fa fa-check"></i><b>4.2</b> Data load</a></li>
+<li class="chapter" data-level="4.3" data-path="prognostic-model.html"><a href="prognostic-model.html#clean-data-and-rename-vars"><i class="fa fa-check"></i><b>4.3</b> Clean data and rename vars</a></li>
+<li class="chapter" data-level="4.4" data-path="prognostic-model.html"><a href="prognostic-model.html#exploratory-data-analysis-1"><i class="fa fa-check"></i><b>4.4</b> Exploratory Data Analysis</a></li>
+<li class="chapter" data-level="4.5" data-path="prognostic-model.html"><a href="prognostic-model.html#variabel-analysis---independent-predictive-capacity"><i class="fa fa-check"></i><b>4.5</b> Variabel analysis - Independent Predictive Capacity</a></li>
+<li class="chapter" data-level="4.6" data-path="prognostic-model.html"><a href="prognostic-model.html#relevel-dichotomous-variables"><i class="fa fa-check"></i><b>4.6</b> Relevel dichotomous variables</a></li>
+<li class="chapter" data-level="4.7" data-path="prognostic-model.html"><a href="prognostic-model.html#multivariable-logistic-regression-analyses"><i class="fa fa-check"></i><b>4.7</b> Multivariable logistic regression analyses</a></li>
+<li class="chapter" data-level="4.8" data-path="prognostic-model.html"><a href="prognostic-model.html#auc"><i class="fa fa-check"></i><b>4.8</b> AUC</a></li>
+<li class="chapter" data-level="4.9" data-path="prognostic-model.html"><a href="prognostic-model.html#calibration-curve"><i class="fa fa-check"></i><b>4.9</b> Calibration curve</a></li>
+<li class="chapter" data-level="4.10" data-path="prognostic-model.html"><a href="prognostic-model.html#result-calibration-plot"><i class="fa fa-check"></i><b>4.10</b> Result Calibration plot</a></li>
+<li class="chapter" data-level="4.11" data-path="prognostic-model.html"><a href="prognostic-model.html#hoslem-and-lemeshow"><i class="fa fa-check"></i><b>4.11</b> Hoslem and Lemeshow</a></li>
+<li class="chapter" data-level="4.12" data-path="prognostic-model.html"><a href="prognostic-model.html#model-fit"><i class="fa fa-check"></i><b>4.12</b> Model fit</a></li>
+<li class="chapter" data-level="4.13" data-path="prognostic-model.html"><a href="prognostic-model.html#internal-validation"><i class="fa fa-check"></i><b>4.13</b> Internal validation</a></li>
+<li class="chapter" data-level="4.14" data-path="prognostic-model.html"><a href="prognostic-model.html#plot-corrected-auc"><i class="fa fa-check"></i><b>4.14</b> Plot Corrected AUC</a></li>
+<li class="chapter" data-level="4.15" data-path="prognostic-model.html"><a href="prognostic-model.html#results"><i class="fa fa-check"></i><b>4.15</b> Results</a></li>
+<li class="chapter" data-level="4.16" data-path="prognostic-model.html"><a href="prognostic-model.html#correcting-the-variables-coefficients"><i class="fa fa-check"></i><b>4.16</b> Correcting the variables coefficients</a></li>
+<li class="chapter" data-level="4.17" data-path="prognostic-model.html"><a href="prognostic-model.html#calibration-in-the-large"><i class="fa fa-check"></i><b>4.17</b> Calibration in the Large</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="article-figures.html"><a href="article-figures.html"><i class="fa fa-check"></i><b>5</b> Article figures</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="article-figures.html"><a href="article-figures.html#packages-4"><i class="fa fa-check"></i><b>5.1</b> Packages</a></li>
+<li class="chapter" data-level="5.2" data-path="article-figures.html"><a href="article-figures.html#data-load-1"><i class="fa fa-check"></i><b>5.2</b> Data load</a></li>
+<li class="chapter" data-level="5.3" data-path="article-figures.html"><a href="article-figures.html#clean-data-and-rename-variables"><i class="fa fa-check"></i><b>5.3</b> Clean data and rename variables</a></li>
+<li class="chapter" data-level="5.4" data-path="article-figures.html"><a href="article-figures.html#exploratory-data-analysis-2"><i class="fa fa-check"></i><b>5.4</b> Exploratory Data Analysis</a></li>
+<li class="chapter" data-level="5.5" data-path="article-figures.html"><a href="article-figures.html#variabel-analysis"><i class="fa fa-check"></i><b>5.5</b> Variabel analysis</a></li>
+<li class="chapter" data-level="5.6" data-path="article-figures.html"><a href="article-figures.html#graph-of-model-metrics"><i class="fa fa-check"></i><b>5.6</b> Graph of model metrics</a></li>
+<li class="chapter" data-level="5.7" data-path="article-figures.html"><a href="article-figures.html#relevel-dichotomous-variables-1"><i class="fa fa-check"></i><b>5.7</b> Relevel dichotomous variables</a></li>
+<li class="chapter" data-level="5.8" data-path="article-figures.html"><a href="article-figures.html#refactor-code-above-to-a-more-compact-version"><i class="fa fa-check"></i><b>5.8</b> Refactor code above to a more compact version</a></li>
+<li class="chapter" data-level="5.9" data-path="article-figures.html"><a href="article-figures.html#univariate-analysis-on-the-categorical-variables"><i class="fa fa-check"></i><b>5.9</b> Univariate analysis on the categorical variables</a></li>
+<li class="chapter" data-level="5.10" data-path="article-figures.html"><a href="article-figures.html#visualize-model-outcome"><i class="fa fa-check"></i><b>5.10</b> Visualize model outcome</a></li>
+<li class="chapter" data-level="5.11" data-path="article-figures.html"><a href="article-figures.html#panel-plot-univariate"><i class="fa fa-check"></i><b>5.11</b> Panel plot univariate</a></li>
+<li class="chapter" data-level="5.12" data-path="article-figures.html"><a href="article-figures.html#multivariable-logistic-regression-analyses-1"><i class="fa fa-check"></i><b>5.12</b> Multivariable logistic regression analyses</a></li>
+<li class="chapter" data-level="5.13" data-path="article-figures.html"><a href="article-figures.html#backward-model"><i class="fa fa-check"></i><b>5.13</b> Backward model</a></li>
+<li class="chapter" data-level="5.14" data-path="article-figures.html"><a href="article-figures.html#visualize-backward-model"><i class="fa fa-check"></i><b>5.14</b> Visualize backward model</a></li>
+<li class="chapter" data-level="5.15" data-path="article-figures.html"><a href="article-figures.html#panel-plot-with-all-models"><i class="fa fa-check"></i><b>5.15</b> Panel plot with all models</a></li>
+<li class="chapter" data-level="5.16" data-path="article-figures.html"><a href="article-figures.html#rework-figure-labels"><i class="fa fa-check"></i><b>5.16</b> Rework figure labels</a></li>
+<li class="chapter" data-level="5.17" data-path="article-figures.html"><a href="article-figures.html#figures-for-paper"><i class="fa fa-check"></i><b>5.17</b> Figures for paper</a></li>
+<li class="chapter" data-level="5.18" data-path="article-figures.html"><a href="article-figures.html#adding-level-info-to-figure"><i class="fa fa-check"></i><b>5.18</b> Adding level info to figure</a></li>
+<li class="chapter" data-level="5.19" data-path="article-figures.html"><a href="article-figures.html#ggpubr-panel"><i class="fa fa-check"></i><b>5.19</b> GGpubr panel</a></li>
+<li class="chapter" data-level="5.20" data-path="article-figures.html"><a href="article-figures.html#area-under-the-receiver-operating-characteristic-curve-auc"><i class="fa fa-check"></i><b>5.20</b> Area Under the receiver operating characteristic Curve (AUC)</a></li>
+<li class="chapter" data-level="5.21" data-path="article-figures.html"><a href="article-figures.html#calibration-curve-1"><i class="fa fa-check"></i><b>5.21</b> Calibration curve</a></li>
+<li class="chapter" data-level="5.22" data-path="article-figures.html"><a href="article-figures.html#formally-testing-the-goodness-of-fit-using-the-hosmer-and-lemeshow."><i class="fa fa-check"></i><b>5.22</b> Formally testing the goodness-of-fit using the Hosmer and Lemeshow.</a></li>
+<li class="chapter" data-level="5.23" data-path="article-figures.html"><a href="article-figures.html#intermezzo---linear-predictors"><i class="fa fa-check"></i><b>5.23</b> Intermezzo - Linear Predictors</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/uashogeschoolutrecht/painr" target="blank">Published with bookdown</a></li>
 </ul>
@@ -179,10 +274,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="exploratory-data-analysis---raw-data" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Part 1</span> Exploratory Data Analysis - Raw Data<a href="exploratory-data-analysis---raw-data.html#exploratory-data-analysis---raw-data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="suggested-improvements-of-the-code" class="section level2 hasAnchor" number="1.1">
-<h2><span class="header-section-number">1.1</span> Suggested improvements of the code<a href="exploratory-data-analysis---raw-data.html#suggested-improvements-of-the-code" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="exploratory-data-analysis---raw-data" class="section level1" number="1">
+<h1><span class="header-section-number">Part 1</span> Exploratory Data Analysis - Raw Data</h1>
+<div id="suggested-improvements-of-the-code" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Suggested improvements of the code</h2>
 <ul>
 <li><p>Spend time learning the R basics: <a href="https://r4ds.hadley.nz/">this is a very good resource - R for Data Science by Grolemund and Wickham</a>. When you would like to learn more on stastistics go here <a href="https://moderndive.com/">Modern Dive</a> or here <a href="https://www.discovr.rocks/">Discovering statistics using R- by Andy Field</a></p></li>
 <li><p>Avoid repetition, this is where the power of R is greatest; write or use functions and iterations to avoid duplication in the code. I will show an example</p></li>
@@ -202,8 +297,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>spend time to inspect and correct data types of variables. This is particularly important when you want to do any kind of modelling</li>
 </ul>
 </div>
-<div id="packages" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> Packages<a href="exploratory-data-analysis---raw-data.html#packages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="packages" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Packages</h2>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="exploratory-data-analysis---raw-data.html#cb9-1" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
 <span id="cb9-2"><a href="exploratory-data-analysis---raw-data.html#cb9-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb9-3"><a href="exploratory-data-analysis---raw-data.html#cb9-3" tabindex="-1"></a><span class="fu">library</span>(psfmi)</span>
@@ -228,8 +323,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb9-22"><a href="exploratory-data-analysis---raw-data.html#cb9-22" tabindex="-1"></a><span class="fu">library</span>(finalfit)</span>
 <span id="cb9-23"><a href="exploratory-data-analysis---raw-data.html#cb9-23" tabindex="-1"></a><span class="fu">library</span>(haven)</span></code></pre></div>
 </div>
-<div id="load-data" class="section level2 hasAnchor" number="1.3">
-<h2><span class="header-section-number">1.3</span> Load data<a href="exploratory-data-analysis---raw-data.html#load-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="load-data" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Load data</h2>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="exploratory-data-analysis---raw-data.html#cb10-1" tabindex="-1"></a>df_raw <span class="ot">&lt;-</span></span>
 <span id="cb10-2"><a href="exploratory-data-analysis---raw-data.html#cb10-2" tabindex="-1"></a>  <span class="fu">read_sav</span>(</span>
 <span id="cb10-3"><a href="exploratory-data-analysis---raw-data.html#cb10-3" tabindex="-1"></a>    here<span class="sc">::</span><span class="fu">here</span>(</span>
@@ -240,8 +335,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb10-8"><a href="exploratory-data-analysis---raw-data.html#cb10-8" tabindex="-1"></a>    ) <span class="sc">|&gt;</span> </span>
 <span id="cb10-9"><a href="exploratory-data-analysis---raw-data.html#cb10-9" tabindex="-1"></a>  janitor<span class="sc">::</span><span class="fu">clean_names</span>()</span></code></pre></div>
 </div>
-<div id="first-glimpse-at-missingness" class="section level2 hasAnchor" number="1.4">
-<h2><span class="header-section-number">1.4</span> First glimpse at missingness<a href="exploratory-data-analysis---raw-data.html#first-glimpse-at-missingness" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="first-glimpse-at-missingness" class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> First glimpse at missingness</h2>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="exploratory-data-analysis---raw-data.html#cb11-1" tabindex="-1"></a>naniar<span class="sc">::</span><span class="fu">vis_miss</span>(df_raw)</span></code></pre></div>
 <p><img src="01_eda_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="exploratory-data-analysis---raw-data.html#cb12-1" tabindex="-1"></a><span class="do">## that is unexpected: patient code has a missing value!! -&gt; fixed in new dataset</span></span>
@@ -256,8 +351,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 So row 410 is the one with the NA in the patient code. This missing value might give us problems in tracebility. I am going to remove that observation, using the <code>ind</code> logical vector.</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="exploratory-data-analysis---raw-data.html#cb13-1" tabindex="-1"></a><span class="co">#df_raw &lt;- df_raw[!ind,]</span></span></code></pre></div>
 </div>
-<div id="select-relevant-variables" class="section level2 hasAnchor" number="1.5">
-<h2><span class="header-section-number">1.5</span> Select relevant variables<a href="exploratory-data-analysis---raw-data.html#select-relevant-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="select-relevant-variables" class="section level2" number="1.5">
+<h2><span class="header-section-number">1.5</span> Select relevant variables</h2>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="exploratory-data-analysis---raw-data.html#cb14-1" tabindex="-1"></a>df_select <span class="ot">&lt;-</span> df_raw <span class="sc">|&gt;</span></span>
 <span id="cb14-2"><a href="exploratory-data-analysis---raw-data.html#cb14-2" tabindex="-1"></a>   dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(</span>
 <span id="cb14-3"><a href="exploratory-data-analysis---raw-data.html#cb14-3" tabindex="-1"></a>    <span class="co"># patient_code,</span></span>
@@ -313,10 +408,10 @@ So row 410 is the one with the NA in the patient code. This missing value might 
 ## [34] &quot;painint_3months&quot;   &quot;painint_6months&quot;</code></pre>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="exploratory-data-analysis---raw-data.html#cb18-1" tabindex="-1"></a><span class="co">#DT::datatable(df_select)</span></span></code></pre></div>
 </div>
-<div id="exploratory-data-analysis" class="section level2 hasAnchor" number="1.6">
-<h2><span class="header-section-number">1.6</span> Exploratory Data Analysis<a href="exploratory-data-analysis---raw-data.html#exploratory-data-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="some-exploratory-plots" class="section level3 hasAnchor" number="1.6.1">
-<h3><span class="header-section-number">1.6.1</span> Some exploratory plots<a href="exploratory-data-analysis---raw-data.html#some-exploratory-plots" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="exploratory-data-analysis" class="section level2" number="1.6">
+<h2><span class="header-section-number">1.6</span> Exploratory Data Analysis</h2>
+<div id="some-exploratory-plots" class="section level3" number="1.6.1">
+<h3><span class="header-section-number">1.6.1</span> Some exploratory plots</h3>
 <p>Different flavors of graph types</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="exploratory-data-analysis---raw-data.html#cb19-1" tabindex="-1"></a><span class="do">## males / females</span></span>
 <span id="cb19-2"><a href="exploratory-data-analysis---raw-data.html#cb19-2" tabindex="-1"></a>df_select <span class="sc">|&gt;</span></span>
@@ -375,8 +470,8 @@ So row 410 is the one with the NA in the patient code. This missing value might 
 ## 2  2 [Nee]     92
 ## 3 NA           10</code></pre>
 </div>
-<div id="missing-values" class="section level3 hasAnchor" number="1.6.2">
-<h3><span class="header-section-number">1.6.2</span> Missing values<a href="exploratory-data-analysis---raw-data.html#missing-values" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="missing-values" class="section level3" number="1.6.2">
+<h3><span class="header-section-number">1.6.2</span> Missing values</h3>
 <p>Some overall missingness inspections</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="exploratory-data-analysis---raw-data.html#cb27-1" tabindex="-1"></a><span class="co"># Are there missing values in the dataset?</span></span>
 <span id="cb27-2"><a href="exploratory-data-analysis---raw-data.html#cb27-2" tabindex="-1"></a><span class="fu">any_na</span>(df_select)</span></code></pre></div>
@@ -398,8 +493,8 @@ So row 410 is the one with the NA in the patient code. This missing value might 
 <span id="cb33-10"><a href="exploratory-data-analysis---raw-data.html#cb33-10" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Total number of NA&quot;</span>)</span></code></pre></div>
 <p><img src="01_eda_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 </div>
-<div id="get-number-of-missings-per-variable-n-and" class="section level3 hasAnchor" number="1.6.3">
-<h3><span class="header-section-number">1.6.3</span> Get number of missings per variable (n and %)<a href="exploratory-data-analysis---raw-data.html#get-number-of-missings-per-variable-n-and" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="get-number-of-missings-per-variable-n-and" class="section level3" number="1.6.3">
+<h3><span class="header-section-number">1.6.3</span> Get number of missings per variable (n and %)</h3>
 <div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="exploratory-data-analysis---raw-data.html#cb34-1" tabindex="-1"></a><span class="fu">miss_var_summary</span>(df_select)</span></code></pre></div>
 <pre><code>## # A tibble: 35 × 3
 ##    variable          n_miss pct_miss
@@ -470,13 +565,13 @@ So row 410 is the one with the NA in the patient code. This missing value might 
 ## 12             14       1     0.166
 ## 13             26       1     0.166</code></pre>
 </div>
-<div id="some-more-visuals-on-missingness" class="section level3 hasAnchor" number="1.6.4">
-<h3><span class="header-section-number">1.6.4</span> Some more visuals on missingness<a href="exploratory-data-analysis---raw-data.html#some-more-visuals-on-missingness" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="some-more-visuals-on-missingness" class="section level3" number="1.6.4">
+<h3><span class="header-section-number">1.6.4</span> Some more visuals on missingness</h3>
 <div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="exploratory-data-analysis---raw-data.html#cb42-1" tabindex="-1"></a><span class="fu">gg_miss_var</span>(df_select)</span></code></pre></div>
 <p><img src="01_eda_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 </div>
-<div id="is-missness-mcar-missing-cases-at-random" class="section level3 hasAnchor" number="1.6.5">
-<h3><span class="header-section-number">1.6.5</span> Is missness, mcar (missing cases at random)<a href="exploratory-data-analysis---raw-data.html#is-missness-mcar-missing-cases-at-random" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="is-missness-mcar-missing-cases-at-random" class="section level3" number="1.6.5">
+<h3><span class="header-section-number">1.6.5</span> Is missness, mcar (missing cases at random)</h3>
 <div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="exploratory-data-analysis---raw-data.html#cb43-1" tabindex="-1"></a>naniar<span class="sc">::</span><span class="fu">vis_miss</span>(df_select) <span class="sc">+</span> </span>
 <span id="cb43-2"><a href="exploratory-data-analysis---raw-data.html#cb43-2" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle=</span><span class="dv">80</span>)) <span class="sc">+</span></span>
 <span id="cb43-3"><a href="exploratory-data-analysis---raw-data.html#cb43-3" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div>
@@ -520,8 +615,8 @@ So row 410 is the one with the NA in the patient code. This missing value might 
 <p>There is no reason to assume (from this analysis) that the sex of a patient is correlated to having missing values for paininit_6weeks. Note that this is a hypothetical case, that might not make sense in this particular case, when you bring context into play.</p>
 </div>
 </div>
-<div id="write-table-with-all-labels" class="section level2 hasAnchor" number="1.7">
-<h2><span class="header-section-number">1.7</span> Write table with all labels<a href="exploratory-data-analysis---raw-data.html#write-table-with-all-labels" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="write-table-with-all-labels" class="section level2" number="1.7">
+<h2><span class="header-section-number">1.7</span> Write table with all labels</h2>
 <div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="exploratory-data-analysis---raw-data.html#cb47-1" tabindex="-1"></a>data_label <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">as.data.frame</span>(labelled<span class="sc">::</span><span class="fu">var_label</span>(df_select))) </span>
 <span id="cb47-2"><a href="exploratory-data-analysis---raw-data.html#cb47-2" tabindex="-1"></a>data_label</span></code></pre></div>
 <pre><code>##                   [,1]                                                           
@@ -600,14 +695,14 @@ So row 410 is the one with the NA in the patient code. This missing value might 
 ## 10 wo    8     education
 ## # ℹ 37 more rows</code></pre>
 <div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="exploratory-data-analysis---raw-data.html#cb51-1" tabindex="-1"></a>DT<span class="sc">::</span><span class="fu">datatable</span>(labelling)</span></code></pre></div>
-<div class="datatables html-widget html-fill-item" id="htmlwidget-d0b273967423ae6ab15e" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-d0b273967423ae6ab15e">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47"],["Man","Vrouw","Basis","mavo","vbo","havo","vwo","mwo","hbo","wo","Low eduction","High eduction","Nee","Ja","Ja","Nee","Nee","Ja","Ik had voorheen ook hoofdpijn","Ja","Nee","Totaal ongelukkig","Niet gelukkig","Neutraal","Gelukkig","Totaal gelukkig","Totaal geen voldoening","Geen voldoening","Neutraal","Voldoening","Heel veel voldoening","Volledig onmogelijk","Onmogelijk","Neutraal","Mogelijk","Volledig mogelijk","Ik beweeg geen enkele dag per week 30 minuten matig intensief","Ik ben 5 dagen of vaker actief per week","Ik zit hier precies tussen in","Ja","Nee","Ja","Nee","Geen slaapproblemen","Ervaren slaapproblemen","Passive Coping","Active Coping"],["1","2","1","2","3","4","5","6","7","8","0","1","1","2","1","2","1","2","3","1","2","1","2","3","4","5","1","2","3","4","5","1","2","3","4","5","1","2","3","1","2","1","2","0","1","0","1"],["sex","sex","education","education","education","education","education","education","education","education","education_level","education_level","recurrence","recurrence","wide_spread_pain","wide_spread_pain","headache","headache","headache","work","work","work_happiness","work_happiness","work_happiness","work_happiness","work_happiness","work_satisfaction","work_satisfaction","work_satisfaction","work_satisfaction","work_satisfaction","posture_work","posture_work","posture_work","posture_work","posture_work","physical_activity","physical_activity","physical_activity","smoking","smoking","alcohol","alcohol","sleep_quality","sleep_quality","coping","coping"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>name<\/th>\n      <th>value<\/th>\n      <th>var_name<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"name","targets":1},{"name":"value","targets":2},{"name":"var_name","targets":3}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-f4f662693ad229e2c94f" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-f4f662693ad229e2c94f">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47"],["Man","Vrouw","Basis","mavo","vbo","havo","vwo","mwo","hbo","wo","Low eduction","High eduction","Nee","Ja","Ja","Nee","Nee","Ja","Ik had voorheen ook hoofdpijn","Ja","Nee","Totaal ongelukkig","Niet gelukkig","Neutraal","Gelukkig","Totaal gelukkig","Totaal geen voldoening","Geen voldoening","Neutraal","Voldoening","Heel veel voldoening","Volledig onmogelijk","Onmogelijk","Neutraal","Mogelijk","Volledig mogelijk","Ik beweeg geen enkele dag per week 30 minuten matig intensief","Ik ben 5 dagen of vaker actief per week","Ik zit hier precies tussen in","Ja","Nee","Ja","Nee","Geen slaapproblemen","Ervaren slaapproblemen","Passive Coping","Active Coping"],["1","2","1","2","3","4","5","6","7","8","0","1","1","2","1","2","1","2","3","1","2","1","2","3","4","5","1","2","3","4","5","1","2","3","4","5","1","2","3","1","2","1","2","0","1","0","1"],["sex","sex","education","education","education","education","education","education","education","education","education_level","education_level","recurrence","recurrence","wide_spread_pain","wide_spread_pain","headache","headache","headache","work","work","work_happiness","work_happiness","work_happiness","work_happiness","work_happiness","work_satisfaction","work_satisfaction","work_satisfaction","work_satisfaction","work_satisfaction","posture_work","posture_work","posture_work","posture_work","posture_work","physical_activity","physical_activity","physical_activity","smoking","smoking","alcohol","alcohol","sleep_quality","sleep_quality","coping","coping"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>name<\/th>\n      <th>value<\/th>\n      <th>var_name<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"name","targets":1},{"name":"value","targets":2},{"name":"var_name","targets":3}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 <div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="exploratory-data-analysis---raw-data.html#cb52-1" tabindex="-1"></a><span class="do">## remove sps-labels</span></span>
 <span id="cb52-2"><a href="exploratory-data-analysis---raw-data.html#cb52-2" tabindex="-1"></a>df_select <span class="ot">&lt;-</span> df_select <span class="sc">|&gt;</span></span>
 <span id="cb52-3"><a href="exploratory-data-analysis---raw-data.html#cb52-3" tabindex="-1"></a>  sjlabelled<span class="sc">::</span><span class="fu">remove_all_labels</span>()</span></code></pre></div>
 </div>
-<div id="deal-with-work-variables" class="section level2 hasAnchor" number="1.8">
-<h2><span class="header-section-number">1.8</span> Deal with ‘work’ variables<a href="exploratory-data-analysis---raw-data.html#deal-with-work-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="deal-with-work-variables" class="section level2" number="1.8">
+<h2><span class="header-section-number">1.8</span> Deal with ‘work’ variables</h2>
 <p>”
 1. Work and work-related questions
 Work 1 = yes / 2 = no
@@ -709,8 +804,8 @@ Wanneer variable “work” 2 is  dan worden “work_happiness”, “work_sa
 <span id="cb68-6"><a href="exploratory-data-analysis---raw-data.html#cb68-6" tabindex="-1"></a>)</span></code></pre></div>
 <p><img src="01_eda_files/figure-html/unnamed-chunk-15-6.png" width="672" /></p>
 </div>
-<div id="recode-physical_activity" class="section level2 hasAnchor" number="1.9">
-<h2><span class="header-section-number">1.9</span> Recode <code>physical_activity</code><a href="exploratory-data-analysis---raw-data.html#recode-physical_activity" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="recode-physical_activity" class="section level2" number="1.9">
+<h2><span class="header-section-number">1.9</span> Recode <code>physical_activity</code></h2>
 <ol start="2" style="list-style-type: decimal">
 <li>Physical activity aanpassen in basis file
 1 = ik beweeg geen enkele dag per week
@@ -758,8 +853,8 @@ En 2 = 0 (Achieving the Dutch Healthy Exercise Norm )</li>
 <span id="cb72-8"><a href="exploratory-data-analysis---raw-data.html#cb72-8" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>physical_activity_recoded)</span>
 <span id="cb72-9"><a href="exploratory-data-analysis---raw-data.html#cb72-9" tabindex="-1"></a><span class="co">#df_select$physical_activity &lt;- droplevels(as_factor( df_select$physical_activity))</span></span></code></pre></div>
 </div>
-<div id="write-subsetted-data-to-disk" class="section level2 hasAnchor" number="1.10">
-<h2><span class="header-section-number">1.10</span> Write subsetted data to disk<a href="exploratory-data-analysis---raw-data.html#write-subsetted-data-to-disk" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="write-subsetted-data-to-disk" class="section level2" number="1.10">
+<h2><span class="header-section-number">1.10</span> Write subsetted data to disk</h2>
 <div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="exploratory-data-analysis---raw-data.html#cb73-1" tabindex="-1"></a><span class="fu">write_rds</span>(</span>
 <span id="cb73-2"><a href="exploratory-data-analysis---raw-data.html#cb73-2" tabindex="-1"></a>  df_select,</span>
 <span id="cb73-3"><a href="exploratory-data-analysis---raw-data.html#cb73-3" tabindex="-1"></a>  here<span class="sc">::</span><span class="fu">here</span>(</span>
@@ -800,15 +895,15 @@ En 2 = 0 (Achieving the Dutch Healthy Exercise Norm )</li>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
+"github": true,
+"facebook": false,
+"twitter": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
 "whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+"all": false
 },
 "fontsettings": {
 "theme": "white",
@@ -833,7 +928,8 @@ gitbook.start({
 "options": null
 },
 "toc": {
-"collapse": "subsection"
+"collapse": "section",
+"scroll_highlight": true
 }
 });
 });

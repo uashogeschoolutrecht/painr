@@ -1,4 +1,4 @@
-# Development and internal validation of a multivariable prognostic model for chronification of non-specific neck pain in physiotherapy 
+# Prognostic model
 
 
 
@@ -1177,8 +1177,8 @@ plot(calibration_plot_lrm)
 
 ```
 #> 
-#> n=603   Mean absolute error=0.024   Mean squared error=0.00179
-#> 0.9 Quantile of absolute error=0.053
+#> n=603   Mean absolute error=0.022   Mean squared error=0.0017
+#> 0.9 Quantile of absolute error=0.05
 ```
 
 ## Result Calibration plot 

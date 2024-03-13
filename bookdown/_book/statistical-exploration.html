@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="imputation-of-missing-values.html"/>
-<link rel="next" href="development-and-internal-validation-of-a-multivariable-prognostic-model-for-chronification-of-non-specific-neck-pain-in-physiotherapy.html"/>
+<link rel="next" href="prognostic-model.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -48,9 +48,6 @@
 
 
 
-<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
-<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 <script src="libs/d3-3.3.8/d3.min.js"></script>
 <script src="libs/dagre-0.4.0/dagre-d3.min.js"></script>
@@ -151,15 +148,113 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">painr-documentation</a></li>
-
+<li class="toc-logo"><a href="./"></a> <h4 class=".paddingtitel ">painr</h2></li>
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
-<li class="chapter" data-level="1" data-path="exploratory-data-analysis---raw-data.html"><a href="exploratory-data-analysis---raw-data.html"><i class="fa fa-check"></i><b>1</b> Exploratory Data Analysis - Raw Data</a></li>
-<li class="chapter" data-level="2" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html"><i class="fa fa-check"></i><b>2</b> Imputation of missing values</a></li>
-<li class="chapter" data-level="3" data-path="statistical-exploration.html"><a href="statistical-exploration.html"><i class="fa fa-check"></i><b>3</b> Statistical exploration</a></li>
-<li class="chapter" data-level="4" data-path="development-and-internal-validation-of-a-multivariable-prognostic-model-for-chronification-of-non-specific-neck-pain-in-physiotherapy.html"><a href="development-and-internal-validation-of-a-multivariable-prognostic-model-for-chronification-of-non-specific-neck-pain-in-physiotherapy.html"><i class="fa fa-check"></i><b>4</b> Development and internal validation of a multivariable prognostic model for chronification of non-specific neck pain in physiotherapy</a></li>
-<li class="chapter" data-level="5" data-path="article-figures.html"><a href="article-figures.html"><i class="fa fa-check"></i><b>5</b> Article figures</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#data-flow"><i class="fa fa-check"></i><b>0.1</b> Data Flow</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="exploratory-data-analysis---raw-data.html"><a href="exploratory-data-analysis---raw-data.html"><i class="fa fa-check"></i><b>1</b> Exploratory Data Analysis - Raw Data</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="exploratory-data-analysis---raw-data.html"><a href="exploratory-data-analysis---raw-data.html#suggested-improvements-of-the-code"><i class="fa fa-check"></i><b>1.1</b> Suggested improvements of the code</a></li>
+<li class="chapter" data-level="1.2" data-path="exploratory-data-analysis---raw-data.html"><a href="exploratory-data-analysis---raw-data.html#packages"><i class="fa fa-check"></i><b>1.2</b> Packages</a></li>
+<li class="chapter" data-level="1.3" data-path="exploratory-data-analysis---raw-data.html"><a href="exploratory-data-analysis---raw-data.html#load-data"><i class="fa fa-check"></i><b>1.3</b> Load data</a></li>
+<li class="chapter" data-level="1.4" data-path="exploratory-data-analysis---raw-data.html"><a href="exploratory-data-analysis---raw-data.html#first-glimpse-at-missingness"><i class="fa fa-check"></i><b>1.4</b> First glimpse at missingness</a></li>
+<li class="chapter" data-level="1.5" data-path="exploratory-data-analysis---raw-data.html"><a href="exploratory-data-analysis---raw-data.html#select-relevant-variables"><i class="fa fa-check"></i><b>1.5</b> Select relevant variables</a></li>
+<li class="chapter" data-level="1.6" data-path="exploratory-data-analysis---raw-data.html"><a href="exploratory-data-analysis---raw-data.html#exploratory-data-analysis"><i class="fa fa-check"></i><b>1.6</b> Exploratory Data Analysis</a></li>
+<li class="chapter" data-level="1.7" data-path="exploratory-data-analysis---raw-data.html"><a href="exploratory-data-analysis---raw-data.html#write-table-with-all-labels"><i class="fa fa-check"></i><b>1.7</b> Write table with all labels</a></li>
+<li class="chapter" data-level="1.8" data-path="exploratory-data-analysis---raw-data.html"><a href="exploratory-data-analysis---raw-data.html#deal-with-work-variables"><i class="fa fa-check"></i><b>1.8</b> Deal with ‘work’ variables</a></li>
+<li class="chapter" data-level="1.9" data-path="exploratory-data-analysis---raw-data.html"><a href="exploratory-data-analysis---raw-data.html#recode-physical_activity"><i class="fa fa-check"></i><b>1.9</b> Recode <code>physical_activity</code></a></li>
+<li class="chapter" data-level="1.10" data-path="exploratory-data-analysis---raw-data.html"><a href="exploratory-data-analysis---raw-data.html#write-subsetted-data-to-disk"><i class="fa fa-check"></i><b>1.10</b> Write subsetted data to disk</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html"><i class="fa fa-check"></i><b>2</b> Imputation of missing values</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#packages-1"><i class="fa fa-check"></i><b>2.1</b> Packages</a></li>
+<li class="chapter" data-level="2.2" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#data"><i class="fa fa-check"></i><b>2.2</b> Data</a></li>
+<li class="chapter" data-level="2.3" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#prepare-datset-for-imputing"><i class="fa fa-check"></i><b>2.3</b> Prepare datset for imputing</a></li>
+<li class="chapter" data-level="2.4" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#convert-all-categorical-vars-to-factors"><i class="fa fa-check"></i><b>2.4</b> Convert all categorical vars to factors</a></li>
+<li class="chapter" data-level="2.5" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#panel-with-all-distributions"><i class="fa fa-check"></i><b>2.5</b> Panel with all distributions</a></li>
+<li class="chapter" data-level="2.6" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#imputation-of-missing-values-1"><i class="fa fa-check"></i><b>2.6</b> Imputation of missing values</a></li>
+<li class="chapter" data-level="2.7" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#checking-missing-completely-at-random-mcar"><i class="fa fa-check"></i><b>2.7</b> Checking Missing Completely at Random (MCAR)</a></li>
+<li class="chapter" data-level="2.8" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#missingness-pattern"><i class="fa fa-check"></i><b>2.8</b> Missingness pattern</a></li>
+<li class="chapter" data-level="2.9" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#define-predictors-to-include-in-the-imputations"><i class="fa fa-check"></i><b>2.9</b> Define predictors to include in the imputations</a></li>
+<li class="chapter" data-level="2.10" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#using-the-mice-package-for-imputation-of-missing-values"><i class="fa fa-check"></i><b>2.10</b> Using the MICE package for imputation of missing values</a></li>
+<li class="chapter" data-level="2.11" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#create-predictormatrix-for-mice"><i class="fa fa-check"></i><b>2.11</b> Create predictorMatrix for MICE</a></li>
+<li class="chapter" data-level="2.12" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#calculate-percentage-missing-data-and-cases"><i class="fa fa-check"></i><b>2.12</b> Calculate percentage missing data and cases</a></li>
+<li class="chapter" data-level="2.13" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#running-the-imputations"><i class="fa fa-check"></i><b>2.13</b> Running the imputations</a></li>
+<li class="chapter" data-level="2.14" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#inspect-the-imputations"><i class="fa fa-check"></i><b>2.14</b> Inspect the imputations</a></li>
+<li class="chapter" data-level="2.15" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#check-convergence"><i class="fa fa-check"></i><b>2.15</b> Check convergence</a></li>
+<li class="chapter" data-level="2.16" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#check-for-plausible-values-of-imputation"><i class="fa fa-check"></i><b>2.16</b> Check for plausible values of imputation</a></li>
+<li class="chapter" data-level="2.17" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#checking-the-used-predictor-matrix"><i class="fa fa-check"></i><b>2.17</b> Checking the used predictor matrix</a></li>
+<li class="chapter" data-level="2.18" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#look-at-the-datasets"><i class="fa fa-check"></i><b>2.18</b> Look at the datasets</a></li>
+<li class="chapter" data-level="2.19" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#skimming-the-data"><i class="fa fa-check"></i><b>2.19</b> Skimming the data</a></li>
+<li class="chapter" data-level="2.20" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#add-attitude"><i class="fa fa-check"></i><b>2.20</b> Add <code>attitude</code></a></li>
+<li class="chapter" data-level="2.21" data-path="imputation-of-missing-values.html"><a href="imputation-of-missing-values.html#save-to-disk"><i class="fa fa-check"></i><b>2.21</b> Save to disk</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="statistical-exploration.html"><a href="statistical-exploration.html"><i class="fa fa-check"></i><b>3</b> Statistical exploration</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="statistical-exploration.html"><a href="statistical-exploration.html#packages-2"><i class="fa fa-check"></i><b>3.1</b> Packages</a></li>
+<li class="chapter" data-level="3.2" data-path="statistical-exploration.html"><a href="statistical-exploration.html#data-1"><i class="fa fa-check"></i><b>3.2</b> Data</a></li>
+<li class="chapter" data-level="3.3" data-path="statistical-exploration.html"><a href="statistical-exploration.html#global-parameters"><i class="fa fa-check"></i><b>3.3</b> Global parameters</a></li>
+<li class="chapter" data-level="3.4" data-path="statistical-exploration.html"><a href="statistical-exploration.html#statistical-analysis-methods-and-missing-data"><i class="fa fa-check"></i><b>3.4</b> Statistical analysis methods and missing data</a></li>
+<li class="chapter" data-level="3.5" data-path="statistical-exploration.html"><a href="statistical-exploration.html#reformat-dataframe-to-stacked-format"><i class="fa fa-check"></i><b>3.5</b> Reformat dataframe to stacked format</a></li>
+<li class="chapter" data-level="3.6" data-path="statistical-exploration.html"><a href="statistical-exploration.html#create-time-variable"><i class="fa fa-check"></i><b>3.6</b> Create time variable</a></li>
+<li class="chapter" data-level="3.7" data-path="statistical-exploration.html"><a href="statistical-exploration.html#recode-time"><i class="fa fa-check"></i><b>3.7</b> Recode time</a></li>
+<li class="chapter" data-level="3.8" data-path="statistical-exploration.html"><a href="statistical-exploration.html#adding-baseline-as-time0"><i class="fa fa-check"></i><b>3.8</b> Adding baseline as time=0</a></li>
+<li class="chapter" data-level="3.9" data-path="statistical-exploration.html"><a href="statistical-exploration.html#carry-forward"><i class="fa fa-check"></i><b>3.9</b> Carry forward</a></li>
+<li class="chapter" data-level="3.10" data-path="statistical-exploration.html"><a href="statistical-exploration.html#rework-the-graph-above-to-get-cummulative-pain-intensity-scores"><i class="fa fa-check"></i><b>3.10</b> Rework the graph above to get cummulative pain intensity scores</a></li>
+<li class="chapter" data-level="3.11" data-path="statistical-exploration.html"><a href="statistical-exploration.html#get-individual-lines-for-each-patient"><i class="fa fa-check"></i><b>3.11</b> Get individual lines for each patient</a></li>
+<li class="chapter" data-level="3.12" data-path="statistical-exploration.html"><a href="statistical-exploration.html#write-to-disk-as-excel-file-and-.rds-r-binary-file."><i class="fa fa-check"></i><b>3.12</b> Write to disk as excel file and .rds R binary file.</a></li>
+<li class="chapter" data-level="3.13" data-path="statistical-exploration.html"><a href="statistical-exploration.html#distribution-of-the-data"><i class="fa fa-check"></i><b>3.13</b> Distribution of the data</a></li>
+<li class="chapter" data-level="3.14" data-path="statistical-exploration.html"><a href="statistical-exploration.html#table-baseline-characteristics-of-the-included-patients"><i class="fa fa-check"></i><b>3.14</b> Table: baseline characteristics of the included patients</a></li>
+<li class="chapter" data-level="3.15" data-path="statistical-exploration.html"><a href="statistical-exploration.html#testing-assumptions-before-backward-analysis"><i class="fa fa-check"></i><b>3.15</b> Testing assumptions before backward analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="prognostic-model.html"><a href="prognostic-model.html"><i class="fa fa-check"></i><b>4</b> Prognostic model</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="prognostic-model.html"><a href="prognostic-model.html#packages-3"><i class="fa fa-check"></i><b>4.1</b> Packages</a></li>
+<li class="chapter" data-level="4.2" data-path="prognostic-model.html"><a href="prognostic-model.html#data-load"><i class="fa fa-check"></i><b>4.2</b> Data load</a></li>
+<li class="chapter" data-level="4.3" data-path="prognostic-model.html"><a href="prognostic-model.html#clean-data-and-rename-vars"><i class="fa fa-check"></i><b>4.3</b> Clean data and rename vars</a></li>
+<li class="chapter" data-level="4.4" data-path="prognostic-model.html"><a href="prognostic-model.html#exploratory-data-analysis-1"><i class="fa fa-check"></i><b>4.4</b> Exploratory Data Analysis</a></li>
+<li class="chapter" data-level="4.5" data-path="prognostic-model.html"><a href="prognostic-model.html#variabel-analysis---independent-predictive-capacity"><i class="fa fa-check"></i><b>4.5</b> Variabel analysis - Independent Predictive Capacity</a></li>
+<li class="chapter" data-level="4.6" data-path="prognostic-model.html"><a href="prognostic-model.html#relevel-dichotomous-variables"><i class="fa fa-check"></i><b>4.6</b> Relevel dichotomous variables</a></li>
+<li class="chapter" data-level="4.7" data-path="prognostic-model.html"><a href="prognostic-model.html#multivariable-logistic-regression-analyses"><i class="fa fa-check"></i><b>4.7</b> Multivariable logistic regression analyses</a></li>
+<li class="chapter" data-level="4.8" data-path="prognostic-model.html"><a href="prognostic-model.html#auc"><i class="fa fa-check"></i><b>4.8</b> AUC</a></li>
+<li class="chapter" data-level="4.9" data-path="prognostic-model.html"><a href="prognostic-model.html#calibration-curve"><i class="fa fa-check"></i><b>4.9</b> Calibration curve</a></li>
+<li class="chapter" data-level="4.10" data-path="prognostic-model.html"><a href="prognostic-model.html#result-calibration-plot"><i class="fa fa-check"></i><b>4.10</b> Result Calibration plot</a></li>
+<li class="chapter" data-level="4.11" data-path="prognostic-model.html"><a href="prognostic-model.html#hoslem-and-lemeshow"><i class="fa fa-check"></i><b>4.11</b> Hoslem and Lemeshow</a></li>
+<li class="chapter" data-level="4.12" data-path="prognostic-model.html"><a href="prognostic-model.html#model-fit"><i class="fa fa-check"></i><b>4.12</b> Model fit</a></li>
+<li class="chapter" data-level="4.13" data-path="prognostic-model.html"><a href="prognostic-model.html#internal-validation"><i class="fa fa-check"></i><b>4.13</b> Internal validation</a></li>
+<li class="chapter" data-level="4.14" data-path="prognostic-model.html"><a href="prognostic-model.html#plot-corrected-auc"><i class="fa fa-check"></i><b>4.14</b> Plot Corrected AUC</a></li>
+<li class="chapter" data-level="4.15" data-path="prognostic-model.html"><a href="prognostic-model.html#results"><i class="fa fa-check"></i><b>4.15</b> Results</a></li>
+<li class="chapter" data-level="4.16" data-path="prognostic-model.html"><a href="prognostic-model.html#correcting-the-variables-coefficients"><i class="fa fa-check"></i><b>4.16</b> Correcting the variables coefficients</a></li>
+<li class="chapter" data-level="4.17" data-path="prognostic-model.html"><a href="prognostic-model.html#calibration-in-the-large"><i class="fa fa-check"></i><b>4.17</b> Calibration in the Large</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="article-figures.html"><a href="article-figures.html"><i class="fa fa-check"></i><b>5</b> Article figures</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="article-figures.html"><a href="article-figures.html#packages-4"><i class="fa fa-check"></i><b>5.1</b> Packages</a></li>
+<li class="chapter" data-level="5.2" data-path="article-figures.html"><a href="article-figures.html#data-load-1"><i class="fa fa-check"></i><b>5.2</b> Data load</a></li>
+<li class="chapter" data-level="5.3" data-path="article-figures.html"><a href="article-figures.html#clean-data-and-rename-variables"><i class="fa fa-check"></i><b>5.3</b> Clean data and rename variables</a></li>
+<li class="chapter" data-level="5.4" data-path="article-figures.html"><a href="article-figures.html#exploratory-data-analysis-2"><i class="fa fa-check"></i><b>5.4</b> Exploratory Data Analysis</a></li>
+<li class="chapter" data-level="5.5" data-path="article-figures.html"><a href="article-figures.html#variabel-analysis"><i class="fa fa-check"></i><b>5.5</b> Variabel analysis</a></li>
+<li class="chapter" data-level="5.6" data-path="article-figures.html"><a href="article-figures.html#graph-of-model-metrics"><i class="fa fa-check"></i><b>5.6</b> Graph of model metrics</a></li>
+<li class="chapter" data-level="5.7" data-path="article-figures.html"><a href="article-figures.html#relevel-dichotomous-variables-1"><i class="fa fa-check"></i><b>5.7</b> Relevel dichotomous variables</a></li>
+<li class="chapter" data-level="5.8" data-path="article-figures.html"><a href="article-figures.html#refactor-code-above-to-a-more-compact-version"><i class="fa fa-check"></i><b>5.8</b> Refactor code above to a more compact version</a></li>
+<li class="chapter" data-level="5.9" data-path="article-figures.html"><a href="article-figures.html#univariate-analysis-on-the-categorical-variables"><i class="fa fa-check"></i><b>5.9</b> Univariate analysis on the categorical variables</a></li>
+<li class="chapter" data-level="5.10" data-path="article-figures.html"><a href="article-figures.html#visualize-model-outcome"><i class="fa fa-check"></i><b>5.10</b> Visualize model outcome</a></li>
+<li class="chapter" data-level="5.11" data-path="article-figures.html"><a href="article-figures.html#panel-plot-univariate"><i class="fa fa-check"></i><b>5.11</b> Panel plot univariate</a></li>
+<li class="chapter" data-level="5.12" data-path="article-figures.html"><a href="article-figures.html#multivariable-logistic-regression-analyses-1"><i class="fa fa-check"></i><b>5.12</b> Multivariable logistic regression analyses</a></li>
+<li class="chapter" data-level="5.13" data-path="article-figures.html"><a href="article-figures.html#backward-model"><i class="fa fa-check"></i><b>5.13</b> Backward model</a></li>
+<li class="chapter" data-level="5.14" data-path="article-figures.html"><a href="article-figures.html#visualize-backward-model"><i class="fa fa-check"></i><b>5.14</b> Visualize backward model</a></li>
+<li class="chapter" data-level="5.15" data-path="article-figures.html"><a href="article-figures.html#panel-plot-with-all-models"><i class="fa fa-check"></i><b>5.15</b> Panel plot with all models</a></li>
+<li class="chapter" data-level="5.16" data-path="article-figures.html"><a href="article-figures.html#rework-figure-labels"><i class="fa fa-check"></i><b>5.16</b> Rework figure labels</a></li>
+<li class="chapter" data-level="5.17" data-path="article-figures.html"><a href="article-figures.html#figures-for-paper"><i class="fa fa-check"></i><b>5.17</b> Figures for paper</a></li>
+<li class="chapter" data-level="5.18" data-path="article-figures.html"><a href="article-figures.html#adding-level-info-to-figure"><i class="fa fa-check"></i><b>5.18</b> Adding level info to figure</a></li>
+<li class="chapter" data-level="5.19" data-path="article-figures.html"><a href="article-figures.html#ggpubr-panel"><i class="fa fa-check"></i><b>5.19</b> GGpubr panel</a></li>
+<li class="chapter" data-level="5.20" data-path="article-figures.html"><a href="article-figures.html#area-under-the-receiver-operating-characteristic-curve-auc"><i class="fa fa-check"></i><b>5.20</b> Area Under the receiver operating characteristic Curve (AUC)</a></li>
+<li class="chapter" data-level="5.21" data-path="article-figures.html"><a href="article-figures.html#calibration-curve-1"><i class="fa fa-check"></i><b>5.21</b> Calibration curve</a></li>
+<li class="chapter" data-level="5.22" data-path="article-figures.html"><a href="article-figures.html#formally-testing-the-goodness-of-fit-using-the-hosmer-and-lemeshow."><i class="fa fa-check"></i><b>5.22</b> Formally testing the goodness-of-fit using the Hosmer and Lemeshow.</a></li>
+<li class="chapter" data-level="5.23" data-path="article-figures.html"><a href="article-figures.html#intermezzo---linear-predictors"><i class="fa fa-check"></i><b>5.23</b> Intermezzo - Linear Predictors</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/uashogeschoolutrecht/painr" target="blank">Published with bookdown</a></li>
 </ul>
@@ -179,39 +274,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="statistical-exploration" class="section level1 hasAnchor" number="3">
-<h1><span class="header-section-number">Part 3</span> Statistical exploration<a href="statistical-exploration.html#statistical-exploration" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="packages-2" class="section level2 hasAnchor" number="3.1">
-<h2><span class="header-section-number">3.1</span> Packages<a href="statistical-exploration.html#packages-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="statistical-exploration.html#cb243-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb243-2"><a href="statistical-exploration.html#cb243-2" tabindex="-1"></a><span class="co">#Rms</span></span>
-<span id="cb243-3"><a href="statistical-exploration.html#cb243-3" tabindex="-1"></a><span class="co">#Foreign</span></span>
-<span id="cb243-4"><a href="statistical-exploration.html#cb243-4" tabindex="-1"></a><span class="co">#pROC</span></span>
-<span id="cb243-5"><a href="statistical-exploration.html#cb243-5" tabindex="-1"></a><span class="co">#psfmi</span></span>
-<span id="cb243-6"><a href="statistical-exploration.html#cb243-6" tabindex="-1"></a><span class="co">#car</span></span>
-<span id="cb243-7"><a href="statistical-exploration.html#cb243-7" tabindex="-1"></a><span class="co">#fpc</span></span>
-<span id="cb243-8"><a href="statistical-exploration.html#cb243-8" tabindex="-1"></a><span class="co">#lmtest</span></span></code></pre></div>
+<div id="statistical-exploration" class="section level1" number="3">
+<h1><span class="header-section-number">Part 3</span> Statistical exploration</h1>
+<div id="packages-2" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Packages</h2>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="statistical-exploration.html#cb242-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb242-2"><a href="statistical-exploration.html#cb242-2" tabindex="-1"></a><span class="co">#Rms</span></span>
+<span id="cb242-3"><a href="statistical-exploration.html#cb242-3" tabindex="-1"></a><span class="co">#Foreign</span></span>
+<span id="cb242-4"><a href="statistical-exploration.html#cb242-4" tabindex="-1"></a><span class="co">#pROC</span></span>
+<span id="cb242-5"><a href="statistical-exploration.html#cb242-5" tabindex="-1"></a><span class="co">#psfmi</span></span>
+<span id="cb242-6"><a href="statistical-exploration.html#cb242-6" tabindex="-1"></a><span class="co">#car</span></span>
+<span id="cb242-7"><a href="statistical-exploration.html#cb242-7" tabindex="-1"></a><span class="co">#fpc</span></span>
+<span id="cb242-8"><a href="statistical-exploration.html#cb242-8" tabindex="-1"></a><span class="co">#lmtest</span></span></code></pre></div>
 </div>
-<div id="data-1" class="section level2 hasAnchor" number="3.2">
-<h2><span class="header-section-number">3.2</span> Data<a href="statistical-exploration.html#data-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="statistical-exploration.html#cb244-1" tabindex="-1"></a><span class="do">## non-imputed</span></span>
-<span id="cb244-2"><a href="statistical-exploration.html#cb244-2" tabindex="-1"></a>df_imp <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;df_imputed.rds&quot;</span>))</span>
-<span id="cb244-3"><a href="statistical-exploration.html#cb244-3" tabindex="-1"></a>data_list <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;data-list.rds&quot;</span>))</span>
-<span id="cb244-4"><a href="statistical-exploration.html#cb244-4" tabindex="-1"></a>df_non_imp <span class="ot">&lt;-</span> data_list<span class="sc">$</span>data_preprocessed</span>
-<span id="cb244-5"><a href="statistical-exploration.html#cb244-5" tabindex="-1"></a></span>
-<span id="cb244-6"><a href="statistical-exploration.html#cb244-6" tabindex="-1"></a><span class="do">## add patient code</span></span>
-<span id="cb244-7"><a href="statistical-exploration.html#cb244-7" tabindex="-1"></a>df_non_imp<span class="sc">$</span>patient_code <span class="ot">&lt;-</span> data_list<span class="sc">$</span>data_subset<span class="sc">$</span>patient_code</span>
-<span id="cb244-8"><a href="statistical-exploration.html#cb244-8" tabindex="-1"></a>df_imp<span class="sc">$</span>patient_code <span class="ot">&lt;-</span> data_list<span class="sc">$</span>data_subset<span class="sc">$</span>patient_code</span></code></pre></div>
+<div id="data-1" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Data</h2>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="statistical-exploration.html#cb243-1" tabindex="-1"></a><span class="do">## non-imputed</span></span>
+<span id="cb243-2"><a href="statistical-exploration.html#cb243-2" tabindex="-1"></a>df_imp <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;df_imputed.rds&quot;</span>))</span>
+<span id="cb243-3"><a href="statistical-exploration.html#cb243-3" tabindex="-1"></a>data_list <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;data-list.rds&quot;</span>))</span>
+<span id="cb243-4"><a href="statistical-exploration.html#cb243-4" tabindex="-1"></a>df_non_imp <span class="ot">&lt;-</span> data_list<span class="sc">$</span>data_preprocessed</span>
+<span id="cb243-5"><a href="statistical-exploration.html#cb243-5" tabindex="-1"></a></span>
+<span id="cb243-6"><a href="statistical-exploration.html#cb243-6" tabindex="-1"></a><span class="do">## add patient code</span></span>
+<span id="cb243-7"><a href="statistical-exploration.html#cb243-7" tabindex="-1"></a>df_non_imp<span class="sc">$</span>patient_code <span class="ot">&lt;-</span> data_list<span class="sc">$</span>data_subset<span class="sc">$</span>patient_code</span>
+<span id="cb243-8"><a href="statistical-exploration.html#cb243-8" tabindex="-1"></a>df_imp<span class="sc">$</span>patient_code <span class="ot">&lt;-</span> data_list<span class="sc">$</span>data_subset<span class="sc">$</span>patient_code</span></code></pre></div>
 </div>
-<div id="global-parameters" class="section level2 hasAnchor" number="3.3">
-<h2><span class="header-section-number">3.3</span> Global parameters<a href="statistical-exploration.html#global-parameters" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="statistical-exploration.html#cb245-1" tabindex="-1"></a>cutoff_chronic <span class="ot">&lt;-</span> params<span class="sc">$</span>cutoff_chronic</span>
-<span id="cb245-2"><a href="statistical-exploration.html#cb245-2" tabindex="-1"></a>cutoff_painint_high <span class="ot">&lt;-</span> params<span class="sc">$</span>cutoff_painint_high</span></code></pre></div>
+<div id="global-parameters" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Global parameters</h2>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="statistical-exploration.html#cb244-1" tabindex="-1"></a>cutoff_chronic <span class="ot">&lt;-</span> params<span class="sc">$</span>cutoff_chronic</span>
+<span id="cb244-2"><a href="statistical-exploration.html#cb244-2" tabindex="-1"></a>cutoff_painint_high <span class="ot">&lt;-</span> params<span class="sc">$</span>cutoff_painint_high</span></code></pre></div>
 </div>
-<div id="statistical-analysis-methods-and-missing-data" class="section level2 hasAnchor" number="3.4">
-<h2><span class="header-section-number">3.4</span> Statistical analysis methods and missing data<a href="statistical-exploration.html#statistical-analysis-methods-and-missing-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="distribution-data-and-table-1" class="section level3 hasAnchor" number="3.4.1">
-<h3><span class="header-section-number">3.4.1</span> Distribution data and Table 1<a href="statistical-exploration.html#distribution-data-and-table-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="statistical-analysis-methods-and-missing-data" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Statistical analysis methods and missing data</h2>
+<div id="distribution-data-and-table-1" class="section level3" number="3.4.1">
+<h3><span class="header-section-number">3.4.1</span> Distribution data and Table 1</h3>
 <ol style="list-style-type: decimal">
 <li>For table 1 and the following analysis we have to create a new
 variable based on the variables: <code>painint_6weeks</code>, <code>painint_3months</code>
@@ -223,109 +318,109 @@ and <code>painint_6months</code>. The new variable name: <code>is_painint_chroni
 <li>TRUE = chronic pain = if the variables <code>painint_6weeks</code>,
 <code>painint_3months</code> and <code>painint_6months</code> are each 3 or higher</li>
 </ul>
-<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="statistical-exploration.html#cb246-1" tabindex="-1"></a><span class="co">#df_imp &lt;- data</span></span>
-<span id="cb246-2"><a href="statistical-exploration.html#cb246-2" tabindex="-1"></a></span>
-<span id="cb246-3"><a href="statistical-exploration.html#cb246-3" tabindex="-1"></a><span class="do">## new variable `chronic_pain` &amp; recode to dichotomous</span></span>
-<span id="cb246-4"><a href="statistical-exploration.html#cb246-4" tabindex="-1"></a>df_imp <span class="ot">&lt;-</span> df_imp <span class="sc">|&gt;</span></span>
-<span id="cb246-5"><a href="statistical-exploration.html#cb246-5" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
-<span id="cb246-6"><a href="statistical-exploration.html#cb246-6" tabindex="-1"></a>    <span class="at">painint_6weeks_high =</span> <span class="fu">ifelse</span>(painint_6weeks <span class="sc">&gt;=</span> cutoff_painint_high, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>),</span>
-<span id="cb246-7"><a href="statistical-exploration.html#cb246-7" tabindex="-1"></a>    <span class="at">painint_3months_high =</span> <span class="fu">ifelse</span>(painint_3months <span class="sc">&gt;=</span> cutoff_painint_high, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>),</span>
-<span id="cb246-8"><a href="statistical-exploration.html#cb246-8" tabindex="-1"></a>    <span class="at">painint_6months_high =</span> <span class="fu">ifelse</span>(painint_6months <span class="sc">&gt;=</span> cutoff_painint_high, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span>
-<span id="cb246-9"><a href="statistical-exploration.html#cb246-9" tabindex="-1"></a>)</span>
-<span id="cb246-10"><a href="statistical-exploration.html#cb246-10" tabindex="-1"></a></span>
-<span id="cb246-11"><a href="statistical-exploration.html#cb246-11" tabindex="-1"></a>df_imp <span class="ot">&lt;-</span> df_imp <span class="sc">|&gt;</span></span>
-<span id="cb246-12"><a href="statistical-exploration.html#cb246-12" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">|&gt;</span></span>
-<span id="cb246-13"><a href="statistical-exploration.html#cb246-13" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb246-14"><a href="statistical-exploration.html#cb246-14" tabindex="-1"></a>    <span class="at">painint_high =</span> </span>
-<span id="cb246-15"><a href="statistical-exploration.html#cb246-15" tabindex="-1"></a>      <span class="fu">sum</span>(painint_6weeks_high, painint_3months_high, painint_6months_high)</span>
-<span id="cb246-16"><a href="statistical-exploration.html#cb246-16" tabindex="-1"></a>  ) </span>
-<span id="cb246-17"><a href="statistical-exploration.html#cb246-17" tabindex="-1"></a></span>
-<span id="cb246-18"><a href="statistical-exploration.html#cb246-18" tabindex="-1"></a></span>
-<span id="cb246-19"><a href="statistical-exploration.html#cb246-19" tabindex="-1"></a>df_imp <span class="ot">&lt;-</span> df_imp <span class="sc">|&gt;</span></span>
-<span id="cb246-20"><a href="statistical-exploration.html#cb246-20" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">|&gt;</span></span>
-<span id="cb246-21"><a href="statistical-exploration.html#cb246-21" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb246-22"><a href="statistical-exploration.html#cb246-22" tabindex="-1"></a>    <span class="at">painint_total_score =</span> </span>
-<span id="cb246-23"><a href="statistical-exploration.html#cb246-23" tabindex="-1"></a>      <span class="fu">sum</span>(painint_6weeks, painint_3months, painint_6months)</span>
-<span id="cb246-24"><a href="statistical-exploration.html#cb246-24" tabindex="-1"></a>  ) </span>
-<span id="cb246-25"><a href="statistical-exploration.html#cb246-25" tabindex="-1"></a></span>
-<span id="cb246-26"><a href="statistical-exploration.html#cb246-26" tabindex="-1"></a>df_imp <span class="ot">&lt;-</span> df_imp <span class="sc">|&gt;</span></span>
-<span id="cb246-27"><a href="statistical-exploration.html#cb246-27" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb246-28"><a href="statistical-exploration.html#cb246-28" tabindex="-1"></a>    <span class="at">is_painint_chronic =</span> <span class="fu">ifelse</span>(</span>
-<span id="cb246-29"><a href="statistical-exploration.html#cb246-29" tabindex="-1"></a>      painint_high <span class="sc">&gt;=</span> <span class="dv">3</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span></span>
-<span id="cb246-30"><a href="statistical-exploration.html#cb246-30" tabindex="-1"></a>    )</span>
-<span id="cb246-31"><a href="statistical-exploration.html#cb246-31" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="statistical-exploration.html#cb245-1" tabindex="-1"></a><span class="co">#df_imp &lt;- data</span></span>
+<span id="cb245-2"><a href="statistical-exploration.html#cb245-2" tabindex="-1"></a></span>
+<span id="cb245-3"><a href="statistical-exploration.html#cb245-3" tabindex="-1"></a><span class="do">## new variable `chronic_pain` &amp; recode to dichotomous</span></span>
+<span id="cb245-4"><a href="statistical-exploration.html#cb245-4" tabindex="-1"></a>df_imp <span class="ot">&lt;-</span> df_imp <span class="sc">|&gt;</span></span>
+<span id="cb245-5"><a href="statistical-exploration.html#cb245-5" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
+<span id="cb245-6"><a href="statistical-exploration.html#cb245-6" tabindex="-1"></a>    <span class="at">painint_6weeks_high =</span> <span class="fu">ifelse</span>(painint_6weeks <span class="sc">&gt;=</span> cutoff_painint_high, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>),</span>
+<span id="cb245-7"><a href="statistical-exploration.html#cb245-7" tabindex="-1"></a>    <span class="at">painint_3months_high =</span> <span class="fu">ifelse</span>(painint_3months <span class="sc">&gt;=</span> cutoff_painint_high, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>),</span>
+<span id="cb245-8"><a href="statistical-exploration.html#cb245-8" tabindex="-1"></a>    <span class="at">painint_6months_high =</span> <span class="fu">ifelse</span>(painint_6months <span class="sc">&gt;=</span> cutoff_painint_high, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb245-9"><a href="statistical-exploration.html#cb245-9" tabindex="-1"></a>)</span>
+<span id="cb245-10"><a href="statistical-exploration.html#cb245-10" tabindex="-1"></a></span>
+<span id="cb245-11"><a href="statistical-exploration.html#cb245-11" tabindex="-1"></a>df_imp <span class="ot">&lt;-</span> df_imp <span class="sc">|&gt;</span></span>
+<span id="cb245-12"><a href="statistical-exploration.html#cb245-12" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">|&gt;</span></span>
+<span id="cb245-13"><a href="statistical-exploration.html#cb245-13" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb245-14"><a href="statistical-exploration.html#cb245-14" tabindex="-1"></a>    <span class="at">painint_high =</span> </span>
+<span id="cb245-15"><a href="statistical-exploration.html#cb245-15" tabindex="-1"></a>      <span class="fu">sum</span>(painint_6weeks_high, painint_3months_high, painint_6months_high)</span>
+<span id="cb245-16"><a href="statistical-exploration.html#cb245-16" tabindex="-1"></a>  ) </span>
+<span id="cb245-17"><a href="statistical-exploration.html#cb245-17" tabindex="-1"></a></span>
+<span id="cb245-18"><a href="statistical-exploration.html#cb245-18" tabindex="-1"></a></span>
+<span id="cb245-19"><a href="statistical-exploration.html#cb245-19" tabindex="-1"></a>df_imp <span class="ot">&lt;-</span> df_imp <span class="sc">|&gt;</span></span>
+<span id="cb245-20"><a href="statistical-exploration.html#cb245-20" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">|&gt;</span></span>
+<span id="cb245-21"><a href="statistical-exploration.html#cb245-21" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb245-22"><a href="statistical-exploration.html#cb245-22" tabindex="-1"></a>    <span class="at">painint_total_score =</span> </span>
+<span id="cb245-23"><a href="statistical-exploration.html#cb245-23" tabindex="-1"></a>      <span class="fu">sum</span>(painint_6weeks, painint_3months, painint_6months)</span>
+<span id="cb245-24"><a href="statistical-exploration.html#cb245-24" tabindex="-1"></a>  ) </span>
+<span id="cb245-25"><a href="statistical-exploration.html#cb245-25" tabindex="-1"></a></span>
+<span id="cb245-26"><a href="statistical-exploration.html#cb245-26" tabindex="-1"></a>df_imp <span class="ot">&lt;-</span> df_imp <span class="sc">|&gt;</span></span>
+<span id="cb245-27"><a href="statistical-exploration.html#cb245-27" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb245-28"><a href="statistical-exploration.html#cb245-28" tabindex="-1"></a>    <span class="at">is_painint_chronic =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb245-29"><a href="statistical-exploration.html#cb245-29" tabindex="-1"></a>      painint_high <span class="sc">&gt;=</span> <span class="dv">3</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span></span>
+<span id="cb245-30"><a href="statistical-exploration.html#cb245-30" tabindex="-1"></a>    )</span>
+<span id="cb245-31"><a href="statistical-exploration.html#cb245-31" tabindex="-1"></a>  )</span></code></pre></div>
 </div>
 </div>
-<div id="reformat-dataframe-to-stacked-format" class="section level2 hasAnchor" number="3.5">
-<h2><span class="header-section-number">3.5</span> Reformat dataframe to stacked format<a href="statistical-exploration.html#reformat-dataframe-to-stacked-format" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="statistical-exploration.html#cb247-1" tabindex="-1"></a>df_imp_long <span class="ot">&lt;-</span> df_imp <span class="sc">|&gt;</span></span>
-<span id="cb247-2"><a href="statistical-exploration.html#cb247-2" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
-<span id="cb247-3"><a href="statistical-exploration.html#cb247-3" tabindex="-1"></a>    painint_6weeks<span class="sc">:</span>painint_6months,</span>
-<span id="cb247-4"><a href="statistical-exploration.html#cb247-4" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">&quot;painint_score&quot;</span>,</span>
-<span id="cb247-5"><a href="statistical-exploration.html#cb247-5" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">&quot;painint_time&quot;</span></span>
-<span id="cb247-6"><a href="statistical-exploration.html#cb247-6" tabindex="-1"></a>  )</span></code></pre></div>
+<div id="reformat-dataframe-to-stacked-format" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> Reformat dataframe to stacked format</h2>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="statistical-exploration.html#cb246-1" tabindex="-1"></a>df_imp_long <span class="ot">&lt;-</span> df_imp <span class="sc">|&gt;</span></span>
+<span id="cb246-2"><a href="statistical-exploration.html#cb246-2" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb246-3"><a href="statistical-exploration.html#cb246-3" tabindex="-1"></a>    painint_6weeks<span class="sc">:</span>painint_6months,</span>
+<span id="cb246-4"><a href="statistical-exploration.html#cb246-4" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">&quot;painint_score&quot;</span>,</span>
+<span id="cb246-5"><a href="statistical-exploration.html#cb246-5" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">&quot;painint_time&quot;</span></span>
+<span id="cb246-6"><a href="statistical-exploration.html#cb246-6" tabindex="-1"></a>  )</span></code></pre></div>
 </div>
-<div id="create-time-variable" class="section level2 hasAnchor" number="3.6">
-<h2><span class="header-section-number">3.6</span> Create time variable<a href="statistical-exploration.html#create-time-variable" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="create-time-variable" class="section level2" number="3.6">
+<h2><span class="header-section-number">3.6</span> Create time variable</h2>
 <p>The variable `</p>
-<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="statistical-exploration.html#cb248-1" tabindex="-1"></a><span class="do">## seperate </span></span>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="statistical-exploration.html#cb247-1" tabindex="-1"></a><span class="do">## seperate </span></span>
+<span id="cb247-2"><a href="statistical-exploration.html#cb247-2" tabindex="-1"></a>df_imp_long <span class="ot">&lt;-</span> df_imp_long <span class="sc">|&gt;</span></span>
+<span id="cb247-3"><a href="statistical-exploration.html#cb247-3" tabindex="-1"></a>  <span class="fu">separate_wider_delim</span>(painint_time, <span class="at">delim =</span> <span class="st">&quot;_&quot;</span>, <span class="at">names =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="st">&quot;time&quot;</span>))</span></code></pre></div>
+</div>
+<div id="recode-time" class="section level2" number="3.7">
+<h2><span class="header-section-number">3.7</span> Recode time</h2>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="statistical-exploration.html#cb248-1" tabindex="-1"></a><span class="do">## recode to days</span></span>
 <span id="cb248-2"><a href="statistical-exploration.html#cb248-2" tabindex="-1"></a>df_imp_long <span class="ot">&lt;-</span> df_imp_long <span class="sc">|&gt;</span></span>
-<span id="cb248-3"><a href="statistical-exploration.html#cb248-3" tabindex="-1"></a>  <span class="fu">separate_wider_delim</span>(painint_time, <span class="at">delim =</span> <span class="st">&quot;_&quot;</span>, <span class="at">names =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="st">&quot;time&quot;</span>))</span></code></pre></div>
-</div>
-<div id="recode-time" class="section level2 hasAnchor" number="3.7">
-<h2><span class="header-section-number">3.7</span> Recode time<a href="statistical-exploration.html#recode-time" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="statistical-exploration.html#cb249-1" tabindex="-1"></a><span class="do">## recode to days</span></span>
+<span id="cb248-3"><a href="statistical-exploration.html#cb248-3" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb248-4"><a href="statistical-exploration.html#cb248-4" tabindex="-1"></a>    <span class="at">time_days =</span> <span class="fu">recode_factor</span>(</span>
+<span id="cb248-5"><a href="statistical-exploration.html#cb248-5" tabindex="-1"></a>           time, </span>
+<span id="cb248-6"><a href="statistical-exploration.html#cb248-6" tabindex="-1"></a>           <span class="st">`</span><span class="at">6weeks</span><span class="st">`</span> <span class="ot">=</span> <span class="dv">42</span>,</span>
+<span id="cb248-7"><a href="statistical-exploration.html#cb248-7" tabindex="-1"></a>           <span class="st">`</span><span class="at">3months</span><span class="st">`</span> <span class="ot">=</span> <span class="dv">90</span>,</span>
+<span id="cb248-8"><a href="statistical-exploration.html#cb248-8" tabindex="-1"></a>           <span class="st">`</span><span class="at">6months</span><span class="st">`</span> <span class="ot">=</span> <span class="dv">180</span>)) </span>
+<span id="cb248-9"><a href="statistical-exploration.html#cb248-9" tabindex="-1"></a></span>
+<span id="cb248-10"><a href="statistical-exploration.html#cb248-10" tabindex="-1"></a><span class="do">## write to disk</span></span>
+<span id="cb248-11"><a href="statistical-exploration.html#cb248-11" tabindex="-1"></a><span class="fu">write_rds</span>(df_imp, <span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;imputed_with_attitude_and_chronic.rds&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="statistical-exploration.html#cb249-1" tabindex="-1"></a><span class="do">## add var to trace missingness</span></span>
 <span id="cb249-2"><a href="statistical-exploration.html#cb249-2" tabindex="-1"></a>df_imp_long <span class="ot">&lt;-</span> df_imp_long <span class="sc">|&gt;</span></span>
-<span id="cb249-3"><a href="statistical-exploration.html#cb249-3" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb249-4"><a href="statistical-exploration.html#cb249-4" tabindex="-1"></a>    <span class="at">time_days =</span> <span class="fu">recode_factor</span>(</span>
-<span id="cb249-5"><a href="statistical-exploration.html#cb249-5" tabindex="-1"></a>           time, </span>
-<span id="cb249-6"><a href="statistical-exploration.html#cb249-6" tabindex="-1"></a>           <span class="st">`</span><span class="at">6weeks</span><span class="st">`</span> <span class="ot">=</span> <span class="dv">42</span>,</span>
-<span id="cb249-7"><a href="statistical-exploration.html#cb249-7" tabindex="-1"></a>           <span class="st">`</span><span class="at">3months</span><span class="st">`</span> <span class="ot">=</span> <span class="dv">90</span>,</span>
-<span id="cb249-8"><a href="statistical-exploration.html#cb249-8" tabindex="-1"></a>           <span class="st">`</span><span class="at">6months</span><span class="st">`</span> <span class="ot">=</span> <span class="dv">180</span>)) </span>
-<span id="cb249-9"><a href="statistical-exploration.html#cb249-9" tabindex="-1"></a></span>
-<span id="cb249-10"><a href="statistical-exploration.html#cb249-10" tabindex="-1"></a><span class="do">## write to disk</span></span>
-<span id="cb249-11"><a href="statistical-exploration.html#cb249-11" tabindex="-1"></a><span class="fu">write_rds</span>(df_imp, <span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;imputed_with_attitude_and_chronic.rds&quot;</span>))</span></code></pre></div>
-<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="statistical-exploration.html#cb250-1" tabindex="-1"></a><span class="do">## add var to trace missingness</span></span>
-<span id="cb250-2"><a href="statistical-exploration.html#cb250-2" tabindex="-1"></a>df_imp_long <span class="ot">&lt;-</span> df_imp_long <span class="sc">|&gt;</span></span>
-<span id="cb250-3"><a href="statistical-exploration.html#cb250-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">is_chronic_missing =</span> <span class="fu">is.na</span>(painint_total_score))</span>
-<span id="cb250-4"><a href="statistical-exploration.html#cb250-4" tabindex="-1"></a></span>
-<span id="cb250-5"><a href="statistical-exploration.html#cb250-5" tabindex="-1"></a><span class="do">## check with visual</span></span>
-<span id="cb250-6"><a href="statistical-exploration.html#cb250-6" tabindex="-1"></a>df_imp_long <span class="sc">|&gt;</span></span>
-<span id="cb250-7"><a href="statistical-exploration.html#cb250-7" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(</span>
-<span id="cb250-8"><a href="statistical-exploration.html#cb250-8" tabindex="-1"></a>    <span class="at">x =</span> painint_total_score,</span>
-<span id="cb250-9"><a href="statistical-exploration.html#cb250-9" tabindex="-1"></a>    <span class="at">y =</span> <span class="fu">as_factor</span>(is_painint_chronic)</span>
-<span id="cb250-10"><a href="statistical-exploration.html#cb250-10" tabindex="-1"></a>  )) <span class="sc">+</span></span>
-<span id="cb250-11"><a href="statistical-exploration.html#cb250-11" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> <span class="fu">as_factor</span>(is_painint_chronic)), </span>
-<span id="cb250-12"><a href="statistical-exploration.html#cb250-12" tabindex="-1"></a>             <span class="at">position =</span> <span class="st">&quot;jitter&quot;</span>, <span class="at">shape =</span> <span class="dv">1</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb250-13"><a href="statistical-exploration.html#cb250-13" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;darkblue&quot;</span>, <span class="st">&quot;magenta&quot;</span>)) <span class="sc">+</span></span>
-<span id="cb250-14"><a href="statistical-exploration.html#cb250-14" tabindex="-1"></a>  <span class="fu">geom_vline</span>(</span>
-<span id="cb250-15"><a href="statistical-exploration.html#cb250-15" tabindex="-1"></a>    <span class="at">xintercept =</span> cutoff_chronic<span class="dv">-1</span>, </span>
-<span id="cb250-16"><a href="statistical-exploration.html#cb250-16" tabindex="-1"></a>    <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>, </span>
-<span id="cb250-17"><a href="statistical-exploration.html#cb250-17" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">&quot;darkred&quot;</span>, </span>
-<span id="cb250-18"><a href="statistical-exploration.html#cb250-18" tabindex="-1"></a>    <span class="at">linewidth =</span> <span class="dv">1</span></span>
-<span id="cb250-19"><a href="statistical-exploration.html#cb250-19" tabindex="-1"></a>    ) <span class="sc">+</span></span>
-<span id="cb250-20"><a href="statistical-exploration.html#cb250-20" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="fu">guide_legend</span>(<span class="at">override.aes =</span> <span class="fu">list</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">shape =</span> <span class="dv">1</span>))) <span class="sc">+</span></span>
-<span id="cb250-21"><a href="statistical-exploration.html#cb250-21" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Total painint score&quot;</span>) <span class="sc">+</span></span>
-<span id="cb250-22"><a href="statistical-exploration.html#cb250-22" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Recoded to chronic pain&quot;</span>) <span class="sc">+</span></span>
-<span id="cb250-23"><a href="statistical-exploration.html#cb250-23" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Chronic pain&quot;</span>) <span class="sc">+</span></span>
-<span id="cb250-24"><a href="statistical-exploration.html#cb250-24" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>, <span class="dv">30</span>)) <span class="ot">-&gt;</span> plot_chronic</span>
-<span id="cb250-25"><a href="statistical-exploration.html#cb250-25" tabindex="-1"></a>plot_chronic</span></code></pre></div>
-<p><img src="03_exploratory_statostics_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<span id="cb249-3"><a href="statistical-exploration.html#cb249-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">is_chronic_missing =</span> <span class="fu">is.na</span>(painint_total_score))</span>
+<span id="cb249-4"><a href="statistical-exploration.html#cb249-4" tabindex="-1"></a></span>
+<span id="cb249-5"><a href="statistical-exploration.html#cb249-5" tabindex="-1"></a><span class="do">## check with visual</span></span>
+<span id="cb249-6"><a href="statistical-exploration.html#cb249-6" tabindex="-1"></a>df_imp_long <span class="sc">|&gt;</span></span>
+<span id="cb249-7"><a href="statistical-exploration.html#cb249-7" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(</span>
+<span id="cb249-8"><a href="statistical-exploration.html#cb249-8" tabindex="-1"></a>    <span class="at">x =</span> painint_total_score,</span>
+<span id="cb249-9"><a href="statistical-exploration.html#cb249-9" tabindex="-1"></a>    <span class="at">y =</span> <span class="fu">as_factor</span>(is_painint_chronic)</span>
+<span id="cb249-10"><a href="statistical-exploration.html#cb249-10" tabindex="-1"></a>  )) <span class="sc">+</span></span>
+<span id="cb249-11"><a href="statistical-exploration.html#cb249-11" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> <span class="fu">as_factor</span>(is_painint_chronic)), </span>
+<span id="cb249-12"><a href="statistical-exploration.html#cb249-12" tabindex="-1"></a>             <span class="at">position =</span> <span class="st">&quot;jitter&quot;</span>, <span class="at">shape =</span> <span class="dv">1</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb249-13"><a href="statistical-exploration.html#cb249-13" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;darkblue&quot;</span>, <span class="st">&quot;magenta&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb249-14"><a href="statistical-exploration.html#cb249-14" tabindex="-1"></a>  <span class="fu">geom_vline</span>(</span>
+<span id="cb249-15"><a href="statistical-exploration.html#cb249-15" tabindex="-1"></a>    <span class="at">xintercept =</span> cutoff_chronic<span class="dv">-1</span>, </span>
+<span id="cb249-16"><a href="statistical-exploration.html#cb249-16" tabindex="-1"></a>    <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>, </span>
+<span id="cb249-17"><a href="statistical-exploration.html#cb249-17" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">&quot;darkred&quot;</span>, </span>
+<span id="cb249-18"><a href="statistical-exploration.html#cb249-18" tabindex="-1"></a>    <span class="at">linewidth =</span> <span class="dv">1</span></span>
+<span id="cb249-19"><a href="statistical-exploration.html#cb249-19" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb249-20"><a href="statistical-exploration.html#cb249-20" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="fu">guide_legend</span>(<span class="at">override.aes =</span> <span class="fu">list</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">shape =</span> <span class="dv">1</span>))) <span class="sc">+</span></span>
+<span id="cb249-21"><a href="statistical-exploration.html#cb249-21" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Total painint score&quot;</span>) <span class="sc">+</span></span>
+<span id="cb249-22"><a href="statistical-exploration.html#cb249-22" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Recoded to chronic pain&quot;</span>) <span class="sc">+</span></span>
+<span id="cb249-23"><a href="statistical-exploration.html#cb249-23" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Chronic pain&quot;</span>) <span class="sc">+</span></span>
+<span id="cb249-24"><a href="statistical-exploration.html#cb249-24" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>, <span class="dv">30</span>)) <span class="ot">-&gt;</span> plot_chronic</span>
+<span id="cb249-25"><a href="statistical-exploration.html#cb249-25" tabindex="-1"></a>plot_chronic</span></code></pre></div>
+<p><img src="03_exploratory_statistics_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 </div>
-<div id="adding-baseline-as-time0" class="section level2 hasAnchor" number="3.8">
-<h2><span class="header-section-number">3.8</span> Adding baseline as time=0<a href="statistical-exploration.html#adding-baseline-as-time0" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="statistical-exploration.html#cb251-1" tabindex="-1"></a>df_imp_long <span class="sc">|&gt;</span></span>
-<span id="cb251-2"><a href="statistical-exploration.html#cb251-2" tabindex="-1"></a>  <span class="fu">group_by</span>(patient_code) <span class="sc">|&gt;</span></span>
-<span id="cb251-3"><a href="statistical-exploration.html#cb251-3" tabindex="-1"></a>  <span class="fu">reframe</span>(<span class="at">painint_score =</span> <span class="fu">unique</span>(pain_intensity)) <span class="sc">|&gt;</span></span>
-<span id="cb251-4"><a href="statistical-exploration.html#cb251-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">time_days =</span> <span class="dv">0</span>,</span>
-<span id="cb251-5"><a href="statistical-exploration.html#cb251-5" tabindex="-1"></a>         <span class="at">time_days =</span> <span class="fu">as_factor</span>(time_days)) <span class="ot">-&gt;</span> df_baseline</span>
-<span id="cb251-6"><a href="statistical-exploration.html#cb251-6" tabindex="-1"></a></span>
-<span id="cb251-7"><a href="statistical-exploration.html#cb251-7" tabindex="-1"></a></span>
-<span id="cb251-8"><a href="statistical-exploration.html#cb251-8" tabindex="-1"></a><span class="do">## join with original</span></span>
-<span id="cb251-9"><a href="statistical-exploration.html#cb251-9" tabindex="-1"></a><span class="co">#df_imp_long_subset &lt;- df_imp_long |&gt;</span></span>
-<span id="cb251-10"><a href="statistical-exploration.html#cb251-10" tabindex="-1"></a><span class="co">#   dplyr::select(patient_code, painint_score, time_days, is_painint_chronic)</span></span>
-<span id="cb251-11"><a href="statistical-exploration.html#cb251-11" tabindex="-1"></a></span>
-<span id="cb251-12"><a href="statistical-exploration.html#cb251-12" tabindex="-1"></a>df_baseline</span></code></pre></div>
+<div id="adding-baseline-as-time0" class="section level2" number="3.8">
+<h2><span class="header-section-number">3.8</span> Adding baseline as time=0</h2>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="statistical-exploration.html#cb250-1" tabindex="-1"></a>df_imp_long <span class="sc">|&gt;</span></span>
+<span id="cb250-2"><a href="statistical-exploration.html#cb250-2" tabindex="-1"></a>  <span class="fu">group_by</span>(patient_code) <span class="sc">|&gt;</span></span>
+<span id="cb250-3"><a href="statistical-exploration.html#cb250-3" tabindex="-1"></a>  <span class="fu">reframe</span>(<span class="at">painint_score =</span> <span class="fu">unique</span>(pain_intensity)) <span class="sc">|&gt;</span></span>
+<span id="cb250-4"><a href="statistical-exploration.html#cb250-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">time_days =</span> <span class="dv">0</span>,</span>
+<span id="cb250-5"><a href="statistical-exploration.html#cb250-5" tabindex="-1"></a>         <span class="at">time_days =</span> <span class="fu">as_factor</span>(time_days)) <span class="ot">-&gt;</span> df_baseline</span>
+<span id="cb250-6"><a href="statistical-exploration.html#cb250-6" tabindex="-1"></a></span>
+<span id="cb250-7"><a href="statistical-exploration.html#cb250-7" tabindex="-1"></a></span>
+<span id="cb250-8"><a href="statistical-exploration.html#cb250-8" tabindex="-1"></a><span class="do">## join with original</span></span>
+<span id="cb250-9"><a href="statistical-exploration.html#cb250-9" tabindex="-1"></a><span class="co">#df_imp_long_subset &lt;- df_imp_long |&gt;</span></span>
+<span id="cb250-10"><a href="statistical-exploration.html#cb250-10" tabindex="-1"></a><span class="co">#   dplyr::select(patient_code, painint_score, time_days, is_painint_chronic)</span></span>
+<span id="cb250-11"><a href="statistical-exploration.html#cb250-11" tabindex="-1"></a></span>
+<span id="cb250-12"><a href="statistical-exploration.html#cb250-12" tabindex="-1"></a>df_baseline</span></code></pre></div>
 <pre><code>## # A tibble: 603 × 3
 ##    patient_code painint_score time_days
 ##           &lt;dbl&gt;         &lt;dbl&gt; &lt;fct&gt;    
@@ -340,58 +435,58 @@ and <code>painint_6months</code>. The new variable name: <code>is_painint_chroni
 ##  9          109             2 0        
 ## 10          110             6 0        
 ## # ℹ 593 more rows</code></pre>
-<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="statistical-exploration.html#cb253-1" tabindex="-1"></a>df_imp_long <span class="ot">&lt;-</span> <span class="fu">full_join</span>(df_imp_long, df_baseline) <span class="sc">|&gt;</span></span>
-<span id="cb253-2"><a href="statistical-exploration.html#cb253-2" tabindex="-1"></a>  <span class="fu">relocate</span>(is_chronic_missing)</span></code></pre></div>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="statistical-exploration.html#cb252-1" tabindex="-1"></a>df_imp_long <span class="ot">&lt;-</span> <span class="fu">full_join</span>(df_imp_long, df_baseline) <span class="sc">|&gt;</span></span>
+<span id="cb252-2"><a href="statistical-exploration.html#cb252-2" tabindex="-1"></a>  <span class="fu">relocate</span>(is_chronic_missing)</span></code></pre></div>
 </div>
-<div id="carry-forward" class="section level2 hasAnchor" number="3.9">
-<h2><span class="header-section-number">3.9</span> Carry forward<a href="statistical-exploration.html#carry-forward" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="carry-forward" class="section level2" number="3.9">
+<h2><span class="header-section-number">3.9</span> Carry forward</h2>
 <p>Due to the join we have missing values. We can use a crry forward for the last set of observations and fill in the NA for that value. We group by patient code.</p>
-<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="statistical-exploration.html#cb254-1" tabindex="-1"></a>df_imp_long <span class="sc">|&gt;</span> </span>
-<span id="cb254-2"><a href="statistical-exploration.html#cb254-2" tabindex="-1"></a>  <span class="fu">arrange</span>(patient_code) <span class="sc">|&gt;</span></span>
-<span id="cb254-3"><a href="statistical-exploration.html#cb254-3" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">fill</span>(is_chronic_missing<span class="sc">:</span>is_painint_chronic) <span class="ot">-&gt;</span> df_imp_long</span>
-<span id="cb254-4"><a href="statistical-exploration.html#cb254-4" tabindex="-1"></a></span>
-<span id="cb254-5"><a href="statistical-exploration.html#cb254-5" tabindex="-1"></a><span class="do">## add &#39;baseling&#39; level to &#39;time&#39;</span></span>
-<span id="cb254-6"><a href="statistical-exploration.html#cb254-6" tabindex="-1"></a>df_imp_long <span class="ot">&lt;-</span> df_imp_long <span class="sc">|&gt;</span></span>
-<span id="cb254-7"><a href="statistical-exploration.html#cb254-7" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">time =</span> <span class="fu">as.character</span>(time)) <span class="sc">|&gt;</span></span>
-<span id="cb254-8"><a href="statistical-exploration.html#cb254-8" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">time =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(time), <span class="st">&quot;baseline&quot;</span>, time))</span></code></pre></div>
-<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="statistical-exploration.html#cb255-1" tabindex="-1"></a><span class="do">## get patient ids</span></span>
-<span id="cb255-2"><a href="statistical-exploration.html#cb255-2" tabindex="-1"></a>p_ids <span class="ot">&lt;-</span> df_imp_long<span class="sc">$</span>patient_code <span class="sc">|&gt;</span> <span class="fu">unique</span>()</span>
-<span id="cb255-3"><a href="statistical-exploration.html#cb255-3" tabindex="-1"></a></span>
-<span id="cb255-4"><a href="statistical-exploration.html#cb255-4" tabindex="-1"></a><span class="do">## time has wrong level order</span></span>
-<span id="cb255-5"><a href="statistical-exploration.html#cb255-5" tabindex="-1"></a>df_imp_long<span class="sc">$</span>time_days <span class="sc">|&gt;</span></span>
-<span id="cb255-6"><a href="statistical-exploration.html#cb255-6" tabindex="-1"></a>  <span class="fu">levels</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="statistical-exploration.html#cb253-1" tabindex="-1"></a>df_imp_long <span class="sc">|&gt;</span> </span>
+<span id="cb253-2"><a href="statistical-exploration.html#cb253-2" tabindex="-1"></a>  <span class="fu">arrange</span>(patient_code) <span class="sc">|&gt;</span></span>
+<span id="cb253-3"><a href="statistical-exploration.html#cb253-3" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">fill</span>(is_chronic_missing<span class="sc">:</span>is_painint_chronic) <span class="ot">-&gt;</span> df_imp_long</span>
+<span id="cb253-4"><a href="statistical-exploration.html#cb253-4" tabindex="-1"></a></span>
+<span id="cb253-5"><a href="statistical-exploration.html#cb253-5" tabindex="-1"></a><span class="do">## add &#39;baseling&#39; level to &#39;time&#39;</span></span>
+<span id="cb253-6"><a href="statistical-exploration.html#cb253-6" tabindex="-1"></a>df_imp_long <span class="ot">&lt;-</span> df_imp_long <span class="sc">|&gt;</span></span>
+<span id="cb253-7"><a href="statistical-exploration.html#cb253-7" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">time =</span> <span class="fu">as.character</span>(time)) <span class="sc">|&gt;</span></span>
+<span id="cb253-8"><a href="statistical-exploration.html#cb253-8" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">time =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(time), <span class="st">&quot;baseline&quot;</span>, time))</span></code></pre></div>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="statistical-exploration.html#cb254-1" tabindex="-1"></a><span class="do">## get patient ids</span></span>
+<span id="cb254-2"><a href="statistical-exploration.html#cb254-2" tabindex="-1"></a>p_ids <span class="ot">&lt;-</span> df_imp_long<span class="sc">$</span>patient_code <span class="sc">|&gt;</span> <span class="fu">unique</span>()</span>
+<span id="cb254-3"><a href="statistical-exploration.html#cb254-3" tabindex="-1"></a></span>
+<span id="cb254-4"><a href="statistical-exploration.html#cb254-4" tabindex="-1"></a><span class="do">## time has wrong level order</span></span>
+<span id="cb254-5"><a href="statistical-exploration.html#cb254-5" tabindex="-1"></a>df_imp_long<span class="sc">$</span>time_days <span class="sc">|&gt;</span></span>
+<span id="cb254-6"><a href="statistical-exploration.html#cb254-6" tabindex="-1"></a>  <span class="fu">levels</span>()</span></code></pre></div>
 <pre><code>## [1] &quot;42&quot;  &quot;90&quot;  &quot;180&quot; &quot;0&quot;</code></pre>
-<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="statistical-exploration.html#cb257-1" tabindex="-1"></a><span class="do">## reoder levels</span></span>
-<span id="cb257-2"><a href="statistical-exploration.html#cb257-2" tabindex="-1"></a>df_imp_long <span class="ot">&lt;-</span> df_imp_long <span class="sc">|&gt;</span></span>
-<span id="cb257-3"><a href="statistical-exploration.html#cb257-3" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb257-4"><a href="statistical-exploration.html#cb257-4" tabindex="-1"></a>    <span class="at">time_days_relevel =</span> <span class="fu">fct_relevel</span>(</span>
-<span id="cb257-5"><a href="statistical-exploration.html#cb257-5" tabindex="-1"></a>      time_days, <span class="st">&quot;0&quot;</span>, <span class="st">&quot;42&quot;</span>, <span class="st">&quot;90&quot;</span>, <span class="st">&quot;180&quot;</span></span>
-<span id="cb257-6"><a href="statistical-exploration.html#cb257-6" tabindex="-1"></a>    ))</span>
-<span id="cb257-7"><a href="statistical-exploration.html#cb257-7" tabindex="-1"></a></span>
-<span id="cb257-8"><a href="statistical-exploration.html#cb257-8" tabindex="-1"></a><span class="do">## pain over time</span></span>
-<span id="cb257-9"><a href="statistical-exploration.html#cb257-9" tabindex="-1"></a>df_imp_long <span class="sc">|&gt;</span></span>
-<span id="cb257-10"><a href="statistical-exploration.html#cb257-10" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
-<span id="cb257-11"><a href="statistical-exploration.html#cb257-11" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> time_days_relevel,</span>
-<span id="cb257-12"><a href="statistical-exploration.html#cb257-12" tabindex="-1"></a>        <span class="at">y =</span> painint_score)) <span class="sc">+</span></span>
-<span id="cb257-13"><a href="statistical-exploration.html#cb257-13" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(</span>
-<span id="cb257-14"><a href="statistical-exploration.html#cb257-14" tabindex="-1"></a>    <span class="at">colour =</span> <span class="fu">as_factor</span>(patient_code)), </span>
-<span id="cb257-15"><a href="statistical-exploration.html#cb257-15" tabindex="-1"></a>    <span class="at">show.legend =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb257-16"><a href="statistical-exploration.html#cb257-16" tabindex="-1"></a>    <span class="at">position =</span> <span class="st">&quot;jitter&quot;</span>) <span class="sc">+</span></span>
-<span id="cb257-17"><a href="statistical-exploration.html#cb257-17" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Time (days)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb257-18"><a href="statistical-exploration.html#cb257-18" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Pain intensity score&quot;</span>) <span class="sc">+</span></span>
-<span id="cb257-19"><a href="statistical-exploration.html#cb257-19" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>is_painint_chronic) <span class="ot">-&gt;</span> pain_over_time_chronic</span>
-<span id="cb257-20"><a href="statistical-exploration.html#cb257-20" tabindex="-1"></a></span>
-<span id="cb257-21"><a href="statistical-exploration.html#cb257-21" tabindex="-1"></a>pain_over_time_chronic <span class="sc">+</span> citrulliner<span class="sc">::</span><span class="fu">theme_individual</span>()</span></code></pre></div>
-<p><img src="03_exploratory_statostics_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
-<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="statistical-exploration.html#cb258-1" tabindex="-1"></a><span class="fu">ggsave</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;img&quot;</span>, <span class="st">&quot;pain_over_time.png&quot;</span>),</span>
-<span id="cb258-2"><a href="statistical-exploration.html#cb258-2" tabindex="-1"></a>       <span class="at">height =</span> <span class="dv">20</span>, <span class="at">width =</span> <span class="dv">30</span>, <span class="at">units =</span> <span class="st">&quot;cm&quot;</span>, <span class="at">dpi =</span> <span class="dv">300</span>) </span>
-<span id="cb258-3"><a href="statistical-exploration.html#cb258-3" tabindex="-1"></a></span>
-<span id="cb258-4"><a href="statistical-exploration.html#cb258-4" tabindex="-1"></a><span class="do">## calculate average trend</span></span>
-<span id="cb258-5"><a href="statistical-exploration.html#cb258-5" tabindex="-1"></a>df_imp_long_summary <span class="ot">&lt;-</span> df_imp_long <span class="sc">|&gt;</span></span>
-<span id="cb258-6"><a href="statistical-exploration.html#cb258-6" tabindex="-1"></a>  <span class="fu">group_by</span>(time_days_relevel, is_painint_chronic) <span class="sc">|&gt;</span></span>
-<span id="cb258-7"><a href="statistical-exploration.html#cb258-7" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">median_painint_score =</span> <span class="fu">median</span>(painint_score))</span>
-<span id="cb258-8"><a href="statistical-exploration.html#cb258-8" tabindex="-1"></a></span>
-<span id="cb258-9"><a href="statistical-exploration.html#cb258-9" tabindex="-1"></a>df_imp_long_summary</span></code></pre></div>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="statistical-exploration.html#cb256-1" tabindex="-1"></a><span class="do">## reoder levels</span></span>
+<span id="cb256-2"><a href="statistical-exploration.html#cb256-2" tabindex="-1"></a>df_imp_long <span class="ot">&lt;-</span> df_imp_long <span class="sc">|&gt;</span></span>
+<span id="cb256-3"><a href="statistical-exploration.html#cb256-3" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb256-4"><a href="statistical-exploration.html#cb256-4" tabindex="-1"></a>    <span class="at">time_days_relevel =</span> <span class="fu">fct_relevel</span>(</span>
+<span id="cb256-5"><a href="statistical-exploration.html#cb256-5" tabindex="-1"></a>      time_days, <span class="st">&quot;0&quot;</span>, <span class="st">&quot;42&quot;</span>, <span class="st">&quot;90&quot;</span>, <span class="st">&quot;180&quot;</span></span>
+<span id="cb256-6"><a href="statistical-exploration.html#cb256-6" tabindex="-1"></a>    ))</span>
+<span id="cb256-7"><a href="statistical-exploration.html#cb256-7" tabindex="-1"></a></span>
+<span id="cb256-8"><a href="statistical-exploration.html#cb256-8" tabindex="-1"></a><span class="do">## pain over time</span></span>
+<span id="cb256-9"><a href="statistical-exploration.html#cb256-9" tabindex="-1"></a>df_imp_long <span class="sc">|&gt;</span></span>
+<span id="cb256-10"><a href="statistical-exploration.html#cb256-10" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb256-11"><a href="statistical-exploration.html#cb256-11" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> time_days_relevel,</span>
+<span id="cb256-12"><a href="statistical-exploration.html#cb256-12" tabindex="-1"></a>        <span class="at">y =</span> painint_score)) <span class="sc">+</span></span>
+<span id="cb256-13"><a href="statistical-exploration.html#cb256-13" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(</span>
+<span id="cb256-14"><a href="statistical-exploration.html#cb256-14" tabindex="-1"></a>    <span class="at">colour =</span> <span class="fu">as_factor</span>(patient_code)), </span>
+<span id="cb256-15"><a href="statistical-exploration.html#cb256-15" tabindex="-1"></a>    <span class="at">show.legend =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb256-16"><a href="statistical-exploration.html#cb256-16" tabindex="-1"></a>    <span class="at">position =</span> <span class="st">&quot;jitter&quot;</span>) <span class="sc">+</span></span>
+<span id="cb256-17"><a href="statistical-exploration.html#cb256-17" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Time (days)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb256-18"><a href="statistical-exploration.html#cb256-18" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Pain intensity score&quot;</span>) <span class="sc">+</span></span>
+<span id="cb256-19"><a href="statistical-exploration.html#cb256-19" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>is_painint_chronic) <span class="ot">-&gt;</span> pain_over_time_chronic</span>
+<span id="cb256-20"><a href="statistical-exploration.html#cb256-20" tabindex="-1"></a></span>
+<span id="cb256-21"><a href="statistical-exploration.html#cb256-21" tabindex="-1"></a>pain_over_time_chronic <span class="sc">+</span> citrulliner<span class="sc">::</span><span class="fu">theme_individual</span>()</span></code></pre></div>
+<p><img src="03_exploratory_statistics_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="statistical-exploration.html#cb257-1" tabindex="-1"></a><span class="fu">ggsave</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;img&quot;</span>, <span class="st">&quot;pain_over_time.png&quot;</span>),</span>
+<span id="cb257-2"><a href="statistical-exploration.html#cb257-2" tabindex="-1"></a>       <span class="at">height =</span> <span class="dv">20</span>, <span class="at">width =</span> <span class="dv">30</span>, <span class="at">units =</span> <span class="st">&quot;cm&quot;</span>, <span class="at">dpi =</span> <span class="dv">300</span>) </span>
+<span id="cb257-3"><a href="statistical-exploration.html#cb257-3" tabindex="-1"></a></span>
+<span id="cb257-4"><a href="statistical-exploration.html#cb257-4" tabindex="-1"></a><span class="do">## calculate average trend</span></span>
+<span id="cb257-5"><a href="statistical-exploration.html#cb257-5" tabindex="-1"></a>df_imp_long_summary <span class="ot">&lt;-</span> df_imp_long <span class="sc">|&gt;</span></span>
+<span id="cb257-6"><a href="statistical-exploration.html#cb257-6" tabindex="-1"></a>  <span class="fu">group_by</span>(time_days_relevel, is_painint_chronic) <span class="sc">|&gt;</span></span>
+<span id="cb257-7"><a href="statistical-exploration.html#cb257-7" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">median_painint_score =</span> <span class="fu">median</span>(painint_score))</span>
+<span id="cb257-8"><a href="statistical-exploration.html#cb257-8" tabindex="-1"></a></span>
+<span id="cb257-9"><a href="statistical-exploration.html#cb257-9" tabindex="-1"></a>df_imp_long_summary</span></code></pre></div>
 <pre><code>## # A tibble: 8 × 3
 ## # Groups:   time_days_relevel [4]
 ##   time_days_relevel is_painint_chronic median_painint_score
@@ -404,38 +499,38 @@ and <code>painint_6months</code>. The new variable name: <code>is_painint_chroni
 ## 6 90                TRUE                                  6
 ## 7 180               FALSE                                 0
 ## 8 180               TRUE                                  5</code></pre>
-<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="statistical-exploration.html#cb260-1" tabindex="-1"></a>df_imp_long <span class="sc">|&gt;</span></span>
-<span id="cb260-2"><a href="statistical-exploration.html#cb260-2" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
-<span id="cb260-3"><a href="statistical-exploration.html#cb260-3" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> time_days_relevel,</span>
-<span id="cb260-4"><a href="statistical-exploration.html#cb260-4" tabindex="-1"></a>        <span class="at">y =</span> painint_score)) <span class="sc">+</span></span>
-<span id="cb260-5"><a href="statistical-exploration.html#cb260-5" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(</span>
-<span id="cb260-6"><a href="statistical-exploration.html#cb260-6" tabindex="-1"></a>    <span class="at">colour =</span> <span class="fu">as_factor</span>(patient_code)), </span>
-<span id="cb260-7"><a href="statistical-exploration.html#cb260-7" tabindex="-1"></a>    <span class="at">show.legend =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb260-8"><a href="statistical-exploration.html#cb260-8" tabindex="-1"></a>    <span class="at">position =</span> <span class="st">&quot;jitter&quot;</span>) <span class="sc">+</span></span>
-<span id="cb260-9"><a href="statistical-exploration.html#cb260-9" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Time (days)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb260-10"><a href="statistical-exploration.html#cb260-10" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Pain intensity score&quot;</span>) <span class="sc">+</span></span>
-<span id="cb260-11"><a href="statistical-exploration.html#cb260-11" tabindex="-1"></a>  <span class="fu">geom_line</span>(</span>
-<span id="cb260-12"><a href="statistical-exploration.html#cb260-12" tabindex="-1"></a>    <span class="at">data =</span> df_imp_long_summary, </span>
-<span id="cb260-13"><a href="statistical-exploration.html#cb260-13" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> time_days_relevel, </span>
-<span id="cb260-14"><a href="statistical-exploration.html#cb260-14" tabindex="-1"></a>        <span class="at">y =</span> median_painint_score, </span>
-<span id="cb260-15"><a href="statistical-exploration.html#cb260-15" tabindex="-1"></a>        <span class="at">group =</span> is_painint_chronic),</span>
-<span id="cb260-16"><a href="statistical-exploration.html#cb260-16" tabindex="-1"></a>    <span class="at">linewidth =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb260-17"><a href="statistical-exploration.html#cb260-17" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>is_painint_chronic) <span class="ot">-&gt;</span> painint_over_time_with_trend</span>
-<span id="cb260-18"><a href="statistical-exploration.html#cb260-18" tabindex="-1"></a></span>
-<span id="cb260-19"><a href="statistical-exploration.html#cb260-19" tabindex="-1"></a></span>
-<span id="cb260-20"><a href="statistical-exploration.html#cb260-20" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">plot =</span> painint_over_time_with_trend <span class="sc">+</span> citrulliner<span class="sc">::</span><span class="fu">theme_individual</span>(),</span>
-<span id="cb260-21"><a href="statistical-exploration.html#cb260-21" tabindex="-1"></a>  here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;img&quot;</span>, <span class="st">&quot;pain_over_time_trend.png&quot;</span>),</span>
-<span id="cb260-22"><a href="statistical-exploration.html#cb260-22" tabindex="-1"></a>       <span class="at">height =</span> <span class="dv">20</span>, <span class="at">width =</span> <span class="dv">20</span>, <span class="at">units =</span> <span class="st">&quot;cm&quot;</span>, <span class="at">dpi =</span> <span class="dv">300</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="statistical-exploration.html#cb259-1" tabindex="-1"></a>df_imp_long <span class="sc">|&gt;</span></span>
+<span id="cb259-2"><a href="statistical-exploration.html#cb259-2" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb259-3"><a href="statistical-exploration.html#cb259-3" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> time_days_relevel,</span>
+<span id="cb259-4"><a href="statistical-exploration.html#cb259-4" tabindex="-1"></a>        <span class="at">y =</span> painint_score)) <span class="sc">+</span></span>
+<span id="cb259-5"><a href="statistical-exploration.html#cb259-5" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(</span>
+<span id="cb259-6"><a href="statistical-exploration.html#cb259-6" tabindex="-1"></a>    <span class="at">colour =</span> <span class="fu">as_factor</span>(patient_code)), </span>
+<span id="cb259-7"><a href="statistical-exploration.html#cb259-7" tabindex="-1"></a>    <span class="at">show.legend =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb259-8"><a href="statistical-exploration.html#cb259-8" tabindex="-1"></a>    <span class="at">position =</span> <span class="st">&quot;jitter&quot;</span>) <span class="sc">+</span></span>
+<span id="cb259-9"><a href="statistical-exploration.html#cb259-9" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Time (days)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb259-10"><a href="statistical-exploration.html#cb259-10" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Pain intensity score&quot;</span>) <span class="sc">+</span></span>
+<span id="cb259-11"><a href="statistical-exploration.html#cb259-11" tabindex="-1"></a>  <span class="fu">geom_line</span>(</span>
+<span id="cb259-12"><a href="statistical-exploration.html#cb259-12" tabindex="-1"></a>    <span class="at">data =</span> df_imp_long_summary, </span>
+<span id="cb259-13"><a href="statistical-exploration.html#cb259-13" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> time_days_relevel, </span>
+<span id="cb259-14"><a href="statistical-exploration.html#cb259-14" tabindex="-1"></a>        <span class="at">y =</span> median_painint_score, </span>
+<span id="cb259-15"><a href="statistical-exploration.html#cb259-15" tabindex="-1"></a>        <span class="at">group =</span> is_painint_chronic),</span>
+<span id="cb259-16"><a href="statistical-exploration.html#cb259-16" tabindex="-1"></a>    <span class="at">linewidth =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb259-17"><a href="statistical-exploration.html#cb259-17" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>is_painint_chronic) <span class="ot">-&gt;</span> painint_over_time_with_trend</span>
+<span id="cb259-18"><a href="statistical-exploration.html#cb259-18" tabindex="-1"></a></span>
+<span id="cb259-19"><a href="statistical-exploration.html#cb259-19" tabindex="-1"></a></span>
+<span id="cb259-20"><a href="statistical-exploration.html#cb259-20" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">plot =</span> painint_over_time_with_trend <span class="sc">+</span> citrulliner<span class="sc">::</span><span class="fu">theme_individual</span>(),</span>
+<span id="cb259-21"><a href="statistical-exploration.html#cb259-21" tabindex="-1"></a>  here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;img&quot;</span>, <span class="st">&quot;pain_over_time_trend.png&quot;</span>),</span>
+<span id="cb259-22"><a href="statistical-exploration.html#cb259-22" tabindex="-1"></a>       <span class="at">height =</span> <span class="dv">20</span>, <span class="at">width =</span> <span class="dv">20</span>, <span class="at">units =</span> <span class="st">&quot;cm&quot;</span>, <span class="at">dpi =</span> <span class="dv">300</span>) </span></code></pre></div>
 </div>
-<div id="rework-the-graph-above-to-get-cummulative-pain-intensity-scores" class="section level2 hasAnchor" number="3.10">
-<h2><span class="header-section-number">3.10</span> Rework the graph above to get cummulative pain intensity scores<a href="statistical-exploration.html#rework-the-graph-above-to-get-cummulative-pain-intensity-scores" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="statistical-exploration.html#cb261-1" tabindex="-1"></a>df_imp_pain_cumsum <span class="ot">&lt;-</span> df_imp_long <span class="sc">|&gt;</span></span>
-<span id="cb261-2"><a href="statistical-exploration.html#cb261-2" tabindex="-1"></a>   <span class="fu">group_by</span>(patient_code) <span class="sc">%&gt;%</span></span>
-<span id="cb261-3"><a href="statistical-exploration.html#cb261-3" tabindex="-1"></a>  <span class="fu">arrange</span>(time_days_relevel) <span class="sc">|&gt;</span></span>
-<span id="cb261-4"><a href="statistical-exploration.html#cb261-4" tabindex="-1"></a>  <span class="fu">nest</span>()</span>
-<span id="cb261-5"><a href="statistical-exploration.html#cb261-5" tabindex="-1"></a></span>
-<span id="cb261-6"><a href="statistical-exploration.html#cb261-6" tabindex="-1"></a>df <span class="ot">&lt;-</span> df_imp_pain_cumsum<span class="sc">$</span>data[[<span class="dv">1</span>]]</span>
-<span id="cb261-7"><a href="statistical-exploration.html#cb261-7" tabindex="-1"></a>df</span></code></pre></div>
+<div id="rework-the-graph-above-to-get-cummulative-pain-intensity-scores" class="section level2" number="3.10">
+<h2><span class="header-section-number">3.10</span> Rework the graph above to get cummulative pain intensity scores</h2>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="statistical-exploration.html#cb260-1" tabindex="-1"></a>df_imp_pain_cumsum <span class="ot">&lt;-</span> df_imp_long <span class="sc">|&gt;</span></span>
+<span id="cb260-2"><a href="statistical-exploration.html#cb260-2" tabindex="-1"></a>   <span class="fu">group_by</span>(patient_code) <span class="sc">%&gt;%</span></span>
+<span id="cb260-3"><a href="statistical-exploration.html#cb260-3" tabindex="-1"></a>  <span class="fu">arrange</span>(time_days_relevel) <span class="sc">|&gt;</span></span>
+<span id="cb260-4"><a href="statistical-exploration.html#cb260-4" tabindex="-1"></a>  <span class="fu">nest</span>()</span>
+<span id="cb260-5"><a href="statistical-exploration.html#cb260-5" tabindex="-1"></a></span>
+<span id="cb260-6"><a href="statistical-exploration.html#cb260-6" tabindex="-1"></a>df <span class="ot">&lt;-</span> df_imp_pain_cumsum<span class="sc">$</span>data[[<span class="dv">1</span>]]</span>
+<span id="cb260-7"><a href="statistical-exploration.html#cb260-7" tabindex="-1"></a>df</span></code></pre></div>
 <pre><code>## # A tibble: 4 × 43
 ##   is_chronic_missing sex     age education education_level pain_intensity
 ##   &lt;lgl&gt;              &lt;fct&gt; &lt;dbl&gt; &lt;fct&gt;     &lt;fct&gt;                    &lt;dbl&gt;
@@ -450,183 +545,183 @@ and <code>painint_6months</code>. The new variable name: <code>is_painint_chroni
 ## #   sleep_quality &lt;fct&gt;, catastrophizing &lt;dbl&gt;, duration_beliefs &lt;dbl&gt;,
 ## #   concerns &lt;dbl&gt;, treatment_beliefs &lt;dbl&gt;, depression &lt;dbl&gt;,
 ## #   kinesiophobia &lt;dbl&gt;, distress &lt;dbl&gt;, coping &lt;fct&gt;, …</code></pre>
-<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="statistical-exploration.html#cb263-1" tabindex="-1"></a><span class="do">## get cumsum (into function)</span></span>
-<span id="cb263-2"><a href="statistical-exploration.html#cb263-2" tabindex="-1"></a>get_pain_cumsum <span class="ot">&lt;-</span> <span class="cf">function</span>(df){</span>
-<span id="cb263-3"><a href="statistical-exploration.html#cb263-3" tabindex="-1"></a>  df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
-<span id="cb263-4"><a href="statistical-exploration.html#cb263-4" tabindex="-1"></a>    <span class="fu">arrange</span>(time_days_relevel) <span class="sc">|&gt;</span></span>
-<span id="cb263-5"><a href="statistical-exploration.html#cb263-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pain_cumsum =</span> <span class="fu">cumsum</span>(painint_score))</span>
-<span id="cb263-6"><a href="statistical-exploration.html#cb263-6" tabindex="-1"></a>  <span class="fu">return</span>(df)</span>
-<span id="cb263-7"><a href="statistical-exploration.html#cb263-7" tabindex="-1"></a>  }</span>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="statistical-exploration.html#cb262-1" tabindex="-1"></a><span class="do">## get cumsum (into function)</span></span>
+<span id="cb262-2"><a href="statistical-exploration.html#cb262-2" tabindex="-1"></a>get_pain_cumsum <span class="ot">&lt;-</span> <span class="cf">function</span>(df){</span>
+<span id="cb262-3"><a href="statistical-exploration.html#cb262-3" tabindex="-1"></a>  df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
+<span id="cb262-4"><a href="statistical-exploration.html#cb262-4" tabindex="-1"></a>    <span class="fu">arrange</span>(time_days_relevel) <span class="sc">|&gt;</span></span>
+<span id="cb262-5"><a href="statistical-exploration.html#cb262-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pain_cumsum =</span> <span class="fu">cumsum</span>(painint_score))</span>
+<span id="cb262-6"><a href="statistical-exploration.html#cb262-6" tabindex="-1"></a>  <span class="fu">return</span>(df)</span>
+<span id="cb262-7"><a href="statistical-exploration.html#cb262-7" tabindex="-1"></a>  }</span>
+<span id="cb262-8"><a href="statistical-exploration.html#cb262-8" tabindex="-1"></a></span>
+<span id="cb262-9"><a href="statistical-exploration.html#cb262-9" tabindex="-1"></a><span class="do">## apply function </span></span>
+<span id="cb262-10"><a href="statistical-exploration.html#cb262-10" tabindex="-1"></a>df_imp_pain_cumsum <span class="sc">|&gt;</span></span>
+<span id="cb262-11"><a href="statistical-exploration.html#cb262-11" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb262-12"><a href="statistical-exploration.html#cb262-12" tabindex="-1"></a>    <span class="at">pain_cumsum =</span> <span class="fu">map</span>(</span>
+<span id="cb262-13"><a href="statistical-exploration.html#cb262-13" tabindex="-1"></a>      <span class="at">.x =</span> data,</span>
+<span id="cb262-14"><a href="statistical-exploration.html#cb262-14" tabindex="-1"></a>      <span class="at">.f =</span> get_pain_cumsum)</span>
+<span id="cb262-15"><a href="statistical-exploration.html#cb262-15" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb262-16"><a href="statistical-exploration.html#cb262-16" tabindex="-1"></a>  <span class="fu">unnest</span>(pain_cumsum) <span class="ot">-&gt;</span> df_cumsum_long</span>
+<span id="cb262-17"><a href="statistical-exploration.html#cb262-17" tabindex="-1"></a></span>
+<span id="cb262-18"><a href="statistical-exploration.html#cb262-18" tabindex="-1"></a><span class="do">## plot</span></span>
+<span id="cb262-19"><a href="statistical-exploration.html#cb262-19" tabindex="-1"></a>df_cumsum_long <span class="sc">|&gt;</span></span>
+<span id="cb262-20"><a href="statistical-exploration.html#cb262-20" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb262-21"><a href="statistical-exploration.html#cb262-21" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> time_days_relevel,</span>
+<span id="cb262-22"><a href="statistical-exploration.html#cb262-22" tabindex="-1"></a>        <span class="at">y =</span> pain_cumsum)) <span class="sc">+</span></span>
+<span id="cb262-23"><a href="statistical-exploration.html#cb262-23" tabindex="-1"></a> <span class="co"># geom_line(aes(group = patient_code, colour = as_factor(patient_code)), show.legend = FALSE)  +</span></span>
+<span id="cb262-24"><a href="statistical-exploration.html#cb262-24" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> <span class="fu">as_factor</span>(patient_code)), <span class="at">show.legend =</span> <span class="cn">FALSE</span>, <span class="at">position =</span> <span class="st">&quot;jitter&quot;</span>) <span class="sc">+</span></span>
+<span id="cb262-25"><a href="statistical-exploration.html#cb262-25" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Time (days)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb262-26"><a href="statistical-exploration.html#cb262-26" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Cummulative pain intensity score&quot;</span>) <span class="sc">+</span></span>
+<span id="cb262-27"><a href="statistical-exploration.html#cb262-27" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>is_painint_chronic) <span class="ot">-&gt;</span> pain_over_time_chronic_cumsum</span>
+<span id="cb262-28"><a href="statistical-exploration.html#cb262-28" tabindex="-1"></a></span>
+<span id="cb262-29"><a href="statistical-exploration.html#cb262-29" tabindex="-1"></a>pain_over_time_chronic_cumsum</span></code></pre></div>
+<p><img src="03_exploratory_statistics_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="statistical-exploration.html#cb263-1" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">plot =</span> pain_over_time_chronic_cumsum, <span class="at">filename =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;img&quot;</span>, <span class="st">&quot;pain_over_time_cumsums.png&quot;</span>),</span>
+<span id="cb263-2"><a href="statistical-exploration.html#cb263-2" tabindex="-1"></a>       <span class="at">height =</span> <span class="dv">50</span>, <span class="at">width =</span> <span class="dv">50</span>, <span class="at">units =</span> <span class="st">&quot;cm&quot;</span>, <span class="at">dpi =</span> <span class="dv">300</span>) </span>
+<span id="cb263-3"><a href="statistical-exploration.html#cb263-3" tabindex="-1"></a></span>
+<span id="cb263-4"><a href="statistical-exploration.html#cb263-4" tabindex="-1"></a><span class="do">## calculate average trend</span></span>
+<span id="cb263-5"><a href="statistical-exploration.html#cb263-5" tabindex="-1"></a>df_summary_cumsum <span class="ot">&lt;-</span> df_cumsum_long <span class="sc">|&gt;</span></span>
+<span id="cb263-6"><a href="statistical-exploration.html#cb263-6" tabindex="-1"></a>  <span class="fu">group_by</span>(time_days_relevel, is_painint_chronic) <span class="sc">|&gt;</span></span>
+<span id="cb263-7"><a href="statistical-exploration.html#cb263-7" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">median_painint_score_cumsums =</span> <span class="fu">median</span>(pain_cumsum))</span>
 <span id="cb263-8"><a href="statistical-exploration.html#cb263-8" tabindex="-1"></a></span>
-<span id="cb263-9"><a href="statistical-exploration.html#cb263-9" tabindex="-1"></a><span class="do">## apply function </span></span>
-<span id="cb263-10"><a href="statistical-exploration.html#cb263-10" tabindex="-1"></a>df_imp_pain_cumsum <span class="sc">|&gt;</span></span>
-<span id="cb263-11"><a href="statistical-exploration.html#cb263-11" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb263-12"><a href="statistical-exploration.html#cb263-12" tabindex="-1"></a>    <span class="at">pain_cumsum =</span> <span class="fu">map</span>(</span>
-<span id="cb263-13"><a href="statistical-exploration.html#cb263-13" tabindex="-1"></a>      <span class="at">.x =</span> data,</span>
-<span id="cb263-14"><a href="statistical-exploration.html#cb263-14" tabindex="-1"></a>      <span class="at">.f =</span> get_pain_cumsum)</span>
-<span id="cb263-15"><a href="statistical-exploration.html#cb263-15" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
-<span id="cb263-16"><a href="statistical-exploration.html#cb263-16" tabindex="-1"></a>  <span class="fu">unnest</span>(pain_cumsum) <span class="ot">-&gt;</span> df_cumsum_long</span>
-<span id="cb263-17"><a href="statistical-exploration.html#cb263-17" tabindex="-1"></a></span>
-<span id="cb263-18"><a href="statistical-exploration.html#cb263-18" tabindex="-1"></a><span class="do">## plot</span></span>
-<span id="cb263-19"><a href="statistical-exploration.html#cb263-19" tabindex="-1"></a>df_cumsum_long <span class="sc">|&gt;</span></span>
-<span id="cb263-20"><a href="statistical-exploration.html#cb263-20" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
-<span id="cb263-21"><a href="statistical-exploration.html#cb263-21" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> time_days_relevel,</span>
-<span id="cb263-22"><a href="statistical-exploration.html#cb263-22" tabindex="-1"></a>        <span class="at">y =</span> pain_cumsum)) <span class="sc">+</span></span>
-<span id="cb263-23"><a href="statistical-exploration.html#cb263-23" tabindex="-1"></a> <span class="co"># geom_line(aes(group = patient_code, colour = as_factor(patient_code)), show.legend = FALSE)  +</span></span>
-<span id="cb263-24"><a href="statistical-exploration.html#cb263-24" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> <span class="fu">as_factor</span>(patient_code)), <span class="at">show.legend =</span> <span class="cn">FALSE</span>, <span class="at">position =</span> <span class="st">&quot;jitter&quot;</span>) <span class="sc">+</span></span>
-<span id="cb263-25"><a href="statistical-exploration.html#cb263-25" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Time (days)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb263-26"><a href="statistical-exploration.html#cb263-26" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Cummulative pain intensity score&quot;</span>) <span class="sc">+</span></span>
-<span id="cb263-27"><a href="statistical-exploration.html#cb263-27" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>is_painint_chronic) <span class="ot">-&gt;</span> pain_over_time_chronic_cumsum</span>
-<span id="cb263-28"><a href="statistical-exploration.html#cb263-28" tabindex="-1"></a></span>
-<span id="cb263-29"><a href="statistical-exploration.html#cb263-29" tabindex="-1"></a>pain_over_time_chronic_cumsum</span></code></pre></div>
-<p><img src="03_exploratory_statostics_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
-<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="statistical-exploration.html#cb264-1" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">plot =</span> pain_over_time_chronic_cumsum, <span class="at">filename =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;img&quot;</span>, <span class="st">&quot;pain_over_time_cumsums.png&quot;</span>),</span>
-<span id="cb264-2"><a href="statistical-exploration.html#cb264-2" tabindex="-1"></a>       <span class="at">height =</span> <span class="dv">50</span>, <span class="at">width =</span> <span class="dv">50</span>, <span class="at">units =</span> <span class="st">&quot;cm&quot;</span>, <span class="at">dpi =</span> <span class="dv">300</span>) </span>
-<span id="cb264-3"><a href="statistical-exploration.html#cb264-3" tabindex="-1"></a></span>
-<span id="cb264-4"><a href="statistical-exploration.html#cb264-4" tabindex="-1"></a><span class="do">## calculate average trend</span></span>
-<span id="cb264-5"><a href="statistical-exploration.html#cb264-5" tabindex="-1"></a>df_summary_cumsum <span class="ot">&lt;-</span> df_cumsum_long <span class="sc">|&gt;</span></span>
-<span id="cb264-6"><a href="statistical-exploration.html#cb264-6" tabindex="-1"></a>  <span class="fu">group_by</span>(time_days_relevel, is_painint_chronic) <span class="sc">|&gt;</span></span>
-<span id="cb264-7"><a href="statistical-exploration.html#cb264-7" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">median_painint_score_cumsums =</span> <span class="fu">median</span>(pain_cumsum))</span>
-<span id="cb264-8"><a href="statistical-exploration.html#cb264-8" tabindex="-1"></a></span>
-<span id="cb264-9"><a href="statistical-exploration.html#cb264-9" tabindex="-1"></a>pain_over_time_chronic_cumsum <span class="sc">+</span></span>
-<span id="cb264-10"><a href="statistical-exploration.html#cb264-10" tabindex="-1"></a>  <span class="fu">geom_point</span>(</span>
-<span id="cb264-11"><a href="statistical-exploration.html#cb264-11" tabindex="-1"></a>    <span class="at">data =</span> df_summary_cumsum, </span>
-<span id="cb264-12"><a href="statistical-exploration.html#cb264-12" tabindex="-1"></a>      <span class="fu">aes</span>(<span class="at">x =</span> time_days_relevel, <span class="at">y =</span> median_painint_score_cumsums), </span>
-<span id="cb264-13"><a href="statistical-exploration.html#cb264-13" tabindex="-1"></a>      <span class="at">colour =</span> <span class="st">&quot;darkred&quot;</span>, <span class="at">size =</span> <span class="dv">6</span>) <span class="ot">-&gt;</span> pain_cumsums_over_time</span>
-<span id="cb264-14"><a href="statistical-exploration.html#cb264-14" tabindex="-1"></a></span>
-<span id="cb264-15"><a href="statistical-exploration.html#cb264-15" tabindex="-1"></a>pain_cumsums_over_time</span></code></pre></div>
-<p><img src="03_exploratory_statostics_files/figure-html/unnamed-chunk-12-2.png" width="672" /></p>
-<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="statistical-exploration.html#cb265-1" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">plot =</span> pain_cumsums_over_time, <span class="at">filename =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;img&quot;</span>, <span class="st">&quot;pain_over_time_cumsums_trend.png&quot;</span>),</span>
-<span id="cb265-2"><a href="statistical-exploration.html#cb265-2" tabindex="-1"></a>       <span class="at">height =</span> <span class="dv">20</span>, <span class="at">width =</span> <span class="dv">20</span>, <span class="at">units =</span> <span class="st">&quot;cm&quot;</span>, <span class="at">dpi =</span> <span class="dv">300</span>) </span></code></pre></div>
+<span id="cb263-9"><a href="statistical-exploration.html#cb263-9" tabindex="-1"></a>pain_over_time_chronic_cumsum <span class="sc">+</span></span>
+<span id="cb263-10"><a href="statistical-exploration.html#cb263-10" tabindex="-1"></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb263-11"><a href="statistical-exploration.html#cb263-11" tabindex="-1"></a>    <span class="at">data =</span> df_summary_cumsum, </span>
+<span id="cb263-12"><a href="statistical-exploration.html#cb263-12" tabindex="-1"></a>      <span class="fu">aes</span>(<span class="at">x =</span> time_days_relevel, <span class="at">y =</span> median_painint_score_cumsums), </span>
+<span id="cb263-13"><a href="statistical-exploration.html#cb263-13" tabindex="-1"></a>      <span class="at">colour =</span> <span class="st">&quot;darkred&quot;</span>, <span class="at">size =</span> <span class="dv">6</span>) <span class="ot">-&gt;</span> pain_cumsums_over_time</span>
+<span id="cb263-14"><a href="statistical-exploration.html#cb263-14" tabindex="-1"></a></span>
+<span id="cb263-15"><a href="statistical-exploration.html#cb263-15" tabindex="-1"></a>pain_cumsums_over_time</span></code></pre></div>
+<p><img src="03_exploratory_statistics_files/figure-html/unnamed-chunk-12-2.png" width="672" /></p>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="statistical-exploration.html#cb264-1" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">plot =</span> pain_cumsums_over_time, <span class="at">filename =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;img&quot;</span>, <span class="st">&quot;pain_over_time_cumsums_trend.png&quot;</span>),</span>
+<span id="cb264-2"><a href="statistical-exploration.html#cb264-2" tabindex="-1"></a>       <span class="at">height =</span> <span class="dv">20</span>, <span class="at">width =</span> <span class="dv">20</span>, <span class="at">units =</span> <span class="st">&quot;cm&quot;</span>, <span class="at">dpi =</span> <span class="dv">300</span>) </span></code></pre></div>
 </div>
-<div id="get-individual-lines-for-each-patient" class="section level2 hasAnchor" number="3.11">
-<h2><span class="header-section-number">3.11</span> Get individual lines for each patient<a href="statistical-exploration.html#get-individual-lines-for-each-patient" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="statistical-exploration.html#cb266-1" tabindex="-1"></a><span class="do">## create two panels, one with chonic pain and one without.</span></span>
-<span id="cb266-2"><a href="statistical-exploration.html#cb266-2" tabindex="-1"></a></span>
-<span id="cb266-3"><a href="statistical-exploration.html#cb266-3" tabindex="-1"></a>df_imp_long <span class="sc">|&gt;</span></span>
-<span id="cb266-4"><a href="statistical-exploration.html#cb266-4" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(patient_code <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">101</span><span class="sc">:</span><span class="dv">201</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb266-5"><a href="statistical-exploration.html#cb266-5" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
-<span id="cb266-6"><a href="statistical-exploration.html#cb266-6" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> time_days_relevel,</span>
-<span id="cb266-7"><a href="statistical-exploration.html#cb266-7" tabindex="-1"></a>        <span class="at">y =</span> painint_score)) <span class="sc">+</span></span>
-<span id="cb266-8"><a href="statistical-exploration.html#cb266-8" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> is_painint_chronic), </span>
-<span id="cb266-9"><a href="statistical-exploration.html#cb266-9" tabindex="-1"></a>    <span class="at">show.legend =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb266-10"><a href="statistical-exploration.html#cb266-10" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb266-11"><a href="statistical-exploration.html#cb266-11" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Time (days)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb266-12"><a href="statistical-exploration.html#cb266-12" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Pain intensity score&quot;</span>) <span class="sc">+</span></span>
-<span id="cb266-13"><a href="statistical-exploration.html#cb266-13" tabindex="-1"></a>  <span class="fu">geom_line</span>( </span>
-<span id="cb266-14"><a href="statistical-exploration.html#cb266-14" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> time_days_relevel, </span>
-<span id="cb266-15"><a href="statistical-exploration.html#cb266-15" tabindex="-1"></a>        <span class="at">y =</span> painint_score, </span>
-<span id="cb266-16"><a href="statistical-exploration.html#cb266-16" tabindex="-1"></a>        <span class="at">group =</span> is_painint_chronic,</span>
-<span id="cb266-17"><a href="statistical-exploration.html#cb266-17" tabindex="-1"></a>        <span class="at">colour =</span> is_painint_chronic),</span>
-<span id="cb266-18"><a href="statistical-exploration.html#cb266-18" tabindex="-1"></a>    <span class="at">linewidth =</span> <span class="dv">2</span>,</span>
-<span id="cb266-19"><a href="statistical-exploration.html#cb266-19" tabindex="-1"></a>    <span class="at">show.legend =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
-<span id="cb266-20"><a href="statistical-exploration.html#cb266-20" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> patient_code) <span class="sc">+</span> </span>
-<span id="cb266-21"><a href="statistical-exploration.html#cb266-21" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">10</span>) <span class="sc">+</span></span>
-<span id="cb266-22"><a href="statistical-exploration.html#cb266-22" tabindex="-1"></a>  citrulliner<span class="sc">::</span><span class="fu">theme_individual</span>() <span class="ot">-&gt;</span> painint_over_time_with_trend_individual</span>
-<span id="cb266-23"><a href="statistical-exploration.html#cb266-23" tabindex="-1"></a></span>
-<span id="cb266-24"><a href="statistical-exploration.html#cb266-24" tabindex="-1"></a>painint_over_time_with_trend_individual</span></code></pre></div>
-<p><img src="03_exploratory_statostics_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
-<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="statistical-exploration.html#cb267-1" tabindex="-1"></a>painint_over_time_with_trend_individual <span class="sc">|&gt;</span></span>
-<span id="cb267-2"><a href="statistical-exploration.html#cb267-2" tabindex="-1"></a>  <span class="fu">ggsave</span>(<span class="at">filename =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;img&quot;</span>, <span class="st">&quot;pain_over_time_trend_individual.png&quot;</span>),</span>
-<span id="cb267-3"><a href="statistical-exploration.html#cb267-3" tabindex="-1"></a>       <span class="at">height =</span> <span class="dv">70</span>, <span class="at">width =</span> <span class="dv">70</span>, <span class="at">units =</span> <span class="st">&quot;cm&quot;</span>, <span class="at">dpi =</span> <span class="dv">300</span>) </span></code></pre></div>
+<div id="get-individual-lines-for-each-patient" class="section level2" number="3.11">
+<h2><span class="header-section-number">3.11</span> Get individual lines for each patient</h2>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="statistical-exploration.html#cb265-1" tabindex="-1"></a><span class="do">## create two panels, one with chonic pain and one without.</span></span>
+<span id="cb265-2"><a href="statistical-exploration.html#cb265-2" tabindex="-1"></a></span>
+<span id="cb265-3"><a href="statistical-exploration.html#cb265-3" tabindex="-1"></a>df_imp_long <span class="sc">|&gt;</span></span>
+<span id="cb265-4"><a href="statistical-exploration.html#cb265-4" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(patient_code <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">101</span><span class="sc">:</span><span class="dv">201</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb265-5"><a href="statistical-exploration.html#cb265-5" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb265-6"><a href="statistical-exploration.html#cb265-6" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> time_days_relevel,</span>
+<span id="cb265-7"><a href="statistical-exploration.html#cb265-7" tabindex="-1"></a>        <span class="at">y =</span> painint_score)) <span class="sc">+</span></span>
+<span id="cb265-8"><a href="statistical-exploration.html#cb265-8" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> is_painint_chronic), </span>
+<span id="cb265-9"><a href="statistical-exploration.html#cb265-9" tabindex="-1"></a>    <span class="at">show.legend =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb265-10"><a href="statistical-exploration.html#cb265-10" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb265-11"><a href="statistical-exploration.html#cb265-11" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Time (days)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb265-12"><a href="statistical-exploration.html#cb265-12" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Pain intensity score&quot;</span>) <span class="sc">+</span></span>
+<span id="cb265-13"><a href="statistical-exploration.html#cb265-13" tabindex="-1"></a>  <span class="fu">geom_line</span>( </span>
+<span id="cb265-14"><a href="statistical-exploration.html#cb265-14" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> time_days_relevel, </span>
+<span id="cb265-15"><a href="statistical-exploration.html#cb265-15" tabindex="-1"></a>        <span class="at">y =</span> painint_score, </span>
+<span id="cb265-16"><a href="statistical-exploration.html#cb265-16" tabindex="-1"></a>        <span class="at">group =</span> is_painint_chronic,</span>
+<span id="cb265-17"><a href="statistical-exploration.html#cb265-17" tabindex="-1"></a>        <span class="at">colour =</span> is_painint_chronic),</span>
+<span id="cb265-18"><a href="statistical-exploration.html#cb265-18" tabindex="-1"></a>    <span class="at">linewidth =</span> <span class="dv">2</span>,</span>
+<span id="cb265-19"><a href="statistical-exploration.html#cb265-19" tabindex="-1"></a>    <span class="at">show.legend =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb265-20"><a href="statistical-exploration.html#cb265-20" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> patient_code) <span class="sc">+</span> </span>
+<span id="cb265-21"><a href="statistical-exploration.html#cb265-21" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb265-22"><a href="statistical-exploration.html#cb265-22" tabindex="-1"></a>  citrulliner<span class="sc">::</span><span class="fu">theme_individual</span>() <span class="ot">-&gt;</span> painint_over_time_with_trend_individual</span>
+<span id="cb265-23"><a href="statistical-exploration.html#cb265-23" tabindex="-1"></a></span>
+<span id="cb265-24"><a href="statistical-exploration.html#cb265-24" tabindex="-1"></a>painint_over_time_with_trend_individual</span></code></pre></div>
+<p><img src="03_exploratory_statistics_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="statistical-exploration.html#cb266-1" tabindex="-1"></a>painint_over_time_with_trend_individual <span class="sc">|&gt;</span></span>
+<span id="cb266-2"><a href="statistical-exploration.html#cb266-2" tabindex="-1"></a>  <span class="fu">ggsave</span>(<span class="at">filename =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;img&quot;</span>, <span class="st">&quot;pain_over_time_trend_individual.png&quot;</span>),</span>
+<span id="cb266-3"><a href="statistical-exploration.html#cb266-3" tabindex="-1"></a>       <span class="at">height =</span> <span class="dv">70</span>, <span class="at">width =</span> <span class="dv">70</span>, <span class="at">units =</span> <span class="st">&quot;cm&quot;</span>, <span class="at">dpi =</span> <span class="dv">300</span>) </span></code></pre></div>
 </div>
-<div id="write-to-disk-as-excel-file-and-.rds-r-binary-file." class="section level2 hasAnchor" number="3.12">
-<h2><span class="header-section-number">3.12</span> Write to disk as excel file and .rds R binary file.<a href="statistical-exploration.html#write-to-disk-as-excel-file-and-.rds-r-binary-file." class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="statistical-exploration.html#cb268-1" tabindex="-1"></a>df_imp_long <span class="ot">&lt;-</span> df_imp_long <span class="sc">|&gt;</span></span>
-<span id="cb268-2"><a href="statistical-exploration.html#cb268-2" tabindex="-1"></a>  sjlabelled<span class="sc">::</span><span class="fu">remove_all_labels</span>()</span>
-<span id="cb268-3"><a href="statistical-exploration.html#cb268-3" tabindex="-1"></a></span>
-<span id="cb268-4"><a href="statistical-exploration.html#cb268-4" tabindex="-1"></a></span>
-<span id="cb268-5"><a href="statistical-exploration.html#cb268-5" tabindex="-1"></a>openxlsx<span class="sc">::</span><span class="fu">write.xlsx</span>(</span>
-<span id="cb268-6"><a href="statistical-exploration.html#cb268-6" tabindex="-1"></a>  df_imp_long, </span>
-<span id="cb268-7"><a href="statistical-exploration.html#cb268-7" tabindex="-1"></a>  <span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(</span>
-<span id="cb268-8"><a href="statistical-exploration.html#cb268-8" tabindex="-1"></a>    <span class="st">&quot;data&quot;</span>,</span>
-<span id="cb268-9"><a href="statistical-exploration.html#cb268-9" tabindex="-1"></a>    <span class="st">&quot;df_imp_inferential_stats.xlsx&quot;</span></span>
-<span id="cb268-10"><a href="statistical-exploration.html#cb268-10" tabindex="-1"></a>  )</span>
-<span id="cb268-11"><a href="statistical-exploration.html#cb268-11" tabindex="-1"></a>)</span>
-<span id="cb268-12"><a href="statistical-exploration.html#cb268-12" tabindex="-1"></a></span>
-<span id="cb268-13"><a href="statistical-exploration.html#cb268-13" tabindex="-1"></a>readr<span class="sc">::</span><span class="fu">write_rds</span>(</span>
-<span id="cb268-14"><a href="statistical-exploration.html#cb268-14" tabindex="-1"></a>  df_imp_long, </span>
-<span id="cb268-15"><a href="statistical-exploration.html#cb268-15" tabindex="-1"></a>  <span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(</span>
-<span id="cb268-16"><a href="statistical-exploration.html#cb268-16" tabindex="-1"></a>    <span class="st">&quot;app&quot;</span>,</span>
-<span id="cb268-17"><a href="statistical-exploration.html#cb268-17" tabindex="-1"></a>    <span class="st">&quot;df_imp_long.rds&quot;</span></span>
-<span id="cb268-18"><a href="statistical-exploration.html#cb268-18" tabindex="-1"></a>  )</span>
-<span id="cb268-19"><a href="statistical-exploration.html#cb268-19" tabindex="-1"></a>)</span></code></pre></div>
+<div id="write-to-disk-as-excel-file-and-.rds-r-binary-file." class="section level2" number="3.12">
+<h2><span class="header-section-number">3.12</span> Write to disk as excel file and .rds R binary file.</h2>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="statistical-exploration.html#cb267-1" tabindex="-1"></a>df_imp_long <span class="ot">&lt;-</span> df_imp_long <span class="sc">|&gt;</span></span>
+<span id="cb267-2"><a href="statistical-exploration.html#cb267-2" tabindex="-1"></a>  sjlabelled<span class="sc">::</span><span class="fu">remove_all_labels</span>()</span>
+<span id="cb267-3"><a href="statistical-exploration.html#cb267-3" tabindex="-1"></a></span>
+<span id="cb267-4"><a href="statistical-exploration.html#cb267-4" tabindex="-1"></a></span>
+<span id="cb267-5"><a href="statistical-exploration.html#cb267-5" tabindex="-1"></a>openxlsx<span class="sc">::</span><span class="fu">write.xlsx</span>(</span>
+<span id="cb267-6"><a href="statistical-exploration.html#cb267-6" tabindex="-1"></a>  df_imp_long, </span>
+<span id="cb267-7"><a href="statistical-exploration.html#cb267-7" tabindex="-1"></a>  <span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(</span>
+<span id="cb267-8"><a href="statistical-exploration.html#cb267-8" tabindex="-1"></a>    <span class="st">&quot;data&quot;</span>,</span>
+<span id="cb267-9"><a href="statistical-exploration.html#cb267-9" tabindex="-1"></a>    <span class="st">&quot;df_imp_inferential_stats.xlsx&quot;</span></span>
+<span id="cb267-10"><a href="statistical-exploration.html#cb267-10" tabindex="-1"></a>  )</span>
+<span id="cb267-11"><a href="statistical-exploration.html#cb267-11" tabindex="-1"></a>)</span>
+<span id="cb267-12"><a href="statistical-exploration.html#cb267-12" tabindex="-1"></a></span>
+<span id="cb267-13"><a href="statistical-exploration.html#cb267-13" tabindex="-1"></a>readr<span class="sc">::</span><span class="fu">write_rds</span>(</span>
+<span id="cb267-14"><a href="statistical-exploration.html#cb267-14" tabindex="-1"></a>  df_imp_long, </span>
+<span id="cb267-15"><a href="statistical-exploration.html#cb267-15" tabindex="-1"></a>  <span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(</span>
+<span id="cb267-16"><a href="statistical-exploration.html#cb267-16" tabindex="-1"></a>    <span class="st">&quot;app&quot;</span>,</span>
+<span id="cb267-17"><a href="statistical-exploration.html#cb267-17" tabindex="-1"></a>    <span class="st">&quot;df_imp_long.rds&quot;</span></span>
+<span id="cb267-18"><a href="statistical-exploration.html#cb267-18" tabindex="-1"></a>  )</span>
+<span id="cb267-19"><a href="statistical-exploration.html#cb267-19" tabindex="-1"></a>)</span></code></pre></div>
 </div>
-<div id="distribution-of-the-data" class="section level2 hasAnchor" number="3.13">
-<h2><span class="header-section-number">3.13</span> Distribution of the data<a href="statistical-exploration.html#distribution-of-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="distribution-of-the-data" class="section level2" number="3.13">
+<h2><span class="header-section-number">3.13</span> Distribution of the data</h2>
 <p>For all variables at baseline and the outcome variables
 ‘Painint_6weeks’, ‘Painint_3months’ and ‘Painint_6months’ and
 ‘chronic_pain’. For the outcome variable chronic_pain the distribution
 difference between Man/Female, Pain_intensity (baseline) and Age.</p>
-<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="statistical-exploration.html#cb269-1" tabindex="-1"></a><span class="do">## variable distributions</span></span>
-<span id="cb269-2"><a href="statistical-exploration.html#cb269-2" tabindex="-1"></a>df_complete <span class="ot">&lt;-</span> <span class="fu">map_df</span>(</span>
-<span id="cb269-3"><a href="statistical-exploration.html#cb269-3" tabindex="-1"></a>  <span class="at">.x =</span> df_imp_long,</span>
-<span id="cb269-4"><a href="statistical-exploration.html#cb269-4" tabindex="-1"></a>  <span class="at">.f =</span> as.numeric</span>
-<span id="cb269-5"><a href="statistical-exploration.html#cb269-5" tabindex="-1"></a>)</span>
-<span id="cb269-6"><a href="statistical-exploration.html#cb269-6" tabindex="-1"></a></span>
-<span id="cb269-7"><a href="statistical-exploration.html#cb269-7" tabindex="-1"></a>distros <span class="ot">&lt;-</span> <span class="fu">map2</span>(</span>
-<span id="cb269-8"><a href="statistical-exploration.html#cb269-8" tabindex="-1"></a>  <span class="at">.x =</span> df_complete,</span>
-<span id="cb269-9"><a href="statistical-exploration.html#cb269-9" tabindex="-1"></a>  <span class="at">.y =</span> <span class="fu">names</span>(df_complete),</span>
-<span id="cb269-10"><a href="statistical-exploration.html#cb269-10" tabindex="-1"></a>  <span class="at">.f =</span> plot_distro</span>
-<span id="cb269-11"><a href="statistical-exploration.html#cb269-11" tabindex="-1"></a>)</span>
-<span id="cb269-12"><a href="statistical-exploration.html#cb269-12" tabindex="-1"></a></span>
-<span id="cb269-13"><a href="statistical-exploration.html#cb269-13" tabindex="-1"></a>cowplot<span class="sc">::</span><span class="fu">plot_grid</span>(<span class="at">plotlist =</span> distros)</span></code></pre></div>
-<p><img src="03_exploratory_statostics_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
-<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="statistical-exploration.html#cb270-1" tabindex="-1"></a><span class="do">## chronic pain over sex</span></span>
-<span id="cb270-2"><a href="statistical-exploration.html#cb270-2" tabindex="-1"></a>df_complete <span class="sc">|&gt;</span></span>
-<span id="cb270-3"><a href="statistical-exploration.html#cb270-3" tabindex="-1"></a>  <span class="fu">group_by</span>(sex, is_painint_chronic) <span class="sc">|&gt;</span></span>
-<span id="cb270-4"><a href="statistical-exploration.html#cb270-4" tabindex="-1"></a>  <span class="fu">tally</span>() <span class="sc">|&gt;</span></span>
-<span id="cb270-5"><a href="statistical-exploration.html#cb270-5" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(</span>
-<span id="cb270-6"><a href="statistical-exploration.html#cb270-6" tabindex="-1"></a>    <span class="at">x =</span> <span class="fu">as_factor</span>(sex),</span>
-<span id="cb270-7"><a href="statistical-exploration.html#cb270-7" tabindex="-1"></a>    <span class="at">y =</span> n</span>
-<span id="cb270-8"><a href="statistical-exploration.html#cb270-8" tabindex="-1"></a>  )) <span class="sc">+</span></span>
-<span id="cb270-9"><a href="statistical-exploration.html#cb270-9" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">fill =</span> <span class="fu">as_factor</span>(sex)), <span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb270-10"><a href="statistical-exploration.html#cb270-10" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span><span class="fu">as_factor</span>(is_painint_chronic)) <span class="sc">+</span></span>
-<span id="cb270-11"><a href="statistical-exploration.html#cb270-11" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Gender&quot;</span>) <span class="sc">+</span></span>
-<span id="cb270-12"><a href="statistical-exploration.html#cb270-12" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Count&quot;</span>) <span class="sc">+</span></span>
-<span id="cb270-13"><a href="statistical-exploration.html#cb270-13" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Distrubution of gender over people</span><span class="sc">\n</span><span class="st">with and without chronic pain&quot;</span>)</span></code></pre></div>
-<p><img src="03_exploratory_statostics_files/figure-html/unnamed-chunk-15-2.png" width="672" /></p>
-<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="statistical-exploration.html#cb271-1" tabindex="-1"></a><span class="do">## pain intensity over age</span></span>
-<span id="cb271-2"><a href="statistical-exploration.html#cb271-2" tabindex="-1"></a>df_imp_long <span class="sc">|&gt;</span></span>
-<span id="cb271-3"><a href="statistical-exploration.html#cb271-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(</span>
-<span id="cb271-4"><a href="statistical-exploration.html#cb271-4" tabindex="-1"></a>    <span class="at">x =</span> age,</span>
-<span id="cb271-5"><a href="statistical-exploration.html#cb271-5" tabindex="-1"></a>    <span class="at">y =</span> pain_intensity</span>
-<span id="cb271-6"><a href="statistical-exploration.html#cb271-6" tabindex="-1"></a>  )) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> <span class="fu">as_factor</span>(sex)), <span class="at">position =</span> <span class="st">&quot;jitter&quot;</span>, <span class="at">shape =</span> <span class="dv">1</span>) <span class="co">#+</span></span></code></pre></div>
-<p><img src="03_exploratory_statostics_files/figure-html/unnamed-chunk-15-3.png" width="672" /></p>
-<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="statistical-exploration.html#cb272-1" tabindex="-1"></a><span class="co">#  facet_wrap(~pain_intensity)</span></span></code></pre></div>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="statistical-exploration.html#cb268-1" tabindex="-1"></a><span class="do">## variable distributions</span></span>
+<span id="cb268-2"><a href="statistical-exploration.html#cb268-2" tabindex="-1"></a>df_complete <span class="ot">&lt;-</span> <span class="fu">map_df</span>(</span>
+<span id="cb268-3"><a href="statistical-exploration.html#cb268-3" tabindex="-1"></a>  <span class="at">.x =</span> df_imp_long,</span>
+<span id="cb268-4"><a href="statistical-exploration.html#cb268-4" tabindex="-1"></a>  <span class="at">.f =</span> as.numeric</span>
+<span id="cb268-5"><a href="statistical-exploration.html#cb268-5" tabindex="-1"></a>)</span>
+<span id="cb268-6"><a href="statistical-exploration.html#cb268-6" tabindex="-1"></a></span>
+<span id="cb268-7"><a href="statistical-exploration.html#cb268-7" tabindex="-1"></a>distros <span class="ot">&lt;-</span> <span class="fu">map2</span>(</span>
+<span id="cb268-8"><a href="statistical-exploration.html#cb268-8" tabindex="-1"></a>  <span class="at">.x =</span> df_complete,</span>
+<span id="cb268-9"><a href="statistical-exploration.html#cb268-9" tabindex="-1"></a>  <span class="at">.y =</span> <span class="fu">names</span>(df_complete),</span>
+<span id="cb268-10"><a href="statistical-exploration.html#cb268-10" tabindex="-1"></a>  <span class="at">.f =</span> plot_distro</span>
+<span id="cb268-11"><a href="statistical-exploration.html#cb268-11" tabindex="-1"></a>)</span>
+<span id="cb268-12"><a href="statistical-exploration.html#cb268-12" tabindex="-1"></a></span>
+<span id="cb268-13"><a href="statistical-exploration.html#cb268-13" tabindex="-1"></a>cowplot<span class="sc">::</span><span class="fu">plot_grid</span>(<span class="at">plotlist =</span> distros)</span></code></pre></div>
+<p><img src="03_exploratory_statistics_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="statistical-exploration.html#cb269-1" tabindex="-1"></a><span class="do">## chronic pain over sex</span></span>
+<span id="cb269-2"><a href="statistical-exploration.html#cb269-2" tabindex="-1"></a>df_complete <span class="sc">|&gt;</span></span>
+<span id="cb269-3"><a href="statistical-exploration.html#cb269-3" tabindex="-1"></a>  <span class="fu">group_by</span>(sex, is_painint_chronic) <span class="sc">|&gt;</span></span>
+<span id="cb269-4"><a href="statistical-exploration.html#cb269-4" tabindex="-1"></a>  <span class="fu">tally</span>() <span class="sc">|&gt;</span></span>
+<span id="cb269-5"><a href="statistical-exploration.html#cb269-5" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(</span>
+<span id="cb269-6"><a href="statistical-exploration.html#cb269-6" tabindex="-1"></a>    <span class="at">x =</span> <span class="fu">as_factor</span>(sex),</span>
+<span id="cb269-7"><a href="statistical-exploration.html#cb269-7" tabindex="-1"></a>    <span class="at">y =</span> n</span>
+<span id="cb269-8"><a href="statistical-exploration.html#cb269-8" tabindex="-1"></a>  )) <span class="sc">+</span></span>
+<span id="cb269-9"><a href="statistical-exploration.html#cb269-9" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">fill =</span> <span class="fu">as_factor</span>(sex)), <span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb269-10"><a href="statistical-exploration.html#cb269-10" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span><span class="fu">as_factor</span>(is_painint_chronic)) <span class="sc">+</span></span>
+<span id="cb269-11"><a href="statistical-exploration.html#cb269-11" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Gender&quot;</span>) <span class="sc">+</span></span>
+<span id="cb269-12"><a href="statistical-exploration.html#cb269-12" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Count&quot;</span>) <span class="sc">+</span></span>
+<span id="cb269-13"><a href="statistical-exploration.html#cb269-13" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Distrubution of gender over people</span><span class="sc">\n</span><span class="st">with and without chronic pain&quot;</span>)</span></code></pre></div>
+<p><img src="03_exploratory_statistics_files/figure-html/unnamed-chunk-15-2.png" width="672" /></p>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="statistical-exploration.html#cb270-1" tabindex="-1"></a><span class="do">## pain intensity over age</span></span>
+<span id="cb270-2"><a href="statistical-exploration.html#cb270-2" tabindex="-1"></a>df_imp_long <span class="sc">|&gt;</span></span>
+<span id="cb270-3"><a href="statistical-exploration.html#cb270-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(</span>
+<span id="cb270-4"><a href="statistical-exploration.html#cb270-4" tabindex="-1"></a>    <span class="at">x =</span> age,</span>
+<span id="cb270-5"><a href="statistical-exploration.html#cb270-5" tabindex="-1"></a>    <span class="at">y =</span> pain_intensity</span>
+<span id="cb270-6"><a href="statistical-exploration.html#cb270-6" tabindex="-1"></a>  )) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> <span class="fu">as_factor</span>(sex)), <span class="at">position =</span> <span class="st">&quot;jitter&quot;</span>, <span class="at">shape =</span> <span class="dv">1</span>) <span class="co">#+</span></span></code></pre></div>
+<p><img src="03_exploratory_statistics_files/figure-html/unnamed-chunk-15-3.png" width="672" /></p>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="statistical-exploration.html#cb271-1" tabindex="-1"></a><span class="co">#  facet_wrap(~pain_intensity)</span></span></code></pre></div>
 </div>
-<div id="table-baseline-characteristics-of-the-included-patients" class="section level2 hasAnchor" number="3.14">
-<h2><span class="header-section-number">3.14</span> Table: baseline characteristics of the included patients<a href="statistical-exploration.html#table-baseline-characteristics-of-the-included-patients" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="table-baseline-characteristics-of-the-included-patients" class="section level2" number="3.14">
+<h2><span class="header-section-number">3.14</span> Table: baseline characteristics of the included patients</h2>
 <p>The candidate prognostic factors and the outcome variable chronic pain of patients with acute- or subacute nonspecific idiopathic, non-traumatic neck pain.</p>
-<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="statistical-exploration.html#cb273-1" tabindex="-1"></a><span class="do">## function to calculate percentage missing of vector x</span></span>
-<span id="cb273-2"><a href="statistical-exploration.html#cb273-2" tabindex="-1"></a></span>
-<span id="cb273-3"><a href="statistical-exploration.html#cb273-3" tabindex="-1"></a>missingness_perc <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
-<span id="cb273-4"><a href="statistical-exploration.html#cb273-4" tabindex="-1"></a>  </span>
-<span id="cb273-5"><a href="statistical-exploration.html#cb273-5" tabindex="-1"></a>  missingness_sum <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(x))</span>
-<span id="cb273-6"><a href="statistical-exploration.html#cb273-6" tabindex="-1"></a>  length_x <span class="ot">&lt;-</span> <span class="fu">length</span>(x)</span>
-<span id="cb273-7"><a href="statistical-exploration.html#cb273-7" tabindex="-1"></a>  </span>
-<span id="cb273-8"><a href="statistical-exploration.html#cb273-8" tabindex="-1"></a>  perc <span class="ot">&lt;-</span> (missingness_sum<span class="sc">/</span>length_x)<span class="sc">*</span><span class="dv">100</span></span>
-<span id="cb273-9"><a href="statistical-exploration.html#cb273-9" tabindex="-1"></a>  <span class="fu">return</span>(perc)</span>
-<span id="cb273-10"><a href="statistical-exploration.html#cb273-10" tabindex="-1"></a>}</span>
-<span id="cb273-11"><a href="statistical-exploration.html#cb273-11" tabindex="-1"></a></span>
-<span id="cb273-12"><a href="statistical-exploration.html#cb273-12" tabindex="-1"></a>df_non_imp <span class="sc">|&gt;</span></span>
-<span id="cb273-13"><a href="statistical-exploration.html#cb273-13" tabindex="-1"></a>  sjlabelled<span class="sc">::</span><span class="fu">remove_all_labels</span>() <span class="sc">|&gt;</span></span>
-<span id="cb273-14"><a href="statistical-exploration.html#cb273-14" tabindex="-1"></a>  <span class="fu">group_by</span>(</span>
-<span id="cb273-15"><a href="statistical-exploration.html#cb273-15" tabindex="-1"></a>    sex</span>
-<span id="cb273-16"><a href="statistical-exploration.html#cb273-16" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb273-17"><a href="statistical-exploration.html#cb273-17" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb273-18"><a href="statistical-exploration.html#cb273-18" tabindex="-1"></a>    <span class="at">mean_age =</span> <span class="fu">mean</span>(age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb273-19"><a href="statistical-exploration.html#cb273-19" tabindex="-1"></a>    <span class="at">median_age =</span> <span class="fu">median</span>(age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb273-20"><a href="statistical-exploration.html#cb273-20" tabindex="-1"></a>    <span class="at">mean_bmi =</span> <span class="fu">mean</span>(bmi, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb273-21"><a href="statistical-exploration.html#cb273-21" tabindex="-1"></a>    <span class="at">median_pain_6_weeks =</span> <span class="fu">median</span>(painint_6weeks, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb273-22"><a href="statistical-exploration.html#cb273-22" tabindex="-1"></a>    <span class="at">missingness_6_weeks =</span> <span class="fu">missingness_perc</span>(painint_6weeks),</span>
-<span id="cb273-23"><a href="statistical-exploration.html#cb273-23" tabindex="-1"></a>    <span class="at">median_pain_3_months =</span> <span class="fu">median</span>(painint_3months, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb273-24"><a href="statistical-exploration.html#cb273-24" tabindex="-1"></a>    <span class="at">missingness_3_months =</span> <span class="fu">missingness_perc</span>(painint_3months),</span>
-<span id="cb273-25"><a href="statistical-exploration.html#cb273-25" tabindex="-1"></a>    <span class="at">median_pain_6_months =</span> <span class="fu">median</span>(painint_6months, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb273-26"><a href="statistical-exploration.html#cb273-26" tabindex="-1"></a>    <span class="at">missingness_6_months =</span> <span class="fu">missingness_perc</span>(painint_6months)</span>
-<span id="cb273-27"><a href="statistical-exploration.html#cb273-27" tabindex="-1"></a>    ) <span class="ot">-&gt;</span> df_table_1</span>
-<span id="cb273-28"><a href="statistical-exploration.html#cb273-28" tabindex="-1"></a></span>
-<span id="cb273-29"><a href="statistical-exploration.html#cb273-29" tabindex="-1"></a>df_table_1</span></code></pre></div>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="statistical-exploration.html#cb272-1" tabindex="-1"></a><span class="do">## function to calculate percentage missing of vector x</span></span>
+<span id="cb272-2"><a href="statistical-exploration.html#cb272-2" tabindex="-1"></a></span>
+<span id="cb272-3"><a href="statistical-exploration.html#cb272-3" tabindex="-1"></a>missingness_perc <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb272-4"><a href="statistical-exploration.html#cb272-4" tabindex="-1"></a>  </span>
+<span id="cb272-5"><a href="statistical-exploration.html#cb272-5" tabindex="-1"></a>  missingness_sum <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(x))</span>
+<span id="cb272-6"><a href="statistical-exploration.html#cb272-6" tabindex="-1"></a>  length_x <span class="ot">&lt;-</span> <span class="fu">length</span>(x)</span>
+<span id="cb272-7"><a href="statistical-exploration.html#cb272-7" tabindex="-1"></a>  </span>
+<span id="cb272-8"><a href="statistical-exploration.html#cb272-8" tabindex="-1"></a>  perc <span class="ot">&lt;-</span> (missingness_sum<span class="sc">/</span>length_x)<span class="sc">*</span><span class="dv">100</span></span>
+<span id="cb272-9"><a href="statistical-exploration.html#cb272-9" tabindex="-1"></a>  <span class="fu">return</span>(perc)</span>
+<span id="cb272-10"><a href="statistical-exploration.html#cb272-10" tabindex="-1"></a>}</span>
+<span id="cb272-11"><a href="statistical-exploration.html#cb272-11" tabindex="-1"></a></span>
+<span id="cb272-12"><a href="statistical-exploration.html#cb272-12" tabindex="-1"></a>df_non_imp <span class="sc">|&gt;</span></span>
+<span id="cb272-13"><a href="statistical-exploration.html#cb272-13" tabindex="-1"></a>  sjlabelled<span class="sc">::</span><span class="fu">remove_all_labels</span>() <span class="sc">|&gt;</span></span>
+<span id="cb272-14"><a href="statistical-exploration.html#cb272-14" tabindex="-1"></a>  <span class="fu">group_by</span>(</span>
+<span id="cb272-15"><a href="statistical-exploration.html#cb272-15" tabindex="-1"></a>    sex</span>
+<span id="cb272-16"><a href="statistical-exploration.html#cb272-16" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb272-17"><a href="statistical-exploration.html#cb272-17" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb272-18"><a href="statistical-exploration.html#cb272-18" tabindex="-1"></a>    <span class="at">mean_age =</span> <span class="fu">mean</span>(age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb272-19"><a href="statistical-exploration.html#cb272-19" tabindex="-1"></a>    <span class="at">median_age =</span> <span class="fu">median</span>(age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb272-20"><a href="statistical-exploration.html#cb272-20" tabindex="-1"></a>    <span class="at">mean_bmi =</span> <span class="fu">mean</span>(bmi, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb272-21"><a href="statistical-exploration.html#cb272-21" tabindex="-1"></a>    <span class="at">median_pain_6_weeks =</span> <span class="fu">median</span>(painint_6weeks, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb272-22"><a href="statistical-exploration.html#cb272-22" tabindex="-1"></a>    <span class="at">missingness_6_weeks =</span> <span class="fu">missingness_perc</span>(painint_6weeks),</span>
+<span id="cb272-23"><a href="statistical-exploration.html#cb272-23" tabindex="-1"></a>    <span class="at">median_pain_3_months =</span> <span class="fu">median</span>(painint_3months, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb272-24"><a href="statistical-exploration.html#cb272-24" tabindex="-1"></a>    <span class="at">missingness_3_months =</span> <span class="fu">missingness_perc</span>(painint_3months),</span>
+<span id="cb272-25"><a href="statistical-exploration.html#cb272-25" tabindex="-1"></a>    <span class="at">median_pain_6_months =</span> <span class="fu">median</span>(painint_6months, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb272-26"><a href="statistical-exploration.html#cb272-26" tabindex="-1"></a>    <span class="at">missingness_6_months =</span> <span class="fu">missingness_perc</span>(painint_6months)</span>
+<span id="cb272-27"><a href="statistical-exploration.html#cb272-27" tabindex="-1"></a>    ) <span class="ot">-&gt;</span> df_table_1</span>
+<span id="cb272-28"><a href="statistical-exploration.html#cb272-28" tabindex="-1"></a></span>
+<span id="cb272-29"><a href="statistical-exploration.html#cb272-29" tabindex="-1"></a>df_table_1</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 10
 ##   sex   mean_age median_age mean_bmi median_pain_6_weeks missingness_6_weeks
 ##   &lt;fct&gt;    &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;               &lt;dbl&gt;               &lt;dbl&gt;
@@ -634,11 +729,11 @@ difference between Man/Female, Pain_intensity (baseline) and Age.</p>
 ## 2 2         43.1         42     25.1                   2                24.9
 ## # ℹ 4 more variables: median_pain_3_months &lt;dbl&gt;, missingness_3_months &lt;dbl&gt;,
 ## #   median_pain_6_months &lt;dbl&gt;, missingness_6_months &lt;dbl&gt;</code></pre>
-<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="statistical-exploration.html#cb275-1" tabindex="-1"></a>df_non_imp <span class="sc">|&gt;</span></span>
-<span id="cb275-2"><a href="statistical-exploration.html#cb275-2" tabindex="-1"></a>  <span class="fu">group_by</span>(sex, smoking, alcohol) <span class="sc">|&gt;</span></span>
-<span id="cb275-3"><a href="statistical-exploration.html#cb275-3" tabindex="-1"></a>  <span class="fu">tally</span>() <span class="ot">-&gt;</span> df_table_2</span>
-<span id="cb275-4"><a href="statistical-exploration.html#cb275-4" tabindex="-1"></a></span>
-<span id="cb275-5"><a href="statistical-exploration.html#cb275-5" tabindex="-1"></a>df_table_2</span></code></pre></div>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="statistical-exploration.html#cb274-1" tabindex="-1"></a>df_non_imp <span class="sc">|&gt;</span></span>
+<span id="cb274-2"><a href="statistical-exploration.html#cb274-2" tabindex="-1"></a>  <span class="fu">group_by</span>(sex, smoking, alcohol) <span class="sc">|&gt;</span></span>
+<span id="cb274-3"><a href="statistical-exploration.html#cb274-3" tabindex="-1"></a>  <span class="fu">tally</span>() <span class="ot">-&gt;</span> df_table_2</span>
+<span id="cb274-4"><a href="statistical-exploration.html#cb274-4" tabindex="-1"></a></span>
+<span id="cb274-5"><a href="statistical-exploration.html#cb274-5" tabindex="-1"></a>df_table_2</span></code></pre></div>
 <pre><code>## # A tibble: 11 × 4
 ## # Groups:   sex, smoking [6]
 ##    sex   smoking alcohol     n
@@ -661,33 +756,33 @@ Including the percentage (%) of the missing values.
 For the continuous variables a mean (SD) and median.
 For the continue variables I want to add an explanatory note with the scale and the abbreviations in the table. Is this possible to do this directly in R?</p>
 <p>To generate tables directly from R, see: <a href="https://gt.rstudio.com/" class="uri">https://gt.rstudio.com/</a></p>
-<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="statistical-exploration.html#cb277-1" tabindex="-1"></a><span class="co"># pak::pkg_install(&quot;gt&quot;)</span></span>
-<span id="cb277-2"><a href="statistical-exploration.html#cb277-2" tabindex="-1"></a><span class="co"># pak::pkg_install(&quot;webshot2&quot;)</span></span>
-<span id="cb277-3"><a href="statistical-exploration.html#cb277-3" tabindex="-1"></a></span>
-<span id="cb277-4"><a href="statistical-exploration.html#cb277-4" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
-<span id="cb277-5"><a href="statistical-exploration.html#cb277-5" tabindex="-1"></a><span class="fu">library</span>(webshot2)</span>
-<span id="cb277-6"><a href="statistical-exploration.html#cb277-6" tabindex="-1"></a></span>
-<span id="cb277-7"><a href="statistical-exploration.html#cb277-7" tabindex="-1"></a>df_table_1 <span class="sc">|&gt;</span></span>
-<span id="cb277-8"><a href="statistical-exploration.html#cb277-8" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">|&gt;</span></span>
-<span id="cb277-9"><a href="statistical-exploration.html#cb277-9" tabindex="-1"></a>  <span class="fu">tab_header</span>(</span>
-<span id="cb277-10"><a href="statistical-exploration.html#cb277-10" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Study subjects information&quot;</span>,</span>
-<span id="cb277-11"><a href="statistical-exploration.html#cb277-11" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;Patient details summary&quot;</span>) <span class="ot">-&gt;</span> table_1_markup</span>
-<span id="cb277-12"><a href="statistical-exploration.html#cb277-12" tabindex="-1"></a></span>
-<span id="cb277-13"><a href="statistical-exploration.html#cb277-13" tabindex="-1"></a><span class="fu">gtsave</span>(table_1_markup, <span class="at">filename =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;table1.html&quot;</span>))</span>
-<span id="cb277-14"><a href="statistical-exploration.html#cb277-14" tabindex="-1"></a><span class="fu">gtsave</span>(table_1_markup, <span class="at">filename =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;table1.docx&quot;</span>))</span>
-<span id="cb277-15"><a href="statistical-exploration.html#cb277-15" tabindex="-1"></a></span>
-<span id="cb277-16"><a href="statistical-exploration.html#cb277-16" tabindex="-1"></a></span>
-<span id="cb277-17"><a href="statistical-exploration.html#cb277-17" tabindex="-1"></a>df_table_2 <span class="sc">|&gt;</span></span>
-<span id="cb277-18"><a href="statistical-exploration.html#cb277-18" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">|&gt;</span></span>
-<span id="cb277-19"><a href="statistical-exploration.html#cb277-19" tabindex="-1"></a>  <span class="fu">tab_header</span>(</span>
-<span id="cb277-20"><a href="statistical-exploration.html#cb277-20" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Smoking and alcohol use&quot;</span>,</span>
-<span id="cb277-21"><a href="statistical-exploration.html#cb277-21" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;Patient details summary&quot;</span>) <span class="ot">-&gt;</span> table_2_markup</span>
-<span id="cb277-22"><a href="statistical-exploration.html#cb277-22" tabindex="-1"></a></span>
-<span id="cb277-23"><a href="statistical-exploration.html#cb277-23" tabindex="-1"></a><span class="fu">gtsave</span>(table_2_markup, <span class="at">filename =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;table2.html&quot;</span>))</span>
-<span id="cb277-24"><a href="statistical-exploration.html#cb277-24" tabindex="-1"></a><span class="fu">gtsave</span>(table_2_markup, <span class="at">filename =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;table2.docx&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="statistical-exploration.html#cb276-1" tabindex="-1"></a><span class="co"># pak::pkg_install(&quot;gt&quot;)</span></span>
+<span id="cb276-2"><a href="statistical-exploration.html#cb276-2" tabindex="-1"></a><span class="co"># pak::pkg_install(&quot;webshot2&quot;)</span></span>
+<span id="cb276-3"><a href="statistical-exploration.html#cb276-3" tabindex="-1"></a></span>
+<span id="cb276-4"><a href="statistical-exploration.html#cb276-4" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb276-5"><a href="statistical-exploration.html#cb276-5" tabindex="-1"></a><span class="fu">library</span>(webshot2)</span>
+<span id="cb276-6"><a href="statistical-exploration.html#cb276-6" tabindex="-1"></a></span>
+<span id="cb276-7"><a href="statistical-exploration.html#cb276-7" tabindex="-1"></a>df_table_1 <span class="sc">|&gt;</span></span>
+<span id="cb276-8"><a href="statistical-exploration.html#cb276-8" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">|&gt;</span></span>
+<span id="cb276-9"><a href="statistical-exploration.html#cb276-9" tabindex="-1"></a>  <span class="fu">tab_header</span>(</span>
+<span id="cb276-10"><a href="statistical-exploration.html#cb276-10" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Study subjects information&quot;</span>,</span>
+<span id="cb276-11"><a href="statistical-exploration.html#cb276-11" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;Patient details summary&quot;</span>) <span class="ot">-&gt;</span> table_1_markup</span>
+<span id="cb276-12"><a href="statistical-exploration.html#cb276-12" tabindex="-1"></a></span>
+<span id="cb276-13"><a href="statistical-exploration.html#cb276-13" tabindex="-1"></a><span class="fu">gtsave</span>(table_1_markup, <span class="at">filename =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;table1.html&quot;</span>))</span>
+<span id="cb276-14"><a href="statistical-exploration.html#cb276-14" tabindex="-1"></a><span class="fu">gtsave</span>(table_1_markup, <span class="at">filename =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;table1.docx&quot;</span>))</span>
+<span id="cb276-15"><a href="statistical-exploration.html#cb276-15" tabindex="-1"></a></span>
+<span id="cb276-16"><a href="statistical-exploration.html#cb276-16" tabindex="-1"></a></span>
+<span id="cb276-17"><a href="statistical-exploration.html#cb276-17" tabindex="-1"></a>df_table_2 <span class="sc">|&gt;</span></span>
+<span id="cb276-18"><a href="statistical-exploration.html#cb276-18" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">|&gt;</span></span>
+<span id="cb276-19"><a href="statistical-exploration.html#cb276-19" tabindex="-1"></a>  <span class="fu">tab_header</span>(</span>
+<span id="cb276-20"><a href="statistical-exploration.html#cb276-20" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Smoking and alcohol use&quot;</span>,</span>
+<span id="cb276-21"><a href="statistical-exploration.html#cb276-21" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;Patient details summary&quot;</span>) <span class="ot">-&gt;</span> table_2_markup</span>
+<span id="cb276-22"><a href="statistical-exploration.html#cb276-22" tabindex="-1"></a></span>
+<span id="cb276-23"><a href="statistical-exploration.html#cb276-23" tabindex="-1"></a><span class="fu">gtsave</span>(table_2_markup, <span class="at">filename =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;table2.html&quot;</span>))</span>
+<span id="cb276-24"><a href="statistical-exploration.html#cb276-24" tabindex="-1"></a><span class="fu">gtsave</span>(table_2_markup, <span class="at">filename =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;table2.docx&quot;</span>))</span></code></pre></div>
 </div>
-<div id="testing-assumptions-before-backward-analysis" class="section level2 hasAnchor" number="3.15">
-<h2><span class="header-section-number">3.15</span> Testing assumptions before backward analysis<a href="statistical-exploration.html#testing-assumptions-before-backward-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="testing-assumptions-before-backward-analysis" class="section level2" number="3.15">
+<h2><span class="header-section-number">3.15</span> Testing assumptions before backward analysis</h2>
 <ol style="list-style-type: decimal">
 <li>For the development of a prediction model and internal validation
 (and testing for assumptions). You need the following packages:</li>
@@ -697,16 +792,16 @@ variables and the outcome variable are linear. (assessed through
 techniques like scatter plots, partial regression plots, or residual
 plots).</li>
 </ol>
-<div id="scatter-plot" class="section level3 hasAnchor" number="3.15.1">
-<h3><span class="header-section-number">3.15.1</span> Scatter plot<a href="statistical-exploration.html#scatter-plot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="scatter-plot" class="section level3" number="3.15.1">
+<h3><span class="header-section-number">3.15.1</span> Scatter plot</h3>
 <p>For example</p>
-<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="statistical-exploration.html#cb278-1" tabindex="-1"></a>df_imp_long <span class="sc">|&gt;</span> </span>
-<span id="cb278-2"><a href="statistical-exploration.html#cb278-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(</span>
-<span id="cb278-3"><a href="statistical-exploration.html#cb278-3" tabindex="-1"></a>    <span class="at">x =</span> age,</span>
-<span id="cb278-4"><a href="statistical-exploration.html#cb278-4" tabindex="-1"></a>    <span class="at">y =</span> painint_score</span>
-<span id="cb278-5"><a href="statistical-exploration.html#cb278-5" tabindex="-1"></a>  )) <span class="sc">+</span></span>
-<span id="cb278-6"><a href="statistical-exploration.html#cb278-6" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> <span class="fu">as_factor</span>(time_days)))</span></code></pre></div>
-<p><img src="03_exploratory_statostics_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="statistical-exploration.html#cb277-1" tabindex="-1"></a>df_imp_long <span class="sc">|&gt;</span> </span>
+<span id="cb277-2"><a href="statistical-exploration.html#cb277-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(</span>
+<span id="cb277-3"><a href="statistical-exploration.html#cb277-3" tabindex="-1"></a>    <span class="at">x =</span> age,</span>
+<span id="cb277-4"><a href="statistical-exploration.html#cb277-4" tabindex="-1"></a>    <span class="at">y =</span> painint_score</span>
+<span id="cb277-5"><a href="statistical-exploration.html#cb277-5" tabindex="-1"></a>  )) <span class="sc">+</span></span>
+<span id="cb277-6"><a href="statistical-exploration.html#cb277-6" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> <span class="fu">as_factor</span>(time_days)))</span></code></pre></div>
+<p><img src="03_exploratory_statistics_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 
 </div>
 </div>
@@ -717,7 +812,7 @@ plots).</li>
         </div>
       </div>
 <a href="imputation-of-missing-values.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="development-and-internal-validation-of-a-multivariable-prognostic-model-for-chronification-of-non-specific-neck-pain-in-physiotherapy.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="prognostic-model.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -732,15 +827,15 @@ plots).</li>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
+"github": true,
+"facebook": false,
+"twitter": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
 "whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+"all": false
 },
 "fontsettings": {
 "theme": "white",
@@ -765,7 +860,8 @@ gitbook.start({
 "options": null
 },
 "toc": {
-"collapse": "subsection"
+"collapse": "section",
+"scroll_highlight": true
 }
 });
 });

@@ -10,9 +10,7 @@ library(readr)
 
 # Assuming df_imp_long is already loaded in your environment
 # If not, you'd need to load or define it here
-df_imp_long <- readr::read_rds(
-  file = "df_imp_long.rds"
-  )
+df_imp_long <- painr::df_imp_long
 
 
 patient_codes <- df_imp_long$patient_code |> unique()

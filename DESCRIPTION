@@ -10,27 +10,31 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 Imports:
-  readr,
-  tidyr,
-  dplyr,
-  mice,
-  furrr,
-  purrr,
-  rmarkdown,
-  cowplot,
-  finalfit,
-  haven,
-  VIM,
-  broom,
-  car,
-  here,
-  janitor,
-  miceadds,
-  naniar,
-  pheatmap,
-  corrr,
-  fastDummies,
-  fpc
+    readr,
+    tidyr,
+    dplyr,
+    mice,
+    furrr,
+    purrr,
+    rmarkdown,
+    cowplot,
+    finalfit,
+    haven,
+    VIM,
+    broom,
+    car,
+    here,
+    janitor,
+    miceadds,
+    naniar,
+    pheatmap,
+    corrr,
+    fastDummies,
+    fpc,
+    bookdown
 Suggests: 
     knitr
 VignetteBuilder: knitr
+Depends: 
+    R (>= 2.10)
+LazyData: true

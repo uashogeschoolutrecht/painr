@@ -10,3 +10,10 @@ purrr::walk(
   output_format = "html_document",
   output_dir = here::here("Rmd")
 )
+
+#df_imp_long <- readr::read_rds(here::here(
+#  "data",
+#  "df_imp_long.rds"
+#))
+
+#usethis::use_data(df_imp_long)

@@ -1,12 +1,12 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 authors:
-- family-names: "YOUR_NAME_HERE"
-  given-names: "YOUR_NAME_HERE"
-  orcid: "https://orcid.org/0000-0000-0000-0000"
-- family-names: "Lisa"
-  given-names: "Mona"
-  orcid: "https://orcid.org/0000-0000-0000-0000"
+- family-names: "Verwoerd"
+  given-names: "Martine J."
+  orcid: "https://orcid.org/0000-0002-3388-9235"
+- family-names: "Teunis"
+  given-names: "Marc A.T."
+  orcid: "https://orcid.org/0000-0002-3496-6669"
 title: "painr"
 version: 1.0.0
 doi: 10.5281/zenodo.1234

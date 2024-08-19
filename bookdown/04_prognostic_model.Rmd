@@ -1,4 +1,4 @@
-# Prognostic model
+# Development and internal validation of a multivariable prognostic model for chronification of non-specific neck pain in physiotherapy 
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
@@ -15,7 +15,6 @@ knitr::opts_chunk$set(
 library(rms)
 library(foreign)
 library(dplyr)
-library(haven)
 library(car)
 library(fpc)
 library(lmtest)
@@ -76,12 +75,13 @@ imputed_with_attitude_and_chronic |>
 ```
 
 ## Variabel analysis - Independent Predictive Capacity 
-Identifying the independent predictive capacity of the candidate prognostic variables at baseline and the existence or non-existence of chronic pain by univariate logistic regression analysis.
-Univariate logistic regression for continous variables
-Univariate analyses, model per variable with 95 confidence interval and OR
-Fitting the univariate logistic regression model
-Retrieving the coefficient and standard error for "Variable"
-Calculating the 95% confidence interval for "Variable"
+
+ - Identifying the independent predictive capacity of the candidate prognostic variables at baseline and the existence or non-existence of chronic pain by univariate logistic regression analysis. 
+ - Univariate logistic regression for continous variables
+ - Univariate analyses, model per variable with 95 confidence interval and OR
+ - Fitting the univariate logistic regression model
+ - Retrieving the coefficient and standard error for "Variable"
+ - Calculating the 95% confidence interval for "Variable"
 
 ```{r}
 continuous_variables <-

@@ -1,4 +1,4 @@
-# Prognostic model
+# Development and internal validation of a multivariable prognostic model for chronification of non-specific neck pain in physiotherapy 
 
 
 
@@ -8,7 +8,6 @@
 library(rms)
 library(foreign)
 library(dplyr)
-library(haven)
 library(car)
 library(fpc)
 library(lmtest)
@@ -146,12 +145,13 @@ imputed_with_attitude_and_chronic |>
 ```
 
 ## Variabel analysis - Independent Predictive Capacity 
-Identifying the independent predictive capacity of the candidate prognostic variables at baseline and the existence or non-existence of chronic pain by univariate logistic regression analysis.
-Univariate logistic regression for continous variables
-Univariate analyses, model per variable with 95 confidence interval and OR
-Fitting the univariate logistic regression model
-Retrieving the coefficient and standard error for "Variable"
-Calculating the 95% confidence interval for "Variable"
+
+ - Identifying the independent predictive capacity of the candidate prognostic variables at baseline and the existence or non-existence of chronic pain by univariate logistic regression analysis. 
+ - Univariate logistic regression for continous variables
+ - Univariate analyses, model per variable with 95 confidence interval and OR
+ - Fitting the univariate logistic regression model
+ - Retrieving the coefficient and standard error for "Variable"
+ - Calculating the 95% confidence interval for "Variable"
 
 
 ```r
@@ -1177,8 +1177,8 @@ plot(calibration_plot_lrm)
 
 ```
 #> 
-#> n=603   Mean absolute error=0.022   Mean squared error=0.0017
-#> 0.9 Quantile of absolute error=0.05
+#> n=603   Mean absolute error=0.023   Mean squared error=0.0018
+#> 0.9 Quantile of absolute error=0.056
 ```
 
 ## Result Calibration plot 

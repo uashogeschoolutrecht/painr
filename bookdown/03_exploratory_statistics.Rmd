@@ -23,21 +23,15 @@ source(
 ```
 
 ## Packages
-
 ```{r}
 library(tidyverse)
-#Rms
-#Foreign
-#pROC
-#psfmi
-#car
-#fpc
-#lmtest
+library(gt)
+library(webshot2)
 
 ```
 
 ## Data
-
+The data is loaded from disk. 
 ```{r}
 ## non-imputed
 df_imp <- read_rds(here::here("data", "df_imputed.rds"))
@@ -50,7 +44,6 @@ df_imp$patient_code <- data_list$data_subset$patient_code
 ```
 
 ## Global parameters
-
 ```{r}
 cutoff_chronic <- params$cutoff_chronic
 cutoff_painint_high <- params$cutoff_painint_high
@@ -60,18 +53,16 @@ cutoff_painint_high <- params$cutoff_painint_high
 
 ### Distribution data and Table 1
 
-1.  For table 1 and the following analysis we have to create a new
+For table 1 and the following analysis we have to create a new
     variable based on the variables: `painint_6weeks`, `painint_3months`
     and `painint_6months`. The new variable name: `is_painint_chronic`, with
 
  -   the outcome no = FALSE and
- -   yes = TRUE. (FALSE no chronic pain, TRUE chronic pain).
+ -   yes = TRUE. (FALSE = no chronic pain, TRUE = chronic pain).
  -   TRUE = chronic pain = if the variables `painint_6weeks`,
     `painint_3months` and `painint_6months` are each 3 or higher
 
 ```{r}
-#df_imp <- data
-
 ## new variable `chronic_pain` & recode to dichotomous
 df_imp <- df_imp |>
   dplyr::mutate(
@@ -104,7 +95,6 @@ df_imp <- df_imp |>
 
 ```
 
-
 ## Reformat dataframe to stacked format
 ```{r}
 df_imp_long <- df_imp |>
@@ -118,7 +108,6 @@ df_imp_long <- df_imp |>
 ```
 
 ## Create time variable
-The variable `
 ```{r}
 ## seperate 
 df_imp_long <- df_imp_long |>
@@ -128,7 +117,6 @@ df_imp_long <- df_imp_long |>
 
 ## Recode time
 ```{r}
-
 ## recode to days
 df_imp_long <- df_imp_long |>
   mutate(
@@ -140,7 +128,6 @@ df_imp_long <- df_imp_long |>
 
 ## write to disk
 write_rds(df_imp, file = here::here("data", "imputed_with_attitude_and_chronic.rds"))
-
 ```
 
 ```{r}
@@ -180,10 +167,6 @@ df_imp_long |>
   mutate(time_days = 0,
          time_days = as_factor(time_days)) -> df_baseline
 
-
-## join with original
-#df_imp_long_subset <- df_imp_long |>
-#   dplyr::select(patient_code, painint_score, time_days, is_painint_chronic)
 
 df_baseline
 
@@ -482,11 +465,6 @@ three factors.
 To generate tables directly from R, see: https://gt.rstudio.com/
 
 ```{r}
-# pak::pkg_install("gt")
-# pak::pkg_install("webshot2")
-
-library(gt)
-library(webshot2)
 
 df_table_1 |>
   gt() |>

@@ -1,17 +1,15 @@
 tab:skimr
 data-flow
 exploratory-data-analysis---raw-data
-suggested-improvements-of-the-code
 packages
 load-data
 first-glimpse-at-missingness
 select-relevant-variables
 exploratory-data-analysis
-some-exploratory-plots
+exploratory-plots
 missing-values
 get-number-of-missings-per-variable-n-and
-some-more-visuals-on-missingness
-is-missness-mcar-missing-cases-at-random
+some-more-plots-on-missingness
 write-table-with-all-labels
 deal-with-work-variables
 recode-physical_activity
@@ -20,7 +18,6 @@ imputation-of-missing-values
 packages-1
 data
 prepare-datset-for-imputing
-split-dataset-for-work-relations
 convert-all-categorical-vars-to-factors
 panel-with-all-distributions
 imputation-of-missing-values-1
@@ -36,7 +33,6 @@ inspect-the-imputations
 check-convergence
 check-for-plausible-values-of-imputation
 checking-the-used-predictor-matrix
-look-at-the-datasets
 running-multiple-regressions
 complete-the-dataset-with-this-imputation
 visualize-the-imputations
@@ -61,7 +57,7 @@ distribution-of-the-data
 table-baseline-characteristics-of-the-included-patients
 testing-assumptions-before-backward-analysis
 scatter-plot
-prognostic-model
+development-and-internal-validation-of-a-multivariable-prognostic-model-for-chronification-of-non-specific-neck-pain-in-physiotherapy
 packages-3
 data-load
 clean-data-and-rename-vars

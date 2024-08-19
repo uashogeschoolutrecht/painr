@@ -1,5 +1,7 @@
 # Imputation of missing values
 
+This section describes in detail how we dealt with imputation of missing values in the data. The overal method of imputation that was chosen is the multiple imputation methods, available in the `{mice}` R package.
+
 
 
 ## Packages
@@ -12,7 +14,7 @@ library(tidyverse)
 ## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ## ✔ dplyr     1.1.4     ✔ readr     2.1.5
 ## ✔ forcats   1.0.0     ✔ stringr   1.5.1
-## ✔ ggplot2   3.4.4     ✔ tibble    3.2.1
+## ✔ ggplot2   3.5.0     ✔ tibble    3.2.1
 ## ✔ lubridate 1.9.3     ✔ tidyr     1.3.1
 ## ✔ purrr     1.0.2     
 ## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
@@ -39,7 +41,8 @@ library(mice)
 ```
 
 ## Data
-Because we need to work with multiple versions of the dataset, I decided to change the data structure into a list.
+Because we need to work with multiple versions of the dataset, I decided to change the data structure into a list. This makes it more traceable and more easy to inspect different datasets and keep track of changes. At the end of this analysis a single list object will have all the different versions of the datasets collected together and written to disk.
+
 
 ```r
 ## raw data
@@ -164,8 +167,8 @@ attributes(data$data_raw)
 ```
 
 ## Prepare datset for imputing
+To prepare the data for imputation we need to carefully consider which variables to keep in the data and which variables we will use to get imputed values for missing values. In order to have a dataset that we can staert preparing, we copy the dataset so that we can keep the original data for comparison.
 
-### Split dataset for work relations
 
 ```r
 ## copy datasets
@@ -197,45 +200,19 @@ names(data_to_impute)
 ## [34] "painint_3months"   "painint_6months"
 ```
 
-```r
-#data_does_work <- data_to_impute |>
-#  dplyr::filter(work == 1)
-#data_does_not_work <- data_to_impute |>
-#  dplyr::filter(work == 2 | is.na(work))
-
-## Remove work related vars from data_does_not_work
-#work_vars_ind <- stringr::str_detect(
-#  string = names(data_does_not_work),
-#                 pattern = ".*work.*")
-
-#work_vars <- names(data_does_not_work)[work_vars_ind]
-
-#data_does_not_work <- data_does_not_work |>
-#  dplyr::select(-c(all_of(work_vars)))
-```
-
-
+The id column 'pation_code' is a zero variance variable and does not serve any pupose in the imputation process, so here we delete it.
 
 ```r
 ## remove ID var 'patient_code'
 data$data_to_impute <- data$data_to_impute |>
   select(-patient_code)
-
-
-## store datasets in list named data_to_impute
-#data$data_work_split <- list(
-#  not_working = data_does_not_work, 
-#  working = data_does_work)
-
-#names(data)
-#names(data$data_work_split)
 ```
 
 ## Convert all categorical vars to factors
-
+For the imputation process we need the discrete variables to be factors.
 
 ```r
-## which are factors and which are continuous vars? we exclude patient code from imputation, for it is a zero variance variable
+## which are factors and which are continuous vars?
 should_be_factors <- c(
   "coping",
   "sleep_quality",
@@ -288,6 +265,7 @@ map_df(
 ```
 
 ## Panel with all distributions
+In a panel plot we can show all the distibutions which provide an idea on which variables are discrete and which are continuous. The panels can also be viewed as images in the `./img` folder.
 
 ```r
 ##  function to plot a vectors histogram
@@ -324,7 +302,8 @@ list_histograms
 ```
 
 ```
-## Warning: Removed 1 rows containing non-finite values (`stat_bin()`).
+## Warning: Removed 1 row containing non-finite outside the scale range
+## (`stat_bin()`).
 ```
 
 <img src="02_imputation_files/figure-html/distributions_panel-1.png" width="2880" />
@@ -350,7 +329,8 @@ list_histograms
 ```
 
 ```
-## Warning: Removed 3 rows containing non-finite values (`stat_bin()`).
+## Warning: Removed 3 rows containing non-finite outside the scale range
+## (`stat_bin()`).
 ```
 
 <img src="02_imputation_files/figure-html/distributions_panel-3.png" width="2880" />
@@ -365,7 +345,8 @@ list_histograms
 ```
 
 ```
-## Warning: Removed 1 rows containing non-finite values (`stat_bin()`).
+## Warning: Removed 1 row containing non-finite outside the scale range
+## (`stat_bin()`).
 ```
 
 <img src="02_imputation_files/figure-html/distributions_panel-4.png" width="2880" />
@@ -380,7 +361,8 @@ list_histograms
 ```
 
 ```
-## Warning: Removed 12 rows containing non-finite values (`stat_bin()`).
+## Warning: Removed 12 rows containing non-finite outside the scale range
+## (`stat_bin()`).
 ```
 
 <img src="02_imputation_files/figure-html/distributions_panel-5.png" width="2880" />
@@ -395,7 +377,8 @@ list_histograms
 ```
 
 ```
-## Warning: Removed 3 rows containing non-finite values (`stat_bin()`).
+## Warning: Removed 3 rows containing non-finite outside the scale range
+## (`stat_bin()`).
 ```
 
 <img src="02_imputation_files/figure-html/distributions_panel-6.png" width="2880" />
@@ -410,7 +393,8 @@ list_histograms
 ```
 
 ```
-## Warning: Removed 10 rows containing non-finite values (`stat_bin()`).
+## Warning: Removed 10 rows containing non-finite outside the scale range
+## (`stat_bin()`).
 ```
 
 <img src="02_imputation_files/figure-html/distributions_panel-7.png" width="2880" />
@@ -425,7 +409,8 @@ list_histograms
 ```
 
 ```
-## Warning: Removed 8 rows containing non-finite values (`stat_bin()`).
+## Warning: Removed 8 rows containing non-finite outside the scale range
+## (`stat_bin()`).
 ```
 
 <img src="02_imputation_files/figure-html/distributions_panel-8.png" width="2880" />
@@ -440,7 +425,8 @@ list_histograms
 ```
 
 ```
-## Warning: Removed 12 rows containing non-finite values (`stat_bin()`).
+## Warning: Removed 12 rows containing non-finite outside the scale range
+## (`stat_bin()`).
 ```
 
 <img src="02_imputation_files/figure-html/distributions_panel-9.png" width="2880" />
@@ -455,7 +441,8 @@ list_histograms
 ```
 
 ```
-## Warning: Removed 3 rows containing non-finite values (`stat_bin()`).
+## Warning: Removed 3 rows containing non-finite outside the scale range
+## (`stat_bin()`).
 ```
 
 <img src="02_imputation_files/figure-html/distributions_panel-10.png" width="2880" />
@@ -470,7 +457,8 @@ list_histograms
 ```
 
 ```
-## Warning: Removed 3 rows containing non-finite values (`stat_bin()`).
+## Warning: Removed 3 rows containing non-finite outside the scale range
+## (`stat_bin()`).
 ```
 
 <img src="02_imputation_files/figure-html/distributions_panel-11.png" width="2880" />
@@ -485,7 +473,8 @@ list_histograms
 ```
 
 ```
-## Warning: Removed 3 rows containing non-finite values (`stat_bin()`).
+## Warning: Removed 3 rows containing non-finite outside the scale range
+## (`stat_bin()`).
 ```
 
 <img src="02_imputation_files/figure-html/distributions_panel-12.png" width="2880" />
@@ -500,7 +489,8 @@ list_histograms
 ```
 
 ```
-## Warning: Removed 14 rows containing non-finite values (`stat_bin()`).
+## Warning: Removed 14 rows containing non-finite outside the scale range
+## (`stat_bin()`).
 ```
 
 <img src="02_imputation_files/figure-html/distributions_panel-13.png" width="2880" />
@@ -515,7 +505,8 @@ list_histograms
 ```
 
 ```
-## Warning: Removed 3 rows containing non-finite values (`stat_bin()`).
+## Warning: Removed 3 rows containing non-finite outside the scale range
+## (`stat_bin()`).
 ```
 
 <img src="02_imputation_files/figure-html/distributions_panel-14.png" width="2880" />
@@ -530,7 +521,8 @@ list_histograms
 ```
 
 ```
-## Warning: Removed 2 rows containing non-finite values (`stat_bin()`).
+## Warning: Removed 2 rows containing non-finite outside the scale range
+## (`stat_bin()`).
 ```
 
 <img src="02_imputation_files/figure-html/distributions_panel-15.png" width="2880" />
@@ -545,7 +537,8 @@ list_histograms
 ```
 
 ```
-## Warning: Removed 10 rows containing non-finite values (`stat_bin()`).
+## Warning: Removed 10 rows containing non-finite outside the scale range
+## (`stat_bin()`).
 ```
 
 <img src="02_imputation_files/figure-html/distributions_panel-16.png" width="2880" />
@@ -560,7 +553,8 @@ list_histograms
 ```
 
 ```
-## Warning: Removed 154 rows containing non-finite values (`stat_bin()`).
+## Warning: Removed 154 rows containing non-finite outside the scale range
+## (`stat_bin()`).
 ```
 
 <img src="02_imputation_files/figure-html/distributions_panel-17.png" width="2880" />
@@ -575,7 +569,8 @@ list_histograms
 ```
 
 ```
-## Warning: Removed 224 rows containing non-finite values (`stat_bin()`).
+## Warning: Removed 224 rows containing non-finite outside the scale range
+## (`stat_bin()`).
 ```
 
 <img src="02_imputation_files/figure-html/distributions_panel-18.png" width="2880" />
@@ -590,7 +585,8 @@ list_histograms
 ```
 
 ```
-## Warning: Removed 212 rows containing non-finite values (`stat_bin()`).
+## Warning: Removed 212 rows containing non-finite outside the scale range
+## (`stat_bin()`).
 ```
 
 <img src="02_imputation_files/figure-html/distributions_panel-19.png" width="2880" />
@@ -604,7 +600,8 @@ cowplot::plot_grid(plotlist = list_histograms)
 ```
 
 ```
-## Warning: Removed 1 rows containing non-finite values (`stat_bin()`).
+## Warning: Removed 1 row containing non-finite outside the scale range
+## (`stat_bin()`).
 ```
 
 ```
@@ -613,7 +610,8 @@ cowplot::plot_grid(plotlist = list_histograms)
 ```
 
 ```
-## Warning: Removed 3 rows containing non-finite values (`stat_bin()`).
+## Warning: Removed 3 rows containing non-finite outside the scale range
+## (`stat_bin()`).
 ```
 
 ```
@@ -621,7 +619,8 @@ cowplot::plot_grid(plotlist = list_histograms)
 ```
 
 ```
-## Warning: Removed 1 rows containing non-finite values (`stat_bin()`).
+## Warning: Removed 1 row containing non-finite outside the scale range
+## (`stat_bin()`).
 ```
 
 ```
@@ -629,7 +628,8 @@ cowplot::plot_grid(plotlist = list_histograms)
 ```
 
 ```
-## Warning: Removed 12 rows containing non-finite values (`stat_bin()`).
+## Warning: Removed 12 rows containing non-finite outside the scale range
+## (`stat_bin()`).
 ```
 
 ```
@@ -637,7 +637,8 @@ cowplot::plot_grid(plotlist = list_histograms)
 ```
 
 ```
-## Warning: Removed 3 rows containing non-finite values (`stat_bin()`).
+## Warning: Removed 3 rows containing non-finite outside the scale range
+## (`stat_bin()`).
 ```
 
 ```
@@ -645,7 +646,8 @@ cowplot::plot_grid(plotlist = list_histograms)
 ```
 
 ```
-## Warning: Removed 10 rows containing non-finite values (`stat_bin()`).
+## Warning: Removed 10 rows containing non-finite outside the scale range
+## (`stat_bin()`).
 ```
 
 ```
@@ -653,7 +655,8 @@ cowplot::plot_grid(plotlist = list_histograms)
 ```
 
 ```
-## Warning: Removed 8 rows containing non-finite values (`stat_bin()`).
+## Warning: Removed 8 rows containing non-finite outside the scale range
+## (`stat_bin()`).
 ```
 
 ```
@@ -661,7 +664,8 @@ cowplot::plot_grid(plotlist = list_histograms)
 ```
 
 ```
-## Warning: Removed 12 rows containing non-finite values (`stat_bin()`).
+## Warning: Removed 12 rows containing non-finite outside the scale range
+## (`stat_bin()`).
 ```
 
 ```
@@ -669,7 +673,8 @@ cowplot::plot_grid(plotlist = list_histograms)
 ```
 
 ```
-## Warning: Removed 3 rows containing non-finite values (`stat_bin()`).
+## Warning: Removed 3 rows containing non-finite outside the scale range
+## (`stat_bin()`).
 ```
 
 ```
@@ -677,7 +682,8 @@ cowplot::plot_grid(plotlist = list_histograms)
 ```
 
 ```
-## Warning: Removed 3 rows containing non-finite values (`stat_bin()`).
+## Warning: Removed 3 rows containing non-finite outside the scale range
+## (`stat_bin()`).
 ```
 
 ```
@@ -685,7 +691,8 @@ cowplot::plot_grid(plotlist = list_histograms)
 ```
 
 ```
-## Warning: Removed 3 rows containing non-finite values (`stat_bin()`).
+## Warning: Removed 3 rows containing non-finite outside the scale range
+## (`stat_bin()`).
 ```
 
 ```
@@ -693,7 +700,8 @@ cowplot::plot_grid(plotlist = list_histograms)
 ```
 
 ```
-## Warning: Removed 14 rows containing non-finite values (`stat_bin()`).
+## Warning: Removed 14 rows containing non-finite outside the scale range
+## (`stat_bin()`).
 ```
 
 ```
@@ -701,7 +709,8 @@ cowplot::plot_grid(plotlist = list_histograms)
 ```
 
 ```
-## Warning: Removed 3 rows containing non-finite values (`stat_bin()`).
+## Warning: Removed 3 rows containing non-finite outside the scale range
+## (`stat_bin()`).
 ```
 
 ```
@@ -709,7 +718,8 @@ cowplot::plot_grid(plotlist = list_histograms)
 ```
 
 ```
-## Warning: Removed 2 rows containing non-finite values (`stat_bin()`).
+## Warning: Removed 2 rows containing non-finite outside the scale range
+## (`stat_bin()`).
 ```
 
 ```
@@ -717,7 +727,8 @@ cowplot::plot_grid(plotlist = list_histograms)
 ```
 
 ```
-## Warning: Removed 10 rows containing non-finite values (`stat_bin()`).
+## Warning: Removed 10 rows containing non-finite outside the scale range
+## (`stat_bin()`).
 ```
 
 ```
@@ -725,7 +736,8 @@ cowplot::plot_grid(plotlist = list_histograms)
 ```
 
 ```
-## Warning: Removed 154 rows containing non-finite values (`stat_bin()`).
+## Warning: Removed 154 rows containing non-finite outside the scale range
+## (`stat_bin()`).
 ```
 
 ```
@@ -733,7 +745,8 @@ cowplot::plot_grid(plotlist = list_histograms)
 ```
 
 ```
-## Warning: Removed 224 rows containing non-finite values (`stat_bin()`).
+## Warning: Removed 224 rows containing non-finite outside the scale range
+## (`stat_bin()`).
 ```
 
 ```
@@ -741,24 +754,18 @@ cowplot::plot_grid(plotlist = list_histograms)
 ```
 
 ```
-## Warning: Removed 212 rows containing non-finite values (`stat_bin()`).
+## Warning: Removed 212 rows containing non-finite outside the scale range
+## (`stat_bin()`).
 ```
 
 <img src="02_imputation_files/figure-html/distributions_panel-20.png" width="2880" />
 
 ```r
-ggsave("distros.png", height = 40, width = 40, dpi = 300)
-ggsave("distros.svg", height = 40, width = 40, dpi = 300)
+ggsave(here::here("img", "distros.png"), height = 40, width = 40, dpi = 300)
+ggsave(here::here("img", "distros.svg"), height = 40, width = 40, dpi = 300)
 ```
 
-## Imputation of missing values
-
-I recommend taking a look at the [`{naniar}` package](https://cran.r-project.org/web/packages/naniar/vignettes/getting-started-w-naniar.html) instead
-
-And [this tutorial](https://www.youtube.com/watch?v=ghmU7nodhSM) gave me much insights.
-
-First, let's find the continuous variables
-Let's get an idea of the distributions for all variables. We will use an iteration to do this. I will use the long/stached version of the dataset to achiev this.
+# Imputation of missing values
 
 ## Checking Missing Completely at Random (MCAR)
 https://bookdown.org/mwheymans/bookmi/missing-data-evaluation.html#missing-data-evaluation-in-r
@@ -766,495 +773,10 @@ https://bookdown.org/mwheymans/bookmi/missing-data-evaluation.html#missing-data-
 From the analysis above we can conclude that some of the variables:
 are on a continuous or discrete scale. We need to select those to assess MCAR.
 
-## Missingness pattern
+### Missingness pattern
 
 ```r
 md.pattern(data$data_preprocessed) ## figure does not scale properly, TODO: needs a fix
-```
-
-<img src="02_imputation_files/figure-html/unnamed-chunk-3-1.png" width="672" />
-
-```
-##     sex pain_intensity age recurrence disability sleep_quality self_efficacy
-## 243   1              1   1          1          1             1             1
-## 44    1              1   1          1          1             1             1
-## 41    1              1   1          1          1             1             1
-## 48    1              1   1          1          1             1             1
-## 21    1              1   1          1          1             1             1
-## 18    1              1   1          1          1             1             1
-## 11    1              1   1          1          1             1             1
-## 80    1              1   1          1          1             1             1
-## 4     1              1   1          1          1             1             1
-## 2     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 2     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 2     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 2     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 5     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 2     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 4     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 2     1              1   1          1          1             1             1
-## 2     1              1   1          1          1             1             1
-## 3     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 3     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 2     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 3     1              1   1          1          1             1             1
-## 2     1              1   1          1          1             1             1
-## 3     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             1
-## 1     1              1   1          1          1             1             0
-## 1     1              1   1          1          1             0             1
-## 1     1              1   1          1          0             0             0
-## 1     1              1   1          0          1             1             1
-## 1     1              1   0          1          1             1             1
-##       0              0   1          1          1             2             2
-##     duration smoking catastrophizing depression kinesiophobia distress
-## 243        1       1               1          1             1        1
-## 44         1       1               1          1             1        1
-## 41         1       1               1          1             1        1
-## 48         1       1               1          1             1        1
-## 21         1       1               1          1             1        1
-## 18         1       1               1          1             1        1
-## 11         1       1               1          1             1        1
-## 80         1       1               1          1             1        1
-## 4          1       1               1          1             1        1
-## 2          1       1               1          1             1        1
-## 1          1       1               1          1             1        1
-## 1          1       1               1          1             1        1
-## 2          1       1               1          1             1        1
-## 1          1       1               1          1             1        1
-## 1          1       1               1          1             1        1
-## 1          1       1               1          1             1        1
-## 1          1       1               1          1             1        1
-## 1          1       1               1          1             1        1
-## 2          1       1               1          1             1        1
-## 1          1       1               1          1             1        1
-## 2          1       1               1          1             1        1
-## 1          1       1               1          1             1        1
-## 1          1       1               1          1             1        1
-## 1          1       1               1          1             1        1
-## 1          1       1               1          1             1        1
-## 1          1       1               1          1             1        1
-## 1          1       1               1          1             1        1
-## 5          1       1               1          1             1        1
-## 1          1       1               1          1             1        1
-## 2          1       1               1          1             1        1
-## 1          1       1               1          1             1        1
-## 4          1       1               1          1             1        1
-## 1          1       1               1          1             1        1
-## 1          1       1               1          1             1        1
-## 1          1       1               1          1             1        1
-## 1          1       1               1          1             1        1
-## 1          1       1               1          1             1        1
-## 2          1       1               1          1             1        1
-## 2          1       1               1          1             1        1
-## 3          1       1               1          1             1        1
-## 1          1       1               1          1             1        1
-## 1          1       1               1          1             1        1
-## 1          1       1               1          1             1        1
-## 1          1       1               1          1             1        1
-## 3          1       1               1          1             1        1
-## 1          1       1               1          1             1        1
-## 1          1       1               1          1             1        1
-## 1          1       1               1          1             1        1
-## 2          1       1               1          1             1        1
-## 1          1       1               1          1             1        1
-## 1          1       1               1          1             1        1
-## 3          1       1               1          1             1        1
-## 2          1       1               1          1             1        1
-## 3          1       1               1          1             1        1
-## 1          1       1               1          1             1        1
-## 1          1       1               1          1             1        1
-## 1          1       1               1          1             1        1
-## 1          1       1               1          1             1        1
-## 1          1       1               1          1             1        1
-## 1          1       1               1          1             1        1
-## 1          1       1               1          1             1        1
-## 1          1       1               1          1             1        1
-## 1          1       1               1          1             1        1
-## 1          1       1               1          1             1        1
-## 1          1       1               1          1             1        1
-## 1          1       1               1          1             1        1
-## 1          1       1               1          1             1        1
-## 1          1       1               0          0             0        0
-## 1          1       0               1          1             1        1
-## 1          1       0               1          1             1        1
-## 1          0       1               1          1             1        1
-## 1          0       1               1          1             1        1
-## 1          0       1               1          1             1        1
-## 1          1       1               0          0             0        0
-## 1          1       1               1          1             1        1
-## 1          1       0               0          0             0        0
-## 1          1       1               1          1             1        1
-## 1          1       1               1          1             1        1
-##            3       3               3          3             3        3
-##     hypervigilance wide_spread_pain headache alcohol coping physical_activity
-## 243              1                1        1       1      1                 1
-## 44               1                1        1       1      1                 1
-## 41               1                1        1       1      1                 1
-## 48               1                1        1       1      1                 1
-## 21               1                1        1       1      1                 1
-## 18               1                1        1       1      1                 1
-## 11               1                1        1       1      1                 1
-## 80               1                1        1       1      1                 1
-## 4                1                1        1       1      1                 1
-## 2                1                1        1       1      1                 1
-## 1                1                1        1       1      1                 1
-## 1                1                1        1       1      1                 1
-## 2                1                1        1       1      1                 1
-## 1                1                1        1       1      1                 1
-## 1                1                1        1       1      1                 1
-## 1                1                1        1       1      1                 1
-## 1                1                1        1       1      1                 1
-## 1                1                1        1       1      1                 1
-## 2                1                1        1       1      1                 1
-## 1                1                1        1       1      1                 1
-## 2                1                1        1       1      1                 1
-## 1                1                1        1       1      1                 1
-## 1                1                1        1       1      1                 1
-## 1                1                1        1       1      1                 1
-## 1                1                1        1       1      1                 1
-## 1                1                1        1       1      1                 1
-## 1                1                1        1       1      1                 1
-## 5                1                1        1       1      1                 1
-## 1                1                1        1       1      1                 1
-## 2                1                1        1       1      1                 1
-## 1                1                1        1       1      1                 1
-## 4                1                1        1       1      1                 1
-## 1                1                1        1       1      1                 1
-## 1                1                1        1       1      1                 1
-## 1                1                1        1       1      1                 1
-## 1                1                1        1       1      1                 1
-## 1                1                1        1       1      1                 1
-## 2                1                1        1       1      1                 1
-## 2                1                1        1       1      1                 1
-## 3                1                1        1       1      1                 1
-## 1                1                1        1       1      1                 1
-## 1                1                1        1       1      1                 1
-## 1                1                1        1       1      1                 1
-## 1                1                1        1       1      1                 1
-## 3                1                1        1       1      1                 1
-## 1                1                1        1       1      1                 1
-## 1                1                1        1       1      1                 1
-## 1                1                1        1       1      1                 1
-## 2                1                1        1       1      1                 1
-## 1                1                1        1       1      1                 1
-## 1                1                1        1       1      1                 1
-## 3                1                1        1       1      1                 1
-## 2                1                1        1       1      1                 1
-## 3                1                1        1       1      1                 0
-## 1                1                1        1       1      1                 0
-## 1                1                1        1       1      1                 0
-## 1                1                1        1       1      1                 0
-## 1                1                1        1       1      0                 1
-## 1                1                1        1       0      1                 1
-## 1                1                1        1       0      1                 1
-## 1                1                1        0       1      1                 1
-## 1                1                1        0       1      1                 1
-## 1                1                1        0       1      1                 1
-## 1                1                1        0       1      0                 1
-## 1                1                0        1       1      1                 1
-## 1                1                0        1       1      1                 1
-## 1                1                0        1       1      1                 1
-## 1                0                1        1       1      0                 1
-## 1                1                1        1       0      1                 1
-## 1                1                1        1       0      1                 0
-## 1                1                1        1       1      1                 1
-## 1                1                1        1       1      1                 1
-## 1                1                1        1       1      1                 1
-## 1                0                1        1       1      0                 1
-## 1                1                1        1       1      1                 1
-## 1                0                0        0       0      0                 0
-## 1                1                1        1       1      1                 1
-## 1                1                1        1       1      1                 1
-##                  3                4        5       5      5                 8
-##     concerns work duration_beliefs relation bmi treatment_beliefs
-## 243        1    1                1        1   1                 1
-## 44         1    1                1        1   1                 1
-## 41         1    1                1        1   1                 1
-## 48         1    1                1        1   1                 1
-## 21         1    1                1        1   1                 1
-## 18         1    1                1        1   1                 1
-## 11         1    1                1        1   1                 1
-## 80         1    1                1        1   1                 1
-## 4          1    1                1        1   1                 1
-## 2          1    1                1        1   1                 1
-## 1          1    1                1        1   1                 1
-## 1          1    1                1        1   1                 1
-## 2          1    1                1        1   1                 1
-## 1          1    1                1        1   1                 1
-## 1          1    1                1        1   1                 1
-## 1          1    1                1        1   1                 1
-## 1          1    1                1        1   1                 1
-## 1          1    1                1        1   1                 1
-## 2          1    1                1        1   1                 1
-## 1          1    1                1        1   1                 1
-## 2          1    1                1        1   1                 1
-## 1          1    1                1        1   1                 1
-## 1          1    1                1        1   1                 1
-## 1          1    1                1        1   1                 1
-## 1          1    1                1        1   1                 1
-## 1          1    1                1        1   1                 1
-## 1          1    1                1        1   1                 1
-## 5          1    1                1        1   1                 1
-## 1          1    1                1        1   1                 1
-## 2          1    1                1        1   1                 1
-## 1          1    1                1        1   1                 1
-## 4          1    1                1        1   1                 1
-## 1          1    1                1        1   1                 1
-## 1          1    1                1        1   1                 1
-## 1          1    1                1        1   1                 0
-## 1          1    1                1        1   1                 0
-## 1          1    1                1        1   1                 0
-## 2          1    1                1        1   0                 1
-## 2          1    1                1        1   0                 1
-## 3          1    1                1        1   0                 1
-## 1          1    1                1        1   0                 1
-## 1          1    1                1        0   1                 1
-## 1          1    1                1        0   0                 1
-## 1          1    1                0        1   1                 1
-## 3          1    0                1        1   1                 1
-## 1          1    0                1        1   1                 1
-## 1          1    0                1        1   1                 1
-## 1          1    0                1        1   1                 1
-## 2          1    0                1        1   1                 1
-## 1          1    0                1        1   1                 1
-## 1          1    0                1        1   1                 1
-## 3          0    1                0        0   1                 0
-## 2          0    1                0        0   1                 0
-## 3          1    1                1        1   1                 1
-## 1          1    1                1        1   1                 1
-## 1          1    1                1        1   1                 1
-## 1          1    1                1        1   1                 1
-## 1          0    1                0        0   1                 0
-## 1          1    1                1        1   1                 1
-## 1          1    1                1        1   1                 1
-## 1          1    1                1        1   1                 1
-## 1          1    1                1        1   1                 1
-## 1          1    1                1        1   1                 1
-## 1          1    1                1        1   1                 1
-## 1          1    1                1        1   1                 1
-## 1          1    1                1        1   1                 1
-## 1          1    1                1        1   1                 1
-## 1          1    1                1        1   1                 1
-## 1          1    1                1        1   0                 1
-## 1          1    1                0        1   0                 0
-## 1          1    1                1        1   1                 1
-## 1          1    1                1        1   1                 1
-## 1          1    1                1        1   1                 1
-## 1          0    1                0        0   1                 0
-## 1          1    1                1        1   1                 1
-## 1          0    1                0        0   0                 0
-## 1          1    1                1        1   1                 1
-## 1          1    1                1        1   1                 1
-##            8   10               10       10  12                12
-##     identity_beliefs education education_level work_satisfaction work_happiness
-## 243                1         1               1                 1              1
-## 44                 1         1               1                 1              1
-## 41                 1         1               1                 1              1
-## 48                 1         1               1                 1              1
-## 21                 1         1               1                 1              1
-## 18                 1         1               1                 1              1
-## 11                 1         1               1                 1              1
-## 80                 1         1               1                 1              1
-## 4                  1         1               1                 1              1
-## 2                  1         1               1                 1              1
-## 1                  1         1               1                 1              1
-## 1                  1         1               1                 1              0
-## 2                  1         1               1                 1              0
-## 1                  1         1               1                 1              0
-## 1                  1         1               1                 1              0
-## 1                  1         1               1                 1              0
-## 1                  1         1               1                 1              0
-## 1                  1         1               1                 1              0
-## 2                  1         1               1                 1              0
-## 1                  1         1               1                 1              0
-## 2                  1         1               1                 0              1
-## 1                  1         1               1                 0              1
-## 1                  1         1               1                 0              1
-## 1                  1         1               1                 0              1
-## 1                  1         1               1                 0              1
-## 1                  1         1               1                 0              1
-## 1                  1         1               1                 0              0
-## 5                  1         0               0                 1              1
-## 1                  1         0               0                 1              1
-## 2                  1         0               0                 1              1
-## 1                  1         0               0                 1              1
-## 4                  0         1               1                 1              1
-## 1                  0         1               1                 1              1
-## 1                  0         0               0                 1              1
-## 1                  1         1               1                 1              1
-## 1                  1         1               1                 1              1
-## 1                  1         0               0                 1              1
-## 2                  1         1               1                 1              1
-## 2                  1         1               1                 1              1
-## 3                  1         1               1                 1              1
-## 1                  1         1               1                 0              1
-## 1                  1         1               1                 1              1
-## 1                  1         0               0                 1              1
-## 1                  1         1               1                 1              1
-## 3                  1         1               1                 0              0
-## 1                  1         1               1                 0              0
-## 1                  1         1               1                 0              0
-## 1                  1         1               1                 0              0
-## 2                  1         1               1                 0              0
-## 1                  1         0               0                 0              0
-## 1                  1         0               0                 0              0
-## 3                  0         1               1                 1              1
-## 2                  0         1               1                 1              1
-## 3                  1         1               1                 1              1
-## 1                  1         1               1                 1              1
-## 1                  1         1               1                 1              1
-## 1                  1         1               1                 0              1
-## 1                  0         1               1                 1              1
-## 1                  1         1               1                 1              1
-## 1                  1         1               1                 1              1
-## 1                  1         1               1                 1              1
-## 1                  1         1               1                 1              1
-## 1                  1         1               1                 1              1
-## 1                  1         1               1                 1              1
-## 1                  1         1               1                 1              1
-## 1                  1         1               1                 1              1
-## 1                  1         1               1                 1              1
-## 1                  1         1               1                 1              1
-## 1                  1         1               1                 1              1
-## 1                  1         0               0                 1              1
-## 1                  1         1               1                 1              1
-## 1                  1         1               1                 1              1
-## 1                  1         1               1                 1              1
-## 1                  0         1               1                 1              1
-## 1                  1         1               1                 1              1
-## 1                  0         0               0                 0              0
-## 1                  1         1               1                 1              1
-## 1                  1         1               1                 1              1
-##                   14        16              16                21             23
-##     posture_work painint_6weeks painint_6months painint_3months    
-## 243            1              1               1               1   0
-## 44             1              1               1               0   1
-## 41             1              1               0               1   1
-## 48             1              1               0               0   2
-## 21             1              0               1               1   1
-## 18             1              0               1               0   2
-## 11             1              0               0               1   2
-## 80             1              0               0               0   3
-## 4              0              1               1               1   1
-## 2              0              1               0               1   2
-## 1              0              0               0               0   4
-## 1              1              1               1               1   1
-## 2              1              1               1               0   2
-## 1              1              1               0               1   2
-## 1              1              1               0               0   3
-## 1              1              0               1               1   2
-## 1              1              0               0               1   3
-## 1              1              0               0               0   4
-## 2              0              1               1               1   2
-## 1              0              0               1               1   3
-## 2              1              1               1               1   1
-## 1              1              1               1               0   2
-## 1              1              1               0               0   3
-## 1              1              0               0               0   4
-## 1              0              1               1               1   2
-## 1              0              0               1               0   4
-## 1              1              1               1               1   2
-## 5              1              1               1               1   2
-## 1              1              1               1               0   3
-## 2              1              1               0               1   3
-## 1              1              0               1               1   3
-## 4              1              1               1               1   1
-## 1              1              0               0               0   4
-## 1              1              1               1               1   3
-## 1              1              1               1               1   1
-## 1              1              0               1               0   3
-## 1              1              1               1               1   3
-## 2              1              1               1               1   1
-## 2              1              1               0               1   2
-## 3              1              0               0               0   4
-## 1              1              1               1               1   2
-## 1              1              1               1               1   1
-## 1              1              0               1               0   6
-## 1              1              1               1               1   1
-## 3              0              1               1               1   4
-## 1              0              1               1               0   5
-## 1              0              1               0               1   5
-## 1              0              1               0               0   6
-## 2              0              0               1               0   6
-## 1              0              1               1               1   6
-## 1              0              0               0               0   9
-## 3              1              1               1               1   5
-## 2              1              0               0               0   8
-## 3              1              1               1               1   1
-## 1              1              0               0               1   3
-## 1              0              1               0               1   3
-## 1              1              0               0               0   5
-## 1              0              1               1               1   7
-## 1              1              1               1               1   1
-## 1              1              0               1               0   3
-## 1              1              1               1               1   1
-## 1              1              1               1               0   2
-## 1              1              1               0               0   3
-## 1              1              1               0               0   4
-## 1              1              1               1               1   1
-## 1              1              1               1               0   2
-## 1              1              1               0               1   2
-## 1              1              1               1               1   6
-## 1              1              1               1               1   3
-## 1              1              1               0               0  10
-## 1              1              1               1               1   1
-## 1              1              1               0               0   3
-## 1              1              0               1               0   3
-## 1              1              1               0               0  14
-## 1              1              1               0               0   3
-## 1              0              0               1               1  26
-## 1              1              1               1               1   1
-## 1              1              1               1               1   1
-##               25            154             212             224 822
 ```
 
 ## Define predictors to include in the imputations
@@ -1333,7 +855,7 @@ Use Little's (1988) test statistic to assess if data is missing completely at ra
 
 Based on the fact the p-value here is not < 0.05, we can conclude that we cannot reject the NULL hypothesis, thus concluding that the missingness in the data is MCAR.
 
-### Inspect the unique values of some of the variables
+## Inspect the unique values of some of the variables
 
 ```r
 df_select_compare <- data$data_preprocessed |>
@@ -1444,6 +966,7 @@ pct_missing_cases <- naniar::prop_miss_case(data$data_preprocessed) * 100
 So 4.0093649% of the total data is missing. But 59.7014925% of the cases has at least one missing value. We set the `m` parameter to 75   
 
 ## Running the imputations
+In order to allow for running imputations over multiple cores of the computer, we use the `{future}` package.
 
 
 ```r
@@ -1575,7 +1098,7 @@ data$mult_imp <- futuremice(
 ```
 
 ## Inspect the imputations
-
+We can look at the imputed dataframe as an item in the 'data' list object.
 
 ```r
 data$mult_imp
@@ -1695,9 +1218,14 @@ From these plots we see that there is no evident trend in the estimation of the 
 ## Check for plausible values of imputation
 
 ```r
-# svg(filename = here::here("img", "stripplot.svg"))
+svg(filename = here::here("img", "stripplot.svg"))
 stripplot(data$mult_imp)
 dev.off()
+```
+
+```
+## quartz_off_screen 
+##                 2
 ```
 
 ## Checking the used predictor matrix
@@ -1716,10 +1244,8 @@ pheatmap(pm_df, cluster_rows = FALSE, cluster_cols = FALSE)
 
 <img src="02_imputation_files/figure-html/unnamed-chunk-8-1.png" width="672" />
 
-## Look at the datasets
-Let's look at the first data with imputed data
 
-### Running multiple regressions
+## Running multiple regressions
 
 
 ```r
@@ -1746,7 +1272,7 @@ summary(reg_pooled, conf.int = TRUE, conf.level = 0.95) |>
   theme_bw()
 ```
 
-### Complete the dataset with this imputation
+## Complete the dataset with this imputation
 
 ```r
 #create imputed data to work with
@@ -1786,7 +1312,7 @@ rm(df_imp, df_multimp, reg_multimp, reg_pooled, pm_df, pred, var_selection, list
 ## object 'reg_pooled' not found
 ```
 
-### Visualize the imputations
+## Visualize the imputations
 
 ```r
 # Load the necessary libraries
@@ -1926,6 +1452,7 @@ Table: (\#tab:skimr)Data summary
 
 
 ## Add `attitude`
+We decided that the 'attitude' variable could not be imputed, so we romved that variable from the data and now we put it back. It is the only variable in the data that has missingness now.
 
 ```r
 data$data_imputed$attitude <- data$data_raw$Attitude
@@ -1946,4 +1473,3 @@ data |>
 
 write_rds(data$data_imputed, here::here("data", "df_imputed.rds"))
 ```
-

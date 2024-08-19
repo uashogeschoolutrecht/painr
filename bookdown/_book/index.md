@@ -26,14 +26,19 @@ header-includes:
 
 
 
-# Introduction {-}
+# Introduction
 
-General intro to the project and the data
+Abstract
+Objective: To develop and internally validate a prognostic model to predict chronic pain after a new episode of acute- or subacute nonspecific idiopathic, non-traumatic neck pain in patients presenting to physiotherapy primary care, emphasizing modifiable biomedical, psychological, and social factors. 
+Design: A prospective cohort study with a 6-month follow-up between January 2020 and March 2023. 
+Setting: 30 physiotherapy primary care practices.
+Participants: Patients with a new presentation of nonspecific idiopathic, non-traumatic neck pain, with a duration lasting no longer than 12 weeks from onset. 
+Baseline measures: Candidate prognostic variables collected from participants included age and sex, neck pain symptoms, work-related factors, general factors, psychological and behavioural factors, and the remaining factors: therapeutic relation and healthcare provider attitude.
+Outcome measures: Pain intensity at 6 weeks, 3 months, and 6 months on a Numeric Pain Rating Scale (NPRS) after inclusion. A NPRS score of ≥3 at each time point was used to define chronic neck pain.  
+Results: Sixty-two (10%) of the 603 participants developed chronic neck pain. The prognostic factors in the final model were sex, pain intensity, reported pain in different body regions, headache since and before the neck pain, posture during work, employment status, illness beliefs about pain identity and recovery, treatment beliefs, distress, and self-efficacy. The model demonstrated an optimism-corrected Area Under the Curve (AUC) of 0.83 and a corrected R2 of 0.24. Calibration was deemed acceptable to good, as indicated by the calibration curve. The Hosmer-Lemeshow test yielded a p-value of 0.7167, indicating a good model fit. 
+Conclusion: This model has the potential to obtain a valid prognosis for developing chronic pain after a new episode of acute—and subacute nonspecific idiopathic, non-traumatic neck pain. It includes mostly potentially modifiable factors for physiotherapy practice. External validation of this model is recommended. 
+Key words: neck pain, prognostic model, modifiable factors, chronic pain.
 
-Download the source code [<svg viewBox="0 0 496 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg">  <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>](https://github.com/uashogeschoolutrecht/painr)
-
-**Martine -> please write a general introduction on the project here: --->
-...
 
 ## Data Flow
 The following diagram discribes how data files and Rmd scripts are connected. Raw data input file lives in `./data-raw`, data output files are written to `./data` and the `.Rmd` files live in ./Rmd.
@@ -50,8 +55,8 @@ data_flow
 ```
 
 ```{=html}
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-b81ab1d2edbe7b71d751" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-b81ab1d2edbe7b71d751">{"x":{"diagram":"\n   graph LR\n\n    subgraph data-raw\n        A((\"D010/SPSS basis File results.sav\"))\n    end\n\n    subgraph Rmd\n        B{\"01_eda_Rmd\"}\n        E{\"02_imputation.Rmd\"}\n        H{\"03_exploratory_statistics.Rmd\"}\n    end\n\n    subgraph data\n        C[\"df_non_imp_select.rds\"]\n        D[\"labelling_and_coding_vars.csv\"]\n        F[\"data-list.rds\"]\n        G[\"df_imputed.rds\"]\n    end\n\n\n     A((\"D010/SPSS basis File results.sav\")) --> B{\"01_eda_Rmd\"}\n     B{\"01_eda_Rmd\"} --> C[\"df_non_imp_select.rds\"]\n     B{\"01_eda_Rmd\"} --> D[\"labelling_and_coding_vars.csv\"]\n     C[\"df_non_imp_select.rds\"] --> E{\"02_imputation.Rmd\"}\n     A((\"SPSS basis File results.sav\")) --> E{\"02_imputation.Rmd\"}\n     E{\"02_imputation.Rmd\"} --> F[\"data-list.rds\"]\n     E{\"02_imputation.Rmd\"} --> G[\"...date...df_imputed.rds\"]\n     G[\"...date...df_imputed.rds\"] --> H{\"03_exploratory_statistics.Rmd\"}\n     F[\"data-list.rds\"] --> H{\"03_exploratory_statistics.Rmd\"}\n\n"},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-4ffd06a31151bb75abaf" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-4ffd06a31151bb75abaf">{"x":{"diagram":"\n   graph LR\n\n    subgraph data-raw\n        A((\"D010/SPSS basis File results.sav\"))\n    end\n\n    subgraph Rmd\n        B{\"01_eda_Rmd\"}\n        E{\"02_imputation.Rmd\"}\n        H{\"03_exploratory_statistics.Rmd\"}\n    end\n\n    subgraph data\n        C[\"df_non_imp_select.rds\"]\n        D[\"labelling_and_coding_vars.csv\"]\n        F[\"data-list.rds\"]\n        G[\"df_imputed.rds\"]\n    end\n\n\n     A((\"D010/SPSS basis File results.sav\")) --> B{\"01_eda_Rmd\"}\n     B{\"01_eda_Rmd\"} --> C[\"df_non_imp_select.rds\"]\n     B{\"01_eda_Rmd\"} --> D[\"labelling_and_coding_vars.csv\"]\n     C[\"df_non_imp_select.rds\"] --> E{\"02_imputation.Rmd\"}\n     A((\"SPSS basis File results.sav\")) --> E{\"02_imputation.Rmd\"}\n     E{\"02_imputation.Rmd\"} --> F[\"data-list.rds\"]\n     E{\"02_imputation.Rmd\"} --> G[\"...date...df_imputed.rds\"]\n     G[\"...date...df_imputed.rds\"] --> H{\"03_exploratory_statistics.Rmd\"}\n     F[\"data-list.rds\"] --> H{\"03_exploratory_statistics.Rmd\"}\n\n"},"evals":[],"jsHooks":[]}</script>
 ```
 
 Please also provide attribution to R itself

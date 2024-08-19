@@ -46,14 +46,19 @@ knitr::opts_chunk$set(
 
 # Introduction {-}
 
-General intro to the project and the data
+## Abstract {-}
+Objective: To develop and internally validate a prognostic model to predict chronic pain after a new episode of acute- or subacute nonspecific idiopathic, non-traumatic neck pain in patients presenting to physiotherapy primary care, emphasizing modifiable biomedical, psychological, and social factors. 
+Design: A prospective cohort study with a 6-month follow-up between January 2020 and March 2023. 
+Setting: 30 physiotherapy primary care practices.
+Participants: Patients with a new presentation of nonspecific idiopathic, non-traumatic neck pain, with a duration lasting no longer than 12 weeks from onset. 
+Baseline measures: Candidate prognostic variables collected from participants included age and sex, neck pain symptoms, work-related factors, general factors, psychological and behavioural factors, and the remaining factors: therapeutic relation and healthcare provider attitude.
+Outcome measures: Pain intensity at 6 weeks, 3 months, and 6 months on a Numeric Pain Rating Scale (NPRS) after inclusion. A NPRS score of ≥3 at each time point was used to define chronic neck pain.  
+Results: Sixty-two (10%) of the 603 participants developed chronic neck pain. The prognostic factors in the final model were sex, pain intensity, reported pain in different body regions, headache since and before the neck pain, posture during work, employment status, illness beliefs about pain identity and recovery, treatment beliefs, distress, and self-efficacy. The model demonstrated an optimism-corrected Area Under the Curve (AUC) of 0.83 and a corrected R2 of 0.24. Calibration was deemed acceptable to good, as indicated by the calibration curve. The Hosmer-Lemeshow test yielded a p-value of 0.7167, indicating a good model fit. 
+Conclusion: This model has the potential to obtain a valid prognosis for developing chronic pain after a new episode of acute—and subacute nonspecific idiopathic, non-traumatic neck pain. It includes mostly potentially modifiable factors for physiotherapy practice. External validation of this model is recommended. 
+Key words: neck pain, prognostic model, modifiable factors, chronic pain.
 
-Download the source code [`r icons::fontawesome("github")`](https://github.com/uashogeschoolutrecht/painr)
 
-**Martine -> please write a general introduction on the project here: --->
-...
-
-## Data Flow
+## Data Flow {-}
 The following diagram discribes how data files and Rmd scripts are connected. Raw data input file lives in `./data-raw`, data output files are written to `./data` and the `.Rmd` files live in ./Rmd.
 
 ```{r}

@@ -1,4 +1,5 @@
-# Development and internal validation of a multivariable prognostic model for chronification of non-specific neck pain in physiotherapy 
+## 
+Development and internal validation of a multivariable prognostic model to predict chronic pain after a new episode of non-specific idiopathic, non-traumatic neck pain in physiotherapy primary care practice. 
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
@@ -76,12 +77,12 @@ imputed_with_attitude_and_chronic |>
 
 ## Variabel analysis - Independent Predictive Capacity 
 
- - Identifying the independent predictive capacity of the candidate prognostic variables at baseline and the existence or non-existence of chronic pain by univariate logistic regression analysis. 
- - Univariate logistic regression for continous variables
- - Univariate analyses, model per variable with 95 confidence interval and OR
- - Fitting the univariate logistic regression model
- - Retrieving the coefficient and standard error for "Variable"
- - Calculating the 95% confidence interval for "Variable"
+We conducted univariable logistic regression analyses to assess the independent predictive capacity of the candidate prognostic variables at baseline and their association with the presence or absence of chronic pain at six weeks, 
+three months, and six months. For continuous variables, we applied logistic regression, fitting a univariate logistic regression model with a 95% confidence interval (CI) and odds ratio (OR). 
+Additionally, we extracted the coefficient and standard error for each variable.
+
+We did not use these analyses to decide which prognostic factors will be included in the multivariable analyses.
+
 
 ```{r}
 continuous_variables <-
@@ -130,12 +131,7 @@ for (variable in continuous_variables) {
 
 ```
 
-## Relevel dichotomous variables
 ```{r}
-# Univariate logistic regression for categorized and dichotomous variables.
-# Set the "1" or "0" of the variable as a reference category.
-# Fitting the univariate logistic regression.
-# Calculating the OR and CI of this model.
 
 # Variable "work"
 imputed_with_attitude_and_chronic$work <-
@@ -312,9 +308,14 @@ print(CI_attitude)
 
 ## Multivariable logistic regression analyses
 
-Due to multicollinearity in the work-related factors (happiness, satisfaction, and posture -> leading to the outcome "3" = not working), a decision had to be made on which factor to include. We analysed different models with the individual work-related factors included. There was almost no difference in model performance. Because happiness and satisfaction align more with the other psychological factors, we have chosen to include the variable "posture_work", thereby incorporating add different domain into our model for the final backward model analyses and internal validation.
+Due to multicollinearity among the work-related factors (happiness, satisfaction, and posture, leading to the outcome '3' = not working), we had to make a decision regarding which factor to include. 
+We analyzed different models with each of the individual work-related factors included and found that there was almost no difference in model performance. 
+Since happiness and satisfaction align more closely with the other psychological factors, we chose to include the variable 'posture_work,' thereby incorporating a different domain into our 
+model for the final backward model analyses and internal validation.
 
-The candidate prognostic factor "attitude" does not have predictive value in het univariate analysis and does not emerge in the multivariate analysis in the formula with all the variables included. Additionally, there are many missing values, which cannot be imputed, as they pertain to the the therapist's attitude. We now excluding this variable from the complete model development because internal validation does not proceed with these variables included.
+We found that the candidate prognostic factor 'attitude' did not have predictive value in the univariate analysis and did not emerge in the multivariate analysis when all variables were included. 
+Additionally, there were many missing values that could not be imputed, as they pertain to the therapist's attitude. 
+Therefore, we decided to exclude this variable from the complete model development, as internal validation cannot proceed with these variables included.
 
 ```{r}
 naniar::vis_miss(imputed_with_attitude_and_chronic)
@@ -342,8 +343,6 @@ backward_model <- stepAIC(full_model, direction = "backward")
 summary(backward_model)
 backward_model |> broom::tidy()
 
-## look up calcualtion of OR from estimate and other model metrics
-
 odds_ratios <- exp(coef(backward_model))
 conf_int <- confint(backward_model)
 conf_int_exp <- exp(conf_int)
@@ -356,9 +355,7 @@ print(results)
 ```
 
 ## AUC
-The discriminative ability of the prognostic model will be
-determined based on the Area Under the receiver operating
-characteristic Curve (AUC) 
+We now will determine the discriminative ability of the prognostic model based on the Area Under the Receiver Operating Characteristic Curve (AUC).
 
 ```{r}
 # Prediction of the probabilities based on our model
@@ -379,9 +376,9 @@ print(ci)
 
 
 ## Calibration curve
-Measuring the predicted probability and the observed responses 
-and creating a dataframe.Grouping predicted probabilities in 
-deciles and calculation of the average predicted probability and actual percentage per group and plot the calibration curve.
+We will measure the predicted probabilities and the observed responses, create a dataframe, group the predicted probabilities into deciles, 
+calculate the average predicted probability and actual percentage for each group, and plot the calibration curve
+
 
 ```{r} 
 model_formula <-
@@ -413,10 +410,12 @@ plot(calibration_plot_lrm)
 ```
 
 ## Result Calibration plot 
-The calibration plot revealed acceptable alignment for patients not developing chronic pain. However, for patients developing chronic pain, the model tended to overestimate the risk. Despite this, the calibration remained within acceptable limits.
+The calibration plot revealed acceptable alignment for patients not developing chronic pain. 
+However, for patients developing chronic pain, the model tended to overestimate the risk. 
+Despite this, the calibration remained within acceptable limits.
 
 ## Hoslem and Lemeshow 
-Formally testing the goodness-of-fit using the Hosmer and Lemeshow.
+We will formally test the goodness-of-fit using the Hosmer and Lemeshow test.
 
 ```{r}
 predicted_probs <-
@@ -459,7 +458,9 @@ nagelkerkeR2(backward_model)
 
 
 ## Internal validation 
-Internal validation will be performed using bootstrap resampling to estimate the optimism-corrected AUC and to yield a measure of overfitting (i.e., the shrinkage factor). The shrinkage factor (a constant between 0 and 1) will be used to multiply the regression coefficient by. Generally, regression coefficients(and resulting predictions) are too extreme in case of overfitting, which is counteracted by the shrinking of regression coefficients.
+Internal validation will be performed using bootstrap resampling to estimate the optimism-corrected AUC and to yield a measure of overfitting (i.e., the shrinkage factor). 
+The shrinkage factor (a constant between 0 and 1) will be used to multiply the regression coefficient by. 
+Generally, regression coefficients(and resulting predictions) are too extreme in case of overfitting, which is counteracted by the shrinking of regression coefficients.
 
 ```{r}
 
@@ -509,17 +510,17 @@ plot(
   main = "ROC Curve"
 )
 
-## Voor het artikel moet deze nog aangepast worden, maar dat lukt me nu niet. :()
 ```
-
 ## Results
 Corrected AUC = 0.8264617
-The difference from the original AUC was 0.86 on the entire dataset. The corrected is not much lower and the overfitting is 
-therefore relativelylow. The model appears to have a robust discriminatory ability.
+Our original AUC was 0.86 on the entire dataset. 
+The corrected AUC is not much lower, indicating that overfitting is relatively low. 
+Therefore, our model appears to have a robust discriminatory ability
+
 
 
 ## Correcting the variables coefficients
-Multiplying all the coefficients of our model by the shrinkage factor 'sf', and estimate the intercept, so that the average estimated probability is equal to the frequency of the outcome.
+We will multiply all the coefficients of our model by the shrinkage factor 'sf' and estimate the intercept so that the average estimated probability is equal to the frequency of the outcome.
 
 ```{r}
 predictiemodel <- round(new_model$coef * 0.8274, 3)
@@ -537,7 +538,9 @@ print (predictiemodel)
 ```
 
 ## Calibration in the Large 
-Checking whether the internally validated model gives the same average estimated probability as the average outcome (calibration in the large). Calculating the linear predictor for everyone in the database. Creating a function to calculate the risk: 1/(1+exp(-(LP))) Calculating the probability for everyone in the database and average probability.
+We will check whether the internally validated model provides the same average estimated probability as the average outcome (calibration in the large). 
+We will calculate the linear predictor for everyone in the database, create a function to calculate the risk using the formula 1/(1+exp(-(LP))),
+and then calculate the probability for each individual in the database and the average probability.
 
 ```{r}
 predictiemodel.linearpredictor <-
@@ -557,5 +560,5 @@ mean(imputed_with_attitude_and_chronic$is_painint_chronic)
 
 ```
 
-Result = 0.1028 and 0.1028
+# Result = 0.1028 and 0.1028
 The model is well calibrated in the large. 

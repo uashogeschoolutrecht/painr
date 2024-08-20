@@ -961,8 +961,6 @@ The discriminative ability of the prognostic model will be determined based on t
 ## Prediction of the probabilities based on our model
 predicted_probs <- predict(backward_model, newdata = imputed_with_attitude_and_chronic, type="response")
 
-# Calculation and plotting the Area Under the receiver operating
-# characteristic Curve (AUC).
 roc_obj <- roc(imputed_with_attitude_and_chronic$is_painint_chronic, predicted_probs)
 auc(roc_obj)
 
@@ -972,7 +970,6 @@ lines(roc_obj, ci = TRUE, col = "red")
 ci <- ci.auc(roc_obj)
 print(ci)
 
-# Add the AUC
 text(0.7, 0.2, paste("AUC =", round(auc(roc_obj), 2)), col = "blue")
 
 
@@ -995,9 +992,7 @@ text(0.7, 0.2, paste("AUC =", round(auc(roc_obj), 2)), col = "blue")
   
   grouped_data <- aggregate(cbind(Observed, Predicted) ~ PredictedGroup, data = calibration_data, FUN = function(x) c(Mean = mean(x)))
   names(grouped_data)[2:3] <- c("Mean_Predicted", "Mean_Observed")
-  
-  ## TODO: cleanup calibrarion plot, vierkant maken, schaal x en y as gelijk maken
-  
+    
   calibration_plot <- ggplot(grouped_data, aes(x = Mean_Predicted, y = Mean_Observed)) +
       geom_point() +
       geom_line(data = data.frame(lowess(grouped_data$Mean_Predicted, grouped_data$Mean_Observed)), aes(x = x, y = y), color = "blue") +
@@ -1008,46 +1003,10 @@ text(0.7, 0.2, paste("AUC =", round(auc(roc_obj), 2)), col = "blue")
   print(calibration_plot)
 ```
 
-## Calibration curve
-
-Results: 
-The calibration plot (figure X) revealed acceptable alignment for patients not developing chronic pain. However, for patients developing chronic pain, the model tended to overestimate the risk. Despite this, the calibration remained within acceptable limits.
-
-## Formally testing the goodness-of-fit using the Hosmer and Lemeshow.
-```{r}
-predicted_probs <- predict(backward_model, newdata = imputed_with_attitude_and_chronic, type = "response")
-
-gof <- hoslem.test(imputed_with_attitude_and_chronic$is_painint_chronic, predicted_probs, g = 10)
-
-gof |> broom::tidy()
-
-x_sqrd <- gof$statistic[1] 
-p_value_gof <- gof$p.value[1]
-```
-
-Results: 
-X-squared = `r x_sqrd`, DF = 8, p-value = `r p_value_gof` 
-We found a high p-value suggests there's no statistically significant difference between observed and expected frequencies, indicating
-that the model fits the data well.
-
-
-The model fit will be quantified as Nagelkerke’s R2
-```{r}
-nagelkerkeR2 <- function(model) {
-  LL_0 <- as.numeric(logLik(update(model, .~1)))
-  LL_f <- as.numeric(logLik(model))
-  R2 <- (1 - exp((2/nrow(model$data))*(LL_0 - LL_f))) /
-    (1 - exp(2*LL_0/nrow(model$data)))
-  return(R2)
-}
-
-nagelkerkeR2(backward_model)
-```
-
-
-
 ## Intermezzo - Linear Predictors
-The patient is a female who reports a pain intensity of 9 on the Numeric Pain Rating Scale (NPRS). She does experience pain in other body regions. Since the onset of neck pain, she has also developed headaches, which were not present before the neck pain. She is currently not working. Her anticipated duration of symptoms is rated as 8 on a 0-10 scale, and she expresses significant concern about her condition, also scoring an 8 on a 0-10 scale. Her confidence in the therapy is high, rated at 9 on a 0-10 scale. She experiences a relatively high level of stress, scoring 18 on a 0-21 scale. She feels that she understands her pain well, rating this understanding as 9 on a 0-10 scale, and a high score in self-efficacy, with a score of 12 on a 0-12 scale.
+The patient is a female who reports a pain intensity of 9 on the Numeric Pain Rating Scale (NPRS). She does experience pain in other body regions. Since the onset of neck pain, she has also developed headaches, which were not present before the neck pain. She is currently not working. 
+Her anticipated duration of symptoms is rated as 8 on a 0-10 scale, and she expresses significant concern about her condition, also scoring an 8 on a 0-10 scale. Her confidence in the therapy is high, rated at 9 on a 0-10 scale. 
+She experiences a relatively high level of stress, scoring 18 on a 0-21 scale. She feels that she understands her pain well, rating this understanding as 9 on a 0-10 scale, and a high score in self-efficacy, with a score of 12 on a 0-12 scale.
 
 Linear predictor (LP) = -5.782 + (0.468*sex[female = 1]) + (0.227*pain intensity) + (0.734*pain in different body regions) + (0.726*headache(s) since the neck pain) + (-0.070*headache(s) before the neck pain) + (0.384*potential to self-modify posture work) +  (1.311*work status) + (0.184*duration beliefs) + (0.108*concerns) + (-0.204*treatment beliefs) + (0.083*distress) + (-0.142*identity beliefs) + (0.109*self-efficacy).
 

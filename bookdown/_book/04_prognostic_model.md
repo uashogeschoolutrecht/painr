@@ -1177,8 +1177,8 @@ plot(calibration_plot_lrm)
 
 ```
 #> 
-#> n=603   Mean absolute error=0.023   Mean squared error=0.0017
-#> 0.9 Quantile of absolute error=0.053
+#> n=603   Mean absolute error=0.022   Mean squared error=0.00172
+#> 0.9 Quantile of absolute error=0.052
 ```
 
 ## Result Calibration plot 

@@ -26,9 +26,9 @@ header-includes:
 
 
 
-# Introduction
+# Introduction {-}
 
-Abstract
+## Abstract {-}
 Objective: To develop and internally validate a prognostic model to predict chronic pain after a new episode of acute- or subacute nonspecific idiopathic, non-traumatic neck pain in patients presenting to physiotherapy primary care, emphasizing modifiable biomedical, psychological, and social factors. 
 Design: A prospective cohort study with a 6-month follow-up between January 2020 and March 2023. 
 Setting: 30 physiotherapy primary care practices.
@@ -40,7 +40,7 @@ Conclusion: This model has the potential to obtain a valid prognosis for develop
 Key words: neck pain, prognostic model, modifiable factors, chronic pain.
 
 
-## Data Flow
+## Data Flow {-}
 The following diagram discribes how data files and Rmd scripts are connected. Raw data input file lives in `./data-raw`, data output files are written to `./data` and the `.Rmd` files live in ./Rmd.
 
 
@@ -55,8 +55,8 @@ data_flow
 ```
 
 ```{=html}
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-4ffd06a31151bb75abaf" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-4ffd06a31151bb75abaf">{"x":{"diagram":"\n   graph LR\n\n    subgraph data-raw\n        A((\"D010/SPSS basis File results.sav\"))\n    end\n\n    subgraph Rmd\n        B{\"01_eda_Rmd\"}\n        E{\"02_imputation.Rmd\"}\n        H{\"03_exploratory_statistics.Rmd\"}\n    end\n\n    subgraph data\n        C[\"df_non_imp_select.rds\"]\n        D[\"labelling_and_coding_vars.csv\"]\n        F[\"data-list.rds\"]\n        G[\"df_imputed.rds\"]\n    end\n\n\n     A((\"D010/SPSS basis File results.sav\")) --> B{\"01_eda_Rmd\"}\n     B{\"01_eda_Rmd\"} --> C[\"df_non_imp_select.rds\"]\n     B{\"01_eda_Rmd\"} --> D[\"labelling_and_coding_vars.csv\"]\n     C[\"df_non_imp_select.rds\"] --> E{\"02_imputation.Rmd\"}\n     A((\"SPSS basis File results.sav\")) --> E{\"02_imputation.Rmd\"}\n     E{\"02_imputation.Rmd\"} --> F[\"data-list.rds\"]\n     E{\"02_imputation.Rmd\"} --> G[\"...date...df_imputed.rds\"]\n     G[\"...date...df_imputed.rds\"] --> H{\"03_exploratory_statistics.Rmd\"}\n     F[\"data-list.rds\"] --> H{\"03_exploratory_statistics.Rmd\"}\n\n"},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-f8372137b18b09d98aec" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-f8372137b18b09d98aec">{"x":{"diagram":"\n   graph LR\n\n    subgraph data-raw\n        A((\"D010/SPSS basis File results.sav\"))\n    end\n\n    subgraph Rmd\n        B{\"01_eda_Rmd\"}\n        E{\"02_imputation.Rmd\"}\n        H{\"03_exploratory_statistics.Rmd\"}\n    end\n\n    subgraph data\n        C[\"df_non_imp_select.rds\"]\n        D[\"labelling_and_coding_vars.csv\"]\n        F[\"data-list.rds\"]\n        G[\"df_imputed.rds\"]\n    end\n\n\n     A((\"D010/SPSS basis File results.sav\")) --> B{\"01_eda_Rmd\"}\n     B{\"01_eda_Rmd\"} --> C[\"df_non_imp_select.rds\"]\n     B{\"01_eda_Rmd\"} --> D[\"labelling_and_coding_vars.csv\"]\n     C[\"df_non_imp_select.rds\"] --> E{\"02_imputation.Rmd\"}\n     A((\"SPSS basis File results.sav\")) --> E{\"02_imputation.Rmd\"}\n     E{\"02_imputation.Rmd\"} --> F[\"data-list.rds\"]\n     E{\"02_imputation.Rmd\"} --> G[\"...date...df_imputed.rds\"]\n     G[\"...date...df_imputed.rds\"] --> H{\"03_exploratory_statistics.Rmd\"}\n     F[\"data-list.rds\"] --> H{\"03_exploratory_statistics.Rmd\"}\n\n"},"evals":[],"jsHooks":[]}</script>
 ```
 
 Please also provide attribution to R itself

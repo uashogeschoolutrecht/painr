@@ -175,7 +175,7 @@ df_imp_long <- full_join(df_imp_long, df_baseline) |>
 ```
 
 ## Carry forward
-Due to the join we have missing values. We can use a crry forward for the last set of observations and fill in the NA for that value. We group by patient code.
+Due to the join we have missing values. We can use a carry forward for the last set of observations and fill in the NA for that value. We group by patient code.
 ```{r}
 df_imp_long |> 
   arrange(patient_code) |>

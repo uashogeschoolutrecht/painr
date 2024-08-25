@@ -61,7 +61,7 @@ summary(imputed_with_attitude_and_chronic)
 ```
 
 ## Variabel analysis
-Identifying the independent predictive capacity of the candidate prognostic variables at baseline and the existence or non-existence of chronic pain by univariate logistic regression analysis. Univariate logistic regression for continous variables Univariate analyses, model per variable with 95 confidence interval and OR. Fitting the univariate logistic regression model. Retrieving the coefficient and standard error for "Variable". Calculating the 95% confidence interval for "Variable"
+Identifying the independent predictive capacity of the candidate prognostic variables at baseline and the existence or non-existence of chronic pain by univariable logistic regression analysis. Univariable logistic regression for continous variables Univariable analyses, model per variable with 95% confidence interval and OR. Fitting the univariable logistic regression model. Retrieving the coëfficient and standard error for "Variable". Calculating the 95% confidence interval for "Variable"
 
 ```{r}
 # List of continuous variables
@@ -116,7 +116,7 @@ univariate_analysis(
   z_score = 2.24,
   conf_int = 97.5)
 
-## Univariate analyses for all continuous variables
+## Univariable analyses for all continuous variables
 ## Iterate over all variables, leave conf int to default = 95%
 df_univariate_continuous <- map_df(
   .x = continuous_variables,
@@ -214,9 +214,9 @@ plot1_univariate_continuous_annotated
 ```
 
 ## Relevel dichotomous variables
-Univariate logistic regression for categorical and dichotomous variables.
+Univariable logistic regression for categorical and dichotomous variables.
 Set the "1" or "0" of the variable as a reference category.
-Fitting the univariate logistic regression.
+Fitting the univariable logistic regression.
 Calculating the OR and CI of this model.
 
 ```{r}

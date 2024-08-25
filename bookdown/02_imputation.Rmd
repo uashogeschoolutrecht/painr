@@ -514,7 +514,7 @@ data$data_imputed %>%
 
 
 ## Add `attitude`
-We decided that the 'attitude' variable could not be imputed, so we romved that variable from the data and now we put it back. It is the only variable in the data that has missingness now.
+We decided that the 'attitude' variable could not be imputed, so we removed that variable from the data and now we put it back. It is the only variable in the data that has missingness now.
 ```{r}
 data$data_imputed$attitude <- data$data_raw$Attitude
 # TODO: create merge based on patient code

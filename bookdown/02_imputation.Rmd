@@ -65,7 +65,7 @@ names(data_to_impute)
 
 ```
 
-The id column 'pation_code' is a zero variance variable and does not serve any pupose in the imputation process, so here we delete it.
+The id column 'patient_code' is a zero variance variable and does not serve any pupose in the imputation process, so here we delete it.
 ```{r}
 ## remove ID var 'patient_code'
 data$data_to_impute <- data$data_to_impute |>

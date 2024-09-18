@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/855633465.svg)](https://zenodo.org/doi/10.5281/zenodo.13744555)
+
 # painr; An R data and analysis package, studying chronicity of neck pain in human patients
 
 ## Scope and introduction

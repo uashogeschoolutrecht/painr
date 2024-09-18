@@ -9,6 +9,6 @@ authors:
   orcid: "https://orcid.org/0000-0002-3496-6669"
 title: "painr"
 version: 1.0.0
-doi: 10.5281/zenodo.1234
+doi: "https://zenodo.org/doi/10.5281/zenodo.13744555"
 date-released: 2024-08-19
 url: "https://github.com/uashogeschoolutrecht/painr"

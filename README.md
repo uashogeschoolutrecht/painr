@@ -2,7 +2,7 @@
 
 # painr; An R data and analysis package, studying chronicity of neck pain in human patients
 
-## This work is publshed as
+## This work is published as
 
 Verwoerd MJ, Wittink H, Maissan F, et al
 Development and internal validation of a multivariable prognostic model to predict chronic pain after a new episode of non-specific idiopathic, non-traumatic neck pain in physiotherapy primary care practice
